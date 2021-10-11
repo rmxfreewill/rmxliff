@@ -112,11 +112,8 @@ if (isset($_GET['Function']))
                 if (sFunction != '') {
 
                     liff.getProfile().then(profile => {
-                            alert('getProfile');
                             const userId = profile.userId;
-
                             var sCompCode = document.getElementById('txtCompanyCode').value;
-
                             var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                             var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
                             var url = "https://rmxlineliff.herokuapp.com/";
@@ -124,7 +121,7 @@ if (isset($_GET['Function']))
                             switch (sFunction) {
                                 case "REGISTER":
                                     url = url + "frmRegister.php" + para;
-                                     // url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
+                                    // url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
                                     break;
                                 case "QUERY":
                                     url = url + "frmQuery.php" + para;
