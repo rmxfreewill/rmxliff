@@ -338,7 +338,7 @@ if ($LinkCode == 'REGISTER') {
             var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
 
             var URL = document.getElementById('txtsURL').value;
-            url = url + "frmRegister.php" + para;
+            url = URL + "frmRegister.php" + para;
 
             window.location.assign(url);
 
