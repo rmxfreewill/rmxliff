@@ -48,115 +48,69 @@ if (isset($_GET['Function']))
     <script>
         window.onload = function() {
 
-            var LiffId = document.getElementById('txtLiffId').value;
+            const URL = "https://rmxlineliff.herokuapp.com/";
 
-            const useNodeJS = false; // if you are not using a node server, set this value to false
-            const defaultLiffId = "1656503744-kojgw9pb";
+            const defaultLiffId = "1656503744-NVrqP1Ab";
+            const LiffId = document.getElementById('txtLiffId').value;
+            const sFunction = document.getElementById('txtFunction').value;
 
-            // DO NOT CHANGE THIS
-            let myLiffId = "";
+            alert(sFunction);
 
-            // if node is used, fetch the environment variable and pass it to the LIFF method
-            // otherwise, pass defaultLiffId
-            if (useNodeJS) {
-                fetch('/send-id')
-                    .then(function(reqResponse) {
-                        return reqResponse.json();
-                    })
-                    .then(function(jsonResponse) {
-                        myLiffId = jsonResponse.id;
-                        initializeLiffOrDie(myLiffId);
-                    })
-                    .catch(function(error) {
-                        //document.getElementById("liffAppContent").classList.add('hidden');
-                        // document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
-                    });
-            } else {
-                myLiffId = defaultLiffId;
-                initializeLiffOrDie(myLiffId);
+            function initializeApp() {
+                if (liff.isLoggedIn()) {
+                    if (sFunction != '') {
 
-            }
-        };
+                        liff.getProfile().then(profile => {
 
-
-        function initializeLiffOrDie(myLiffId) {
-            if (myLiffId) {
-                initializeLiff(myLiffId);
-            }
-        }
-
-
-        function initializeLiff(myLiffId) {
-            liff.init({
-                    liffId: myLiffId
-                })
-                .then(() => {
-                    initializeApp();
-                })
-                .catch((err) => {
-                    // document.getElementById('lblUserId').textContent = err.error;
-                    //document.getElementById("liffAppContent").classList.add('hidden');
-                    //document.getElementById("liffInitErrorMessage").classList.remove('hidden');
-                });
-        }
-
-        /**
-         * Initialize the app by calling functions handling individual app components
-         */
-        function initializeApp() {
-
-            if (liff.isLoggedIn()) {
-
-                var sFunction = document.getElementById('txtFunction').value;
-
-                if (sFunction != '') {
-
-                    liff.getProfile().then(profile => {
-                            const userId = profile.userId;
-                            var sCompCode = document.getElementById('txtCompanyCode').value;
-                            var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-                            var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-                            var url = "https://rmxlineliff.herokuapp.com/";
-
-                            switch (sFunction) {
-                                case "REGISTER":
-                                    url = url + "frmRegister.php" + para;
-                                    // url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
-                                    break;
-                                case "QUERY":
-                                    url = url + "frmQuery.php" + para;
-                                    // url = "https://rmxregister.herokuapp.com/frmQuery.php" + para;
-                                    break;
-                                case "VIEW":
-                                    url = url + "frmView.php" + para;
-                                    // url = "https://rmxregister.herokuapp.com/frmView.php" + para;
-                                    break;
-                                case "TICKET":
-                                    url = url + "frmTicket.php" + para;
-                                    // url = "https://rmxregister.herokuapp.com/frmTicket.php" + para;
-                                    break;
-
-                                default:
-                                    break;
-                                    //code to be executed if n is different from all labels;
-                            }
-                            // alert(sFunction);
-                            liff.login({
-                                redirectUri: url
+                                const userId = profile.userId;
+                                alert(userId);
+                                var sCompCode = document.getElementById('txtCompanyCode').value;
+                                var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+                                var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+                                switch (sFunction) {
+                                    case "REGISTER":
+                                        url = URL + "frmRegister.php" + para;
+                                        break;
+                                    case "QUERY":
+                                        url = URL + "frmQuery.php" + para;
+                                        break;
+                                    case "VIEW":
+                                        url = URL + "frmView.php" + para;
+                                        break;
+                                    case "TICKET":
+                                        url = URL + "frmTicket.php" + para;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                liff.login({
+                                    redirectUri: url
+                                });
+                            })
+                            .catch((err) => {
+                                console.log('error: ', err);
                             });
-
-
-
-                        })
-                        .catch((err) => {
-                            console.log('error', err);
-                        });
-
+                    } else {
+                        alert('What sFunction');
+                    }
                 }
+                //liff.getProfile().userId;
             }
-            //liff.getProfile().userId;
 
-        }
+            function initializeLiff(myLiffId) {
+                liff.init({
+                        liffId: myLiffId
+                    })
+                    .then(() => {
+                        initializeApp();
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
+
+            initializeLiff(defaultLiffId);
+        };
     </script>
 
 </body>
