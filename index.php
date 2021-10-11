@@ -44,72 +44,72 @@ echo $Function;
     <script>
         window.onload = function() {
 
-            function selectMenu(sFunction) {
-                const URL = "https://rmxlineliff.herokuapp.com/";
-                if (sFunction == '') {
-                    alert('Menu What The End');
-                    url = URL;
-                } else {
-                    var sCompCode = document.getElementById('txtCompanyCode').value;
-                    var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-                    var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-                    switch (sFunction) {
-                        case "REGISTER":
-                            url = URL + "frmRegister.php" + para;
-                            break;
-                        case "QUERY":
-                            url = URL + "frmQuery.php" + para;
-                            break;
-                        case "VIEW":
-                            url = URL + "frmView.php" + para;
-                            break;
-                        case "TICKET":
-                            url = URL + "frmTicket.php" + para;
-                            break;
-                        default:
-                            break;
+                function selectMenu(sFunction) {
+                    const URL = "https://rmxlineliff.herokuapp.com/";
+                    if (sFunction != '') {
+                        {
+                            var sCompCode = document.getElementById('txtCompanyCode').value;
+                            var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+                            var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+                            switch (sFunction) {
+                                case "REGISTER":
+                                    url = URL + "frmRegister.php" + para;
+                                    break;
+                                case "QUERY":
+                                    url = URL + "frmQuery.php" + para;
+                                    break;
+                                case "VIEW":
+                                    url = URL + "frmView.php" + para;
+                                    break;
+                                case "TICKET":
+                                    url = URL + "frmTicket.php" + para;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        return url;
                     }
-                }
-                return url;
-            }
 
-            function initializeApp() {
-                if (liff.isLoggedIn()) {
-                    liff.getProfile().then(profile => {
+                    function initializeApp() {
+                        if (liff.isLoggedIn()) {
                             var sFunction = document.getElementById('txtFunction').value;
                             const url = selectMenu(sFunction);
                             alert(url);
-                            // liff.login({
-                            //     redirectUri: url
-                            // });
-                        })
-                        .catch((err) => {
-                            console.log('error: ', err);
-                        });
-                } else {
-                    liff.login();
-                }
-            }
+                            liff.getProfile().then(profile => {
 
-            function initializeLiff(myLiffId) {
-                liff.init({
-                        liffId: myLiffId
-                    })
-                    .then(() => {
-                        initializeApp();
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-            }
+                                    alert(profile.userId);
 
-            var sFunction = document.getElementById('txtFunction').value;
-            alert(sFunction);
+                                    // liff.login({
+                                    //     redirectUri: url
+                                    // });
+                                })
+                                .catch((err) => {
+                                    console.log('error: ', err);
+                                });
+                        } else {
+                            liff.login();
+                        }
+                    }
 
-            const LiffId = document.getElementById('txtLiffId').value;
-            alert('KickStart');
-            initializeLiff(LiffId);
-        };
+                    function initializeLiff(myLiffId) {
+                        liff.init({
+                                liffId: myLiffId
+                            })
+                            .then(() => {
+                                initializeApp();
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            });
+                    }
+
+                    var sFunction = document.getElementById('txtFunction').value;
+                    alert(sFunction);
+
+                    const LiffId = document.getElementById('txtLiffId').value;
+                    initializeLiff(LiffId);
+                };
     </script>
 
 </body>
