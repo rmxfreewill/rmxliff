@@ -73,8 +73,7 @@ if (isset($_GET['Function']))
                             var userIdProfile = profile.userId;
                             var url = selectMenu(sFunction, userIdProfile);
                             window.location.assign(url);
-                        }
-                            
+                        }   
                     })
                     .catch((err) => {
                         console.log('getProfile: ', err);
@@ -82,39 +81,6 @@ if (isset($_GET['Function']))
             }
 
             async function initializeLiff() {
-                // await liff.init({
-                //         liffId: myLiffId
-                //     })
-                //     .then(() => {
-
-
-                // if (liff.isLoggedIn()) {
-
-                //     var sFunction = document.getElementById('txtFunction').value;
-                //     if (sFunction != '') {
-                //         const url = selectMenu(sFunction);
-                //         alert('url ' + url);
-                //     }
-
-                //     liff.getProfile().then(profile => {
-                //             const userIdProfile = profile.userId;
-
-                //             alert('user ' + userIdProfile);
-                //             alert('selectMenu ' + url);
-
-
-                //         })
-                //         .catch((err) => {
-                //             console.log('error: ', err);
-                //         });
-                // } else {
-                //     liff.login();
-                // }
-                // })
-                // .catch((err) => {
-                //     console.log(err);
-                // });
-
                 myLiffId = "1656520973-EzB8pRze";
                 await liff.init({
                         liffId: myLiffId
