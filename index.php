@@ -69,42 +69,43 @@ if (isset($_GET['Function']))
                     }
                     return url;
                 }
+            }
 
-                function initializeLiff(myLiffId) {
-                    liff.init({
-                            liffId: myLiffId
-                        })
-                        .then(() => {
-                            if (liff.isLoggedIn()) {
-                                const url = selectMenu(sFunction);
-                                alert(url);
-                                liff.getProfile().then(profile => {
+            function initializeLiff(myLiffId) {
+                liff.init({
+                        liffId: myLiffId
+                    })
+                    .then(() => {
+                        if (liff.isLoggedIn()) {
+                            const url = selectMenu(sFunction);
+                            alert(url);
+                            liff.getProfile().then(profile => {
 
-                                        alert(profile.userId);
+                                    alert(profile.userId);
 
-                                        // liff.login({
-                                        //     redirectUri: url
-                                        // });
-                                    })
-                                    .catch((err) => {
-                                        console.log('error: ', err);
-                                    });
-                            } else {
-                                liff.login();
-                            }
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
-                }
+                                    // liff.login({
+                                    //     redirectUri: url
+                                    // });
+                                })
+                                .catch((err) => {
+                                    console.log('error: ', err);
+                                });
+                        } else {
+                            liff.login();
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
 
-                var sFunction = document.getElementById('txtFunction').value;
-                alert(sFunction);
+            var sFunction = document.getElementById('txtFunction').value;
+            alert(sFunction);
 
-                const LiffId = document.getElementById('txtLiffId').value;
-                alert(LiffId);
-                initializeLiff(LiffId);
-            };
+            const LiffId = document.getElementById('txtLiffId').value;
+            alert(LiffId);
+            initializeLiff(LiffId);
+
         }
     </script>
 
