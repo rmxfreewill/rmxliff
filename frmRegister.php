@@ -342,9 +342,9 @@ if ($LinkCode == 'REGISTER') {
             url = url + "frmRegister.php" + para;
 
 
-            // liff.login({
-            //     redirectUri: url
-            // });
+            liff.login({
+                redirectUri: url
+            });
 
        
         }

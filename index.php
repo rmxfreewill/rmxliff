@@ -8,6 +8,7 @@ include_once("rmxLineFunction.php");
 $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
+$sURL = sURL;
 
 $Function = '';
 if (isset($_POST['Function']))
@@ -37,14 +38,14 @@ if (isset($_GET['Function']))
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
+        <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
     </form>
 
     <script>
         window.onload = function() {
 
             function selectMenu(sFunction, userId) {
-                URL = "https://rmxlineliff.herokuapp.com/";
-                // URL = "https://rmxliff.ddns.net/";
+                var URL = document.getElementById('txtsURL').value;
                 var sCompCode = document.getElementById('txtCompanyCode').value;
                 var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                 var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
@@ -75,7 +76,7 @@ if (isset($_GET['Function']))
                             var userIdProfile = profile.userId;
                             var url = selectMenu(sFunction, userIdProfile);
                             window.location.assign(url);
-                        }   
+                        }
                     })
                     .catch((err) => {
                         console.log('getProfile: ', err);
@@ -83,8 +84,6 @@ if (isset($_GET['Function']))
             }
 
             async function initializeLiff() {
-                // myLiffId = "1656520973-EzB8pRze";
-                // myLiffId = "1656503744-kojgw9pb";
                 var myLiffId = document.getElementById('txtLiffId').value;
                 await liff.init({
                         liffId: myLiffId
