@@ -46,21 +46,24 @@ if (isset($_GET['Function']))
                 var sCompCode = document.getElementById('txtCompanyCode').value;
                 var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                 var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-                switch (sFunction) {
-                    case "REGISTER":
-                        url = URL + "frmRegister.php" + para;
-                        break;
-                    case "QUERY":
-                        url = URL + "frmQuery.php" + para;
-                        break;
-                    case "VIEW":
-                        url = URL + "frmView.php" + para;
-                        break;
-                    case "TICKET":
-                        url = URL + "frmTicket.php" + para;
-                        break;
-                    default:
-                        break;
+                // switch (sFunction) {
+                //     case "REGISTER":
+                //         url = URL + "frmRegister.php" + para;
+                //         break;
+                //     case "QUERY":
+                //         url = URL + "frmQuery.php" + para;
+                //         break;
+                //     case "VIEW":
+                //         url = URL + "frmView.php" + para;
+                //         break;
+                //     case "TICKET":
+                //         url = URL + "frmTicket.php" + para;
+                //         break;
+                //     default:
+                //         break;
+                // }
+                if (sFunction == "REGISTER") {
+                    url = URL + "frmRegister.php" + para;
                 }
                 alert(url);
                 return url;
@@ -71,7 +74,6 @@ if (isset($_GET['Function']))
                     .then(profile => {
                         alert('Show Form Register');
                         var sFunction = document.getElementById('txtFunction').value;
-                        alert(sFunction);
                         if (sFunction != '') {
 
                             var url = selectMenu(sFunction);
