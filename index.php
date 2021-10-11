@@ -76,8 +76,7 @@ echo $Function;
             function initializeApp() {
                 if (liff.isLoggedIn()) {
                     liff.getProfile().then(profile => {
-                            const sFunction = document.getElementById('txtFunction').value;
-                            alert(sFunction);
+                            var sFunction = document.getElementById('txtFunction').value;
                             const url = selectMenu(sFunction);
                             alert(url);
                             // liff.login({
@@ -103,6 +102,9 @@ echo $Function;
                         console.log(err);
                     });
             }
+
+            var sFunction = document.getElementById('txtFunction').value;
+            alert(sFunction);
 
             const LiffId = document.getElementById('txtLiffId').value;
             alert('KickStart');
