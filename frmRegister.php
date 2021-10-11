@@ -10,6 +10,7 @@ $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
+$sURL = sURL;
 
 /*
   if (isset($_POST['CompanyCode']))
@@ -188,6 +189,7 @@ if ($LinkCode == 'REGISTER') {
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
+        <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
     </form>
 
@@ -338,7 +340,7 @@ if ($LinkCode == 'REGISTER') {
 
             var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
 
-            var url = "https://rmxlineliff.herokuapp.com/";
+            var URL = document.getElementById('txtsURL').value;
             url = url + "frmRegister.php" + para;
 
             window.location.assign(url);
