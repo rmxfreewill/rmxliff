@@ -49,19 +49,15 @@ if (isset($_GET['Function']))
         window.onload = function() {
 
             const URL = "https://rmxlineliff.herokuapp.com/";
-
             const defaultLiffId = "1656503744-kojgw9pb";
             const LiffId = document.getElementById('txtLiffId').value;
-            const sFunction = document.getElementById('txtFunction').value;
-
-            alert(sFunction);
 
             function initializeApp() {
                 if (liff.isLoggedIn()) {
+                    const sFunction = document.getElementById('txtFunction').value;
+                    alert(sFunction);
                     if (sFunction != '') {
-
                         liff.getProfile().then(profile => {
-
                                 const userId = profile.userId;
                                 alert(userId);
                                 var sCompCode = document.getElementById('txtCompanyCode').value;
