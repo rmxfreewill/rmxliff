@@ -193,7 +193,7 @@ if ($LinkCode == 'REGISTER') {
 
 
     <script>
-        alert('start');
+
         window.onload = function() {
             
             const useNodeJS = false; // if you are not using a node server, set this value to false
@@ -216,7 +216,7 @@ if ($LinkCode == 'REGISTER') {
                 myLiffId = defaultLiffId;
                 initializeLiffOrDie(myLiffId);
             }
-            alert('end');
+       
         };
 
         function initializeLiffOrDie(myLiffId) {
@@ -342,11 +342,11 @@ if ($LinkCode == 'REGISTER') {
             url = url + "frmRegister.php" + para;
 
 
-            liff.login({
-                redirectUri: url
-            });
+            // liff.login({
+            //     redirectUri: url
+            // });
 
-            //alert(url);
+       
         }
     </script>
 
