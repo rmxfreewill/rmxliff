@@ -47,6 +47,7 @@ if (isset($_GET['Function']))
 
     <script>
         window.onload = function() {
+            alert('IndexStart');
 
             var LiffId = document.getElementById('txtLiffId').value;
 
@@ -120,6 +121,8 @@ if (isset($_GET['Function']))
                             var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                             var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
                             var url = "https://rmxlineliff.herokuapp.com/";
+
+                            // https://rmxliff.ddns.net
 
                             switch (sFunction) {
                                 case "REGISTER":
