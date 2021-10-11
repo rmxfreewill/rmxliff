@@ -8,7 +8,6 @@ include_once("rmxLineFunction.php");
 
 $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
-$LiffId = LIFF_ID;
 
 $Function = '';
 if (isset($_POST['Function']))
@@ -37,7 +36,6 @@ if (isset($_GET['Function']))
     <form class="animate" method="GET" enctype="multipart/form-data" action="index.php">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
-        <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
     </form>
 
     <script>
@@ -65,7 +63,6 @@ if (isset($_GET['Function']))
                         break;
                 }
                 return url;
-
             }
 
             function getProfileLiffUserId() {
