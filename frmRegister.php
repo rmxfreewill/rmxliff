@@ -341,10 +341,12 @@ if ($LinkCode == 'REGISTER') {
             var url = "https://rmxlineliff.herokuapp.com/";
             url = url + "frmRegister.php" + para;
 
+            window.location.assign(url);
 
-            liff.login({
-                redirectUri: url
-            });
+
+            // liff.login({
+            //     redirectUri: url
+            // });
 
        
         }
