@@ -47,7 +47,6 @@ if (isset($_GET['Function']))
 
     <script>
         window.onload = function() {
-            alert('IndexStart');
 
             var LiffId = document.getElementById('txtLiffId').value;
 
@@ -73,7 +72,6 @@ if (isset($_GET['Function']))
                         // document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
                     });
             } else {
-                alert('myLiffId');
                 myLiffId = defaultLiffId;
                 initializeLiffOrDie(myLiffId);
 
@@ -108,7 +106,7 @@ if (isset($_GET['Function']))
         function initializeApp() {
 
             if (liff.isLoggedIn()) {
-
+                alert('isLoggedIn');
                 var sFunction = document.getElementById('txtFunction').value;
 
                 if (sFunction != '') {
@@ -159,6 +157,8 @@ if (isset($_GET['Function']))
                         });
 
                 }
+            } else {
+                alert('What');
             }
             //liff.getProfile().userId;
 
