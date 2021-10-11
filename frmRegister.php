@@ -198,6 +198,7 @@ if ($LinkCode == 'REGISTER') {
             
             const useNodeJS = false; // if you are not using a node server, set this value to false
             const defaultLiffId = "1656503744-kojgw9pb";
+            const defaultLiffId = "1656520973-EzB8pRze";
             let myLiffId = "";
 
             if (useNodeJS) {

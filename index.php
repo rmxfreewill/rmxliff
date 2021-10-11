@@ -42,7 +42,8 @@ if (isset($_GET['Function']))
         window.onload = function() {
 
             function selectMenu(sFunction, userId) {
-                const URL = "https://rmxliff.ddns.net/";
+                URL = "https://rmxlineliff.herokuapp.com/";
+                // URL = "https://rmxliff.ddns.net/";
                 var sCompCode = document.getElementById('txtCompanyCode').value;
                 var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                 var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
@@ -82,6 +83,7 @@ if (isset($_GET['Function']))
 
             async function initializeLiff() {
                 myLiffId = "1656520973-EzB8pRze";
+                // myLiffId = "1656503744-kojgw9pb";
                 await liff.init({
                         liffId: myLiffId
                     })
