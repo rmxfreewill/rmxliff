@@ -50,7 +50,7 @@ if (isset($_GET['Function']))
 
             const URL = "https://rmxlineliff.herokuapp.com/";
 
-            const defaultLiffId = "1656503744-NVrqP1Ab";
+            const defaultLiffId = "1656503744-kojgw9pb";
             const LiffId = document.getElementById('txtLiffId').value;
             const sFunction = document.getElementById('txtFunction').value;
 
