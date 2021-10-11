@@ -71,44 +71,67 @@ if (isset($_GET['Function']))
                 }
             }
 
-            async function initializeLiff(myLiffId) {
+
+            function getProfileLiffUserId() {
+                liff.getProfile()
+                    .then(profile => {
+                        alert('Show Form Register');
+                        var sFunction = document.getElementById('txtFunction').value;
+                        alert(sFunction);
+                    })
+                    .catch((err) => {
+                        console.log('getProfile: ', err);
+                    });
+            }
+
+            async function initializeLiff() {
+                // await liff.init({
+                //         liffId: myLiffId
+                //     })
+                //     .then(() => {
+
+
+                // if (liff.isLoggedIn()) {
+
+                //     var sFunction = document.getElementById('txtFunction').value;
+                //     if (sFunction != '') {
+                //         const url = selectMenu(sFunction);
+                //         alert('url ' + url);
+                //     }
+
+                //     liff.getProfile().then(profile => {
+                //             const userIdProfile = profile.userId;
+
+                //             alert('user ' + userIdProfile);
+                //             alert('selectMenu ' + url);
+
+
+                //         })
+                //         .catch((err) => {
+                //             console.log('error: ', err);
+                //         });
+                // } else {
+                //     liff.login();
+                // }
+                // })
+                // .catch((err) => {
+                //     console.log(err);
+                // });
+
+                LiffId = "1656520973-EzB8pRze";
                 await liff.init({
                         liffId: myLiffId
                     })
                     .then(() => {
-                        if (liff.isLoggedIn()) {
-
-                            var sFunction = document.getElementById('txtFunction').value;
-                            if (sFunction != '') {
-                                const url = selectMenu(sFunction);
-                                alert('url ' + url);
-                            }
-
-                            liff.getProfile().then(profile => {
-                                    const userIdProfile = profile.userId;
-
-                                    alert('user ' + userIdProfile);
-                                    alert('selectMenu ' + url);
-
-                                    // liff.login({
-                                    //     redirectUri: url
-                                    // });
-                                })
-                                .catch((err) => {
-                                    console.log('error: ', err);
-                                });
-                        } else {
-                            liff.login();
-                        }
+                        liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
                     })
                     .catch((err) => {
                         console.log(err);
                     });
+
             }
 
-
-            const LiffId = document.getElementById('txtLiffId').value;
-            initializeLiff(LiffId);
+            initializeLiff();
 
         }
     </script>
