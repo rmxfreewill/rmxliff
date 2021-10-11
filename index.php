@@ -46,9 +46,10 @@ if (isset($_GET['Function']))
 
             const LiffId = document.getElementById('txtLiffId').value;
             const sFunction = document.getElementById('txtFunction').value;
+alert(sFunction);
 
             function selectMenu(sFunction) {
-                alert(sFunction);
+                
                 const URL = "https://rmxlineliff.herokuapp.com/";
                 if (sFunction == '') {
                     alert('Menu What');
@@ -78,9 +79,11 @@ if (isset($_GET['Function']))
             }
 
             function initializeApp() {
+                
                 if (liff.isLoggedIn()) {
                     liff.getProfile().then(profile => {
-                            const userId = profile.userId;
+                            // const userId = profile.userId;
+                            const sFunction = document.getElementById('txtFunction').value;
                             const url = selectMenu(sFunction);
                             liff.login({
                                 redirectUri: url
