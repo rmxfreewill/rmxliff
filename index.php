@@ -72,7 +72,7 @@ if (isset($_GET['Function']))
             }
 
             async function initializeLiff(myLiffId) {
-                liff.init({
+                await liff.init({
                         liffId: myLiffId
                     })
                     .then(() => {
@@ -80,8 +80,8 @@ if (isset($_GET['Function']))
 
                             var sFunction = document.getElementById('txtFunction').value;
                             if (sFunction != '') {
-                                const url = await selectMenu(sFunction);
-                                alert('url '+url);
+                                const url = selectMenu(sFunction);
+                                alert('url ' + url);
                             }
 
                             liff.getProfile().then(profile => {
