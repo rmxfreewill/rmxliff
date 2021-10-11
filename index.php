@@ -79,6 +79,7 @@ if (isset($_GET['Function']))
                         if (liff.isLoggedIn()) {
 
                             var sFunction = document.getElementById('txtFunction').value;
+                            alert(sFunction);
                             if (sFunction != '') {
                                 const url = selectMenu(sFunction);
                             }
