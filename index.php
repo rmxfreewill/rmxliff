@@ -15,7 +15,6 @@ if (isset($_POST['Function']))
     $Function = $_POST['Function'];
 if (isset($_GET['Function']))
     $Function = $_GET['Function'];
-echo $Function;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -45,7 +44,7 @@ echo $Function;
         window.onload = function() {
 
             var sFunction = document.getElementById('txtFunction').value;
-
+alert(sFunction);
             function selectMenu(sFunction) {
                 const URL = "https://rmxlineliff.herokuapp.com/";
                 if (sFunction != '') {
@@ -79,7 +78,7 @@ echo $Function;
                         })
                         .then(() => {
                             if (liff.isLoggedIn()) {
-                                const url = await selectMenu(sFunction);
+                                const url = selectMenu(sFunction);
                                 alert(url);
                                 liff.getProfile().then(profile => {
 
