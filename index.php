@@ -22,7 +22,6 @@ if (isset($_GET['Function']))
 <html>
 
 <head>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -32,9 +31,7 @@ if (isset($_GET['Function']))
     <meta http-equiv="pragma" content="no-cache">
     <title>Line</title>
 
-
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
-
 </head>
 
 <body>
@@ -42,57 +39,58 @@ if (isset($_GET['Function']))
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-
     </form>
 
     <script>
         window.onload = function() {
 
-            const URL = "https://rmxlineliff.herokuapp.com/";
-            const defaultLiffId = "1656503744-kojgw9pb";
             const LiffId = document.getElementById('txtLiffId').value;
+
+            function selectMenu() {
+                const sFunction = document.getElementById('txtFunction').value;
+                const URL = "https://rmxlineliff.herokuapp.com/";
+                if (sFunction == '') {
+                    alert('Menu What');
+                    url = URL;
+                } else {
+                    var sCompCode = document.getElementById('txtCompanyCode').value;
+                    var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+                    var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+                    switch (sFunction) {
+                        case "REGISTER":
+                            url = URL + "frmRegister.php" + para;
+                            break;
+                        case "QUERY":
+                            url = URL + "frmQuery.php" + para;
+                            break;
+                        case "VIEW":
+                            url = URL + "frmView.php" + para;
+                            break;
+                        case "TICKET":
+                            url = URL + "frmTicket.php" + para;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                return url;
+            }
 
             function initializeApp() {
                 if (liff.isLoggedIn()) {
-                    const sFunction = document.getElementById('txtFunction').value;
-                    alert(sFunction);
-                    if (sFunction != '') {
-                        liff.getProfile().then(profile => {
-                                const userId = profile.userId;
-                                alert(userId);
-                                var sCompCode = document.getElementById('txtCompanyCode').value;
-                                var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-                                var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-                                switch (sFunction) {
-                                    case "REGISTER":
-                                        url = URL + "frmRegister.php" + para;
-                                        break;
-                                    case "QUERY":
-                                        url = URL + "frmQuery.php" + para;
-                                        break;
-                                    case "VIEW":
-                                        url = URL + "frmView.php" + para;
-                                        break;
-                                    case "TICKET":
-                                        url = URL + "frmTicket.php" + para;
-                                        break;
-                                    default:
-                                        break;
-                                }
-                                liff.login({
-                                    redirectUri: url
-                                });
-                            })
-                            .catch((err) => {
-                                console.log('error: ', err);
+                    liff.getProfile().then(profile => {
+                            const userId = profile.userId;
+                            const url = selectMenu();
+                            liff.login({
+                                redirectUri: url
                             });
-                    } else {
-                        alert('What sFunction');
-                    }
-                }else{
-                    alert('!liff.isLoggedIn()');
+                        })
+                        .catch((err) => {
+                            console.log('error: ', err);
+                        });
+                } else {
+                    liff.login();
                 }
-                //liff.getProfile().userId;
             }
 
             function initializeLiff(myLiffId) {

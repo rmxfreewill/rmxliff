@@ -10,4 +10,5 @@
 	define("COMPANY_CODE", "00001");
 
 	// define("LIFF_ID","1656445468-pPVkELw7");
-	define("LIFF_ID","1656503744-kojgw9pb");
+	define("LIFF_ID","1656520973-EzB8pRze");
+	
