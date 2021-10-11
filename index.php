@@ -72,8 +72,9 @@ if (isset($_GET['Function']))
                         if (sFunction != '') {
                             var userIdProfile = profile.userId;
                             var url = selectMenu(sFunction, userIdProfile);
-                            alert(url);
+                            window.location.assign(url);
                         }
+                            
                     })
                     .catch((err) => {
                         console.log('getProfile: ', err);
