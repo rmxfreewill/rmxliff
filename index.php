@@ -43,8 +43,8 @@ if (isset($_GET['Function']))
         window.onload = function() {
 
             function selectMenu(sFunction, userId) {
-                // URL = "https://rmxlineliff.herokuapp.com/";
-                URL = "https://rmxliff.ddns.net/";
+                URL = "https://rmxlineliff.herokuapp.com/";
+                // URL = "https://rmxliff.ddns.net/";
                 var sCompCode = document.getElementById('txtCompanyCode').value;
                 var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                 var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
