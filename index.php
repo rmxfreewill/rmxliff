@@ -106,13 +106,13 @@ if (isset($_GET['Function']))
         function initializeApp() {
 
             if (liff.isLoggedIn()) {
-                alert('isLoggedIn');
+
                 var sFunction = document.getElementById('txtFunction').value;
 
                 if (sFunction != '') {
 
                     liff.getProfile().then(profile => {
-
+                            alert('getProfile');
                             const userId = profile.userId;
 
                             var sCompCode = document.getElementById('txtCompanyCode').value;
@@ -126,6 +126,7 @@ if (isset($_GET['Function']))
                             switch (sFunction) {
                                 case "REGISTER":
                                     url = url + "frmRegister.php" + para;
+                                    alert(url);
                                     break;
                                 case "QUERY":
                                     url = url + "frmQuery.php" + para;
@@ -157,8 +158,6 @@ if (isset($_GET['Function']))
                         });
 
                 }
-            } else {
-                alert('What');
             }
             //liff.getProfile().userId;
 
