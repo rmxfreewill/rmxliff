@@ -75,6 +75,7 @@ if (isset($_GET['Function']))
                         var sFunction = document.getElementById('txtFunction').value;
                         if (sFunction != '') {
                             var url = selectMenu(sFunction);
+                            alert(url);
                         }
                     })
                     .catch((err) => {
