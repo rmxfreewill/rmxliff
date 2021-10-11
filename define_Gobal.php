@@ -1,5 +1,5 @@
 <?php
-	
+	//https://rmxliff.ddns.net
 	define("REGISTER_URL", "http://rmxcell.pe.hu/rmxLineRegister.php");
 	define("COMPANY_URL", "http://rmxcell.pe.hu/rmxLineCmd.php");
 	//define("COMPANY_URL", "http://rmxcell.pe.hu/rmxLineCommand.php");

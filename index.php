@@ -121,12 +121,10 @@ if (isset($_GET['Function']))
                             var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
                             var url = "https://rmxlineliff.herokuapp.com/";
 
-                            // https://rmxliff.ddns.net
-
                             switch (sFunction) {
                                 case "REGISTER":
                                     url = url + "frmRegister.php" + para;
-                                    alert(url);
+                                     // url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
                                     break;
                                 case "QUERY":
                                     url = url + "frmQuery.php" + para;
@@ -145,7 +143,7 @@ if (isset($_GET['Function']))
                                     break;
                                     //code to be executed if n is different from all labels;
                             }
-                            //alert(sFunction);
+                            alert(sFunction);
                             liff.login({
                                 redirectUri: url
                             });
