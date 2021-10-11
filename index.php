@@ -79,13 +79,16 @@ if (isset($_GET['Function']))
                         if (liff.isLoggedIn()) {
 
                             var sFunction = document.getElementById('txtFunction').value;
+                            if (sFunction != '') {
+                                const url = selectMenu(sFunction);
+                            }
 
                             liff.getProfile().then(profile => {
                                     const userIdProfile = profile.userId;
-                                    alert('user ' + userIdProfile);
 
-                                    const url = selectMenu(sFunction);
-                                    alert(url);
+                                    alert('user ' + userIdProfile);
+                                    alert('selectMenu ' + url);
+
                                     // liff.login({
                                     //     redirectUri: url
                                     // });
