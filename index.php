@@ -43,8 +43,6 @@ if (isset($_GET['Function']))
     <script>
         window.onload = function() {
 
-            var sFunction = document.getElementById('txtFunction').value;
-alert(sFunction);
             function selectMenu(sFunction) {
                 const URL = "https://rmxlineliff.herokuapp.com/";
                 if (sFunction != '') {
@@ -104,6 +102,7 @@ alert(sFunction);
                 alert(sFunction);
 
                 const LiffId = document.getElementById('txtLiffId').value;
+                alert(LiffId);
                 initializeLiff(LiffId);
             };
         }
