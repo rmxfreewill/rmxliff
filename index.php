@@ -105,7 +105,7 @@ if (isset($_GET['Function']))
                     });
             }
 
-            initializeLiff(defaultLiffId);
+            initializeLiff(LiffId);
         };
     </script>
 
