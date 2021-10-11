@@ -190,19 +190,17 @@ if ($LinkCode == 'REGISTER') {
         <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
+  
 
     </form>
 
 
     <script>
-
         window.onload = function() {
-            
+
             const useNodeJS = false; // if you are not using a node server, set this value to false
-            
-            const defaultLiffId = "1656520973-EzB8pRze";
-            // const defaultLiffId = "1656503744-kojgw9pb";
-            let myLiffId = "";
+
+            var myLiffId = document.getElementById('txtLiffId').value;
 
             if (useNodeJS) {
                 fetch('/send-id')
@@ -215,10 +213,9 @@ if ($LinkCode == 'REGISTER') {
                     })
                     .catch(function(error) {});
             } else {
-                myLiffId = defaultLiffId;
                 initializeLiffOrDie(myLiffId);
             }
-       
+
         };
 
         function initializeLiffOrDie(myLiffId) {
@@ -350,7 +347,7 @@ if ($LinkCode == 'REGISTER') {
             //     redirectUri: url
             // });
 
-       
+
         }
     </script>
 
