@@ -194,6 +194,7 @@ if ($LinkCode == 'REGISTER') {
 
     <script>
         window.onload = function() {
+            alert('start');
             const useNodeJS = false; // if you are not using a node server, set this value to false
             const defaultLiffId = "1656503744-kojgw9pb";
             let myLiffId = "";
@@ -212,6 +213,7 @@ if ($LinkCode == 'REGISTER') {
                 myLiffId = defaultLiffId;
                 initializeLiffOrDie(myLiffId);
             }
+            alert('end');
         };
 
         function initializeLiffOrDie(myLiffId) {
