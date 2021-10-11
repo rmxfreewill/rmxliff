@@ -140,7 +140,7 @@ if (isset($_GET['Function']))
                                     break;
                                     //code to be executed if n is different from all labels;
                             }
-                            alert(sFunction);
+                            // alert(sFunction);
                             liff.login({
                                 redirectUri: url
                             });
