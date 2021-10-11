@@ -51,8 +51,7 @@ if (isset($_GET['Function']))
             var LiffId = document.getElementById('txtLiffId').value;
 
             const useNodeJS = false; // if you are not using a node server, set this value to false
-            // const defaultLiffId = "1656445468-pPVkELw7"; // P'Kai
-            const defaultLiffId = "1656503744-kojgw9pb"; // rmxOfficial
+            const defaultLiffId = "1656503744-kojgw9pb";
 
             // DO NOT CHANGE THIS
             let myLiffId = "";
@@ -105,8 +104,6 @@ if (isset($_GET['Function']))
          * Initialize the app by calling functions handling individual app components
          */
         function initializeApp() {
-
-
 
             if (liff.isLoggedIn()) {
 
