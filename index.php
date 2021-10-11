@@ -71,7 +71,7 @@ if (isset($_GET['Function']))
                 }
             }
 
-            function initializeLiff(myLiffId) {
+            async function initializeLiff(myLiffId) {
                 liff.init({
                         liffId: myLiffId
                     })
@@ -80,7 +80,7 @@ if (isset($_GET['Function']))
 
                             var sFunction = document.getElementById('txtFunction').value;
                             if (sFunction != '') {
-                                const url = selectMenu(sFunction);
+                                const url = await selectMenu(sFunction);
                                 alert('url '+url);
                             }
 
