@@ -62,6 +62,7 @@ if (isset($_GET['Function']))
                     default:
                         break;
                 }
+                alert(url);
                 return url;
             }
 
@@ -74,7 +75,7 @@ if (isset($_GET['Function']))
                         if (sFunction != '') {
 
                             var url = selectMenu(sFunction);
-                            alert(url);
+
                         }
                     })
                     .catch((err) => {
