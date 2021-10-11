@@ -41,43 +41,38 @@ if (isset($_GET['Function']))
     <script>
         window.onload = function() {
 
-            function selectMenu(sFunction) {
+            function selectMenu(sFunction, userId) {
                 const URL = "https://rmxlineliff.herokuapp.com/";
                 var sCompCode = document.getElementById('txtCompanyCode').value;
                 var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                 var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-                // switch (sFunction) {
-                //     case "REGISTER":
-                //         url = URL + "frmRegister.php" + para;
-                //         break;
-                //     case "QUERY":
-                //         url = URL + "frmQuery.php" + para;
-                //         break;
-                //     case "VIEW":
-                //         url = URL + "frmView.php" + para;
-                //         break;
-                //     case "TICKET":
-                //         url = URL + "frmTicket.php" + para;
-                //         break;
-                //     default:
-                //         break;
-                // }
-                if (sFunction == "REGISTER") {
-                    url = URL + "frmRegister.php" + para;
+                switch (sFunction) {
+                    case "REGISTER":
+                        url = URL + "frmRegister.php" + para;
+                        break;
+                    case "QUERY":
+                        url = URL + "frmQuery.php" + para;
+                        break;
+                    case "VIEW":
+                        url = URL + "frmView.php" + para;
+                        break;
+                    case "TICKET":
+                        url = URL + "frmTicket.php" + para;
+                        break;
+                    default:
+                        break;
                 }
-                alert(url);
                 return url;
             }
 
             function getProfileLiffUserId() {
                 liff.getProfile()
                     .then(profile => {
-                        alert('Show Form Register');
                         var sFunction = document.getElementById('txtFunction').value;
                         if (sFunction != '') {
-
-                            var url = selectMenu(sFunction);
-
+                            var userIdProfile = profile.userId;
+                            var url = selectMenu(sFunction, userIdProfile);
+                            alert(url);
                         }
                     })
                     .catch((err) => {
