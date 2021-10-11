@@ -44,72 +44,73 @@ echo $Function;
     <script>
         window.onload = function() {
 
-                function selectMenu(sFunction) {
-                    const URL = "https://rmxlineliff.herokuapp.com/";
-                    if (sFunction != '') {
-                        {
-                            var sCompCode = document.getElementById('txtCompanyCode').value;
-                            var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-                            var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-                            switch (sFunction) {
-                                case "REGISTER":
-                                    url = URL + "frmRegister.php" + para;
-                                    break;
-                                case "QUERY":
-                                    url = URL + "frmQuery.php" + para;
-                                    break;
-                                case "VIEW":
-                                    url = URL + "frmView.php" + para;
-                                    break;
-                                case "TICKET":
-                                    url = URL + "frmTicket.php" + para;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        return url;
-                    }
-
-                    function initializeApp() {
-                        if (liff.isLoggedIn()) {
-                            var sFunction = document.getElementById('txtFunction').value;
-                            const url = selectMenu(sFunction);
-                            alert(url);
-                            liff.getProfile().then(profile => {
-
-                                    alert(profile.userId);
-
-                                    // liff.login({
-                                    //     redirectUri: url
-                                    // });
-                                })
-                                .catch((err) => {
-                                    console.log('error: ', err);
-                                });
-                        } else {
-                            liff.login();
+            function selectMenu(sFunction) {
+                const URL = "https://rmxlineliff.herokuapp.com/";
+                if (sFunction != '') {
+                    {
+                        var sCompCode = document.getElementById('txtCompanyCode').value;
+                        var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+                        var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+                        switch (sFunction) {
+                            case "REGISTER":
+                                url = URL + "frmRegister.php" + para;
+                                break;
+                            case "QUERY":
+                                url = URL + "frmQuery.php" + para;
+                                break;
+                            case "VIEW":
+                                url = URL + "frmView.php" + para;
+                                break;
+                            case "TICKET":
+                                url = URL + "frmTicket.php" + para;
+                                break;
+                            default:
+                                break;
                         }
                     }
+                    return url;
+                }
 
-                    function initializeLiff(myLiffId) {
-                        liff.init({
-                                liffId: myLiffId
-                            })
-                            .then(() => {
-                                initializeApp();
+                function initializeApp() {
+                    if (liff.isLoggedIn()) {
+                        var sFunction = document.getElementById('txtFunction').value;
+                        const url = selectMenu(sFunction);
+                        alert(url);
+                        liff.getProfile().then(profile => {
+
+                                alert(profile.userId);
+
+                                // liff.login({
+                                //     redirectUri: url
+                                // });
                             })
                             .catch((err) => {
-                                console.log(err);
+                                console.log('error: ', err);
                             });
+                    } else {
+                        liff.login();
                     }
+                }
 
-                    var sFunction = document.getElementById('txtFunction').value;
-                    alert(sFunction);
+                function initializeLiff(myLiffId) {
+                    liff.init({
+                            liffId: myLiffId
+                        })
+                        .then(() => {
+                            initializeApp();
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                }
 
-                    const LiffId = document.getElementById('txtLiffId').value;
-                    initializeLiff(LiffId);
-                };
+                var sFunction = document.getElementById('txtFunction').value;
+                alert(sFunction);
+
+                const LiffId = document.getElementById('txtLiffId').value;
+                initializeLiff(LiffId);
+            };
+        }
     </script>
 
 </body>
