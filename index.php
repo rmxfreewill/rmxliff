@@ -44,6 +44,8 @@ echo $Function;
     <script>
         window.onload = function() {
 
+            var sFunction = document.getElementById('txtFunction').value;
+
             function selectMenu(sFunction) {
                 const URL = "https://rmxlineliff.herokuapp.com/";
                 if (sFunction != '') {
@@ -71,33 +73,28 @@ echo $Function;
                     return url;
                 }
 
-                function initializeApp() {
-                    if (liff.isLoggedIn()) {
-                        var sFunction = document.getElementById('txtFunction').value;
-                        const url = selectMenu(sFunction);
-                        alert(url);
-                        liff.getProfile().then(profile => {
-
-                                alert(profile.userId);
-
-                                // liff.login({
-                                //     redirectUri: url
-                                // });
-                            })
-                            .catch((err) => {
-                                console.log('error: ', err);
-                            });
-                    } else {
-                        liff.login();
-                    }
-                }
-
                 function initializeLiff(myLiffId) {
                     liff.init({
                             liffId: myLiffId
                         })
                         .then(() => {
-                            initializeApp();
+                            if (liff.isLoggedIn()) {
+                                const url = await selectMenu(sFunction);
+                                alert(url);
+                                liff.getProfile().then(profile => {
+
+                                        alert(profile.userId);
+
+                                        // liff.login({
+                                        //     redirectUri: url
+                                        // });
+                                    })
+                                    .catch((err) => {
+                                        console.log('error: ', err);
+                                    });
+                            } else {
+                                liff.login();
+                            }
                         })
                         .catch((err) => {
                             console.log(err);
