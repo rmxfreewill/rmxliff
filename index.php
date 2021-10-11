@@ -44,15 +44,10 @@ echo $Function;
     <script>
         window.onload = function() {
 
-            const LiffId = document.getElementById('txtLiffId').value;
-            const sFunction = document.getElementById('txtFunction').value;
-alert(sFunction);
-
             function selectMenu(sFunction) {
-                
                 const URL = "https://rmxlineliff.herokuapp.com/";
                 if (sFunction == '') {
-                    alert('Menu What');
+                    alert('Menu What The End');
                     url = URL;
                 } else {
                     var sCompCode = document.getElementById('txtCompanyCode').value;
@@ -79,15 +74,14 @@ alert(sFunction);
             }
 
             function initializeApp() {
-                
                 if (liff.isLoggedIn()) {
                     liff.getProfile().then(profile => {
-                            // const userId = profile.userId;
                             const sFunction = document.getElementById('txtFunction').value;
                             const url = selectMenu(sFunction);
-                            liff.login({
-                                redirectUri: url
-                            });
+                            alert(url);
+                            // liff.login({
+                            //     redirectUri: url
+                            // });
                         })
                         .catch((err) => {
                             console.log('error: ', err);
@@ -109,6 +103,8 @@ alert(sFunction);
                     });
             }
 
+            const LiffId = document.getElementById('txtLiffId').value;
+            alert('KickStart');
             initializeLiff(LiffId);
         };
     </script>
