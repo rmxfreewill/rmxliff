@@ -118,7 +118,7 @@ if (isset($_GET['Function']))
                 //     console.log(err);
                 // });
 
-                LiffId = "1656520973-EzB8pRze";
+                myLiffId = "1656520973-EzB8pRze";
                 await liff.init({
                         liffId: myLiffId
                     })
