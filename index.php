@@ -70,7 +70,9 @@ if (isset($_GET['Function']))
                     .then(profile => {
                         alert('Show Form Register');
                         var sFunction = document.getElementById('txtFunction').value;
+                        alert(sFunction);
                         if (sFunction != '') {
+
                             var url = selectMenu(sFunction);
                             alert(url);
                         }
