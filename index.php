@@ -77,6 +77,7 @@ echo $Function;
                 if (liff.isLoggedIn()) {
                     liff.getProfile().then(profile => {
                             const sFunction = document.getElementById('txtFunction').value;
+                            alert(sFunction);
                             const url = selectMenu(sFunction);
                             alert(url);
                             // liff.login({
