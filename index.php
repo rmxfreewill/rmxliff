@@ -55,8 +55,8 @@ if (isset($_GET['Function']))
             function initializeApp() {
                 if (liff.isLoggedIn()) {
                     const sFunction = document.getElementById('txtFunction').value;
-                    alert(sFunction);
                     if (sFunction != '') {
+                        alert(sFunction);
                         liff.getProfile().then(profile => {
                                 const userId = profile.userId;
                                 alert(userId);
