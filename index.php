@@ -73,6 +73,7 @@ if (isset($_GET['Function']))
                         // document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
                     });
             } else {
+                alert('myLiffId');
                 myLiffId = defaultLiffId;
                 initializeLiffOrDie(myLiffId);
 
