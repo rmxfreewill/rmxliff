@@ -222,6 +222,10 @@ if ($LinkCode == 'REGISTER') {
 
         };
 
+        function changeMemberRichMenu() {
+
+        }
+
         function OkClick(msg) {
             if (liff.getOS() != "web") {
                 liff.closeWindow();
@@ -232,22 +236,13 @@ if ($LinkCode == 'REGISTER') {
                 elementRegisterForm.style.visibility = "hidden";
                 elementSuccessMsg.removeAttribute("hidden");
             }
+            changeMemberRichMenu();
         }
 
         function initializeLiffOrDie(myLiffId) {
             if (myLiffId) {
                 initializeLiff(myLiffId);
             }
-        }
-
-        function initializeLiff(myLiffId) {
-            liff.init({
-                    liffId: myLiffId
-                })
-                .then(() => {
-                    initializeApp();
-                })
-                .catch((err) => {});
         }
 
         function showForm() {
@@ -258,6 +253,16 @@ if ($LinkCode == 'REGISTER') {
 
             (sMsg.length > 0) ?? alert(sMsg);
 
+        }
+
+        function initializeLiff(myLiffId) {
+            liff.init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    initializeApp();
+                })
+                .catch((err) => {});
         }
 
         function initializeApp() {
