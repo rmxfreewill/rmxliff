@@ -268,13 +268,6 @@ function changeMemberRichMenu($LINEID)
             //     }
             // }
 
-            function showForm() {
-                var sMsg = document.getElementById('txtMsg').value;
-                var elementRegisterForm = document.getElementById('registerForm');
-                elementRegisterForm.removeAttribute("hidden");
-                (sMsg.length > 0) ?? alert(sMsg);
-            }
-
             function initializeApp() {
                 if (liff.isLoggedIn()) {
 
@@ -317,6 +310,13 @@ function changeMemberRichMenu($LINEID)
             var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId);
         };
+
+        function showForm() {
+            var sMsg = document.getElementById('txtMsg').value;
+            var elementRegisterForm = document.getElementById('registerForm');
+            elementRegisterForm.removeAttribute("hidden");
+            (sMsg.length > 0) ?? alert(sMsg);
+        }
 
         function RegisterClick(msg) {
             var sLineId = document.getElementById('lblUserId').textContent;
