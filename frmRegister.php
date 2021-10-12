@@ -116,6 +116,51 @@ if ($LinkCode == 'REGISTER') {
     }
 }
 
+//Line Api
+function richmenuApi($LINEID, $type)
+{
+    // $RICHMENUID = "richmenu-db181b79c35a2d6bfb2aaa286bbe95fd";
+    $RICHMENUID = "richmenu-f085e3fa68b2c23e7c4078923c90664a";
+    if ($type == 'member') {
+        $CURLOPT = CURLOPT_POST;
+        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
+        $data = array();
+        $method = "POST";
+    } else if ($type == 'logout') {
+        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
+        $data = "{\"userIds\":[\"$LINEID\"]}";
+        $method = "DELETE";
+    }
+
+    $headers = [
+        "Authorization: Bearer s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=", "Content-Type: application/json"
+    ];
+    try {
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+        // curl_setopt($ch, $CURLOPT, 1);
+        curl_setopt(
+            $ch,
+            CURLOPT_POSTFIELDS,
+            $data
+        );
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); # receive server response
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); # do not verify SSL
+        $data = curl_exec($ch); # execute curl
+        $httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); # http response status code
+        curl_close($ch);
+
+        $data = "{}";
+    } catch (Exception $ex) {
+        $data = $ex;
+    }
+    return $data;
+}
+
 
 
 
@@ -222,11 +267,27 @@ if ($LinkCode == 'REGISTER') {
 
         };
 
-        function changeMemberRichMenu() {
-
+        async function changeMemberRichMenu(myLiffId) {
+            token = "Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=";
+            urlApi = "https://api.line.me/v2/bot/user/";
+            pathRichmenu = "/richmenu/";
+            memberRichmenu = "richmenu-119fefe49b2dd01369a9416da62d7f80";
+            url = urlApi + myLiffId + pathRichmenu + memberRichmenu;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': token
+                }
+            });
+            const myJson = await response.json();
+            alert(myJson);
         }
 
         function OkClick(msg) {
+
+            var myLiffId = document.getElementById('txtLiffId').value;
+            changeMemberRichMenu(myLiffId);
+
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             } else {
@@ -236,7 +297,6 @@ if ($LinkCode == 'REGISTER') {
                 elementRegisterForm.style.display = "none";
                 elementSuccessMsg.removeAttribute("hidden");
             }
-            changeMemberRichMenu();
         }
 
         function initializeLiffOrDie(myLiffId) {
