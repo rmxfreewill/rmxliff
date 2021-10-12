@@ -255,22 +255,28 @@ if ($LinkCode == 'REGISTER') {
         function sMsgDialog() {
             var elementRegisterForm = document.getElementById('registerForm');
             var elementSuccessMsg = document.getElementById('successMsg');
+
+            var sFlag = document.getElementById('txtFlag').value;
+            if (sFlag == 0 || sFlag == '') {
+                elementRegisterForm.removeAttribute("hidden");
+                alert(sMsg);
+            }
+
+
+
             var sShow = document.getElementById('txtShowMsg').value;
             if (sShow == "1") {
                 var sMsg = document.getElementById('txtMsg').value;
                 if (sMsg.length > 0) {
-                    if (sMsg == "Not Found SoldTo code" ) {
+                    if (sMsg == "Not Found SoldTo code") {
                         alert('Not Found SoldTo code sMsg ' + sMsg);
                         // OkClick('');
-                    } else if ( sMsg == "Register Complete")  {
+                    } else if (sMsg == "Register Complete") {
                         alert('Register Complete sMsg ' + sMsg);
-                    }else{
+                    } else {
                         alert('Blank');
                     }
                 }
-            } else {
-                elementRegisterForm.removeAttribute("hidden");
-                alert( sMsg);
             }
         }
 
