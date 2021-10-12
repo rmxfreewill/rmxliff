@@ -251,8 +251,10 @@ if ($LinkCode == 'REGISTER') {
         }
 
         function showForm() {
-            alert(sMsg);
+
             var elementRegisterForm = document.getElementById('registerForm');
+            elementRegisterForm.removeAttribute("hidden");
+
             var sMsg = document.getElementById('txtMsg').value;
             if (sMsg.length > 0) {
                 if (sMsg == "Not Found SoldTo code") {
@@ -260,11 +262,7 @@ if ($LinkCode == 'REGISTER') {
                 } else if (sMsg == "Register Complete") {
                     elementRegisterForm.removeAttribute("hidden");
                 }
-            } else {
-                elementRegisterForm.removeAttribute("hidden");
             }
-
-
         }
 
         function initializeApp() {
