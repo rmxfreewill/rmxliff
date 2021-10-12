@@ -11,7 +11,7 @@ $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 $sURL = sURL;
-
+// $RichMenuId = RICHMENU_ID;
 
 header('Access-Control-Allow-Origin: *');
 
