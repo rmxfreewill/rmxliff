@@ -1,0 +1,514 @@
+
+    * {
+    box-sizing: border-box;
+    }
+
+    body {
+    font-family: Arial;
+    padding: 2px;
+    background: #f1f1f1;
+    }
+
+    /* Create three equal columns that floats next to each other */
+    .column_1 {
+    float: left;
+    width: 60%;
+    padding: 4px;
+    height: 200px; /* Should be removed. Only for demonstration */
+    }
+
+    .column_2 {
+    float: left;
+    width: 1%;
+    padding: 4px;
+    height: 185px; /* Should be removed. Only for demonstration */
+    }
+
+    .column_3 {
+    float: left;
+    width: 40%;
+    padding: 2px;
+    height: 200px; /* Should be removed. Only for demonstration */
+    }
+
+    .column_25 {
+    float: left;
+    width: 25%;
+    padding: 4px;
+    height: 185px; /* Should be removed. Only for demonstration */
+    }
+
+    .column_20 {
+    float: left;
+    width: 10%;
+    padding: 4px;
+    height: 30px; /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+
+    }
+    .row {
+    height: 200px; 
+
+    }
+
+    .card {
+    background-color: white;
+    padding: 4px;
+    margin-top: 4px;
+    overflow:scroll;
+    position:relative;
+    width: 100%;
+    height: 60%;
+    }
+
+
+    table, td {
+        Font-size: 12px;
+    border: 1px solid #ddd;
+    padding: 4px;
+    }
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    background:#ccc;
+    height: 400px;
+    }
+
+    th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+    }
+
+    tr:hover {background-color: #ddd;}
+    tr:nth-child(even){background-color: #f2f2f2;}
+
+
+    table#tblList {
+    border-collapse: collapse;
+    width: 100%;
+    background:#ccc;
+    height: 400px;
+    }
+
+
+    table#tblList td {
+        Font-size: 13px;    
+    }
+
+
+    table#tblList tr:nth-child(even) {
+    background-color: #eee;
+    }
+    table#tblList tr:nth-child(odd) {
+    background-color: #fff;
+    }
+    table#tblList th {
+    background-color: black;
+    color: white;
+    }
+
+
+
+
+    #loader {
+        clear:both;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 999;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        border-right: 16px solid green;
+        border-bottom: 16px solid red;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }
+
+    /* Add animation to "page content" */
+    .animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+    }
+
+    @-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 } 
+    to { bottom:0px; opacity:1 }
+    }
+
+    @keyframes animatebottom { 
+    from{ bottom:-100px; opacity:0 } 
+    to{ bottom:0; opacity:1 }
+    }
+
+
+
+
+    /* Style the tab */
+    .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 7px 8px;
+    transition: 0.3s;
+    font-size: 14px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+    background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+    background-color: yellow;
+    }
+
+    /* Style the tab content */
+    .taball {
+    display: none;
+    padding: 2px 2px;
+    border: 1px solid #ccc;
+    border-top: none;
+    }
+
+    /* Style the tab content */
+    .tabsuball {
+    display: none;
+    padding: 2px 2px;
+    border: 1px solid #ccc;
+    border-top: none;
+    }
+
+    .taballdb {
+    display: none;
+    padding: 2px 2px;
+    border: 1px solid #ccc;
+    border-top: none;
+    }
+
+    .taballsp {
+    display: none;
+    padding: 2px 2px;
+    border: 1px solid #ccc;
+    border-top: none;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+    display: none;
+    padding: 2px 2px;
+    border: 1px solid #ccc;
+    border-top: none;
+    }
+
+    .tabresult {
+    display: none;
+    padding: 2px 2px;
+    border: 1px solid #ccc;
+    border-top: none;
+    }
+
+
+        
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+        padding-top: 6px;
+    }
+
+    .modal-compare {
+        padding-top: 1px;
+        background-color: #fefefe;
+        /*margin: 1% auto;*/
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+        /* Could be more or less, depending on screen size */
+    }
+
+
+    .modal-content {
+        padding-top: 2px;
+        background-color: #fefefe;
+        margin: 2% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        overflow: auto;
+        width: 95%;
+        height: 100%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    .modal-edit {
+    padding-top: 2px;
+    background-color: #fefefe;
+    margin: 2% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    overflow: auto;
+    width: 98%;
+    height: 94%;
+    /* Could be more or less, depending on screen size */
+    }
+
+    .modal-editdata {
+        padding-top: 2px;
+        background-color: #fefefe;
+        margin: 2% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        overflow: auto;
+        width: 98%;
+        height: 92%;
+        /* Could be more or less, depending on screen size */
+    }
+
+
+    .modal-fullcontent {
+        padding-top: 2px;
+        background-color: #fefefe;
+        margin: 2% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        overflow: auto;
+        width: 98%;
+        height: 100%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button (x) */
+
+    .close {
+        position: fixed;
+        right: 25px;
+        top: 0;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+    .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+
+
+    div.sub {
+        display: table-cell;
+        width: 100%;
+    }
+    div.sub > input {
+        width: 100%;
+    }
+
+    div.scrollmenu {
+        background-color: white;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    div.scrollmenu button {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 2px;
+        text-decoration: none;
+    }
+
+    div.scrollmenu button:hover {
+        background-color: #777;
+        color: white;
+    }
+
+
+    /* Style the tab content */
+    .tabFunc {
+        display: none;
+        padding: 2px 2px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+
+    .tabTable {
+        display: none;
+        padding: 2px 2px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+
+    /* Style the tab */
+    .tab2 {
+        overflow: hidden;
+        border: 3px solid #ccc;
+        background-color: #f1f1f1;
+        padding: 10px 3px 3px 3px;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab2 button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 3px 3px 3px 3px;
+        transition: 0.3s;
+        font-size: 12px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab2 button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab2 button.active {
+        background-color: #ccc;
+    }
+
+    .tab2 button.active {
+        background-color: #ccc;
+    }
+
+
+
+
+    /* Style the tab */
+    .tab3 {
+        overflow: hidden;
+        border: 3px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab3 button {
+        background-color: inherit;
+        float: right;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 3px 3px 3px;
+        transition: 0.3s;
+        font-size: 12px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab3 button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab3 button.active {
+        background-color: #ccc;
+    }
+
+    .tab3 button.active {
+        background-color: #ccc;
+    }
+
+
+
+
+        
+    .popup {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        top: 10%; 
+        left: 20%; 
+        /*margin-right: -50%;*/
+        /*margin-top: 10%;*/
+        width: 60%;
+        /* Full width */
+        height: 60%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+        padding-top: 10px;
+    }
+
+
+
+
+    .popup-content {
+        padding-top: 2px;
+        background-color: #fefefe;
+        margin: 2% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        overflow: auto;
+        width: 90%;
+        height: 90%;
+        /* Could be more or less, depending on screen size */
+    }
+

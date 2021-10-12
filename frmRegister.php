@@ -339,7 +339,7 @@ if ($LinkCode == 'REGISTER') {
 
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmRegister.php" + para;
-
+console.log(url);
             window.location.assign(url);
 
 
