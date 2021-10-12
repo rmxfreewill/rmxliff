@@ -148,7 +148,7 @@ if ($LinkCode == 'REGISTER') {
 
 
 
-    <form class="animate" method="GET" id="RegisterForm" enctype="multipart/form-data">
+    <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data">
 
         <?php if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen();
@@ -275,8 +275,10 @@ if ($LinkCode == 'REGISTER') {
 
                                     if (sMsg == "Not Found SoldTo code") {
                                         alert('Change Menu');
-                                        document.getElementById("RegisterForm").style.visibility = "hidden";
-                                        document.getElementById("successMsg").style.visibility = "visible";
+                                        var elementRegisterForm = document.getElementById('registerForm');
+                                        var elementSuccessMsg = document.getElementById('successMsg');
+                                        elementRegisterForm.style.visibility = "hidden";
+                                        elementSuccessMsg.element.style.removeProperty("hidden");
                                     }
 
                                 }
