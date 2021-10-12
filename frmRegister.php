@@ -13,8 +13,6 @@ $LiffId = LIFF_ID;
 $sURL = sURL;
 
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST GET');
-header('Access-Control-Allow-Credentials: true');
 
 /*
   if (isset($_POST['CompanyCode']))
@@ -121,23 +119,17 @@ if ($LinkCode == 'REGISTER') {
 }
 
 //Line Api
-function richmenuApi($LINEID, $type)
+function changeMemberRichMenu($LINEID)
 {
-    // $RICHMENUID = "richmenu-db181b79c35a2d6bfb2aaa286bbe95fd";
-    $RICHMENUID = "richmenu-f085e3fa68b2c23e7c4078923c90664a";
-    if ($type == 'member') {
-        $CURLOPT = CURLOPT_POST;
-        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
-        $data = array();
-        $method = "POST";
-    } else if ($type == 'logout') {
-        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
-        $data = "{\"userIds\":[\"$LINEID\"]}";
-        $method = "DELETE";
-    }
+    $RICHMENUID = "richmenu-119fefe49b2dd01369a9416da62d7f80";
+    $CURLOPT = CURLOPT_POST;
+    $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
+    $data = array();
+    $method = "POST";
+
 
     $headers = [
-        "Authorization: Bearer s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=", "Content-Type: application/json"
+        "Authorization: Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU="
     ];
     try {
 
@@ -299,7 +291,8 @@ function richmenuApi($LINEID, $type)
         function OkClick(msg) {
 
             var myLiffId = document.getElementById('txtLiffId').value;
-            changeMemberRichMenu(myLiffId);
+            // changeMemberRichMenu(myLiffId);
+            <?php changeMemberRichMenu($LineId, $type); ?>
 
             if (liff.getOS() != "web") {
                 liff.closeWindow();
@@ -321,11 +314,8 @@ function richmenuApi($LINEID, $type)
         function showForm() {
             var sMsg = document.getElementById('txtMsg').value;
             var elementRegisterForm = document.getElementById('registerForm');
-
             elementRegisterForm.removeAttribute("hidden");
-
             (sMsg.length > 0) ?? alert(sMsg);
-
         }
 
         function initializeLiff(myLiffId) {
@@ -339,8 +329,6 @@ function richmenuApi($LINEID, $type)
         }
 
         function initializeApp() {
-            //displayLiffData();
-
             if (liff.isLoggedIn()) {
 
                 liff.getProfile().then(profile => {
@@ -366,12 +354,8 @@ function richmenuApi($LINEID, $type)
                     .catch((err) => {
                         console.log('error', err);
                     });
-
             }
-            //liff.getProfile().userId;
-
         }
-
 
         function displayLiffData() {
             if (document.getElementById('browserLanguage')) {
@@ -382,16 +366,13 @@ function richmenuApi($LINEID, $type)
             }
         }
 
-
         function toggleAccessToken() {
             toggleElement('accessTokenData');
         }
 
-
         function toggleProfileData() {
             toggleElement('profileInfo');
         }
-
 
         function toggleElement(elementId) {
             const elem = document.getElementById(elementId);
@@ -402,39 +383,18 @@ function richmenuApi($LINEID, $type)
             }
         }
 
-
-
         function RegisterClick(msg) {
-
             var sLineId = document.getElementById('lblUserId').textContent;
             var sLineDisplay = document.getElementById('txtDisplay').value;
-
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             var sUserName = document.getElementById('txtUserName').value;
             var sEMail = document.getElementById('txtEMail').value;
             var sTel = document.getElementById('txtTel').value;
-
-            /*
-            var sCmd = "call sp_main_line_reqister ('" + sLineId 
-                + "','"+ sCompanyCode+"','"+sUserName
-                + "','"+ sLineDisplay+"','"+sTel
-                + "','"+ sEMail +"')";  
-            */
             var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-
             var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmRegister.php" + para;
-
             window.location.assign(url);
-
-
-            // liff.login({
-            //     redirectUri: url
-            // });
-
-
         }
     </script>
 
