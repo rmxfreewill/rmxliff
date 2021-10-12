@@ -233,7 +233,7 @@ if ($LinkCode == 'REGISTER') {
                 var elementRegisterForm = document.getElementById('registerForm');
                 var elementSuccessMsg = document.getElementById('successMsg');
 
-                elementRegisterForm.style.visibility = "hidden";
+                elementRegisterForm.style.display = "none";
                 elementSuccessMsg.removeAttribute("hidden");
             }
             changeMemberRichMenu();
