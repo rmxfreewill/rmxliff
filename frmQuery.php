@@ -491,9 +491,7 @@ if ($LinkCode == 'QUERY') {
             var url = "https://rmxlineliff.herokuapp.com/";
             url = url + "frmQuery.php" + para;
 
-            liff.login({
-                redirectUri: url
-            });
+            window.location.assign(url);
 
 
         }
