@@ -278,7 +278,7 @@ if ($LinkCode == 'REGISTER') {
                                         var elementRegisterForm = document.getElementById('registerForm');
                                         var elementSuccessMsg = document.getElementById('successMsg');
                                         elementRegisterForm.style.visibility = "hidden";
-                                        elementSuccessMsg.element.style.removeAttribute("style");
+                                        elementSuccessMsg.removeAttribute("hidden");
                                     }
 
                                 }
