@@ -401,32 +401,13 @@ if ($LinkCode == 'QUERY') {
 
 
         window.onload = function() {
-            const useNodeJS = false; // if you are not using a node server, set this value to false
-            const defaultLiffId = "1656503744-kojgw9pb";
 
-            let myLiffId = "";
+            var myLiffId = document.getElementById('txtLiffId').value;
+            initializeLiff(myLiffId);
 
-            if (useNodeJS) {
-                fetch('/send-id')
-                    .then(function(reqResponse) {
-                        return reqResponse.json();
-                    })
-                    .then(function(jsonResponse) {
-                        myLiffId = jsonResponse.id;
-                        initializeLiffOrDie(myLiffId);
-                    })
-                    .catch(function(error) {});
-            } else {
-                myLiffId = defaultLiffId;
-                initializeLiffOrDie(myLiffId);
-            }
         };
 
-        function initializeLiffOrDie(myLiffId) {
-            if (myLiffId) {
-                initializeLiff(myLiffId);
-            }
-        }
+
 
         function initializeLiff(myLiffId) {
             liff.init({
