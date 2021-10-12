@@ -136,7 +136,9 @@ if ($LinkCode == 'VIEW') {
         }
 
         /* Style tab links */
-        .tablink {}
+        .tablink {
+            margin: 0;
+        }
 
         .tablink:hover {
             background-color: #777;
