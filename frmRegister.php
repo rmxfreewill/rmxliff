@@ -123,7 +123,7 @@ if ($LinkCode == 'REGISTER') {
 //Line Api
 function changeMemberRichMenu($LINEID)
 {
-    $RICHMENUID = RICHMENU_ID;
+    $RICHMENUID = "richmenu-119fefe49b2dd01369a9416da62d7f80";
     $CURLOPT = CURLOPT_POST;
     $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
     $data = array();
