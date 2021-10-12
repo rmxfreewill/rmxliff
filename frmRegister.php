@@ -129,7 +129,7 @@ function changeMemberRichMenu($LINEID)
     $data = array();
     $method = "POST";
     $headers = [
-        "Authorization: Bearer ".BEARER_TOKEN
+        "Authorization: Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU="
     ];
     try {
 
