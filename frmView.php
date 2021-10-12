@@ -190,13 +190,12 @@ if ($LinkCode == 'VIEW') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
-        
+
         if ($sFlag == '0' || $sFlag == '') {
-            echo "<center><h1>sFlag 0</h1></center>";
+            echo "<center><h1>No Record List</h1></center>";
         } else {
             if ($RetCommand) {
                 $asTable = explode("^t", $RetCommand);
-                echo $asTable;
                 if (count($asTable) > 0) {
                     $arTmp = explode("^f", $asTable[0]);
                     if (count($arTmp) > 1) {
@@ -220,11 +219,11 @@ if ($LinkCode == 'VIEW') {
                                 if ($nDLen > 0) {
                                     $sTicketNo = $asData[0];
                                     $sTab = $sTab . "<a class='tablink' href='#' "
-                                        . "onclick=\"openPage('div" . $sTicketNo . "_" . n
-                                        . "', this, 'red')\">" . $sTicketNo . "</a>";
+                                        . "onclick=\"openPage('div" . $sTicketNo . "_" .
+                                        "', this, 'red')\">" . $sTicketNo . "</a>";
 
-                                    $sPage = $sPage . "<div id='div" . $sTicketNo . "_" . n
-                                        . "' class='tabcontent'>";
+                                    $sPage = $sPage . "<div id='div" . $sTicketNo . "_" .
+                                        "' class='tabcontent'>";
                                     $sPage = $sPage . "<table class='tblticket'>";
                                     for ($r = 0; $r < $nDLen; $r++) {
                                         $sC = $asCol[$r];
@@ -240,14 +239,8 @@ if ($LinkCode == 'VIEW') {
                             $sTab = "<div class='scrollmenu'>" . $sTab . "</div>";
                             echo $sTab;
                             echo $sPage;
-                        } else {
-                            echo "<center><h1>asRow No Record List</h1></center>";
                         }
-                    } else {
-                        echo "<center><h1>arTmp No Record List</h1></center>";
                     }
-                } else {
-                    echo "<center><h1>asTable No Record List</h1></center>";
                 }
             }
         }
