@@ -238,9 +238,9 @@ if ($LinkCode == 'VIEW') {
                             echo $sPage;
                         }
                     }
+                } else {
+                    echo "<center><h1>No Record List</h1></center>";
                 }
-            }else{
-                echo "<center><h1>No Record List</h1></center>";
             }
         }
 
