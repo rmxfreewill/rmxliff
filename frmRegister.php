@@ -190,7 +190,7 @@ if ($LinkCode == 'REGISTER') {
         <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
-  
+
 
     </form>
 
@@ -261,7 +261,13 @@ if ($LinkCode == 'REGISTER') {
                             var sShow = document.getElementById('txtShowMsg').value;
                             if (sShow == "1") {
                                 var sMsg = document.getElementById('txtMsg').value;
-                                if (sMsg.length > 0) alert(sMsg);
+                                if (sMsg.length > 0) {
+
+                                    alert(sMsg)
+
+                                    if(sMsg==""){}
+
+                                }
                             }
 
 
@@ -339,7 +345,7 @@ if ($LinkCode == 'REGISTER') {
 
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmRegister.php" + para;
-console.log(url);
+
             window.location.assign(url);
 
 

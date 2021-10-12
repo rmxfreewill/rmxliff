@@ -10,12 +10,12 @@ define("COMPANY_CODE", "00001");
 //Heroku Server
 define("LIFF_ID", "1656520973-EzB8pRze");
 define("sURL", "https://rmxlineliff.herokuapp.com/");
-define("COMPANY_URL", "http://rmxlineliff.herokuapp.com/zApi/rmxLineCmd.php");
-define("REGISTER_URL", "http://rmxlineliff.herokuapp.com/zApi/rmxLineRegister.php");
+// define("COMPANY_URL", "http://rmxlineliff.herokuapp.com/zApi/rmxLineCmd.php");
+// define("REGISTER_URL", "http://rmxlineliff.herokuapp.com/zApi/rmxLineRegister.php");
 
 //Backup
-// define("REGISTER_URL", "http://rmxcell.pe.hu/rmxLineRegister.php");
-// define("COMPANY_URL", "http://rmxcell.pe.hu/rmxLineCmd.php");
+define("REGISTER_URL", "http://rmxcell.pe.hu/rmxLineRegister.php");
+define("COMPANY_URL", "http://rmxcell.pe.hu/rmxLineCmd.php");
 // https://rmxliff.ddns.net/frmQuery.php
 // https://rmxliff.ddns.net/frmRegister.php
 // https://rmxliff.ddns.net/frmTicket.php
