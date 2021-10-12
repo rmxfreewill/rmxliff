@@ -10,6 +10,7 @@
   $RegisterUrl = REGISTER_URL;
   $CompanyCode = COMPANY_CODE;
   $LiffId = LIFF_ID;
+  $sURL = sURL;
 
 
     $LinkCode = '';
@@ -303,6 +304,7 @@
 <input type="hidden" id="txtRetCommand" value ="<?php echo $RetCommand; ?>" >
 <input type="hidden" id="txtLineId"  value ="<?php echo $LiffId; ?>" >
 <input type="hidden" id="txtTableTitle"  value ="<?php echo $TableTitle; ?>" >
+<input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
 </form>
 
@@ -331,29 +333,10 @@
     /***************************************************************************** */
 
     window.onload = function() {
-        const useNodeJS = false;   // if you are not using a node server, set this value to false
-        const defaultLiffId = "1656503744-kojgw9pb";
-        let myLiffId = "";
-       
-        if (useNodeJS) {
-            fetch('/send-id')
-                .then(function(reqResponse) { return reqResponse.json();})
-                .then(function(jsonResponse) {
-                    myLiffId = jsonResponse.id;
-                    initializeLiffOrDie(myLiffId);
-                })
-                .catch(function(error) {});
-        } else {
-            myLiffId = defaultLiffId;
-            initializeLiffOrDie(myLiffId);
-        }
-    };
-    
-    function initializeLiffOrDie(myLiffId) {
-        if (myLiffId) {       
+            var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId);
-        }
-    }
+        };
+
    
     function initializeLiff(myLiffId) {
         liff.init({ liffId: myLiffId })
@@ -391,32 +374,7 @@
 
     }
 
-   
-    function RegisterClick(msg){
-                
-        var sLineId =document.getElementById('lblUserId').textContent;
-        var sLineDisplay =document.getElementById('txtDisplay').value;
 
-        var sCompanyCode =document.getElementById('txtCompanyCode').value;
-        var sUserName =document.getElementById('txtUserName').value;
-        var sEMail =document.getElementById('txtEMail').value;
-        var sTel =document.getElementById('txtTel').value;
-
-    
-        var sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
-
-        var para = "?LinkCode=REGISTER&LineId="+sLineId+"&CmdCommand="+sCmd;
-
-
-        var url = "https://rmxlineliff.herokuapp.com/";
-            url = url + "frmRegister.php" + para;
-
-        
-            
-        liff.login({ redirectUri: url });
-
-        //alert(url);
-    }
         
         
 
