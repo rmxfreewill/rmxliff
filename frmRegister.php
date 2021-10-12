@@ -14,6 +14,7 @@ $sURL = sURL;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST GET');
+header('Access-Control-Allow-Credentials: true');
 
 /*
   if (isset($_POST['CompanyCode']))
