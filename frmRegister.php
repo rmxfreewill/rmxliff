@@ -148,7 +148,7 @@ if ($LinkCode == 'REGISTER') {
 
 
 
-    <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data">
+    <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen();
@@ -242,6 +242,8 @@ if ($LinkCode == 'REGISTER') {
         }
 
         function sMsgDialog() {
+            var elementRegisterForm = document.getElementById('registerForm');
+            var elementSuccessMsg = document.getElementById('successMsg');
             var sShow = document.getElementById('txtShowMsg').value;
             if (sShow == "1") {
                 var sMsg = document.getElementById('txtMsg').value;
@@ -251,13 +253,13 @@ if ($LinkCode == 'REGISTER') {
                         if (liff.getOS() != "web") {
                             OkClick('');
                         } else {
-                            var elementRegisterForm = document.getElementById('registerForm');
-                            var elementSuccessMsg = document.getElementById('successMsg');
-                            elementRegisterForm.style.visibility = "hidden";
+                            // elementRegisterForm.style.visibility = "hidden";
                             elementSuccessMsg.removeAttribute("hidden");
                         }
                     }
                 }
+            } else {
+                elementRegisterForm.removeAttribute("hidden");
             }
         }
 
