@@ -55,6 +55,43 @@ $sTitle = 'Register';
 $sShowMsg = '';
 
 
+//Line Api
+function changeMemberRichMenu($LINEID)
+{
+    $RICHMENUID = "richmenu-119fefe49b2dd01369a9416da62d7f80";
+    $CURLOPT = CURLOPT_POST;
+    $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
+    $data = array();
+    $method = "POST";
+    $headers = [
+        "Authorization: Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU="
+    ];
+    try {
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+        // curl_setopt($ch, $CURLOPT, 1);
+        curl_setopt(
+            $ch,
+            CURLOPT_POSTFIELDS,
+            $data
+        );
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); # receive server response
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); # do not verify SSL
+        $data = curl_exec($ch); # execute curl
+        $httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); # http response status code
+        curl_close($ch);
+
+        $data = "{}";
+    } catch (Exception $ex) {
+        $data = $ex;
+    }
+    return $data;
+}
+
 if ($LinkCode == 'REGISTER') {
 
     // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
@@ -94,8 +131,8 @@ if ($LinkCode == 'REGISTER') {
                 $sFlag = '5';
                 $sFlagMsg = "Register Complete";
             }
-            changeMemberRichMenu($LineId);
         }
+        changeMemberRichMenu($LineId);
     }
 } else if ($LinkCode == 'CHECK') {
 
@@ -120,42 +157,7 @@ if ($LinkCode == 'REGISTER') {
     }
 }
 
-//Line Api
-function changeMemberRichMenu($LINEID)
-{
-    $RICHMENUID = "richmenu-119fefe49b2dd01369a9416da62d7f80";
-    $CURLOPT = CURLOPT_POST;
-    $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
-    $data = array();
-    $method = "POST";
-    $headers = [
-        "Authorization: Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU="
-    ];
-    try {
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-        // curl_setopt($ch, $CURLOPT, 1);
-        curl_setopt(
-            $ch,
-            CURLOPT_POSTFIELDS,
-            $data
-        );
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); # receive server response
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); # do not verify SSL
-        $data = curl_exec($ch); # execute curl
-        $httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); # http response status code
-        curl_close($ch);
-
-        $data = "{}";
-    } catch (Exception $ex) {
-        $data = $ex;
-    }
-    return $data;
-}
 
 ?>
 
