@@ -67,7 +67,6 @@
             if (count($ASRet) >=2) {
                 $sFlagMsg=$ASRet[0];
                 $sFlag=$ASRet[1];     
-              echo $sFlag;
                 $sShowMsg = '0';
                 if ($sFlag != '0') {
                     $sTitle = 'View';
@@ -197,6 +196,9 @@
     } else 
     
     {
+
+echo "sFLAG  ".$sFlag;
+
        // echo $CmdCommand; 
         //echo "\n\n"; 
         //echo $RetCommand; 
