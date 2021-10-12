@@ -93,6 +93,7 @@ if ($LinkCode == 'REGISTER') {
                 $sFlag = '5';
                 $sFlagMsg = "Register Complete";
             }
+            changeMemberRichMenu($LineId);
         }
     }
 } else if ($LinkCode == 'CHECK') {
@@ -333,7 +334,6 @@ function changeMemberRichMenu($LINEID)
 
         function OkClick(msg) {
             var myLiffId = document.getElementById('txtLiffId').value;
-            <?php changeMemberRichMenu($LineId); ?>
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             } else {
