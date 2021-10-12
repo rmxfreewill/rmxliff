@@ -223,12 +223,12 @@ if ($LinkCode == 'REGISTER') {
         };
 
         function OkClick(msg) {
-            liff.closeWindow();
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             } else {
                 var elementRegisterForm = document.getElementById('registerForm');
                 var elementSuccessMsg = document.getElementById('successMsg');
+
                 elementRegisterForm.style.visibility = "hidden";
                 elementSuccessMsg.removeAttribute("hidden");
             }
@@ -251,18 +251,13 @@ if ($LinkCode == 'REGISTER') {
         }
 
         function showForm() {
-
+            var sMsg = document.getElementById('txtMsg').value;
             var elementRegisterForm = document.getElementById('registerForm');
+
             elementRegisterForm.removeAttribute("hidden");
 
-            var sMsg = document.getElementById('txtMsg').value;
-            if (sMsg.length > 0) {
-                if (sMsg == "Not Found SoldTo code") {
-                    alert(sMsg);
-                } else if (sMsg == "Register Complete") {
-                    elementRegisterForm.removeAttribute("hidden");
-                }
-            }
+            (sMsg.length > 0) ?? alert(sMsg);
+
         }
 
         function initializeApp() {
