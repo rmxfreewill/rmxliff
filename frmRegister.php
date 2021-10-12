@@ -12,6 +12,9 @@ $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 $sURL = sURL;
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST GET');
+
 /*
   if (isset($_POST['CompanyCode']))
       $CompanyCode = $_POST['CompanyCode'];
