@@ -204,13 +204,8 @@ if ($LinkCode == 'REGISTER') {
 
     <script>
         window.onload = function() {
-
-            const useNodeJS = false; // if you are not using a node server, set this value to false
-
             var myLiffId = document.getElementById('txtLiffId').value;
-
-            alert('sFlag ' + document.getElementById('txtFlag').value);
-
+            const useNodeJS = false;
             if (useNodeJS) {
                 fetch('/send-id')
                     .then(function(reqResponse) {
@@ -226,6 +221,18 @@ if ($LinkCode == 'REGISTER') {
             }
 
         };
+
+        function OkClick(msg) {
+            liff.closeWindow();
+            if (liff.getOS() != "web") {
+                liff.closeWindow();
+            } else {
+                var elementRegisterForm = document.getElementById('registerForm');
+                var elementSuccessMsg = document.getElementById('successMsg');
+                elementRegisterForm.style.visibility = "hidden";
+                elementSuccessMsg.removeAttribute("hidden");
+            }
+        }
 
         function initializeLiffOrDie(myLiffId) {
             if (myLiffId) {
@@ -243,19 +250,8 @@ if ($LinkCode == 'REGISTER') {
                 .catch((err) => {});
         }
 
-        function OkClick(msg) {
-            liff.closeWindow();
-            if (liff.getOS() != "web") {
-                liff.closeWindow();
-            } else {
-                var elementRegisterForm = document.getElementById('registerForm');
-                var elementSuccessMsg = document.getElementById('successMsg');
-                elementRegisterForm.style.visibility = "hidden";
-                elementSuccessMsg.removeAttribute("hidden");
-            }
-        }
-
-        function sMsgDialog() {
+        function showForm() {
+            alert(sMsg);
             var elementRegisterForm = document.getElementById('registerForm');
             var sMsg = document.getElementById('txtMsg').value;
             if (sMsg.length > 0) {
@@ -293,7 +289,7 @@ if ($LinkCode == 'REGISTER') {
                         }
 
                         if (document.getElementById('txtShowMsg')) {
-                            sMsgDialog();
+                            showForm();
                         }
                     })
                     .catch((err) => {
