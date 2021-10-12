@@ -155,10 +155,6 @@ function changeMemberRichMenu($LINEID)
     return $data;
 }
 
-
-
-
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -244,22 +240,109 @@ function changeMemberRichMenu($LINEID)
 
     <script>
         window.onload = function() {
-            var myLiffId = document.getElementById('txtLiffId').value;
-            const useNodeJS = false;
-            if (useNodeJS) {
-                fetch('/send-id')
-                    .then(function(reqResponse) {
-                        return reqResponse.json();
-                    })
-                    .then(function(jsonResponse) {
-                        myLiffId = jsonResponse.id;
-                        initializeLiffOrDie(myLiffId);
-                    })
-                    .catch(function(error) {});
-            } else {
-                initializeLiffOrDie(myLiffId);
+
+            function OkClick(msg) {
+                var myLiffId = document.getElementById('txtLiffId').value;
+                <?php changeMemberRichMenu($LineId); ?>
+                if (liff.getOS() != "web") {
+                    liff.closeWindow();
+                } else {
+                    var elementRegisterForm = document.getElementById('registerForm');
+                    var elementSuccessMsg = document.getElementById('successMsg');
+
+                    elementRegisterForm.style.display = "none";
+                    elementSuccessMsg.removeAttribute("hidden");
+                }
             }
 
+            function displayLiffData() {
+                if (document.getElementById('browserLanguage')) {
+                    document.getElementById('browserLanguage').textContent = liff.getLanguage();
+                    document.getElementById('sdkVersion').textContent = liff.getVersion();
+                    document.getElementById('lineVersion').textContent = liff.getLineVersion();
+                    document.getElementById('deviceOS').textContent = liff.getOS();
+                }
+            }
+
+            function toggleAccessToken() {
+                toggleElement('accessTokenData');
+            }
+
+            function toggleProfileData() {
+                toggleElement('profileInfo');
+            }
+
+            function toggleElement(elementId) {
+                const elem = document.getElementById(elementId);
+                if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
+                    elem.style.display = 'none';
+                } else {
+                    elem.style.display = 'block';
+                }
+            }
+
+            function RegisterClick(msg) {
+                var sLineId = document.getElementById('lblUserId').textContent;
+                var sLineDisplay = document.getElementById('txtDisplay').value;
+                var sCompanyCode = document.getElementById('txtCompanyCode').value;
+                var sUserName = document.getElementById('txtUserName').value;
+                var sEMail = document.getElementById('txtEMail').value;
+                var sTel = document.getElementById('txtTel').value;
+                var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+                var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+                var URL = document.getElementById('txtsURL').value;
+                url = URL + "frmRegister.php" + para;
+                window.location.assign(url);
+            }
+
+            function showForm() {
+                var sMsg = document.getElementById('txtMsg').value;
+                var elementRegisterForm = document.getElementById('registerForm');
+                elementRegisterForm.removeAttribute("hidden");
+                (sMsg.length > 0) ?? alert(sMsg);
+            }
+
+            function initializeApp() {
+                if (liff.isLoggedIn()) {
+
+                    liff.getProfile().then(profile => {
+                            const userName = profile.displayName;
+                            const userId = profile.userId;
+
+                            if (document.getElementById('txtLineDisplay'))
+                                document.getElementById('txtLineDisplay').value = userName;
+
+                            if (document.getElementById('txtLineId'))
+                                document.getElementById('txtLineId').value = userId;
+
+                            if (document.getElementById('lblUserId')) {
+                                document.getElementById('lblUserId').textContent = userId;
+                                document.getElementById('lblUserName').textContent = userName;
+                                document.getElementById('txtDisplay').value = userName;
+                            }
+
+                            if (document.getElementById('txtShowMsg')) {
+                                showForm();
+                            }
+                        })
+                        .catch((err) => {
+                            console.log('error', err);
+                        });
+                }
+            }
+
+            function initializeLiff(myLiffId) {
+                liff.init({
+                        liffId: myLiffId
+                    })
+                    .then(() => {
+                        initializeApp();
+                    })
+                    .catch((err) => {});
+            }
+
+            var myLiffId = document.getElementById('txtLiffId').value;
+            initializeLiff(myLiffId);
         };
 
         // async function changeMemberRichMenu(myLiffId) {
@@ -285,113 +368,6 @@ function changeMemberRichMenu($LINEID)
         //             console.log(error);
         //         });
         // }
-
-        function OkClick(msg) {
-            var myLiffId = document.getElementById('txtLiffId').value;
-            if (liff.getOS() != "web") {
-                <?php changeMemberRichMenu($LineId); ?>
-                liff.closeWindow();
-            } else {
-                var elementRegisterForm = document.getElementById('registerForm');
-                var elementSuccessMsg = document.getElementById('successMsg');
-
-                elementRegisterForm.style.display = "none";
-                elementSuccessMsg.removeAttribute("hidden");
-                <?php changeMemberRichMenu($LineId); ?>
-            }
-        }
-
-        function initializeLiffOrDie(myLiffId) {
-            if (myLiffId) {
-                initializeLiff(myLiffId);
-            }
-        }
-
-        function showForm() {
-            var sMsg = document.getElementById('txtMsg').value;
-            var elementRegisterForm = document.getElementById('registerForm');
-            elementRegisterForm.removeAttribute("hidden");
-            (sMsg.length > 0) ?? alert(sMsg);
-        }
-
-        function initializeLiff(myLiffId) {
-            liff.init({
-                    liffId: myLiffId
-                })
-                .then(() => {
-                    initializeApp();
-                })
-                .catch((err) => {});
-        }
-
-        function initializeApp() {
-            if (liff.isLoggedIn()) {
-
-                liff.getProfile().then(profile => {
-                        const userName = profile.displayName;
-                        const userId = profile.userId;
-
-                        if (document.getElementById('txtLineDisplay'))
-                            document.getElementById('txtLineDisplay').value = userName;
-
-                        if (document.getElementById('txtLineId'))
-                            document.getElementById('txtLineId').value = userId;
-
-                        if (document.getElementById('lblUserId')) {
-                            document.getElementById('lblUserId').textContent = userId;
-                            document.getElementById('lblUserName').textContent = userName;
-                            document.getElementById('txtDisplay').value = userName;
-                        }
-
-                        if (document.getElementById('txtShowMsg')) {
-                            showForm();
-                        }
-                    })
-                    .catch((err) => {
-                        console.log('error', err);
-                    });
-            }
-        }
-
-        function displayLiffData() {
-            if (document.getElementById('browserLanguage')) {
-                document.getElementById('browserLanguage').textContent = liff.getLanguage();
-                document.getElementById('sdkVersion').textContent = liff.getVersion();
-                document.getElementById('lineVersion').textContent = liff.getLineVersion();
-                document.getElementById('deviceOS').textContent = liff.getOS();
-            }
-        }
-
-        function toggleAccessToken() {
-            toggleElement('accessTokenData');
-        }
-
-        function toggleProfileData() {
-            toggleElement('profileInfo');
-        }
-
-        function toggleElement(elementId) {
-            const elem = document.getElementById(elementId);
-            if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
-                elem.style.display = 'none';
-            } else {
-                elem.style.display = 'block';
-            }
-        }
-
-        function RegisterClick(msg) {
-            var sLineId = document.getElementById('lblUserId').textContent;
-            var sLineDisplay = document.getElementById('txtDisplay').value;
-            var sCompanyCode = document.getElementById('txtCompanyCode').value;
-            var sUserName = document.getElementById('txtUserName').value;
-            var sEMail = document.getElementById('txtEMail').value;
-            var sTel = document.getElementById('txtTel').value;
-            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            var URL = document.getElementById('txtsURL').value;
-            url = URL + "frmRegister.php" + para;
-            window.location.assign(url);
-        }
     </script>
 
 </body>
