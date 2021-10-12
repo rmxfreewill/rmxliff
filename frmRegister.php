@@ -265,7 +265,9 @@ if ($LinkCode == 'REGISTER') {
 
                                     alert(sMsg)
 
-                                    if(sMsg==""){}
+                                    if(sMsg=="Not Found SoldTo code"){
+                                        alert('Change Menu');
+                                    }
 
                                 }
                             }
