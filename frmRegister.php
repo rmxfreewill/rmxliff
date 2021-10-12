@@ -283,7 +283,7 @@ if ($LinkCode == 'REGISTER') {
                         }
 
                         if (document.getElementById('txtShowMsg')) {
-                            sMsgAlert();
+                            sMsgDialog();
                         }
                     })
                     .catch((err) => {
