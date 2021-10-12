@@ -241,20 +241,6 @@ function changeMemberRichMenu($LINEID)
     <script>
         window.onload = function() {
 
-            function OkClick(msg) {
-                var myLiffId = document.getElementById('txtLiffId').value;
-                <?php changeMemberRichMenu($LineId); ?>
-                if (liff.getOS() != "web") {
-                    liff.closeWindow();
-                } else {
-                    var elementRegisterForm = document.getElementById('registerForm');
-                    var elementSuccessMsg = document.getElementById('successMsg');
-
-                    elementRegisterForm.style.display = "none";
-                    elementSuccessMsg.removeAttribute("hidden");
-                }
-            }
-
             function displayLiffData() {
                 if (document.getElementById('browserLanguage')) {
                     document.getElementById('browserLanguage').textContent = liff.getLanguage();
@@ -344,6 +330,20 @@ function changeMemberRichMenu($LINEID)
             var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId);
         };
+
+        function OkClick(msg) {
+            var myLiffId = document.getElementById('txtLiffId').value;
+            <?php changeMemberRichMenu($LineId); ?>
+            if (liff.getOS() != "web") {
+                liff.closeWindow();
+            } else {
+                var elementRegisterForm = document.getElementById('registerForm');
+                var elementSuccessMsg = document.getElementById('successMsg');
+
+                elementRegisterForm.style.display = "none";
+                elementSuccessMsg.removeAttribute("hidden");
+            }
+        }
 
         // async function changeMemberRichMenu(myLiffId) {
         //     BearerToken = "Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=";
