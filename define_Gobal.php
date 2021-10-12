@@ -6,8 +6,8 @@ define("COMPANY_CODE", "00001");
 // define("sURL","https://rmxliff.ddns.net/");
 define("COMPANY_URL", "http://119.46.97.156/rmxline/rmxLineCmd.php");
 define("REGISTER_URL", "http://119.46.97.156/rmxline/rmxLineRegister.php");
-// define("RICHMENU_ID","richmenu-119fefe49b2dd01369a9416da62d7f80");
-
+// define("RICHMENU_ID","");
+// define("BEARER_TOKEN","6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=");
 
 //Heroku Server
 define("LIFF_ID", "1656520973-EzB8pRze");
