@@ -194,9 +194,9 @@ if ($LinkCode == 'VIEW') {
         if ($sFlag == '0' || $sFlag == '') {
             echo "<center><h1>sFlag 0</h1></center>";
         } else {
-            echo $RetCommand;
             if ($RetCommand) {
                 $asTable = explode("^t", $RetCommand);
+                echo $asTable;
                 if (count($asTable) > 0) {
                     $arTmp = explode("^f", $asTable[0]);
                     if (count($arTmp) > 1) {
@@ -249,8 +249,6 @@ if ($LinkCode == 'VIEW') {
                 } else {
                     echo "<center><h1>asTable No Record List</h1></center>";
                 }
-            } else {
-                echo "<center><h1> RetCommand No Record List</h1></center>";
             }
         }
 
