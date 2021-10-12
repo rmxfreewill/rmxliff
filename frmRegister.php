@@ -209,6 +209,8 @@ if ($LinkCode == 'REGISTER') {
 
             var myLiffId = document.getElementById('txtLiffId').value;
 
+            alert('sFlag ' + document.getElementById('txtFlag').value);
+
             if (useNodeJS) {
                 fetch('/send-id')
                     .then(function(reqResponse) {
