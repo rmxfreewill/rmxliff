@@ -188,6 +188,7 @@ function richmenuApi($LINEID, $type)
     <title><?php echo $sTitle; ?></title>
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
 
@@ -278,14 +279,20 @@ function richmenuApi($LINEID, $type)
             memberRichmenu = "richmenu-119fefe49b2dd01369a9416da62d7f80";
             url = urlApi + myLiffId + pathRichmenu + memberRichmenu;
             alert(url);
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Authorization': token
-                }
-            });
-            // const myJson = await response.json();
-            // alert(myJson);
+            await axios({
+                    method: 'POST',
+                    url: url,
+                    data: {},
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         }
 
         function OkClick(msg) {
