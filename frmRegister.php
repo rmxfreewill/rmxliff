@@ -240,83 +240,31 @@ function changeMemberRichMenu($LINEID)
 
 
     <script>
-        window.onload = function() {
+        // function displayLiffData() {
+        //     if (document.getElementById('browserLanguage')) {
+        //         document.getElementById('browserLanguage').textContent = liff.getLanguage();
+        //         document.getElementById('sdkVersion').textContent = liff.getVersion();
+        //         document.getElementById('lineVersion').textContent = liff.getLineVersion();
+        //         document.getElementById('deviceOS').textContent = liff.getOS();
+        //     }
+        // }
 
-            // function displayLiffData() {
-            //     if (document.getElementById('browserLanguage')) {
-            //         document.getElementById('browserLanguage').textContent = liff.getLanguage();
-            //         document.getElementById('sdkVersion').textContent = liff.getVersion();
-            //         document.getElementById('lineVersion').textContent = liff.getLineVersion();
-            //         document.getElementById('deviceOS').textContent = liff.getOS();
-            //     }
-            // }
+        // function toggleAccessToken() {
+        //     toggleElement('accessTokenData');
+        // }
 
-            // function toggleAccessToken() {
-            //     toggleElement('accessTokenData');
-            // }
+        // function toggleProfileData() {
+        //     toggleElement('profileInfo');
+        // }
 
-            // function toggleProfileData() {
-            //     toggleElement('profileInfo');
-            // }
-
-            // function toggleElement(elementId) {
-            //     const elem = document.getElementById(elementId);
-            //     if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
-            //         elem.style.display = 'none';
-            //     } else {
-            //         elem.style.display = 'block';
-            //     }
-            // }
-
-            function initializeApp() {
-                if (liff.isLoggedIn()) {
-
-                    liff.getProfile().then(profile => {
-                            const userName = profile.displayName;
-                            const userId = profile.userId;
-
-                            if (document.getElementById('txtLineDisplay'))
-                                document.getElementById('txtLineDisplay').value = userName;
-
-                            if (document.getElementById('txtLineId'))
-                                document.getElementById('txtLineId').value = userId;
-
-                            if (document.getElementById('lblUserId')) {
-                                document.getElementById('lblUserId').textContent = userId;
-                                document.getElementById('lblUserName').textContent = userName;
-                                document.getElementById('txtDisplay').value = userName;
-                            }
-
-                            if (document.getElementById('txtShowMsg')) {
-                                showForm();
-                            }
-                        })
-                        .catch((err) => {
-                            console.log('error', err);
-                        });
-                }
-            }
-
-            function initializeLiff(myLiffId) {
-                liff.init({
-                        liffId: myLiffId
-                    })
-                    .then(() => {
-                        initializeApp();
-                    })
-                    .catch((err) => {});
-            }
-
-            var myLiffId = document.getElementById('txtLiffId').value;
-            initializeLiff(myLiffId);
-        };
-
-        function showForm() {
-            var sMsg = document.getElementById('txtMsg').value;
-            var elementRegisterForm = document.getElementById('registerForm');
-            elementRegisterForm.removeAttribute("hidden");
-            (sMsg.length > 0) ?? alert(sMsg);
-        }
+        // function toggleElement(elementId) {
+        //     const elem = document.getElementById(elementId);
+        //     if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
+        //         elem.style.display = 'none';
+        //     } else {
+        //         elem.style.display = 'block';
+        //     }
+        // }
 
         function RegisterClick(msg) {
             var sLineId = document.getElementById('lblUserId').textContent;
@@ -345,7 +293,67 @@ function changeMemberRichMenu($LINEID)
             }
         }
 
-        // async function changeMemberRichMenu(myLiffId) {
+        function showForm() {
+            var sMsg = document.getElementById('txtMsg').value;
+            var elementRegisterForm = document.getElementById('registerForm');
+            elementRegisterForm.removeAttribute("hidden");
+            if (sMsg.length > 0) {
+                alert(sMsg);
+            }
+        }
+
+        function initializeApp() {
+            if (liff.isLoggedIn()) {
+
+                liff.getProfile().then(profile => {
+                        const userName = profile.displayName;
+                        const userId = profile.userId;
+
+                        if (document.getElementById('txtLineDisplay'))
+                            document.getElementById('txtLineDisplay').value = userName;
+
+                        if (document.getElementById('txtLineId'))
+                            document.getElementById('txtLineId').value = userId;
+
+                        if (document.getElementById('lblUserId')) {
+                            document.getElementById('lblUserId').textContent = userId;
+                            document.getElementById('lblUserName').textContent = userName;
+                            document.getElementById('txtDisplay').value = userName;
+                        }
+
+                        if (document.getElementById('txtShowMsg')) {
+                            showForm();
+                        }
+                    })
+                    .catch((err) => {
+                        console.log('error', err);
+                    });
+            }
+        }
+
+        function initializeLiff(myLiffId) {
+            liff.init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    initializeApp();
+                })
+                .catch((err) => {});
+        }
+
+
+        window.onload = function() {
+            var myLiffId = document.getElementById('txtLiffId').value;
+            initializeLiff(myLiffId);
+        };
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- // async function changeMemberRichMenu(myLiffId) { 
         //     BearerToken = "Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=";
         //     urlApi = "https://api.line.me/v2/bot/user/";
         //     pathRichmenu = "/richmenu/";
@@ -368,8 +376,4 @@ function changeMemberRichMenu($LINEID)
         //             console.log(error);
         //         });
         // }
-    </script>
-
-</body>
-
-</html>
+    -->
