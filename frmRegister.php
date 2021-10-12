@@ -257,22 +257,18 @@ if ($LinkCode == 'REGISTER') {
 
         function sMsgDialog() {
             var elementRegisterForm = document.getElementById('registerForm');
-            var sFlag = document.getElementById('txtFlag').value;
-            if (sFlag == 0 || sFlag == '') {
+            var sMsg = document.getElementById('txtMsg').value;
+            if (sMsg.length > 0) {
+                if (sMsg == "Not Found SoldTo code") {
+                    alert(sMsg);
+                } else if (sMsg == "Register Complete") {
+                    elementRegisterForm.removeAttribute("hidden");
+                }
+            } else {
                 elementRegisterForm.removeAttribute("hidden");
             }
 
-            var sShow = document.getElementById('txtShowMsg').value;
-            if (sShow == "1") {
-                var sMsg = document.getElementById('txtMsg').value;
-                if (sMsg.length > 0) {
-                    if (sMsg == "Not Found SoldTo code") {
-                        alert(sMsg);
-                    } else if (sMsg == "Register Complete") {
-                        elementRegisterForm.removeAttribute("hidden");
-                    }
-                }
-            }
+
         }
 
         function initializeApp() {
