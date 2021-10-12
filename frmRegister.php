@@ -293,15 +293,6 @@ function changeMemberRichMenu($LINEID)
             }
         }
 
-        function showForm() {
-            var sMsg = document.getElementById('txtMsg').value;
-            var elementRegisterForm = document.getElementById('registerForm');
-            elementRegisterForm.removeAttribute("hidden");
-            if (sMsg.length > 0) {
-                alert(sMsg);
-            }
-        }
-
         function initializeApp() {
             if (liff.isLoggedIn()) {
 
@@ -322,7 +313,12 @@ function changeMemberRichMenu($LINEID)
                         }
 
                         if (document.getElementById('txtShowMsg')) {
-                            showForm();
+                            var elementRegisterForm = document.getElementById('registerForm');
+                            elementRegisterForm.removeAttribute("hidden");
+                            var sMsg = document.getElementById('txtMsg').value;
+                            if (sMsg.length > 0) {
+                                alert(sMsg);
+                            }
                         }
                     })
                     .catch((err) => {
