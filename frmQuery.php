@@ -10,6 +10,7 @@ $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
+$sURL = sURL;
 
 
 $LinkCode = '';
@@ -346,6 +347,7 @@ if ($LinkCode == 'QUERY') {
         <input type="hidden" id="txtRetCommand" value="<?php echo $RetCommand; ?>">
         <input type="hidden" id="txtLineId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtTableTitle" value="<?php echo $TableTitle; ?>">
+        <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
     </form>
 
@@ -457,11 +459,6 @@ if ($LinkCode == 'QUERY') {
 
         }
 
-
-  
-
-
-
         function SearchClick() {
 
             var sLineId = document.getElementById('txtLineId').value;
@@ -488,8 +485,8 @@ if ($LinkCode == 'QUERY') {
             var para = "?LinkCode=QUERY&LineId=" + sLineId + "&CmdCommand=" + sCmd +
                 "&TableTitle=" + sTableTitle;
 
-            var url = "https://rmxlineliff.herokuapp.com/";
-            url = url + "frmQuery.php" + para;
+            var URL = document.getElementById('txtsURL').value;
+            url = URL + "frmQuery.php" + para;
 
             window.location.assign(url);
 
