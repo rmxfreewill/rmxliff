@@ -196,9 +196,8 @@ if ($LinkCode == 'REGISTER') {
 
     <div id="successMsg" hidden>
         <center>
-            <h1>
-                Close Windows
-            </h1>
+            <h1>Register Success</h1>
+            <h2>Close Windows</h2>
         </center>
     </div>
 
@@ -242,6 +241,22 @@ if ($LinkCode == 'REGISTER') {
                 .catch((err) => {});
         }
 
+        function sMsgAlert() {
+            alert("sShow " + sShow);
+            alert("sMsg " + sMsg);
+            var sShow = document.getElementById('txtShowMsg').value;
+            if (sShow == "1") {
+                var sMsg = document.getElementById('txtMsg').value;
+                if (sMsg.length > 0) {
+                    if (sMsg == "Not Found SoldTo code" || sMsg == "Register Complete") {
+                        var elementRegisterForm = document.getElementById('registerForm');
+                        var elementSuccessMsg = document.getElementById('successMsg');
+                        elementRegisterForm.style.visibility = "hidden";
+                        elementSuccessMsg.removeAttribute("hidden");
+                    }
+                }
+            }
+        }
 
         function initializeApp() {
             //displayLiffData();
@@ -264,30 +279,10 @@ if ($LinkCode == 'REGISTER') {
                             document.getElementById('txtDisplay').value = userName;
                         }
 
-
                         if (document.getElementById('txtShowMsg')) {
-                            var sShow = document.getElementById('txtShowMsg').value;
-                            if (sShow == "1") {
-                                var sMsg = document.getElementById('txtMsg').value;
-                                if (sMsg.length > 0) {
-
-                                    alert(sMsg)
-
-                                    if (sMsg == "Not Found SoldTo code") {
-                                        alert('Change Menu');
-                                        var elementRegisterForm = document.getElementById('registerForm');
-                                        var elementSuccessMsg = document.getElementById('successMsg');
-                                        elementRegisterForm.style.visibility = "hidden";
-                                        elementSuccessMsg.removeAttribute("hidden");
-                                    }
-
-                                }
-                            }
-
-
+                            sMsgAlert();
+                            alert(liff.getOS());
                         }
-
-
                     })
                     .catch((err) => {
                         console.log('error', err);
@@ -300,7 +295,6 @@ if ($LinkCode == 'REGISTER') {
 
 
         function displayLiffData() {
-
             if (document.getElementById('browserLanguage')) {
                 document.getElementById('browserLanguage').textContent = liff.getLanguage();
                 document.getElementById('sdkVersion').textContent = liff.getVersion();
