@@ -126,8 +126,6 @@ function changeMemberRichMenu($LINEID)
     $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
     $data = array();
     $method = "POST";
-
-
     $headers = [
         "Authorization: Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU="
     ];
@@ -264,35 +262,36 @@ function changeMemberRichMenu($LINEID)
 
         };
 
-        async function changeMemberRichMenu(myLiffId) {
-            BearerToken = "Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=";
-            urlApi = "https://api.line.me/v2/bot/user/";
-            pathRichmenu = "/richmenu/";
-            memberRichmenu = "richmenu-119fefe49b2dd01369a9416da62d7f80";
-            url = urlApi + myLiffId + pathRichmenu + memberRichmenu;
-            console.log(url);
-            LINE_HEADER = {
-                'Authorization': BearerToken
-            };
-            await axios({
-                    method: 'POST',
-                    url: url,
-                    data: {},
-                    headers: LINE_HEADER
-                })
-                .then(function(response) {
-                    console.log(response);
-                })
-                .catch(function(error) {
-                    console.log(error);
-                });
-        }
+        // async function changeMemberRichMenu(myLiffId) {
+        //     BearerToken = "Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=";
+        //     urlApi = "https://api.line.me/v2/bot/user/";
+        //     pathRichmenu = "/richmenu/";
+        //     memberRichmenu = "richmenu-119fefe49b2dd01369a9416da62d7f80";
+        //     url = urlApi + myLiffId + pathRichmenu + memberRichmenu;
+        //     console.log(url);
+        //     LINE_HEADER = {
+        //         'Authorization': BearerToken
+        //     };
+        //     await axios({
+        //             method: 'POST',
+        //             url: url,
+        //             data: {},
+        //             headers: LINE_HEADER
+        //         })
+        //         .then(function(response) {
+        //             console.log(response);
+        //         })
+        //         .catch(function(error) {
+        //             console.log(error);
+        //         });
+        // }
 
         function OkClick(msg) {
 
-            var myLiffId = document.getElementById('txtLiffId').value;
-            // changeMemberRichMenu(myLiffId);
-            <?php changeMemberRichMenu($LineId, $type); ?>
+            if (msg == 'red') {
+                var myLiffId = document.getElementById('txtLiffId').value;
+                <?php changeMemberRichMenu($LineId); ?>
+            }
 
             if (liff.getOS() != "web") {
                 liff.closeWindow();
