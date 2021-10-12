@@ -191,8 +191,9 @@ if ($LinkCode == 'VIEW') {
 
         <?php
         if ($sFlag == '0' || $sFlag == '') {
+            echo "<center><h1>sFlag 0</h1></center>";
+        } else {
             if ($RetCommand) {
-                echo "Hi";
                 $asTable = explode("^t", $RetCommand);
                 if (count($asTable) > 0) {
                     $arTmp = explode("^f", $asTable[0]);
@@ -237,11 +238,17 @@ if ($LinkCode == 'VIEW') {
                             $sTab = "<div class='scrollmenu'>" . $sTab . "</div>";
                             echo $sTab;
                             echo $sPage;
+                        } else {
+                            echo "<center><h1>asRow No Record List</h1></center>";
                         }
                     } else {
-                        echo "<center><h1>No Record List</h1></center>";
+                        echo "<center><h1>arTmp No Record List</h1></center>";
                     }
+                } else {
+                    echo "<center><h1>asTable No Record List</h1></center>";
                 }
+            } else {
+                echo "<center><h1> RetCommand No Record List</h1></center>";
             }
         }
 
