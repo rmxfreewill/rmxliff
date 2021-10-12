@@ -278,7 +278,7 @@ function richmenuApi($LINEID, $type)
             pathRichmenu = "/richmenu/";
             memberRichmenu = "richmenu-119fefe49b2dd01369a9416da62d7f80";
             url = urlApi + myLiffId + pathRichmenu + memberRichmenu;
-            alert(url);
+            console.log(url);
             await axios({
                     method: 'POST',
                     url: url,
