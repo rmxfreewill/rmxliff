@@ -248,7 +248,9 @@ if ($LinkCode == 'REGISTER') {
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             } else {
+                var elementRegisterForm = document.getElementById('registerForm');
                 var elementSuccessMsg = document.getElementById('successMsg');
+                elementRegisterForm.style.visibility = "hidden";
                 elementSuccessMsg.removeAttribute("hidden");
             }
         }
