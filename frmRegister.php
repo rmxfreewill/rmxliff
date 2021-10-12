@@ -12,6 +12,7 @@ $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 $sURL = sURL;
 
+
 header('Access-Control-Allow-Origin: *');
 
 /*
@@ -122,13 +123,13 @@ if ($LinkCode == 'REGISTER') {
 //Line Api
 function changeMemberRichMenu($LINEID)
 {
-    $RICHMENUID = "richmenu-119fefe49b2dd01369a9416da62d7f80";
+    $RICHMENUID = RICHMENU_ID;
     $CURLOPT = CURLOPT_POST;
     $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
     $data = array();
     $method = "POST";
     $headers = [
-        "Authorization: Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU="
+        "Authorization: Bearer ".BEARER_TOKEN
     ];
     try {
 
