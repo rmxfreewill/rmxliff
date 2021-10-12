@@ -254,11 +254,15 @@ if ($LinkCode == 'REGISTER') {
             var elementRegisterForm = document.getElementById('registerForm');
             var elementSuccessMsg = document.getElementById('successMsg');
             var sShow = document.getElementById('txtShowMsg').value;
+            alert('sShow ' + sShow);
+            alert('sMsg ' + sMsg);
             if (sShow == "1") {
                 var sMsg = document.getElementById('txtMsg').value;
                 if (sMsg.length > 0) {
                     if (sMsg == "Not Found SoldTo code" || sMsg == "Register Complete") {
                         // OkClick('');
+                    } else {
+
                     }
                 }
             } else {
