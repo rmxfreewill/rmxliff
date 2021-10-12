@@ -276,14 +276,15 @@ function richmenuApi($LINEID, $type)
             pathRichmenu = "/richmenu/";
             memberRichmenu = "richmenu-119fefe49b2dd01369a9416da62d7f80";
             url = urlApi + myLiffId + pathRichmenu + memberRichmenu;
+            alert(url);
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Authorization': token
                 }
             });
-            const myJson = await response.json();
-            alert(myJson);
+            // const myJson = await response.json();
+            // alert(myJson);
         }
 
         function OkClick(msg) {
