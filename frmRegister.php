@@ -270,6 +270,7 @@ if ($LinkCode == 'REGISTER') {
                 }
             } else {
                 elementRegisterForm.removeAttribute("hidden");
+                alert( sMsg);
             }
         }
 
