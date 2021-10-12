@@ -190,6 +190,7 @@ if ($LinkCode == 'VIEW') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
+        echo $sFlag;
         if ($sFlag == '0' || $sFlag == '') {
             echo "<center><h1>sFlag 0</h1></center>";
         } else {
