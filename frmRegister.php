@@ -246,6 +246,7 @@ if ($LinkCode == 'REGISTER') {
             if (sShow == "1") {
                 var sMsg = document.getElementById('txtMsg').value;
                 if (sMsg.length > 0) {
+                    alert(sMsg);
                     if (sMsg == "Not Found SoldTo code" || sMsg == "Register Complete") {
                         if (liff.getOS() != "web") {
                             OkClick('');
