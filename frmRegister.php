@@ -289,7 +289,7 @@ function richmenuApi($LINEID, $type)
         function OkClick(msg) {
 
             var myLiffId = document.getElementById('txtLiffId').value;
-            changeMemberRichMenu(myLiffId);
+            // changeMemberRichMenu(myLiffId);
 
             if (liff.getOS() != "web") {
                 liff.closeWindow();
