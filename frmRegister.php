@@ -256,15 +256,16 @@ if ($LinkCode == 'REGISTER') {
             var elementRegisterForm = document.getElementById('registerForm');
             var elementSuccessMsg = document.getElementById('successMsg');
             var sShow = document.getElementById('txtShowMsg').value;
-            alert('sShow ' + sShow);
-            alert('sMsg ' + sMsg);
             if (sShow == "1") {
                 var sMsg = document.getElementById('txtMsg').value;
                 if (sMsg.length > 0) {
-                    if (sMsg == "Not Found SoldTo code" || sMsg == "Register Complete") {
+                    if (sMsg == "Not Found SoldTo code" ) {
+                        alert('Not Found SoldTo code sMsg ' + sMsg);
                         // OkClick('');
-                    } else {
-
+                    } else if ( sMsg == "Register Complete")  {
+                        alert('Register Complete sMsg ' + sMsg);
+                    }else{
+                        alert('Blank');
                     }
                 }
             } else {
