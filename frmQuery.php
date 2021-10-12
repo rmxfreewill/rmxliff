@@ -458,35 +458,7 @@ if ($LinkCode == 'QUERY') {
         }
 
 
-        function RegisterClick(msg) {
-
-            var sLineId = document.getElementById('lblUserId').textContent;
-            var sLineDisplay = document.getElementById('txtDisplay').value;
-
-            var sCompanyCode = document.getElementById('txtCompanyCode').value;
-            var sUserName = document.getElementById('txtUserName').value;
-            var sEMail = document.getElementById('txtEMail').value;
-            var sTel = document.getElementById('txtTel').value;
-
-            /*
-            var sCmd = "call sp_main_line_reqister ('" + sLineId 
-                + "','"+ sCompanyCode+"','"+sUserName
-                + "','"+ sLineDisplay+"','"+sTel
-                + "','"+ sEMail +"')";  
-            */
-            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-
-            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            var url = "https://rmxlineliff.herokuapp.com/frmRegister.php" + para;
-
-
-
-            liff.login({
-                redirectUri: url
-            });
-
-            //alert(url);
-        }
+  
 
 
 
