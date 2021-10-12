@@ -58,7 +58,7 @@ $sShowMsg = '';
 //Line Api
 function changeMemberRichMenu($LINEID)
 {
-    $RICHMENUID = "richmenu-119fefe49b2dd01369a9416da62d7f80";
+    $RICHMENUID = RICHMENU_ID;
     $CURLOPT = CURLOPT_POST;
     $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
     $data = array();
@@ -130,9 +130,9 @@ if ($LinkCode == 'REGISTER') {
             if ($sFlag == '4') {
                 $sFlag = '5';
                 $sFlagMsg = "Register Complete";
+                changeMemberRichMenu($LineId);
             }
         }
-        changeMemberRichMenu($LineId);
     }
 } else if ($LinkCode == 'CHECK') {
 
@@ -152,7 +152,10 @@ if ($LinkCode == 'REGISTER') {
             $SoldToName = $ASRet[6];
 
             $sShowMsg = '0';
-            if ($sFlag != '0') $sTitle = 'View Register Info';
+            if ($sFlag != '0') {
+                $sTitle = 'View Register Info';
+                changeMemberRichMenu($LineId);
+            }
         }
     }
 }
