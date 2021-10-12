@@ -241,18 +241,20 @@ if ($LinkCode == 'REGISTER') {
                 .catch((err) => {});
         }
 
-        function sMsgAlert() {
-            alert("sShow " + sShow);
-            alert("sMsg " + sMsg);
+        function sMsgDialog() {
             var sShow = document.getElementById('txtShowMsg').value;
             if (sShow == "1") {
                 var sMsg = document.getElementById('txtMsg').value;
                 if (sMsg.length > 0) {
                     if (sMsg == "Not Found SoldTo code" || sMsg == "Register Complete") {
-                        var elementRegisterForm = document.getElementById('registerForm');
-                        var elementSuccessMsg = document.getElementById('successMsg');
-                        elementRegisterForm.style.visibility = "hidden";
-                        elementSuccessMsg.removeAttribute("hidden");
+                        if (liff.getOS() != "web") {
+                            OkClick('');
+                        } else {
+                            var elementRegisterForm = document.getElementById('registerForm');
+                            var elementSuccessMsg = document.getElementById('successMsg');
+                            elementRegisterForm.style.visibility = "hidden";
+                            elementSuccessMsg.removeAttribute("hidden");
+                        }
                     }
                 }
             }
@@ -281,7 +283,6 @@ if ($LinkCode == 'REGISTER') {
 
                         if (document.getElementById('txtShowMsg')) {
                             sMsgAlert();
-                            alert(liff.getOS());
                         }
                     })
                     .catch((err) => {
