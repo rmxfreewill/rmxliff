@@ -287,13 +287,9 @@ function changeMemberRichMenu($LINEID)
         // }
 
         function OkClick(msg) {
-
-            if (msg == 'red') {
-                var myLiffId = document.getElementById('txtLiffId').value;
-                <?php changeMemberRichMenu($LineId); ?>
-            }
-
+            var myLiffId = document.getElementById('txtLiffId').value;
             if (liff.getOS() != "web") {
+                <?php changeMemberRichMenu($LineId); ?>
                 liff.closeWindow();
             } else {
                 var elementRegisterForm = document.getElementById('registerForm');
@@ -301,6 +297,7 @@ function changeMemberRichMenu($LINEID)
 
                 elementRegisterForm.style.display = "none";
                 elementSuccessMsg.removeAttribute("hidden");
+                <?php changeMemberRichMenu($LineId); ?>
             }
         }
 
