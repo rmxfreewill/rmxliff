@@ -241,45 +241,31 @@ function changeMemberRichMenu($LINEID)
     <script>
         window.onload = function() {
 
-            function displayLiffData() {
-                if (document.getElementById('browserLanguage')) {
-                    document.getElementById('browserLanguage').textContent = liff.getLanguage();
-                    document.getElementById('sdkVersion').textContent = liff.getVersion();
-                    document.getElementById('lineVersion').textContent = liff.getLineVersion();
-                    document.getElementById('deviceOS').textContent = liff.getOS();
-                }
-            }
+            // function displayLiffData() {
+            //     if (document.getElementById('browserLanguage')) {
+            //         document.getElementById('browserLanguage').textContent = liff.getLanguage();
+            //         document.getElementById('sdkVersion').textContent = liff.getVersion();
+            //         document.getElementById('lineVersion').textContent = liff.getLineVersion();
+            //         document.getElementById('deviceOS').textContent = liff.getOS();
+            //     }
+            // }
 
-            function toggleAccessToken() {
-                toggleElement('accessTokenData');
-            }
+            // function toggleAccessToken() {
+            //     toggleElement('accessTokenData');
+            // }
 
-            function toggleProfileData() {
-                toggleElement('profileInfo');
-            }
+            // function toggleProfileData() {
+            //     toggleElement('profileInfo');
+            // }
 
-            function toggleElement(elementId) {
-                const elem = document.getElementById(elementId);
-                if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
-                    elem.style.display = 'none';
-                } else {
-                    elem.style.display = 'block';
-                }
-            }
-
-            function RegisterClick(msg) {
-                var sLineId = document.getElementById('lblUserId').textContent;
-                var sLineDisplay = document.getElementById('txtDisplay').value;
-                var sCompanyCode = document.getElementById('txtCompanyCode').value;
-                var sUserName = document.getElementById('txtUserName').value;
-                var sEMail = document.getElementById('txtEMail').value;
-                var sTel = document.getElementById('txtTel').value;
-                var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-                var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-                var URL = document.getElementById('txtsURL').value;
-                url = URL + "frmRegister.php" + para;
-                window.location.assign(url);
-            }
+            // function toggleElement(elementId) {
+            //     const elem = document.getElementById(elementId);
+            //     if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
+            //         elem.style.display = 'none';
+            //     } else {
+            //         elem.style.display = 'block';
+            //     }
+            // }
 
             function showForm() {
                 var sMsg = document.getElementById('txtMsg').value;
@@ -330,6 +316,20 @@ function changeMemberRichMenu($LINEID)
             var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId);
         };
+
+        function RegisterClick(msg) {
+            var sLineId = document.getElementById('lblUserId').textContent;
+            var sLineDisplay = document.getElementById('txtDisplay').value;
+            var sCompanyCode = document.getElementById('txtCompanyCode').value;
+            var sUserName = document.getElementById('txtUserName').value;
+            var sEMail = document.getElementById('txtEMail').value;
+            var sTel = document.getElementById('txtTel').value;
+            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+            var URL = document.getElementById('txtsURL').value;
+            url = URL + "frmRegister.php" + para;
+            window.location.assign(url);
+        }
 
         function OkClick(msg) {
             var myLiffId = document.getElementById('txtLiffId').value;
