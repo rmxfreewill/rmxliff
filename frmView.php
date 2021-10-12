@@ -67,7 +67,7 @@
             if (count($ASRet) >=2) {
                 $sFlagMsg=$ASRet[0];
                 $sFlag=$ASRet[1];     
-              
+              echo $sFlag;
                 $sShowMsg = '0';
                 if ($sFlag != '0') {
                     $sTitle = 'View';
@@ -190,8 +190,13 @@
 
 <form class="animate" method="GET" enctype="multipart/form-data" >
     
-    <?php if ($sFlag == '0' || $sFlag == '') { echo registerScreen();  
-    } else {
+    <?php 
+    
+    
+    if ($sFlag == '0' || $sFlag == '') { echo registerScreen();  
+    } else 
+    
+    {
        // echo $CmdCommand; 
         //echo "\n\n"; 
         //echo $RetCommand; 
