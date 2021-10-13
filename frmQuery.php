@@ -425,48 +425,51 @@ if ($LinkCode == 'QUERY') {
         function initializeApp() {
 
 
-            var sFlag = document.getElementById('txtFlag').value;
-            if (sFlag == "5") {
-                var sRetCommand = document.getElementById('txtRetCommand').value;
-                if (sRetCommand.length > 0) {
-                    alert('sRetCommand ' + sRetCommand);
-                    fillTableData('tblList', sRetCommand);
-                    modal.style.display = "block";
-                }
-            }
-
-
-            // if (liff.isLoggedIn()) {
-
-            //     liff.getProfile().then(profile => {
-            //             const userId = profile.userId;
-            //             if (document.getElementById('txtLineId'))
-            //                 document.getElementById('txtLineId').value = userId;
-
-            //             if (document.getElementById('txtShowMsg')) {
-            //                 var sShow = document.getElementById('txtShowMsg').value;
-            //                 if (sShow == "1") {
-            //                     var sMsg = document.getElementById('txtMsg').value;
-            //                     if (sMsg.length > 0) alert(sMsg);
-            //                 }
-            //             }
-            //             // alert(userId);
-            //         })
-            //         .catch((err) => {
-            //             alert(err);
-            //             console.log('error', err);
-            //         });
-
-            //     var sFlag = document.getElementById('txtFlag').value;
-            //     if (sFlag == "5") {
-            //         var sRetCommand = document.getElementById('txtRetCommand').value;
-            //         if (sRetCommand.length > 0) {
-
-            //             fillTableData('tblList', sRetCommand);
-            //             modal.style.display = "block";
-            //         }
+            // var sFlag = document.getElementById('txtFlag').value;
+            // if (sFlag == "5") {
+            //     var sRetCommand = document.getElementById('txtRetCommand').value;
+            //     if (sRetCommand.length > 0) {
+            //         alert('sRetCommand ' + sRetCommand);
+            //         fillTableData('tblList', sRetCommand);
+            //         modal.style.display = "block";
             //     }
             // }
+
+
+            if (liff.isLoggedIn()) {
+
+
+
+
+                // liff.getProfile().then(profile => {
+                //         const userId = profile.userId;
+                //         if (document.getElementById('txtLineId'))
+                //             document.getElementById('txtLineId').value = userId;
+
+                //         if (document.getElementById('txtShowMsg')) {
+                //             var sShow = document.getElementById('txtShowMsg').value;
+                //             if (sShow == "1") {
+                //                 var sMsg = document.getElementById('txtMsg').value;
+                //                 if (sMsg.length > 0) alert(sMsg);
+                //             }
+                //         }
+                //         // alert(userId);
+                //     })
+                //     .catch((err) => {
+                //         alert(err);
+                //         console.log('error', err);
+                //     });
+
+                var sFlag = document.getElementById('txtFlag').value;
+                if (sFlag == "5") {
+                    var sRetCommand = document.getElementById('txtRetCommand').value;
+                    if (sRetCommand.length > 0) {
+
+                        fillTableData('tblList', sRetCommand);
+                        modal.style.display = "block";
+                    }
+                }
+            }
 
 
         }
