@@ -307,37 +307,25 @@ if ($LinkCode == 'QUERY') {
 
     <form class="animate" method="GET" enctype="multipart/form-data">
 
-        <?php if ($sFlag == '0' || $sFlag == '') {
+        <?php
+        if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen();
-        } else { ?>
-            <div class="login_container">
-
+        } else {
+            echo
+            '<div class="login_container">
                 <div class="login_container">
-
                     <label for="txtFirst"><b>Start Date</b></label>
                     <input type="date" dateformat="d M y" id="txtFirst">
-
                     <label for="txtLast"><b>End Date</b></label>
                     <input type="date" id="txtLast" dateformat="d M y">
-
                     <label for="txtTicketNo"><b>Ticket No</b></label>
                     <input type="text" id="txtTicketNo" value="">
-
-
-
                     <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
-
                     <button type="button" id="btnSearch" onclick="SearchClick()">Serach</button>
-
                 </div>
-
-
-            </div>
-
-
-
-        <?php }  ?>
-
+            </div>';
+        }
+        ?>
 
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
@@ -424,22 +412,7 @@ if ($LinkCode == 'QUERY') {
 
         function initializeApp() {
 
-
-            // var sFlag = document.getElementById('txtFlag').value;
-            // if (sFlag == "5") {
-            //     var sRetCommand = document.getElementById('txtRetCommand').value;
-            //     if (sRetCommand.length > 0) {
-            //         alert('sRetCommand ' + sRetCommand);
-            //         fillTableData('tblList', sRetCommand);
-            //         modal.style.display = "block";
-            //     }
-            // }
-
-
             if (liff.isLoggedIn()) {
-
-
-
 
                 // liff.getProfile().then(profile => {
                 //         const userId = profile.userId;
@@ -463,6 +436,7 @@ if ($LinkCode == 'QUERY') {
                 var sFlag = document.getElementById('txtFlag').value;
                 if (sFlag == "5") {
                     var sRetCommand = document.getElementById('txtRetCommand').value;
+                    alert('sRetCommand ' + sRetCommand);
                     if (sRetCommand.length > 0) {
 
                         fillTableData('tblList', sRetCommand);
