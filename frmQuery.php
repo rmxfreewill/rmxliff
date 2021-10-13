@@ -479,7 +479,7 @@ function ticketSearchScreen()
 
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmQuery.php" + para;
-            alert(url);
+            // alert(url);
             window.location.assign(url);
 
 
