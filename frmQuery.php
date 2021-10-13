@@ -441,7 +441,6 @@ function ticketSearchScreen()
                 var sFlag = document.getElementById('txtFlag').value;
                 if (sFlag == "5") {
                     var sRetCommand = document.getElementById('txtRetCommand').value;
-                    alert('sRetCommand ' + sRetCommand);
                     if (sRetCommand.length > 0) {
                         fillTableData('tblList', sRetCommand);
                         modal.style.display = "block";
@@ -480,7 +479,7 @@ function ticketSearchScreen()
 
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmQuery.php" + para;
-
+            alert(url);
             window.location.assign(url);
 
 
