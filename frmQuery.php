@@ -80,6 +80,23 @@ if ($LinkCode == 'QUERY') {
     }
 }
 
+function ticketSearchScreen()
+{
+    echo
+    '<div class="login_container">
+        <div class="login_container">
+            <label for="txtFirst"><b>Start Date</b></label>
+            <input type="date" dateformat="d M y" id="txtFirst">
+            <label for="txtLast"><b>End Date</b></label>
+            <input type="date" id="txtLast" dateformat="d M y">
+            <label for="txtTicketNo"><b>Ticket No</b></label>
+            <input type="text" id="txtTicketNo" value="">
+            <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
+            <button type="button" id="btnSearch" onclick="SearchClick()">Serach</button>
+        </div>
+    </div>';
+}
+
 
 
 ?>
@@ -311,19 +328,7 @@ if ($LinkCode == 'QUERY') {
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen();
         } else {
-            echo
-            '<div class="login_container">
-                <div class="login_container">
-                    <label for="txtFirst"><b>Start Date</b></label>
-                    <input type="date" dateformat="d M y" id="txtFirst">
-                    <label for="txtLast"><b>End Date</b></label>
-                    <input type="date" id="txtLast" dateformat="d M y">
-                    <label for="txtTicketNo"><b>Ticket No</b></label>
-                    <input type="text" id="txtTicketNo" value="">
-                    <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
-                    <button type="button" id="btnSearch" onclick="SearchClick()">Serach</button>
-                </div>
-            </div>';
+            ticketSearchScreen();
         }
         ?>
 
@@ -438,7 +443,6 @@ if ($LinkCode == 'QUERY') {
                     var sRetCommand = document.getElementById('txtRetCommand').value;
                     alert('sRetCommand ' + sRetCommand);
                     if (sRetCommand.length > 0) {
-
                         fillTableData('tblList', sRetCommand);
                         modal.style.display = "block";
                     }
