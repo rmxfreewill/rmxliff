@@ -429,7 +429,7 @@ if ($LinkCode == 'QUERY') {
             if (sFlag == "5") {
                 var sRetCommand = document.getElementById('txtRetCommand').value;
                 if (sRetCommand.length > 0) {
-
+                    alert('sRetCommand ' + sRetCommand);
                     fillTableData('tblList', sRetCommand);
                     modal.style.display = "block";
                 }
