@@ -154,7 +154,6 @@ if ($LinkCode == 'REGISTER') {
             $sShowMsg = '0';
             if ($sFlag != '0') {
                 $sTitle = 'View Register Info';
-                $sTitle = changeMemberRichMenu($LineId);
             }
         }
     }
