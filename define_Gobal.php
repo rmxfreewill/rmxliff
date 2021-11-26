@@ -14,7 +14,7 @@ define("BEARER_TOKEN","6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW
 // define("sURL", "https://rmxlineliff.herokuapp.com/");
 // define("COMPANY_URL", "http://rmxlineliff.herokuapp.com/zApi/rmxLineCmd.php");
 // define("REGISTER_URL", "http://rmxlineliff.herokuapp.com/zApi/rmxLineRegister.php");
-// define("RICHMENU_ID","richmenu-119fefe49b2dd01369a9416da62d7f80");
+// define("RICHMENU_ID","richmenu-4543fd08d262deae907195d6973593fb");
 // define("BEARER_TOKEN","EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=");
 
 //Backup

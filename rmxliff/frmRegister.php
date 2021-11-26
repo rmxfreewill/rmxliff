@@ -89,7 +89,7 @@ function changeMemberRichMenu($LINEID)
     } catch (Exception $ex) {
         $data = $ex;
     }
-    echo $data;
+    return $data;
 }
 
 if ($LinkCode == 'REGISTER') {
@@ -154,6 +154,7 @@ if ($LinkCode == 'REGISTER') {
             $sShowMsg = '0';
             if ($sFlag != '0') {
                 $sTitle = 'View Register Info';
+                changeMemberRichMenu($LineId);
             }
         }
     }

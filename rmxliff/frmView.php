@@ -96,8 +96,7 @@ if ($LinkCode == 'VIEW') {
     <meta http-equiv="pragma" content="no-cache">
 
 
-    <title>History</title>
-    <!-- <title><?php echo $sTitle; ?></title> -->
+    <title><?php echo $sTitle; ?></title>
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
 
