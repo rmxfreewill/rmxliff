@@ -66,7 +66,6 @@ if (isset($_GET['Function']))
                         url = 'https://www.google.com';
                         break;
                 }
-                console.log(url);
                 return url;
             }
 
@@ -87,7 +86,6 @@ if (isset($_GET['Function']))
 
             async function initializeLiff() {
                 var myLiffId = document.getElementById('txtLiffId').value;
-                console.log(myLiffId);
                 await liff.init({
                         liffId: myLiffId
                     })
@@ -95,7 +93,7 @@ if (isset($_GET['Function']))
                         liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
                     })
                     .catch((err) => {
-                        console.log(err);
+                        console.log("initializeLiff: "+err);
                     });
 
             }

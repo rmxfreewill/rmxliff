@@ -327,7 +327,7 @@ if ($LinkCode == 'REGISTER') {
                         }
                     })
                     .catch((err) => {
-                        console.log('error', err);
+                        console.log('error ', err);
                     });
             }
         }
@@ -339,7 +339,9 @@ if ($LinkCode == 'REGISTER') {
                 .then(() => {
                     initializeApp();
                 })
-                .catch((err) => {});
+                .catch((err) => {
+                    console.log('initializeLiff: ', err);
+                });
         }
 
 
