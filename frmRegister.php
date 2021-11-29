@@ -333,6 +333,7 @@ if ($LinkCode == 'REGISTER') {
         }
 
         function initializeLiff(myLiffId) {
+            console.log('initializeLiff: ', myLiffId);
             liff.init({
                     liffId: myLiffId
                 })
