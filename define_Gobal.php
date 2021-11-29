@@ -1,12 +1,14 @@
 <?php
 
+$surl = "https://rmxliff.herokuapp.com/";
+
 
 //Heroku Server
 define("COMPANY_CODE", "00001");
 define("LIFF_ID", "1656503744-kojgw9pb");
-define("sURL", "https://rmxliff.herokuapp.com/");
-define("COMPANY_URL", "http://rmxliff.herokuapp.com/zApi/rmxLineCmd.php");
-define("REGISTER_URL", "http://rmxliff.herokuapp.com/zApi/rmxLineRegister.php");
+define("sURL", $surl);
+define("COMPANY_URL", $surl."zApi/rmxLineCmd.php");
+define("REGISTER_URL", $surl."zApi/rmxLineRegister.php");
 define("RICHMENU_ID","richmenu-c93df3fb38ad31cb5c52f127d08b5beb");
 define("BEARER_TOKEN","6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=");
 
