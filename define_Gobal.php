@@ -10,7 +10,7 @@ define("COMPANY_CODE", "00001");
 // define("BEARER_TOKEN","EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=");
 
 //Heroku Server
-define("LIFF_ID", "1656520973-EzB8pRze");
+define("LIFF_ID", "1656520973-kojgw9pb");
 define("sURL", "https://rmxliff.herokuapp.com/");
 define("COMPANY_URL", "http://rmxliff.herokuapp.com/zApi/rmxLineCmd.php");
 define("REGISTER_URL", "http://rmxliff.herokuapp.com/zApi/rmxLineRegister.php");
