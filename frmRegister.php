@@ -127,6 +127,7 @@ if ($LinkCode == 'REGISTER') {
             $SoldToName = $ASRet[6];
 
             $sShowMsg = '1';
+            echo 'LineId: '.$LineId;
             if ($sFlag == '4') {
                 $sFlag = '5';
                 $sFlagMsg = "Register Complete";
