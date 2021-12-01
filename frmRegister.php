@@ -209,8 +209,6 @@ function registerScreen($type, $arr)
         ';
     }
 
-    // onclick="RegisterClick(\'\')">Register</button>
-
     $scr = '
     <div class="login_container">
     ' . $scrType . '
@@ -373,8 +371,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
-
-        <!-- <input type="hidden" id="txtMsg" value="<?php  //echo $sFlagMsg; ?>">  -->
+        <input type="hidden" id="txtMsg" value="<?php  echo $sFlagMsg; ?>"> 
 
     </form>
 
@@ -428,19 +425,19 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
             window.location.assign(url);
         }
 
-        function RegisterClickBB(msg) {
-            var sLineId = document.getElementById('lblUserId').textContent;
-            var sLineDisplay = document.getElementById('txtDisplay').value;
-            var sCompanyCode = document.getElementById('txtCompanyCode').value;
-            var sUserName = document.getElementById('txtUserName').value;
-            var sEMail = document.getElementById('txtEMail').value;
-            var sTel = document.getElementById('txtTel').value;
-            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            var URL = document.getElementById('txtsURL').value;
-            url = URL + "frmRegister.php" + para;
-            window.location.assign(url);
-        }
+        // function RegisterClickBB(msg) {
+        //     var sLineId = document.getElementById('lblUserId').textContent;
+        //     var sLineDisplay = document.getElementById('txtDisplay').value;
+        //     var sCompanyCode = document.getElementById('txtCompanyCode').value;
+        //     var sUserName = document.getElementById('txtUserName').value;
+        //     var sEMail = document.getElementById('txtEMail').value;
+        //     var sTel = document.getElementById('txtTel').value;
+        //     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+        //     var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+        //     var URL = document.getElementById('txtsURL').value;
+        //     url = URL + "frmRegister.php" + para;
+        //     window.location.assign(url);
+        // }
 
         function OkClick(msg) {
             var myLiffId = document.getElementById('txtLiffId').value;
