@@ -183,10 +183,10 @@ function registerScreen($type, $arr)
     }else{
         $scrType = '
         <label for="uname"><b>Line Id</b></label>
-        <input type="text" id="txtLineId" readonly>
+        <input type="text" id="txtLineId" disabled>
 
         <label for="uname"><b>Line Display Name</b></label>
-        <input type="text" id="txtLineDisplay" readonly>
+        <input type="text" id="txtLineDisplay" disabled>
 
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName">
@@ -202,7 +202,7 @@ function registerScreen($type, $arr)
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
         required>
         
-        <button type="button"  name="btnLogin" id="btnLogin" onclick="abc()">
+        <button type="button"  name="btnLogin" id="btnLogin" onclick="RegisterClick()">
             Register
         </button>
     
@@ -414,7 +414,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         // }
 
 
-        function abc(){
+        function RegisterClick(){
             var sLineId = document.getElementById('txtLineId').value;
             var sLineDisplay = document.getElementById('txtLineDisplay').value;
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
@@ -427,8 +427,8 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
             url = URL + "frmRegister.php" + para;
             window.location.assign(url);
         }
-        
-        function RegisterClick(msg) {
+
+        function RegisterClickBB(msg) {
             var sLineId = document.getElementById('lblUserId').textContent;
             var sLineDisplay = document.getElementById('txtDisplay').value;
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
