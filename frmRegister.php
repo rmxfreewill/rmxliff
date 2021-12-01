@@ -58,8 +58,7 @@ $sShowMsg = '';
 // registerScreen Defualt
 function registerScreen($type, $arr)
 {
-    $scr = '<div class="login_container">
-    
+    $scrType = '
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName"   >
 
@@ -75,9 +74,9 @@ function registerScreen($type, $arr)
         <button type="button"  name="btnLogin" id="btnLogin" 
             onclick="RegisterClick()">Register</button>
     
-    </div>
+        </div>
 
-    <div id="liffAppContent" class="hidden">
+        <div id="liffAppContent" class="hidden">
               
         <!-- ACCESS TOKEN DATA -->
         <div id="accessTokenData" class="hidden textLeft">
@@ -122,9 +121,8 @@ function registerScreen($type, $arr)
                 </tr>
               
             </table>
-        </div>
-       
-    </div>';
+        </div>  
+    ';
 
     if ($type == true) {
         $UserName = $arr[0];
@@ -133,8 +131,12 @@ function registerScreen($type, $arr)
         $SoldToCode = $arr[3];
         $SoldToName = $arr[4];
 
+        $src = '
+        <label for="uname"><b>Line Id: </b></label><span id="txtLineId"></span>
+        ';
 
-        $scr = '
+
+        $scrBackup = '
         <div class="login_container">
 
         <label for="uname"><b>Line Id</b></label>
@@ -162,6 +164,12 @@ function registerScreen($type, $arr)
         </div>
         ';
     }
+
+    $scr = '
+    <div class="login_container">
+    ' . $scrType . '
+    </div>
+    ';
 
     return $scr;
 }
