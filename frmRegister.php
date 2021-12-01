@@ -423,7 +423,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
             var sTel = document.getElementById('txtTel').value;
             // var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
             // var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            alert(sCompanyCode);
+            alert(sLineDisplay);
         }
         function RegisterClick(msg) {
             var sLineId = document.getElementById('lblUserId').textContent;
