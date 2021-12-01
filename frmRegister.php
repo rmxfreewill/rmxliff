@@ -183,7 +183,7 @@ function registerScreen($type, $arr)
 
     $scr = '
     <div class="login_container">
-    ' . $scrType . '
+    Hi
     </div>
     ';
 
@@ -331,8 +331,8 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         <?php
        
         if ($sFlag == '0' || $sFlag == '') {
-            // echo registerScreen(false, []);
-            echo registerScreenBB();
+            echo registerScreen(false, []);
+            // echo registerScreenBB();
         } else {
             $arrayList = [$LineId, $LineDisplay, $UserName, $EMail, $Tel, $SoldToCode, $SoldToName];
             echo registerScreen(true, $arrayList);
@@ -340,11 +340,12 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         ?>
 
 
+
+
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-        <input type="hidden" id="txtMsg" value="<?php  echo $sFlagMsg; 
-                                                        ?>"> 
+        <input type="hidden" id="txtMsg" value="<?php  echo $sFlagMsg; ?>"> 
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
