@@ -326,13 +326,14 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 </head>
 
 <body>
-
-
+        <?php
+        echo 'sflg '.$sFlag;
+        ?>
 
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
-        echo 'sflg '.$sFlag;
+       
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
