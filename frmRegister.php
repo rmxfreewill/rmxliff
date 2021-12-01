@@ -189,19 +189,22 @@ function registerScreen($type, $arr)
         <input type="text" id="txtLineDisplay" readonly>
 
         <label for="uname"><b>Username</b></label>
-        <input type="text" name="txtUserName" id="txtUserName"   >
+        <input type="text" name="txtUserName" id="txtUserName">
     
         <label for="psw"><b>EMail</b></label>
         <input type="email" placeholder="Enter EMail" name="txtEMail" 
-            id="txtEMail" required >
+            id="txtEMail" 
+        required>
         
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="tel" placeholder="Enter Telephone/Mobile" 
             name="txtTel" id="txtTel" 
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
+        required>
         
-        <button type="button"  name="btnLogin" id="btnLogin" 
-             onclick="abc()">Register</button>
+        <button type="button"  name="btnLogin" id="btnLogin" onclick="abc()">
+            Register
+        </button>
     
         ';
     }
@@ -413,7 +416,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 
         function abc(){
             // var sLineId = document.getElementById('txtLineId').value;
-            // var sLineDisplay = document.getElementById('txtDisplay').value;
+            var sLineDisplay = document.getElementById('txtLineDisplay').value;
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             var sUserName = document.getElementById('txtUserName').value;
             var sEMail = document.getElementById('txtEMail').value;
