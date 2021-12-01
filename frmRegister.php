@@ -131,7 +131,6 @@ function registerScreen($type, $arr)
         $Tel = $arr[3];
         $SoldToCode = $arr[4];
         $SoldToName = $arr[5];
-        
 
         $scrType = '
         <label for="uname"><b>Line Id: </b></label><span id="txtLineId">' . $LineId . '</span>
@@ -331,9 +330,14 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 
         <?php
         if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreenBB();
+            echo registerScreen(false, []);
         } else {
-            echo registerScreen(true, [$LineId,$UserName,$EMail,$Tel,$SoldToCode,$SoldToName]);
+            $Name = $UserName;
+            if ($Name == '') {
+                $Name = $LineDisplay;
+            }
+            $arrayList = [$LineId, $Name, $EMail, $Tel, $SoldToCode, $SoldToName];
+            echo registerScreen(true, $arrayList);
         }
         ?>
 
