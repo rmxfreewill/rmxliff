@@ -181,9 +181,13 @@ function registerScreen($type, $arr)
         ';
     }
 
+    $scrType = '
+    <label for="uname"><b>Username</b></label>
+    <input type="text" name="txtUserName" id="txtUserName"   >';
+
     $scr = '
     <div class="login_container">
-    Hi
+    ' . $scrType . '
     </div>
     ';
 
@@ -339,7 +343,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         }
         ?>
 
-
+        
 
 
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
