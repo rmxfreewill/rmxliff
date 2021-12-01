@@ -326,16 +326,13 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 </head>
 
 <body>
-        <?php
-        echo 'sflg '.$sFlag;
-        ?>
-
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
        
         if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreen(false, []);
+            // echo registerScreen(false, []);
+            echo registerScreenBB();
         } else {
             $arrayList = [$LineId, $LineDisplay, $UserName, $EMail, $Tel, $SoldToCode, $SoldToName];
             echo registerScreen(true, $arrayList);
