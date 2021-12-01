@@ -182,6 +182,9 @@ function registerScreen($type, $arr)
         ';
     }else{
         $scrType = '
+        <label for="uname"><b>Line Id</b></label>
+        <input type="text" id="txtLineId" readonly>
+        
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName"   >
     
@@ -195,7 +198,7 @@ function registerScreen($type, $arr)
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
         
         <button type="button"  name="btnLogin" id="btnLogin" 
-            onclick="RegisterClick()">Register</button>
+            onclick="RegisterClick(\'\')">Register</button>
     
         ';
     }
