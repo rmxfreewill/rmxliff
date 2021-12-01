@@ -394,7 +394,7 @@ function registerScreenBB(){
         </div>
        
     </div>';
-    return $scr;
+    echo $scr;
 
 }
 
