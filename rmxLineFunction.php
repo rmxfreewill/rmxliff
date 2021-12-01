@@ -342,7 +342,7 @@ function registerScreenBB(){
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
         
         <button type="button"  name="btnLogin" id="btnLogin" 
-            onclick="RegisterClick()">Register</button>
+            onclick="RegisterClick("")">Register</button>
     
     </div>
 
