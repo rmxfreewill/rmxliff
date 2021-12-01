@@ -56,7 +56,7 @@ $sTitle = 'Register';
 $sShowMsg = '';
 
 // registerScreen Defualt
-function registerScreen($type)
+function registerScreen($type,$arr)
 {
     $scr = '<div class="login_container">
     
@@ -127,6 +127,9 @@ function registerScreen($type)
     </div>';
 
     if ($type == true) {
+$UserName = $arr[0];
+
+
         $scr = '
         <div class="login_container">
 
@@ -137,10 +140,10 @@ function registerScreen($type)
         <input type="text" id="txtLineDisplay" readonly hidden> -->
 
         <label for="uname"><b>Username</b></label>
-        <input type="text" value="<?php echo $UserName; ?>" id="txtUserName" readonly>
+        <input type="text" value="'.$UserName.'" id="txtUserName" readonly>
 
         <label for="psw"><b>EMail</b></label>
-        <input type="text" id="txtEMail" value="<?php echo $EMail; ?>" readonly>
+        <input type="text" id="txtEMail" value=".$EMail." readonly>
 
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="text" id="txtTel" value="<?php echo $Tel; ?>" readonly>
@@ -302,9 +305,9 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 
         <?php 
         if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreen(false);
+            echo registerScreen(false,null);
         } else {
-            echo registerScreen(true);
+            echo registerScreen(true,[$UserName]);
         }
         ?>
 
