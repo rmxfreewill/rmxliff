@@ -343,8 +343,8 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-        <!-- <input type="hidden" id="txtMsg" value="<?php // echo $sFlagMsg; 
-                                                        ?>"> -->
+        <input type="hidden" id="txtMsg" value="<?php  echo $sFlagMsg; 
+                                                        ?>"> 
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
