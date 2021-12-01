@@ -412,12 +412,12 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 
 
         function abc(){
-            var sLineId = document.getElementById('txtLineId').value;
-            var sLineDisplay = document.getElementById('txtDisplay').value;
-            var sCompanyCode = document.getElementById('txtCompanyCode').value;
-            var sUserName = document.getElementById('txtUserName').value;
-            var sEMail = document.getElementById('txtEMail').value;
-            var sTel = document.getElementById('txtTel').value;
+            // var sLineId = document.getElementById('txtLineId').value;
+            // var sLineDisplay = document.getElementById('txtDisplay').value;
+            // var sCompanyCode = document.getElementById('txtCompanyCode').value;
+            // var sUserName = document.getElementById('txtUserName').value;
+            // var sEMail = document.getElementById('txtEMail').value;
+            // var sTel = document.getElementById('txtTel').value;
             // var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
             // var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
             alert('Hi');
