@@ -421,9 +421,9 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
             var sUserName = document.getElementById('txtUserName').value;
             var sEMail = document.getElementById('txtEMail').value;
             var sTel = document.getElementById('txtTel').value;
-            // var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-            // var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            alert(sLineId);
+            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+            alert(sCmd);
         }
         function RegisterClick(msg) {
             var sLineId = document.getElementById('lblUserId').textContent;
