@@ -50,6 +50,7 @@ $Tel = '';
 $SoldToCode = '';
 $SoldToName = '';
 $sFlagMsg = '';
+$sFlagChangeMenu = false;
 $sFlag = '0';
 $sTitle = 'Register';
 $sShowMsg = '';
@@ -130,6 +131,7 @@ if ($LinkCode == 'REGISTER') {
             if ($sFlag == '4') {
                 $sFlag = '5';
                 $sFlagMsg = "Register Complete";
+                $sFlagChangeMenu = true;
             }
         }
     }
@@ -153,10 +155,16 @@ if ($LinkCode == 'REGISTER') {
             $sShowMsg = '0';
             if ($sFlag != '0') {
                 $sTitle = 'View Register Info';
+                $sFlagChangeMenu = true;
             }
         }
     }
 }
+
+if ($LineId != '' && $sFlagChangeMenu != false) {
+    changeMemberRichMenu($LineId);
+}
+
 
 
 
@@ -289,7 +297,7 @@ if ($LinkCode == 'REGISTER') {
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             } else {
-                var sLineId = document.getElementById('lblUserId').textContent;
+
                 var elementRegisterForm = document.getElementById('registerForm');
                 var elementSuccessMsg = document.getElementById('successMsg');
 
@@ -297,7 +305,7 @@ if ($LinkCode == 'REGISTER') {
                 elementSuccessMsg.removeAttribute("hidden");
 
 
-                changeMemberRichMenu(sLineId);
+
             }
         }
 
