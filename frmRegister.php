@@ -421,6 +421,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
             var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmRegister.php" + para;
+            alert(url);
             window.location.assign(url);
         }
 
