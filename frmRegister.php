@@ -125,15 +125,19 @@ function registerScreen($type, $arr)
     ';
 
     if ($type == true) {
-        $UserName = $arr[0];
-        $EMail = $arr[1];
-        $Tel = $arr[2];
-        $SoldToCode = $arr[3];
-        $SoldToName = $arr[4];
+        $LineId = $arr[0];
+        $UserName = $arr[1];
+        $EMail = $arr[2];
+        $Tel = $arr[3];
+        $SoldToCode = $arr[4];
+        $SoldToName = $arr[5];
+        
 
         $scrType = '
-        <label for="uname"><b>Line Id: </b></label><span id="txtLineId"></span>
+        <label for="uname"><b>Line Id: </b></label><span id="txtLineId">' . $LineId . '</span>
+        <p>
         <label for="uname"><b>Username: </b></label><span id="txtUserName">' . $UserName . '</span>
+        <p>
         ';
 
 
@@ -320,7 +324,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, null);
         } else {
-            echo registerScreen(true, [$UserName]);
+            echo registerScreen(true, [$LineId,$UserName,$EMail,$Tel,$SoldToCode,$SoldToName]);
         }
         ?>
 
