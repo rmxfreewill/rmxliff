@@ -196,20 +196,6 @@ function registerScreen($type, $arr)
         
         <button type="button"  name="btnLogin" id="btnLogin" 
             onclick="RegisterClick()">Register</button>
-
-        <div id="liffAppContent" class="hidden">
-              
-        <!-- ACCESS TOKEN DATA -->
-        <div id="accessTokenData" class="hidden textLeft">
-            <h2>Access Token</h2>
-            <a href="#" onclick="toggleAccessToken()">Close Access Token</a>
-            <table>
-                <tr>
-                    <th>accessToken</th>
-                    <td id="accessTokenField"></td>
-                </tr>
-            </table>
-        </div>
     
         ';
     }
@@ -373,16 +359,16 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         }
         ?>
 
-        
-
+        <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
+        <input type="hidden" id="txtLineDisplay" value="<?php echo $LineDisplay; ?>">
 
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-        <input type="hidden" id="txtMsg" value="<?php  echo $sFlagMsg; ?>"> 
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
+        <!-- <input type="hidden" id="txtMsg" value="<?php  //echo $sFlagMsg; ?>">  -->
 
     </form>
 
