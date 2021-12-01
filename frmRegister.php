@@ -131,7 +131,7 @@ function registerScreen($type, $arr)
         $SoldToCode = $arr[3];
         $SoldToName = $arr[4];
 
-        $src = '
+        $scrType = '
         <label for="uname"><b>Line Id: </b></label><span id="txtLineId"></span>
         ';
 
