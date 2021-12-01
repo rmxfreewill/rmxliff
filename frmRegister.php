@@ -412,7 +412,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 
 
         function abc(){
-            var sLineId = document.getElementById('lblUserId').textContent;
+            var sLineId = document.getElementById('txtLineId').value;
             var sLineDisplay = document.getElementById('txtDisplay').value;
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             var sUserName = document.getElementById('txtUserName').value;
