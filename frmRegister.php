@@ -179,11 +179,27 @@ function registerScreen($type, $arr)
         <button type="button" id="btnLogin" onclick="OkClick(\'red\')">Close</button>
         </div>
         ';
+    }else{
+        $scrType = '
+        <label for="uname"><b>Username</b></label>
+        <input type="text" name="txtUserName" id="txtUserName"   >
+    
+        <label for="psw"><b>EMail</b></label>
+        <input type="email" placeholder="Enter EMail" name="txtEMail" 
+            id="txtEMail" required >
+        
+        <label for="psw"><b>Telephone / Mobile</b></label>
+        <input type="tel" placeholder="Enter Telephone/Mobile" 
+            name="txtTel" id="txtTel" 
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+        
+        <button type="button"  name="btnLogin" id="btnLogin" 
+            onclick="RegisterClick()">Register</button>
+    
+        </div>';
     }
 
-    $scrType = '
-    <label for="uname"><b>Username</b></label>
-    <input type="text" name="txtUserName" id="txtUserName"   >';
+
 
     $scr = '
     <div class="login_container">
