@@ -90,7 +90,7 @@ function changeMemberRichMenu($LINEID)
     } catch (Exception $ex) {
         $data = $ex;
     }
-    echo $data;
+
 }
 
 if ($LinkCode == 'REGISTER') {
