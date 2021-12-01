@@ -126,14 +126,17 @@ function registerScreen($type, $arr)
 
     if ($type == true) {
         $LineId = $arr[0];
-        $UserName = $arr[1];
-        $EMail = $arr[2];
-        $Tel = $arr[3];
-        $SoldToCode = $arr[4];
-        $SoldToName = $arr[5];
+        $LineDisplay = $arr[1];
+        $UserName = $arr[2];
+        $EMail = $arr[3];
+        $Tel = $arr[4];
+        $SoldToCode = $arr[5];
+        $SoldToName = $arr[6];
 
         $scrType = '
         <label for="uname"><b>Line Id: </b></label><span id="txtLineId">' . $LineId . '</span>
+        <p>
+        <label for="uname"><b>LineDisplay: </b></label><span id="txtLineDisplay">' . $LineDisplay . '</span>
         <p>
         <label for="uname"><b>Username: </b></label><span id="txtUserName">' . $UserName . '</span>
         <p>
@@ -332,11 +335,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
-            $Name = $UserName;
-            if ($Name == '') {
-                $Name = $LineDisplay;
-            }
-            $arrayList = [$LineId, $Name, $EMail, $Tel, $SoldToCode, $SoldToName];
+            $arrayList = [$LineId, $LineDisplay, $UserName, $EMail, $Tel, $SoldToCode, $SoldToName];
             echo registerScreen(true, $arrayList);
         }
         ?>
@@ -345,7 +344,8 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-        <!-- <input type="hidden" id="txtMsg" value="<?php // echo $sFlagMsg; ?>"> -->
+        <!-- <input type="hidden" id="txtMsg" value="<?php // echo $sFlagMsg; 
+                                                        ?>"> -->
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
