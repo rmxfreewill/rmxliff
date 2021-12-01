@@ -184,7 +184,10 @@ function registerScreen($type, $arr)
         $scrType = '
         <label for="uname"><b>Line Id</b></label>
         <input type="text" id="txtLineId" readonly>
-        
+
+        <label for="uname"><b>Line Display Name</b></label>
+        <input type="text" id="txtLineDisplay" readonly>
+
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName"   >
     
@@ -361,9 +364,6 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
             echo registerScreen(true, $arrayList);
         }
         ?>
-
-        <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
-        <input type="hidden" id="txtLineDisplay" value="<?php echo $LineDisplay; ?>">
 
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
