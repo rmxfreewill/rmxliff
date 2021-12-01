@@ -56,7 +56,7 @@ $sTitle = 'Register';
 $sShowMsg = '';
 
 // registerScreen Defualt
-function registerScreen($type,$arr)
+function registerScreen($type, $arr)
 {
     $scr = '<div class="login_container">
     
@@ -127,7 +127,11 @@ function registerScreen($type,$arr)
     </div>';
 
     if ($type == true) {
-$UserName = $arr[0];
+        $UserName = $arr[0];
+        $EMail = $arr[1];
+        $Tel = $arr[2];
+        $SoldToCode = $arr[3];
+        $SoldToName = $arr[4];
 
 
         $scr = '
@@ -140,19 +144,19 @@ $UserName = $arr[0];
         <input type="text" id="txtLineDisplay" readonly hidden> -->
 
         <label for="uname"><b>Username</b></label>
-        <input type="text" value="'.$UserName.'" id="txtUserName" readonly>
+        <input type="text" value="' . $UserName . '" id="txtUserName" readonly>
 
         <label for="psw"><b>EMail</b></label>
-        <input type="text" id="txtEMail" value=".$EMail." readonly>
+        <input type="text" id="txtEMail" value="' . $EMail . '" readonly>
 
         <label for="psw"><b>Telephone / Mobile</b></label>
-        <input type="text" id="txtTel" value="<?php echo $Tel; ?>" readonly>
+        <input type="text" id="txtTel" value="' . $Tel . '" readonly>
 
         <label for="psw"><b>SoldTo Code</b></label>
-        <input type="text" id="txtSoldToCode" value="<?php echo $SoldToCode; ?>" readonly>
+        <input type="text" id="txtSoldToCode" value="' . $SoldToCode . '" readonly>
 
         <label for="psw"><b>SoldTo Name</b></label>
-        <input type="text" id="txtSoldToName" value="<?php echo $SoldToName; ?>" readonly>
+        <input type="text" id="txtSoldToName" value="' . $SoldToName . '" readonly>
 
         <button type="button" id="btnLogin" onclick="OkClick(\'red\')">Close</button>
         </div>
@@ -303,11 +307,11 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
-        <?php 
+        <?php
         if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreen(false,null);
+            echo registerScreen(false, null);
         } else {
-            echo registerScreen(true,[$UserName]);
+            echo registerScreen(true, [$UserName]);
         }
         ?>
 
