@@ -55,6 +55,110 @@ $sFlag = '0';
 $sTitle = 'Register';
 $sShowMsg = '';
 
+// registerScreen Defualt
+function registerScreen($type)
+{
+    $scr = '<div class="login_container">
+    
+        <label for="uname"><b>Username</b></label>
+        <input type="text" name="txtUserName" id="txtUserName"   >
+
+        <label for="psw"><b>EMail</b></label>
+        <input type="email" placeholder="Enter EMail" name="txtEMail" 
+            id="txtEMail" required >
+        
+        <label for="psw"><b>Telephone / Mobile</b></label>
+        <input type="tel" placeholder="Enter Telephone/Mobile" 
+            name="txtTel" id="txtTel" 
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+        
+        <button type="button"  name="btnLogin" id="btnLogin" 
+            onclick="RegisterClick()">Register</button>
+    
+    </div>
+
+    <div id="liffAppContent" class="hidden">
+              
+        <!-- ACCESS TOKEN DATA -->
+        <div id="accessTokenData" class="hidden textLeft">
+            <h2>Access Token</h2>
+            <a href="#" onclick="toggleAccessToken()">Close Access Token</a>
+            <table>
+                <tr>
+                    <th>accessToken</th>
+                    <td id="accessTokenField"></td>
+                </tr>
+            </table>
+        </div>
+       
+     
+        <!-- LIFF DATA -->
+        <div id="liffData">
+            <h2 id="liffDataHeader" class="textLeft">Line Data</h2>
+            <table>
+                <tr>
+                    <th>User Id</th>
+                    <td id="lblUserId" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>User Name</th>
+                    <td id="lblUserName" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>OS</th>
+                    <td id="deviceOS" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>Language</th>
+                    <td id="browserLanguage" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>LIFF SDK Version</th>
+                    <td id="sdkVersion" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>LINE Version</th>
+                    <td id="lineVersion" class="textLeft"></td>
+                </tr>
+              
+            </table>
+        </div>
+       
+    </div>';
+
+    if ($type == true) {
+        $scr = '
+        <div class="login_container">
+
+        <label for="uname"><b>Line Id</b></label>
+        <input type="text" id="txtLineId" readonly>
+
+        <!-- <label for="uname"><b>Line Display Name</b></label>
+        <input type="text" id="txtLineDisplay" readonly hidden> -->
+
+        <label for="uname"><b>Username</b></label>
+        <input type="text" value="<?php echo $UserName; ?>" id="txtUserName" readonly>
+
+        <label for="psw"><b>EMail</b></label>
+        <input type="text" id="txtEMail" value="<?php echo $EMail; ?>" readonly>
+
+        <label for="psw"><b>Telephone / Mobile</b></label>
+        <input type="text" id="txtTel" value="<?php echo $Tel; ?>" readonly>
+
+        <label for="psw"><b>SoldTo Code</b></label>
+        <input type="text" id="txtSoldToCode" value="<?php echo $SoldToCode; ?>" readonly>
+
+        <label for="psw"><b>SoldTo Name</b></label>
+        <input type="text" id="txtSoldToName" value="<?php echo $SoldToName; ?>" readonly>
+
+        <button type="button" id="btnLogin" onclick="OkClick(\'red\')">Close</button>
+        </div>
+        ';
+    }
+
+    return $scr;
+}
+
 
 //Line Api
 function changeMemberRichMenu($LINEID)
@@ -90,7 +194,6 @@ function changeMemberRichMenu($LINEID)
     } catch (Exception $ex) {
         $data = $ex;
     }
-
 }
 
 if ($LinkCode == 'REGISTER') {
@@ -166,8 +269,6 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 }
 
 
-
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -199,38 +300,13 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
-        <?php if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreen();
-        } else { ?>
-            <div class="login_container">
-
-                <label for="uname"><b>Line Id</b></label>
-                <input type="text" id="txtLineId" readonly>
-
-                <!-- <label for="uname"><b>Line Display Name</b></label>
-                <input type="text" id="txtLineDisplay" readonly hidden> -->
-
-                <label for="uname"><b>Username</b></label>
-                <input type="text" value="<?php echo $UserName; ?>" id="txtUserName" readonly>
-
-                <label for="psw"><b>EMail</b></label>
-                <input type="text" id="txtEMail" value="<?php echo $EMail; ?>" readonly>
-
-                <label for="psw"><b>Telephone / Mobile</b></label>
-                <input type="text" id="txtTel" value="<?php echo $Tel; ?>" readonly>
-
-                <label for="psw"><b>SoldTo Code</b></label>
-                <input type="text" id="txtSoldToCode" value="<?php echo $SoldToCode; ?>" readonly>
-
-                <label for="psw"><b>SoldTo Name</b></label>
-                <input type="text" id="txtSoldToName" value="<?php echo $SoldToName; ?>" readonly>
-
-                <button type="button" id="btnLogin" onclick="OkClick('red')">OK</button>
-
-            </div>
-
-
-        <?php }  ?>
+        <?php 
+        if ($sFlag == '0' || $sFlag == '') {
+            echo registerScreen(false);
+        } else {
+            echo registerScreen(true);
+        }
+        ?>
 
 
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
