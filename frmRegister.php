@@ -125,7 +125,7 @@ function registerScreen($type, $arr)
     ';
 
     if ($type == true) {
-        
+
         $LineId = $arr[0];
         $LineDisplay = $arr[1];
         $UserName = $arr[2];
@@ -196,6 +196,20 @@ function registerScreen($type, $arr)
         
         <button type="button"  name="btnLogin" id="btnLogin" 
             onclick="RegisterClick()">Register</button>
+
+        <div id="liffAppContent" class="hidden">
+              
+        <!-- ACCESS TOKEN DATA -->
+        <div id="accessTokenData" class="hidden textLeft">
+            <h2>Access Token</h2>
+            <a href="#" onclick="toggleAccessToken()">Close Access Token</a>
+            <table>
+                <tr>
+                    <th>accessToken</th>
+                    <td id="accessTokenField"></td>
+                </tr>
+            </table>
+        </div>
     
         ';
     }
