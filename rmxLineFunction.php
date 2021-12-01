@@ -326,7 +326,7 @@ http://rmxcell.pe.hu/rmxLineRegister.php
 // <input type="text" placeholder="Enter Username" name="txtUserName"       
 // id="txtUserName" required>
 
-function registerScreen(){
+function registerScreenBB(){
     $scr = '<div class="login_container">
     
         <label for="uname"><b>Username</b></label>
