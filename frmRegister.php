@@ -133,6 +133,7 @@ function registerScreen($type, $arr)
 
         $scrType = '
         <label for="uname"><b>Line Id: </b></label><span id="txtLineId"></span>
+        <label for="uname"><b>Username</b></label><span id="txtUserName">' . $UserName . '</span>
         ';
 
 
