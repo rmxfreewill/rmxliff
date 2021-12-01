@@ -331,7 +331,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
 
         <?php
         if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreen(false, null);
+            echo registerScreenBB();
         } else {
             echo registerScreen(true, [$LineId,$UserName,$EMail,$Tel,$SoldToCode,$SoldToName]);
         }
