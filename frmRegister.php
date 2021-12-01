@@ -417,10 +417,10 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
             // var sCompanyCode = document.getElementById('txtCompanyCode').value;
             // var sUserName = document.getElementById('txtUserName').value;
             // var sEMail = document.getElementById('txtEMail').value;
-            // var sTel = document.getElementById('txtTel').value;
+            var sTel = document.getElementById('txtTel').value;
             // var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
             // var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            alert('Hi');
+            alert(sTel);
         }
         function RegisterClick(msg) {
             var sLineId = document.getElementById('lblUserId').textContent;
