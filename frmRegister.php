@@ -64,7 +64,7 @@ function changeMemberRichMenu($LINEID)
     $data = array();
     $method = "POST";
     $headers = [
-        "Authorization: Bearer ".BEARER_TOKEN
+        "Authorization: Bearer " . BEARER_TOKEN
     ];
     try {
 
@@ -130,7 +130,6 @@ if ($LinkCode == 'REGISTER') {
             if ($sFlag == '4') {
                 $sFlag = '5';
                 $sFlagMsg = "Register Complete";
-                changeMemberRichMenu($LineId);
             }
         }
     }
@@ -200,8 +199,8 @@ if ($LinkCode == 'REGISTER') {
                 <label for="uname"><b>Line Id</b></label>
                 <input type="text" id="txtLineId" readonly>
 
-                <label for="uname"><b>Line Display Name</b></label>
-                <input type="text" id="txtLineDisplay" readonly>
+                <!-- <label for="uname"><b>Line Display Name</b></label>
+                <input type="text" id="txtLineDisplay" readonly hidden> -->
 
                 <label for="uname"><b>Username</b></label>
                 <input type="text" value="<?php echo $UserName; ?>" id="txtUserName" readonly>
@@ -290,11 +289,15 @@ if ($LinkCode == 'REGISTER') {
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             } else {
+                var sLineId = document.getElementById('lblUserId').textContent;
                 var elementRegisterForm = document.getElementById('registerForm');
                 var elementSuccessMsg = document.getElementById('successMsg');
 
                 elementRegisterForm.style.display = "none";
                 elementSuccessMsg.removeAttribute("hidden");
+
+
+                changeMemberRichMenu(sLineId);
             }
         }
 
@@ -303,11 +306,12 @@ if ($LinkCode == 'REGISTER') {
 
                 liff.getProfile().then(profile => {
                         const userName = profile.displayName;
-                        const userId = profile.userId;
+
 
                         if (document.getElementById('txtLineDisplay'))
                             document.getElementById('txtLineDisplay').value = userName;
 
+                        const userId = profile.userId;
                         if (document.getElementById('txtLineId'))
                             document.getElementById('txtLineId').value = userId;
 

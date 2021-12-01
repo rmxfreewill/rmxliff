@@ -319,15 +319,18 @@ http://rmxcell.pe.hu/rmxLineRegister.php
 }
 
 
+// <label for="uname"><b>Line Display Name</b></label>
+// <input type="text" name="txtDisplay" id="txtDisplay"  readonly hidden>
+
+// <label for="uname"><b>Username</b></label>
+// <input type="text" placeholder="Enter Username" name="txtUserName"       
+// id="txtUserName" required>
+
 function registerScreen(){
     $scr = '<div class="login_container">
     
-        <label for="uname"><b>Line Display Name</b></label>
-        <input type="text" name="txtDisplay" id="txtDisplay"  readonly>
-
         <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="txtUserName"       
-        id="txtUserName" required>
+        <input type="text" name="txtUserName" id="txtUserName"   >
 
         <label for="psw"><b>EMail</b></label>
         <input type="email" placeholder="Enter EMail" name="txtEMail" 
