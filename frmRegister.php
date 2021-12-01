@@ -138,13 +138,13 @@ function registerScreen($type, $arr)
         <p>
         <label for="uname"><b>Username: </b></label><span id="txtUserName">' . $UserName . '</span>
         <p>
-        <label for="uname"><b>EMail: </b></label><span id="txtUserName">' . $EMail . '</span>
+        <label for="uname"><b>EMail: </b></label><span id="txtEMail">' . $EMail . '</span>
         <p>
-        <label for="uname"><b>Telephone: </b></label><span id="txtUserName">' . $Tel . '</span>
+        <label for="uname"><b>Telephone: </b></label><span id="txtTel">' . $Tel . '</span>
         <p>
-        <label for="uname"><b>SoldTo Code: </b></label><span id="txtUserName">' . $SoldToCode . '</span>
+        <label for="uname"><b>SoldTo Code: </b></label><span id="txtSoldToCode">' . $SoldToCode . '</span>
         <p>
-        <label for="uname"><b>SoldTo Name: </b></label><span id="txtUserName">' . $SoldToName . '</span>
+        <label for="uname"><b>SoldTo Name: </b></label><span id="txtSoldToName">' . $SoldToName . '</span>
         <p>
         <button type="button" id="btnLogin" onclick="OkClick(\'red\')">Close</button>
         ';
