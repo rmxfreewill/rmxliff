@@ -195,8 +195,40 @@ function registerScreen($type, $arr)
         
         <button type="button"  name="btnLogin" id="btnLogin" 
             onclick="RegisterClick()">Register</button>
+
+            <!-- LIFF DATA -->
+        <div id="liffData">
+            <h2 id="liffDataHeader" class="textLeft">Line Data</h2>
+            <table>
+                <tr>
+                    <th>User Id</th>
+                    <td id="lblUserId" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>User Name</th>
+                    <td id="lblUserName" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>OS</th>
+                    <td id="deviceOS" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>Language</th>
+                    <td id="browserLanguage" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>LIFF SDK Version</th>
+                    <td id="sdkVersion" class="textLeft"></td>
+                </tr>
+                <tr>
+                    <th>LINE Version</th>
+                    <td id="lineVersion" class="textLeft"></td>
+                </tr>
+              
+            </table>
+        </div>  
     
-        </div>';
+        ';
     }
 
 
