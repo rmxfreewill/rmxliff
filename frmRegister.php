@@ -201,12 +201,12 @@ function registerScreen($type, $arr)
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
         
         <button type="button"  name="btnLogin" id="btnLogin" 
-            onclick="RegisterClick(\'\')">Register</button>
+             onclick="abc()">Register</button>
     
         ';
     }
 
-
+    // onclick="RegisterClick(\'\')">Register</button>
 
     $scr = '
     <div class="login_container">
@@ -410,6 +410,10 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         //     }
         // }
 
+
+        function abc(){
+            alert('Hi');
+        }
         function RegisterClick(msg) {
             var sLineId = document.getElementById('lblUserId').textContent;
             var sLineDisplay = document.getElementById('txtDisplay').value;
