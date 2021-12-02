@@ -68,7 +68,10 @@ changeMemberRichMenuDefualt($LineId);
     <button type="button" id="btnLogin" onclick="close()">Thank You</button>
     <script>
         function close() {
-            if (liff.getOS() != "web") {
+            // closeWindow call
+            if (!liff.isInClient()) {
+                window.alert('This button is unavailable as LIFF is currently being opened in an external browser.');
+            } else {
                 liff.closeWindow();
             }
         }
