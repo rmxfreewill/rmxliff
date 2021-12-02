@@ -125,7 +125,8 @@ function registerScreen($type, $arr)
     ';
 
     if ($type == true) {
-
+        // <label for="uname"><b>LineDisplay: </b></label><span id="txtLineDisplay" >' . $LineDisplay . '</span>
+        // <p>
         $LineId = $arr[0];
         $LineDisplay = $arr[1];
         $UserName = $arr[2];
@@ -136,8 +137,6 @@ function registerScreen($type, $arr)
 
         $scrType = '
         <label for="uname"><b>Line Id: </b></label><span id="txtLineId">' . $LineId . '</span>
-        <p>
-        <label for="uname"><b>LineDisplay: </b></label><span id="txtLineDisplay">' . $LineDisplay . '</span>
         <p>
         <label for="uname"><b>Username: </b></label><span id="txtUserName">' . $UserName . '</span>
         <p>
@@ -181,12 +180,13 @@ function registerScreen($type, $arr)
         </div>
         ';
     } else {
+        // <label for="uname"><b>Line Display Name</b></label>
         $scrType = '
         <label for="uname"><b>Line Id</b></label>
         <input type="text" id="txtLineId" disabled>
 
-        <label for="uname"><b>Line Display Name</b></label>
-        <input type="text" id="txtLineDisplay" disabled>
+
+        <input type="text" id="txtLineDisplay" hidden>
 
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName">
