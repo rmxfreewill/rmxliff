@@ -63,7 +63,7 @@ if (isset($_GET['Function']))
                         url = URL + "frmTicket.php" + para;
                         break;
                     case "LOGOUT":
-                        url = URL + "frmRegister.php" + "?LinkCode=LOGOUT";
+                        url = URL + "frmLogout.php" + para;
                         break;
                     default:
                         url = 'https://www.google.com';

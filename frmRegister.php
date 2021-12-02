@@ -261,7 +261,7 @@ function changeMemberRichMenu($type, $LINEID)
 }
 
 if ($LinkCode == 'LOGOUT') {
-    changeMemberRichMenu($LinkCode, $LineId);
+    
 } else {
     if ($LinkCode == 'REGISTER') {
         // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
@@ -364,13 +364,7 @@ if ($LinkCode == 'LOGOUT') {
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
-        if ($LinkCode == 'LOGOUT') {
-        ?>
-            <script>
-                closeClick();
-            </script>
-        <?php
-        }
+        
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
@@ -452,11 +446,6 @@ if ($LinkCode == 'LOGOUT') {
         //     window.location.assign(url);
         // }
 
-        function closeClick() {
-            if (liff.getOS() != "web") {
-                liff.closeWindow();
-            }
-        }
 
         function OkClick(msg) {
             var myLiffId = document.getElementById('txtLiffId').value;
