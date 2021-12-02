@@ -4,6 +4,8 @@ session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
 
+$LiffId = LIFF_ID;
+
 $LineId = '';
 if (isset($_POST['LineId']))
     $LineId = $_POST['LineId'];
@@ -58,38 +60,31 @@ changeMemberRichMenuDefualt($LineId);
 
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
+    <title>Line</title>
+    <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
-    <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-    <button type="button" id="btnLogin" onclick="close()">Thank You</button>
+    <center>
+        <h1>Thank You</h1>
+    </center>
     <script>
-        function initializeApp() {
-            if (liff.isLoggedIn()) {
-
-                liff.getProfile().then(profile => {
-                        const userName = profile.displayName;
-                        liff.closeWindow();
-                    })
-                    .catch((err) => {
-                        console.log('error ', err);
-                    });
-            }
+        async function initializeLiff() {
+            var myLiffId = document.getElementById('txtLiffId').value;
+            await liff.init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    liff.isLoggedIn() ?? liff.closeWindow();
+                })
+                .catch((err) => {
+                    console.log("initializeLiff: " + err);
+                });
         }
 
-        function close() {
-            // closeWindow call
-            if (!liff.isInClient()) {
-                window.alert('This button is unavailable as LIFF is currently being opened in an external browser.');
-            } else {
-                liff.closeWindow();
-            }
-        }
-
-        initializeApp();
+        initializeLiff();
     </script>
 </body>
 
