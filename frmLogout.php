@@ -45,3 +45,34 @@ function changeMemberRichMenuDefualt($LINEID)
 }
 
 changeMemberRichMenuDefualt($LineId);
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="en-th">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <script>
+        function close() {
+            if (liff.getOS() != "web") {
+                liff.closeWindow();
+            }
+        }
+        close();
+    </script>
+</body>
+
+</html>
