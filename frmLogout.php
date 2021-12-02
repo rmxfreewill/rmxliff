@@ -65,13 +65,13 @@ changeMemberRichMenuDefualt($LineId);
 </head>
 
 <body>
+    <button type="button" id="btnLogin" onclick="close()">Thank You</button>
     <script>
         function close() {
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             }
         }
-        close();
     </script>
 </body>
 
