@@ -77,7 +77,7 @@ changeMemberRichMenuDefualt($LineId);
                     liffId: myLiffId
                 })
                 .then(() => {
-                    liff.isLoggedIn() ?? liff.closeWindow();
+                    liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
                 })
                 .catch((err) => {
                     console.log("initializeLiff: " + err);
