@@ -80,11 +80,12 @@ if ($LinkCode == 'QUERY') {
     }
 }
 
-function ticketSearchScreen()
+function ticketSearchScreen($LineId)
 {
     echo
     '<div class="login_container">
         <div class="login_container">
+            <label>LINE ID: '.$LineId.'</label>
             <label for="txtFirst"><b>Start Date</b></label>
             <input type="date" dateformat="d M y" id="txtFirst">
             <label for="txtLast"><b>End Date</b></label>
@@ -328,7 +329,7 @@ function ticketSearchScreen()
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false,[]);
         } else {
-            ticketSearchScreen();
+            ticketSearchScreen($LineId);
         }
         ?>
 
