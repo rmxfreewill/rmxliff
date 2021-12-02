@@ -180,7 +180,7 @@ function registerScreen($type, $arr)
         <button type="button" id="btnLogin" onclick="OkClick(\'red\')">Close</button>
         </div>
         ';
-    }else{
+    } else {
         $scrType = '
         <label for="uname"><b>Line Id</b></label>
         <input type="text" id="txtLineId" disabled>
@@ -220,13 +220,20 @@ function registerScreen($type, $arr)
 
 
 //Line Api
-function changeMemberRichMenu($LINEID)
+function changeMemberRichMenu($type, $LINEID)
 {
-    $RICHMENUID = RICHMENU_ID;
-    $CURLOPT = CURLOPT_POST;
-    $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
+    //New 51aa8f8483635f43ed2b9198664e509f
+
+    if ($type == 'LOGOUT') {
+        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
+        $method = "DELETE";
+    } else {
+        $CURLOPT = CURLOPT_POST;
+        $RICHMENUID = RICHMENU_ID;
+        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
+        $method = "POST";
+    }
     $data = array();
-    $method = "POST";
     $headers = [
         "Authorization: Bearer " . BEARER_TOKEN
     ];
@@ -255,78 +262,80 @@ function changeMemberRichMenu($LINEID)
     }
 }
 
-if ($LinkCode == 'REGISTER') {
-
-    // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
-    $ASRet = [];
-    $ASRet = explode("^c", $CmdCommand);
-    $LineDisplay = $ASRet[0];
-    $UserName = $ASRet[1];
-    $Tel = $ASRet[2];
-    $EMail = $ASRet[3];
-
-    $RetCommand = register_command(
-        $RegisterUrl,
-        $LineId,
-        $CompanyCode,
-        $LineDisplay,
-        $UserName,
-        $Tel,
-        $EMail
-    );
-
-    if ($RetCommand) {
+if ($LinkCode == 'LOGOUT') {
+    changeMemberRichMenu($LinkCode, $LineId);
+} else {
+    if ($LinkCode == 'REGISTER') {
+        // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
         $ASRet = [];
-        $ASRet = explode("^c", $RetCommand);
-        if (count($ASRet) >= 5) {
+        $ASRet = explode("^c", $CmdCommand);
+        $LineDisplay = $ASRet[0];
+        $UserName = $ASRet[1];
+        $Tel = $ASRet[2];
+        $EMail = $ASRet[3];
 
-            $sFlagMsg = $ASRet[0];
-            $sFlag = $ASRet[1];
-            $UserName = $ASRet[2];
-            $Tel = $ASRet[3];
-            $EMail = $ASRet[4];
+        $RetCommand = register_command(
+            $RegisterUrl,
+            $LineId,
+            $CompanyCode,
+            $LineDisplay,
+            $UserName,
+            $Tel,
+            $EMail
+        );
 
-            $SoldToCode = $ASRet[5];
-            $SoldToName = $ASRet[6];
+        if ($RetCommand) {
+            $ASRet = [];
+            $ASRet = explode("^c", $RetCommand);
+            if (count($ASRet) >= 5) {
 
-            $sShowMsg = '1';
-            if ($sFlag == '4') {
-                $sFlag = '5';
-                $sFlagMsg = "Register Complete";
-                $sFlagChangeMenu = true;
+                $sFlagMsg = $ASRet[0];
+                $sFlag = $ASRet[1];
+                $UserName = $ASRet[2];
+                $Tel = $ASRet[3];
+                $EMail = $ASRet[4];
+
+                $SoldToCode = $ASRet[5];
+                $SoldToName = $ASRet[6];
+
+                $sShowMsg = '1';
+                if ($sFlag == '4') {
+                    $sFlag = '5';
+                    $sFlagMsg = "Register Complete";
+                    $sFlagChangeMenu = true;
+                }
+            }
+        }
+    } else if ($LinkCode == 'CHECK') {
+
+        $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+        if ($RetCommand) {
+            //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
+            $ASRet = [];
+            $ASRet = explode("^c", $RetCommand);
+            if (count($ASRet) >= 2) {
+                $sFlagMsg = $ASRet[0];
+                $sFlag = $ASRet[1];
+
+                $UserName = $ASRet[2];
+                $EMail = $ASRet[3];
+                $Tel = $ASRet[4];
+                $SoldToCode = $ASRet[5];
+                $SoldToName = $ASRet[6];
+
+                $sShowMsg = '0';
+                if ($sFlag != '0') {
+                    $sTitle = 'View Register Info';
+                    $sFlagChangeMenu = true;
+                }
             }
         }
     }
-} else if ($LinkCode == 'CHECK') {
 
-    $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
-    if ($RetCommand) {
-        //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
-        $ASRet = [];
-        $ASRet = explode("^c", $RetCommand);
-        if (count($ASRet) >= 2) {
-            $sFlagMsg = $ASRet[0];
-            $sFlag = $ASRet[1];
-
-            $UserName = $ASRet[2];
-            $EMail = $ASRet[3];
-            $Tel = $ASRet[4];
-            $SoldToCode = $ASRet[5];
-            $SoldToName = $ASRet[6];
-
-            $sShowMsg = '0';
-            if ($sFlag != '0') {
-                $sTitle = 'View Register Info';
-                $sFlagChangeMenu = true;
-            }
-        }
+    if ($LineId != '' && $sFlagChangeMenu != false) {
+        changeMemberRichMenu($LinkCode, $LineId);
     }
 }
-
-if ($LineId != '' && $sFlagChangeMenu != false) {
-    changeMemberRichMenu($LineId);
-}
-
 
 ?>
 
@@ -357,7 +366,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
-       
+
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
@@ -371,7 +380,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
-        <input type="hidden" id="txtMsg" value="<?php  echo $sFlagMsg; ?>"> 
+        <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
 
     </form>
 
@@ -411,7 +420,7 @@ if ($LineId != '' && $sFlagChangeMenu != false) {
         // }
 
 
-        function RegisterClick(){
+        function RegisterClick() {
             var sLineId = document.getElementById('txtLineId').value;
             var sLineDisplay = document.getElementById('txtLineDisplay').value;
             var sCompanyCode = document.getElementById('txtCompanyCode').value;

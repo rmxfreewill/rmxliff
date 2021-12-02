@@ -326,7 +326,7 @@ function ticketSearchScreen()
 
         <?php
         if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreen();
+            echo registerScreen(false,[]);
         } else {
             ticketSearchScreen();
         }

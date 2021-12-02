@@ -62,6 +62,9 @@ if (isset($_GET['Function']))
                     case "TICKET":
                         url = URL + "frmTicket.php" + para;
                         break;
+                    case "LOGOUT":
+                        url = URL + "frmRegister.php" + "?LinkCode=LOGOUT";
+                        break;
                     default:
                         url = 'https://www.google.com';
                         break;
@@ -93,7 +96,7 @@ if (isset($_GET['Function']))
                         liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
                     })
                     .catch((err) => {
-                        console.log("initializeLiff: "+err);
+                        console.log("initializeLiff: " + err);
                     });
 
             }

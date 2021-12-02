@@ -14,8 +14,11 @@ define("LIFF_ID", "1656503744-kojgw9pb");
 define("sURL", "https://rmxliff.herokuapp.com/");
 // define("COMPANY_URL", "http://rmxliff.herokuapp.com/zApi/rmxLineCmd.php");
 // define("REGISTER_URL", "http://rmxliff.herokuapp.com/zApi/rmxLineRegister.php");
-define("RICHMENU_ID","richmenu-c93df3fb38ad31cb5c52f127d08b5beb");
+define("RICHMENU_ID","richmenu-51aa8f8483635f43ed2b9198664e509f");
+
 define("BEARER_TOKEN","6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=");
+
+//Old c93df3fb38ad31cb5c52f127d08b5beb
 
 //Heroku Server
 // define("LIFF_ID", "1656520973-EzB8pRze");
