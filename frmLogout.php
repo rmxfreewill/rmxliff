@@ -67,6 +67,19 @@ changeMemberRichMenuDefualt($LineId);
 <body>
     <button type="button" id="btnLogin" onclick="close()">Thank You</button>
     <script>
+        function initializeApp() {
+            if (liff.isLoggedIn()) {
+
+                liff.getProfile().then(profile => {
+                        const userName = profile.displayName;
+                        liff.closeWindow();
+                    })
+                    .catch((err) => {
+                        console.log('error ', err);
+                    });
+            }
+        }
+
         function close() {
             // closeWindow call
             if (!liff.isInClient()) {
@@ -75,6 +88,8 @@ changeMemberRichMenuDefualt($LineId);
                 liff.closeWindow();
             }
         }
+
+        initializeApp();
     </script>
 </body>
 
