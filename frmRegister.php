@@ -222,11 +222,9 @@ function registerScreen($type, $arr)
 //Line Api
 function changeMemberRichMenu($type, $LINEID)
 {
-    //New 51aa8f8483635f43ed2b9198664e509f
-
     if ($type == 'LOGOUT') {
         $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
-        $method = "DELETE";
+        $method = 'DELETE';
     } else {
         $CURLOPT = CURLOPT_POST;
         $RICHMENUID = RICHMENU_ID;
@@ -366,7 +364,13 @@ if ($LinkCode == 'LOGOUT') {
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
-
+        if ($LinkCode == 'LOGOUT') {
+        ?>
+            <script>
+                closeClick();
+            </script>
+        <?php
+        }
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
@@ -447,6 +451,12 @@ if ($LinkCode == 'LOGOUT') {
         //     url = URL + "frmRegister.php" + para;
         //     window.location.assign(url);
         // }
+
+        function closeClick() {
+            if (liff.getOS() != "web") {
+                liff.closeWindow();
+            }
+        }
 
         function OkClick(msg) {
             var myLiffId = document.getElementById('txtLiffId').value;
