@@ -66,7 +66,7 @@ if (isset($_GET['Function']))
                         url = URL + "frmLogout.php" + para;
                         break;
                     default:
-                        url = 'https://www.google.com';
+                        url = 'closeWindow.php';
                         break;
                 }
                 return url;
