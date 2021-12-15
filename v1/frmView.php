@@ -193,7 +193,7 @@ if ($LinkCode == 'VIEW') {
         <?php
 
         if ($sFlag == '0' || $sFlag == '') {
-            echo "<center><h1>No Record List</h1></center>";
+            echo "<center>$LineId<h1><br>No Record List</h1></center>";
         } else {
             if ($RetCommand) {
                 $asTable = explode("^t", $RetCommand);
