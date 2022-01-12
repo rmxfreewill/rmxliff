@@ -4,8 +4,8 @@
 define("COMPANY_CODE", "00001");
 // define("LIFF_ID","1656520973-EzB8pRze");
 // define("sURL","https://rmxdev.herokuapp.com/");
-define("COMPANY_URL", "http://119.46.97.156/rmxline/rmxLineCmd.php");
-define("REGISTER_URL", "http://119.46.97.156/rmxline/rmxLineRegister.php");
+define("COMPANY_URL", "https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php");
+define("REGISTER_URL", "https://rmx.freewillsolutions.com/rmxline/rmxLineRegister.php");
 // define("RICHMENU_ID","richmenu-133a752296d0fe1b5a51f275c1a770b3");
 // define("BEARER_TOKEN","EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=");
 
