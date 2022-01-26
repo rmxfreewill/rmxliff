@@ -189,22 +189,15 @@ function registerScreen($type, $arr)
                 <label for="uname"><b>Line Id</b></label>
         <input type="text" id="txtLineId" disabled>
         <input type="text" id="txtLineDisplay" hidden>
-
-        ';
-        $scrTypeB = '
-
-
-
-
-
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName">
-    
         <label for="psw"><b>EMail</b></label>
         <input type="email" placeholder="Enter EMail" name="txtEMail" 
             id="txtEMail" 
         required>
-        
+        ';
+
+        $scrTypeB = '
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="tel" placeholder="Enter Telephone/Mobile" 
             name="txtTel" id="txtTel" 
@@ -216,7 +209,7 @@ function registerScreen($type, $arr)
         </button>
     
         ';
-        $scrType =   $scrTypeA .$scrTypeB ;
+        $scrType = $scrTypeB ;
     }
 
     $scr = '
