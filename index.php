@@ -93,7 +93,7 @@ if (isset($_GET['Function']))
                     });
             }
 
-            async function initializeLiff() {
+            async function initializeLiffbb() {
                 var myLiffId = document.getElementById('txtLiffId').value;
                 await liff.init({
                         liffId: myLiffId
@@ -107,8 +107,8 @@ if (isset($_GET['Function']))
 
             }
 
-
-            initializeLiff();
+            var myLiffId = document.getElementById('txtLiffId').value;
+            initializeLiff(myLiffId,'');
 
         }
     </script>

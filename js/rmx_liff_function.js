@@ -3,9 +3,10 @@ async function initializeLiff(myLiffId,type) {
             liffId: myLiffId
         })
         .then(() => {
+            alert(type);
             if(type=='LOGOUT'){
                 liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
-            }else if(type=='REGISTER'){
+            }else if(type==''){
                 liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
             }
         })
