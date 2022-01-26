@@ -73,7 +73,7 @@ changeMemberRichMenuDefualt($LineId);
     </center>
     <script>
         var myLiffId = document.getElementById('txtLiffId').value;
-        initializeLiff(myLiffId);
+        initializeLiff(myLiffId,'LOGOUT');
     </script>
 </body>
 
