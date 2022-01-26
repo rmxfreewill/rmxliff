@@ -108,7 +108,7 @@ if (isset($_GET['Function']))
             // }
 
             var myLiffId = document.getElementById('txtLiffId').value;
-            initializeLiff(myLiffId,'');
+            initializeLiff(myLiffId,'index');
 
         }
     </script>
