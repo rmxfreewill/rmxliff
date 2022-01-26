@@ -16,7 +16,11 @@ if (isset($_POST['Function']))
 if (isset($_GET['Function']))
     $Function = $_GET['Function'];
 
-    // echo $Function ;
+    $menu = '';
+    if (isset($_POST['menu']))
+        $menu = $_POST['menu'];
+    if (isset($_GET['menu']))
+        $menu = $_GET['menu'];
 
 
 ?>
@@ -75,6 +79,11 @@ if (isset($_GET['Function']))
                         url = 'closeWindow.php';
                         break;
                 }
+
+                if($menu=='profile'){
+                    url = URL + "frmLogout.php" + para;
+                }
+
                 return url;
             }
 
