@@ -36,6 +36,7 @@ if (isset($_GET['Function']))
 </head>
 
 <body>
+<?php echo $Function; ?>
     <form class="animate" method="GET" enctype="multipart/form-data" action="index.php">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
