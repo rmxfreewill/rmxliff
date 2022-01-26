@@ -515,7 +515,7 @@ if ($LinkCode == 'LOGOUT') {
 
         window.onload = function() {
             var myLiffId = document.getElementById('txtLiffId').value;
-            initializeLiff(myLiffId);
+            initializeLiff(myLiffId,'REGISTER');
         };
     </script>
 
