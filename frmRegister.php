@@ -195,9 +195,14 @@ function registerScreen($type, $arr)
         <input type="email" placeholder="Enter EMail" name="txtEMail" 
             id="txtEMail" 
         required>
-        ';
 
+        ';
+        //
         $scrTypeB = '
+        <input type="text" id="txtLineId" disabled hidden>
+        ';
+        //
+        $scrTypeC = '
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="tel" placeholder="Enter Telephone/Mobile" 
             name="txtTel" id="txtTel" 
@@ -207,9 +212,13 @@ function registerScreen($type, $arr)
         <button type="button"  name="btnLogin" id="btnLogin" onclick="RegisterClick()">
             Register
         </button>
-    
         ';
-        $scrType = $scrTypeB ;
+        //
+        //
+        $scrType = $scrTypeB .$scrTypeC;
+        //
+        //
+    
     }
 
     $scr = '
@@ -217,7 +226,8 @@ function registerScreen($type, $arr)
     ' . $scrType . '
     </div>
     ';
-
+//true = AutoClose
+//False = Show Form
     return $scr;
 }
 
