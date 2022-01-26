@@ -16,7 +16,7 @@ if (isset($_POST['Function']))
 if (isset($_GET['Function']))
     $Function = $_GET['Function'];
 
-    echo $Function ;
+    // echo $Function ;
 
     $server  = $_SERVER["REQUEST_URI"]."<br>"; 
     echo $server;
