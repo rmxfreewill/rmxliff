@@ -106,7 +106,7 @@ if (isset($_GET['Function']))
 
             }
 
-            // initializeLiff();
+            initializeLiff();
 
         }
     </script>
