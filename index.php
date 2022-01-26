@@ -35,7 +35,7 @@ if (isset($_GET['Function']))
     </head>
     <body>
         <?php 
-            echo 'Param: '.$parameter ;  
+            echo 'Param: '.$parameter['menu'];  
         ?>
     </body>
 </html>
