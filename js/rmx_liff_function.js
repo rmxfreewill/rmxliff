@@ -19,12 +19,12 @@ async function initializeLiff(myLiffId,type) {
             liffId: myLiffId
         })
         .then(() => {
-
-            if(type=='LOGOUT'){
-                liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
-            }else if(type=='index'){
-                liff.isLoggedIn() ? getProfileLiffUserId(type) : liff.login();
-            }
+            type=='LOGOUT' && liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
+            // if(type=='LOGOUT'){
+            //     liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
+            // }else if(type=='index'){
+            //     liff.isLoggedIn() ? getProfileLiffUserId(type) : liff.login();
+            // }
         })
         .catch((err) => {
             console.log("initializeLiff: " + err);
