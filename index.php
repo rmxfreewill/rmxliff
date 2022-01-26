@@ -32,7 +32,7 @@ if (isset($_GET['Function']))
     </head>
     <body>
         <?php 
-            echo ':: '.$Function;  
+            echo 'COMPANY_URL: '.$CompanyUrl;  
         ?>
     </body>
 </html>
