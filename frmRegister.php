@@ -58,6 +58,7 @@ $sShowMsg = '';
 // registerScreen Defualt
 function registerScreen($type, $arr)
 {
+
     $scrType = '
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName"   >
@@ -181,12 +182,20 @@ function registerScreen($type, $arr)
         ';
     } else {
         // <label for="uname"><b>Line Display Name</b></label>
-        $scrType = '
-        <label for="uname"><b>Line Id</b></label>
+        //
+        //
+        //
+        $scrTypeA = '
+                <label for="uname"><b>Line Id</b></label>
         <input type="text" id="txtLineId" disabled>
-
-
         <input type="text" id="txtLineDisplay" hidden>
+
+        ';
+        $scrTypeB = '
+
+
+
+
 
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName">
@@ -207,6 +216,7 @@ function registerScreen($type, $arr)
         </button>
     
         ';
+        $scrType =   $scrTypeA .$scrTypeB ;
     }
 
     $scr = '
@@ -427,8 +437,8 @@ if ($LinkCode == 'LOGOUT') {
             var sTel = document.getElementById('txtTel').value;
             var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
             var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            var URL = document.getElementById('txtsURL').value;
-            url = URL + "frmRegister.php" + para;
+            var surl = document.getElementById('txtsURL').value;
+            url = surl + "frmRegister.php" + para;
             window.location.assign(url);
         }
 

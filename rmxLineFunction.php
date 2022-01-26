@@ -298,7 +298,18 @@ function send_query($CompanyUrl,$userId,$CompanyId,$Command){
 
 
 function register_command($RegisterUrl,$LineId,$CompanyCode,
-        $LineDisplay,$UserName,$Tel,$EMail){
+        $LineDisplay,$UserName,$Tel,$EMail)
+{
+
+    /*
+    http://rmxcell.pe.hu/rmxLineRegister.php
+    ?LineId=t0000-930000330
+        &CompanyCode=00001
+        &LineDisplay=display
+        &UserName=UserName
+        &Tel=9983473955
+        &EMail=g@g.com
+    */      
 
     $curl_data = "LineId=".$LineId."&CompanyCode=".$CompanyCode
         ."&LineDisplay=".$LineDisplay."&UserName=".$UserName
@@ -307,24 +318,15 @@ function register_command($RegisterUrl,$LineId,$CompanyCode,
     $response = post_web_content($RegisterUrl,$curl_data);
     return $response;
 
-    /*
-http://rmxcell.pe.hu/rmxLineRegister.php
-?LineId=t0000-930000330
-    &CompanyCode=00001
-    &LineDisplay=display
-    &UserName=UserName
-    &Tel=9983473955
-    &EMail=g@g.com
-*/
 }
 
 
-// <label for="uname"><b>Line Display Name</b></label>
-// <input type="text" name="txtDisplay" id="txtDisplay"  readonly hidden>
+    // <label for="uname"><b>Line Display Name</b></label>
+    // <input type="text" name="txtDisplay" id="txtDisplay"  readonly hidden>
 
-// <label for="uname"><b>Username</b></label>
-// <input type="text" placeholder="Enter Username" name="txtUserName"       
-// id="txtUserName" required>
+    // <label for="uname"><b>Username</b></label>
+    // <input type="text" placeholder="Enter Username" name="txtUserName"       
+    // id="txtUserName" required>
 
 function registerScreenBB(){
     $scr = '<div class="login_container">

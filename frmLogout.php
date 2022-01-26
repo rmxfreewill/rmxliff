@@ -72,18 +72,6 @@ changeMemberRichMenuDefualt($LineId);
         <h1>Thank You</h1>
     </center>
     <script>
-        // async function initializeLiff() {
-        //     await liff.init({
-        //             liffId: myLiffId
-        //         })
-        //         .then(() => {
-        //             liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
-
-        //         })
-        //         .catch((err) => {
-        //             console.log("initializeLiff: " + err);
-        //         });
-        // }
         var myLiffId = document.getElementById('txtLiffId').value;
         var type = "logout";
         initializeLiff(myLiffId,type);
