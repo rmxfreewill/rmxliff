@@ -17,6 +17,9 @@ if (isset($_GET['Function']))
     $Function = $_GET['Function'];
 
     echo $Function ;
+
+    $aa = file_get_contents('php://input');
+    echo $aa;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -36,7 +39,7 @@ if (isset($_GET['Function']))
 </head>
 
 <body>
-<?php echo $Function; ?>
+
     <form class="animate" method="GET" enctype="multipart/form-data" action="index.php">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
