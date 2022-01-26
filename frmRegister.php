@@ -185,12 +185,17 @@ function registerScreen($type, $arr)
         //
         //
         //
-        $scrTypeA = '
-                <label for="uname"><b>Line Id</b></label>
-        <input type="text" id="txtLineId" disabled>
-        <input type="text" id="txtLineDisplay" hidden>
+        $scrTypeBackup = '
+        <label for="uname"><b>Line Id</b></label>
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName">
+        ';
+        $scrTypeA = '
+                
+        <input type="text" id="txtLineId" hidden>
+        <input type="text" id="txtLineDisplay" hidden>
+        
+        
         <label for="psw"><b>EMail</b></label>
         <input type="email" placeholder="Enter EMail" name="txtEMail" 
             id="txtEMail" 

@@ -9,7 +9,6 @@ define("REGISTER_URL", "https://rmx.freewillsolutions.com/rmxline/rmxLineRegiste
 define("sURL", "https://rmxliff.herokuapp.com/");
 
 //LINE Server
-//388f5b26e1355ae02b900d3729f7530c
 //d8b3c212046b6876f19e33a2e9238f31
 define("LIFF_ID", "1656503744-kojgw9pb");
 define("RICHMENU_ID","richmenu-388f5b26e1355ae02b900d3729f7530c");
