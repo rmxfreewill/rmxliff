@@ -16,7 +16,7 @@ if (isset($_POST['Function']))
 if (isset($_GET['Function']))
     $Function = $_GET['Function'];
 
-    echo $Function ;
+    // echo $Function ;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -103,7 +103,7 @@ if (isset($_GET['Function']))
 
             }
 
-            // initializeLiff();
+            initializeLiff();
 
         }
     </script>
