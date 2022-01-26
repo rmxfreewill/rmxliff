@@ -1,13 +1,13 @@
-function getProfileLiffUserId(type) {
+function getProfileLiffUserId() {
     liff.getProfile()
         .then(profile => {
             // var sFunction = document.getElementById('txtFunction').value;
-            var sFunction = type;
-            if (sFunction == 'index') {
+            // var sFunction = type;
+            // if (sFunction != '') {
                 var userIdProfile = profile.userId;
                 var url = selectMenu(sFunction, userIdProfile);
                 window.location.assign(url);
-            }
+            // }
         })
         .catch((err) => {
             console.log('getProfile: ', err);
@@ -19,9 +19,13 @@ async function initializeLiff(myLiffId,type) {
             liffId: myLiffId
         })
         .then(() => {
+
             if(type=='LOGOUT'){
                 liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
-            }else if(type=='index'){
+            }
+            
+            
+            if(type=='index'){
                 liff.isLoggedIn() ? getProfileLiffUserId(type) : liff.login();
             }
         })
