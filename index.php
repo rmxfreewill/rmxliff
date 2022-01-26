@@ -92,21 +92,8 @@ if (isset($_GET['Function']))
                     });
             }
 
-            async function initializeLiff() {
-                var myLiffId = document.getElementById('txtLiffId').value;
-                await liff.init({
-                        liffId: myLiffId
-                    })
-                    .then(() => {
-                        liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
-                    })
-                    .catch((err) => {
-                        console.log("initializeLiff: " + err);
-                    });
-
-            }
-
-            initializeLiff();
+            var myLiffId = document.getElementById('txtLiffId').value;
+            initializeLiff(myLiffId);
 
         }
     </script>
