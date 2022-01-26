@@ -189,24 +189,19 @@ function registerScreen($type, $arr)
         <label for="uname"><b>Line Id</b></label>
         <label for="uname"><b>Username</b></label>
         <input type="text" name="txtUserName" id="txtUserName">
-        ';
-        $scrTypeA = '
-                
-        <input type="text" id="txtLineId" hidden>
-        <input type="text" id="txtLineDisplay" hidden>
-        
-        
         <label for="psw"><b>EMail</b></label>
-        <input type="email" placeholder="Enter EMail" name="txtEMail" 
+        <input type="text" id="txtLineDisplay" hidden>
+                      <input type="email" placeholder="Enter EMail" name="txtEMail" 
             id="txtEMail" 
         required>
+        ';
+        $scrTypeA = '
         <input type="text" id="txtLineId" disabled hidden>
-        <input type="email" placeholder="Enter EMail" name="txtEMail" 
-        id="txtEMail" 
-    required>
+        <input type="email" placeholder="Enter EMail" name="txtEMail" id="txtEMail" required>
         ';
         //
         $scrTypeC = '
+
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="tel" placeholder="Enter Telephone/Mobile" 
             name="txtTel" id="txtTel" 
@@ -219,7 +214,7 @@ function registerScreen($type, $arr)
         ';
         //
         //
-        $scrType = $scrTypeA .$scrTypeC;
+        $scrType = $scrTypeC;
         //
         //
     
@@ -437,10 +432,13 @@ if ($LinkCode == 'LOGOUT') {
 
         function RegisterClick() {
             var sLineId = document.getElementById('txtLineId').value;
-            var sLineDisplay = document.getElementById('txtLineDisplay').value;
+            // var sLineDisplay = document.getElementById('txtLineDisplay').value;
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
-            var sUserName = document.getElementById('txtUserName').value;
-            var sEMail = document.getElementById('txtEMail').value;
+            // var sUserName = document.getElementById('txtUserName').value;
+            // var sEMail = document.getElementById('txtEMail').value;
+            var sLineDisplay ='';
+            var sUserName = '';
+            var sEMail = '';
             var sTel = document.getElementById('txtTel').value;
             var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
             var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
