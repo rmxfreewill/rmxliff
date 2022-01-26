@@ -22,10 +22,7 @@ async function initializeLiff(myLiffId,type) {
 
             if(type=='LOGOUT'){
                 liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
-            }
-            
-            
-            if(type=='index'){
+            }else if(type=='index'){
                 liff.isLoggedIn() ? getProfileLiffUserId(type) : liff.login();
             }
         })
