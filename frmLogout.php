@@ -85,7 +85,8 @@ changeMemberRichMenuDefualt($LineId);
                 });
         }
         var myLiffId = document.getElementById('txtLiffId').value;
-        initializeLiff();
+        var type = "logout";
+        initializeLiff(myLiffId,type);
     </script>
 </body>
 

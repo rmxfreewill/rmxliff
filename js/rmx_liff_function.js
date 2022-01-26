@@ -19,12 +19,7 @@ async function initializeLiff(myLiffId,type) {
             liffId: myLiffId
         })
         .then(() => {
-            type=='LOGOUT' && liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
-            // if(type=='LOGOUT'){
-            //     liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
-            // }else if(type=='index'){
-            //     liff.isLoggedIn() ? getProfileLiffUserId(type) : liff.login();
-            // }
+            type=='logout' && liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
         })
         .catch((err) => {
             console.log("initializeLiff: " + err);
