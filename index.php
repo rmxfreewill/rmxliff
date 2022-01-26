@@ -93,9 +93,22 @@ if (isset($_GET['Function']))
                     });
             }
 
-            var myLiffId = document.getElementById('txtLiffId').value;
-            var sFunction = document.getElementById('txtFunction').value;
-            initializeLiff(myLiffId,sFunction);
+            async function initializeLiff() {
+                var myLiffId = document.getElementById('txtLiffId').value;
+                await liff.init({
+                        liffId: myLiffId
+                    })
+                    .then(() => {
+                        liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
+                    })
+                    .catch((err) => {
+                        console.log("initializeLiff: " + err);
+                    });
+
+            }
+
+
+            initializeLiff();
 
         }
     </script>
