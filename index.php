@@ -14,7 +14,7 @@ if (isset($_POST['Function']))
 if (isset($_GET['Function']))
     $Function = $_GET['Function'];
 
-    $menu = $_GET['menu'];
+    $parameter = $_SERVER['QUERY_STRING'];
 
 ?>
 
@@ -35,7 +35,7 @@ if (isset($_GET['Function']))
     </head>
     <body>
         <?php 
-            echo 'Menu: '.$menu ;  
+            echo 'Param: '.$parameter ;  
         ?>
     </body>
 </html>
