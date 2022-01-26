@@ -13,6 +13,9 @@ if (isset($_POST['Function']))
     $Function = $_POST['Function'];
 if (isset($_GET['Function']))
     $Function = $_GET['Function'];
+
+    $menu = $_GET['menu'];
+
 ?>
 
 
@@ -32,7 +35,7 @@ if (isset($_GET['Function']))
     </head>
     <body>
         <?php 
-            echo 'Function: '.$Function;  
+            echo 'Menu: '.$menu ;  
         ?>
     </body>
 </html>
