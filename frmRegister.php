@@ -195,10 +195,6 @@ function registerScreen($type, $arr)
         <input type="email" placeholder="Enter EMail" name="txtEMail" 
             id="txtEMail" 
         required>
-
-        ';
-        //
-        $scrTypeB = '
         <input type="text" id="txtLineId" disabled hidden>
         <input type="email" placeholder="Enter EMail" name="txtEMail" 
         id="txtEMail" 
@@ -218,7 +214,7 @@ function registerScreen($type, $arr)
         ';
         //
         //
-        $scrType = $scrTypeB .$scrTypeC;
+        $scrType = $scrTypeA .$scrTypeC;
         //
         //
     
