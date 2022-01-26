@@ -47,6 +47,7 @@ if (isset($_GET['Function']))
     <form class="animate" method="GET" enctype="multipart/form-data" action="index.php">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
+        <input type="hidden" id="txtMenu" value="<?php echo $menu; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
     </form>
@@ -80,10 +81,6 @@ if (isset($_GET['Function']))
                         break;
                 }
 
-                if($menu=='profile'){
-                    url = URL + "frmLogout.php" + para;
-                }
-
                 return url;
             }
 
@@ -91,6 +88,10 @@ if (isset($_GET['Function']))
                 liff.getProfile()
                     .then(profile => {
                         var sFunction = document.getElementById('txtFunction').value;
+                        var sMenu = document.getElementById('txtMenu').value;
+                        if(sMenu=='profile'){
+                            sFunction = 'LOGOUT';
+                        }
                         if (sFunction != '') {
                             var userIdProfile = profile.userId;
                             var url = selectMenu(sFunction, userIdProfile);
