@@ -8,13 +8,12 @@ $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 $sURL = sURL;
-$Function = '';
-if (isset($_POST['Function']))
-    $Function = $_POST['Function'];
-if (isset($_GET['Function']))
-    $Function = $_GET['Function'];
 
-    $parameter = $_SERVER['QUERY_STRING'];
+
+    $url = $_SERVER['REQUEST_URI'];
+    $components = parse_url($url);
+    parse_str($components['query'], $results);
+    print_r($results); 
 
 ?>
 
