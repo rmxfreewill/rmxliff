@@ -18,8 +18,8 @@ if (isset($_GET['Function']))
 
     echo $Function ;
 
-    $aa = file_get_contents('php://input');
-    echo $aa;
+    $server  = $_SERVER["REQUEST_URI"]."<br>"; 
+    echo $server;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
