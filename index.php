@@ -32,7 +32,7 @@ if (isset($_GET['Function']))
     </head>
     <body>
         <?php 
-            echo $Function;  
+            echo ':: '.$Function;  
         ?>
     </body>
 </html>
