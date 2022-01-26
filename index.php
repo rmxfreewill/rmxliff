@@ -78,34 +78,34 @@ if (isset($_GET['Function']))
                 return url;
             }
 
-            function getProfileLiffUserId() {
-                liff.getProfile()
-                    .then(profile => {
-                        var sFunction = document.getElementById('txtFunction').value;
-                        if (sFunction != '') {
-                            var userIdProfile = profile.userId;
-                            var url = selectMenu(sFunction, userIdProfile);
-                            window.location.assign(url);
-                        }
-                    })
-                    .catch((err) => {
-                        console.log('getProfile: ', err);
-                    });
-            }
+            // function getProfileLiffUserId() {
+            //     liff.getProfile()
+            //         .then(profile => {
+            //             var sFunction = document.getElementById('txtFunction').value;
+            //             if (sFunction != '') {
+            //                 var userIdProfile = profile.userId;
+            //                 var url = selectMenu(sFunction, userIdProfile);
+            //                 window.location.assign(url);
+            //             }
+            //         })
+            //         .catch((err) => {
+            //             console.log('getProfile: ', err);
+            //         });
+            // }
 
-            async function initializeLiffbb() {
-                var myLiffId = document.getElementById('txtLiffId').value;
-                await liff.init({
-                        liffId: myLiffId
-                    })
-                    .then(() => {
-                        liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
-                    })
-                    .catch((err) => {
-                        console.log("initializeLiff: " + err);
-                    });
+            // async function initializeLiffbb() {
+            //     var myLiffId = document.getElementById('txtLiffId').value;
+            //     await liff.init({
+            //             liffId: myLiffId
+            //         })
+            //         .then(() => {
+            //             liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
+            //         })
+            //         .catch((err) => {
+            //             console.log("initializeLiff: " + err);
+            //         });
 
-            }
+            // }
 
             var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId,'');
