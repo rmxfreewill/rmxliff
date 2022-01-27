@@ -541,10 +541,16 @@ if ($LinkCode == 'LOGOUT') {
         window.onload = function() {
             var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId);
-            var isCheckRegister = document.getElementById('txtIsCheckRegister').value;
-            isCheckRegister == 'success' ? rmxInitializeLiff(myLiffId, 'close') : alert(isCheckRegister);
         };
+
+        var isCheckRegister = document.getElementById('txtIsCheckRegister').value;
+        if (isCheckRegister == 'success') {
+            rmxInitializeLiff(myLiffId, 'close');
+        } else {
+            alert('Process');
+        }
     </script>
+
 
 </body>
 
