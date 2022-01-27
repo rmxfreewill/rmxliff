@@ -1,6 +1,24 @@
-function hi(){
+function hi() {
     alert('Hi');
 }
+
+function rmxCloseWindow() {
+    liff.closeWindow();
+    // if (liff.getOS() != "web") {
+    //     liff.closeWindow();
+    // } else {
+
+    //     var elementRegisterForm = document.getElementById('registerForm');
+    //     var elementSuccessMsg = document.getElementById('successMsg');
+
+    //     elementRegisterForm.style.display = "none";
+    //     elementSuccessMsg.removeAttribute("hidden");
+
+
+
+    // }
+}
+
 function rmxSelectMenu(toMenu, userId) {
     var URL = document.getElementById('txtsURL').value;
     var sCompCode = document.getElementById('txtCompanyCode').value;

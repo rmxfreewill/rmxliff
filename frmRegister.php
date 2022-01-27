@@ -136,7 +136,9 @@ function registerScreen($type, $arr)
         $SoldToCode = $arr[5];
         $SoldToName = $arr[6];
 
-        $scrType = '
+        $scrType = '<input type="hidden" id="txtIsCheckRegister">success</input>';
+
+        $scrTypeBackup2 = '
         <label for="uname"><b>Line Id: </b></label><span id="txtLineId">' . $LineId . '</span>
         <p>
         <label for="uname"><b>Username: </b></label><span id="txtUserName">' . $UserName . '</span>
@@ -470,22 +472,22 @@ if ($LinkCode == 'LOGOUT') {
         // }
 
 
-        function OkClick(msg) {
-            var myLiffId = document.getElementById('txtLiffId').value;
-            if (liff.getOS() != "web") {
-                liff.closeWindow();
-            } else {
+        // function OkClick(msg) {
+        //     var myLiffId = document.getElementById('txtLiffId').value;
+        //     if (liff.getOS() != "web") {
+        //         liff.closeWindow();
+        //     } else {
 
-                var elementRegisterForm = document.getElementById('registerForm');
-                var elementSuccessMsg = document.getElementById('successMsg');
+        //         var elementRegisterForm = document.getElementById('registerForm');
+        //         var elementSuccessMsg = document.getElementById('successMsg');
 
-                elementRegisterForm.style.display = "none";
-                elementSuccessMsg.removeAttribute("hidden");
+        //         elementRegisterForm.style.display = "none";
+        //         elementSuccessMsg.removeAttribute("hidden");
 
 
 
-            }
-        }
+        //     }
+        // }
 
         function initializeApp() {
             if (liff.isLoggedIn()) {
@@ -539,6 +541,8 @@ if ($LinkCode == 'LOGOUT') {
         window.onload = function() {
             var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId);
+            var isCheckRegister = document.getElementById('txtIsCheckRegister').value;
+            isCheckRegister == 'success' ?? rmxCloseWindow();
         };
     </script>
 
