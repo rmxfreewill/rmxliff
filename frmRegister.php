@@ -435,11 +435,16 @@ if ($LinkCode == 'LOGOUT') {
             var sLineId = document.getElementById('txtLineId').value;
             //
             var sTel = document.getElementById('txtTel').value;
-            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            var surl = document.getElementById('txtsURL').value;
-            url = surl + "frmRegister.php" + para;
-            window.location.assign(url);
+            if (sTel == '') {
+                alert("Input Telephone / Mobile");
+            } else {
+                var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+                var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+                var surl = document.getElementById('txtsURL').value;
+                url = surl + "frmRegister.php" + para;
+                window.location.assign(url);
+            }
+
         }
 
         // function RegisterClickBB(msg) {
