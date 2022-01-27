@@ -542,9 +542,12 @@ if ($LinkCode == 'LOGOUT') {
             var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId);
             var isCheckRegister = document.getElementById('txtIsCheckRegister').value;
-            if(isCheckRegister == 'success'){
-                alert('Success');
-                liff.closeWindow();
+            if (isCheckRegister == 'success') {
+                if (liff.getOS() != "web") {
+                    liff.closeWindow();
+                }else{
+                    alert('Thank You');
+                }
             }
         };
     </script>
