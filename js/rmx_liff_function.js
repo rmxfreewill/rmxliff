@@ -30,7 +30,7 @@ function rmxSelectMenu(toMenu, userId) {
             break;
         case "ticket":
             // url = URL + "frmTicket.php" + para;
-            url = URL + "frmView.php" + para;
+            url = URL + "frmQuery.php" + para;
             break;
         case "search":
             url = URL + "frmSearch.php" + para;
