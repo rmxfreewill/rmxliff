@@ -543,7 +543,6 @@ if ($LinkCode == 'LOGOUT') {
         window.onload = function() {
             var myLiffId = document.getElementById('txtLiffId').value;
             var isCheckRegister = document.getElementById('txtIsCheckRegister').value;
-            alert(isCheckRegister);
             liff.init({
                     liffId: myLiffId
                 })
@@ -551,6 +550,7 @@ if ($LinkCode == 'LOGOUT') {
                     if (isCheckRegister == 'success') {
                         liff.closeWindow();
                     } else {
+                        alert('Register Form');
                         initializeApp();
                     }
                 })
