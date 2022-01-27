@@ -33,6 +33,7 @@ function rmxSelectMenu(toMenu, userId) {
             break;
         case "search":
             url = URL + "frmSearch.php" + para;
+            url = URL + "frmTest.php" + para;
             break;
         default:
             url = URL + "frmLogout.php" + para;
