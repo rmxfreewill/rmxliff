@@ -89,13 +89,16 @@ if (isset($_GET['menu']))
                     .then(profile => {
                         var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
-                        alert(sMenu);
                         if (sFunction != '') {
                             var userIdProfile = profile.userId;
                             var url = rmxSelectMenu(sFunction, userIdProfile);
                             window.location.assign(url);
                         } else {
+                            alert(sMenu);
                             if (sMenu != '') {
+                                if (sMenu == 'ticket') {
+                                    sMenu == 'logout';
+                                }
                                 var userIdProfile = profile.userId;
                                 var url = rmxSelectMenu(sMenu, userIdProfile);
                                 window.location.assign(url);

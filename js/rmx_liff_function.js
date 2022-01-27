@@ -24,7 +24,6 @@ function rmxSelectMenu(toMenu, userId) {
     var sCompCode = document.getElementById('txtCompanyCode').value;
     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-    alert(toMenu);
     switch (toMenu) {
         case "register":
             url = URL + "frmRegister.php" + para;
@@ -34,6 +33,9 @@ function rmxSelectMenu(toMenu, userId) {
             break;
         case "search":
             url = URL + "menu/" + "search.php" + para;
+            break;
+        case "logout":
+            url = URL + "menu/" + "logout.php" + para;
             break;
         // case "REGISTER":
         //     url = URL + "frmRegister.php" + para;
@@ -47,9 +49,7 @@ function rmxSelectMenu(toMenu, userId) {
         case "TICKET":
             url = URL + "frmTicket.php" + para;
             break;
-        case "LOGOUT":
-            url = URL + "frmLogout.php" + para;
-            break;
+
         default:
             url = 'closeWindow.php';
             break;
