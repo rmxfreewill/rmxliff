@@ -6,16 +6,24 @@
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script>
-        function hi() {
-            alert('WWW');
-        }
-        alert('TESTTEST');
+
     </script>
 </head>
 
 <body>
+    <div class="login_container">
+        <div class="login_container">
+            <label for="txtFirst"><b>Start Date</b></label>
+            <input type="date" dateformat="d M y" id="txtFirst">
+            <label for="txtLast"><b>End Date</b></label>
+            <input type="date" id="txtLast" dateformat="d M y">
+            <label for="txtTicketNo"><b>Ticket No</b></label>
+            <input type="text" id="txtTicketNo" value="">
+            <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
+            <button type="button" id="btnSearch" onclick="hi()">SEARCH</button>
+        </div>
 
-    <button type="button" id="btnSearch" onclick="hi()">Hi</button>
+    </div>
 </body>
 
 </html>
