@@ -120,12 +120,15 @@ function ticketSearchScreen($LineId)
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/search_style.css">
 </head>
+
 <body>
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
+        } else {
+            ticketSearchScreen($LineId);
         }
         ?>
 
@@ -197,13 +200,13 @@ function ticketSearchScreen($LineId)
             var myLiffId = document.getElementById('txtLiffId').value;
             // initializeLiff(myLiffId);
             var sFlag = document.getElementById('txtFlag').value;
-                if (sFlag == "5") {
-                    var sRetCommand = document.getElementById('txtRetCommand').value;
-                    if (sRetCommand.length > 0) {
-                        fillTableData('tblList', sRetCommand);
-                        modal.style.display = "block";
-                    }
+            if (sFlag == "5") {
+                var sRetCommand = document.getElementById('txtRetCommand').value;
+                if (sRetCommand.length > 0) {
+                    fillTableData('tblList', sRetCommand);
+                    modal.style.display = "block";
                 }
+            }
         };
 
 
