@@ -2,7 +2,7 @@
 
 session_start();
 
-// error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
 
 $CompanyUrl = COMPANY_URL;

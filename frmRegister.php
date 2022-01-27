@@ -473,23 +473,21 @@ if ($LinkCode == 'LOGOUT') {
         // }
 
 
-        function OkClick(msg) {
-            alert('Close');
-            var myLiffId = document.getElementById('txtLiffId').value;
-            if (liff.getOS() != "web") {
-                liff.closeWindow();
-            } else {
+        // function OkClick(msg) {
+        //     alert('Close');
+        //     var myLiffId = document.getElementById('txtLiffId').value;
+        //     if (liff.getOS() != "web") {
+        //         liff.closeWindow();
+        //     } else {
 
-                var elementRegisterForm = document.getElementById('registerForm');
-                var elementSuccessMsg = document.getElementById('successMsg');
+        //         var elementRegisterForm = document.getElementById('registerForm');
+        //         var elementSuccessMsg = document.getElementById('successMsg');
 
-                elementRegisterForm.style.display = "none";
-                elementSuccessMsg.removeAttribute("hidden");
+        //         elementRegisterForm.style.display = "none";
+        //         elementSuccessMsg.removeAttribute("hidden");
 
-
-
-            }
-        }
+        //     }
+        // }
 
         function initializeApp() {
             if (liff.isLoggedIn()) {
