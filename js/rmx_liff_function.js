@@ -27,14 +27,17 @@ function rmxSelectMenu(toMenu, userId) {
     alert(toMenu);
     switch (toMenu) {
         case "register":
-            url = URL + "menu_register.php" + para;
+            url = URL + "frmRegister.php" + para;
+            break;
+        case "ticket":
+            url = URL + "frmTicket.php" + para;
             break;
         case "search":
             url = URL + "frmLogout.php" + para;
             break;
-        case "REGISTER":
-            url = URL + "frmRegister.php" + para;
-            break;
+        // case "REGISTER":
+        //     url = URL + "frmRegister.php" + para;
+        //     break;
         case "QUERY":
             url = URL + "frmQuery.php" + para;
             break;
