@@ -1,3 +1,6 @@
+function hi(){
+    alert('Hi');
+}
 function rmxSelectMenu(toMenu, userId) {
     var URL = document.getElementById('txtsURL').value;
     var sCompCode = document.getElementById('txtCompanyCode').value;

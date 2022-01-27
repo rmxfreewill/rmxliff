@@ -95,6 +95,7 @@ if (isset($_GET['Function']))
                             sFunction = 'register';
                         }
                         if (sFunction != '') {
+                            hi();
                             var userIdProfile = profile.userId;
                             var url = rmxSelectMenu(sFunction, userIdProfile);
                             window.location.assign(url);
