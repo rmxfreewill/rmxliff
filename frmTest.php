@@ -6,9 +6,10 @@
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script>
-function hi(){
-    alert('WWW');
-}
+        function hi() {
+            alert('WWW');
+        }
+        alert('TESTTEST');
     </script>
 </head>
 
