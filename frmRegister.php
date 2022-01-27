@@ -200,11 +200,12 @@ function registerScreen($type, $arr)
         <input type="hidden" id="txtEMail">
         <input type="hidden" id="txtLineId">
         <label for="psw"><b>Telephone / Mobile</b></label>
-        <input type="tel" placeholder="Enter Telephone/Mobile" 
+        <input type="tel" 
+            placeholder="Enter Telephone/Mobile" 
             name="txtTel" id="txtTel" 
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
+            maxlength="10"
         required>
-        
         <button type="button"  name="btnLogin" id="btnLogin" onclick="RegisterClick()">
             Register
         </button>
@@ -439,7 +440,7 @@ if ($LinkCode == 'LOGOUT') {
                 alert("Input Telephone / Mobile");
             } else {
                 if (sTel.length < 8) {
-                    alert("Telephone / Mobile must be at least 7 digits long");
+                    alert("Telephone / Mobile must be at least 8 digits long");
                 } else {
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
                     var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
