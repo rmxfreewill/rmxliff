@@ -44,7 +44,7 @@ if (isset($_GET['Function']))
 
 <body>
 
-    <form class="animate" method="GET" enctype="multipart/form-data" action="index.php">
+    <form  method="GET" enctype="multipart/form-data" action="index.php">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
         <input type="hidden" id="txtMenu" value="<?php echo $menu; ?>">
@@ -55,34 +55,34 @@ if (isset($_GET['Function']))
     <script>
         window.onload = function() {
 
-            function selectMenu(sFunction, userId) {
-                var URL = document.getElementById('txtsURL').value;
-                var sCompCode = document.getElementById('txtCompanyCode').value;
-                var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-                var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-                switch (sFunction) {
-                    case "REGISTER":
-                        url = URL + "frmRegister.php" + para;
-                        break;
-                    case "QUERY":
-                        url = URL + "frmQuery.php" + para;
-                        break;
-                    case "VIEW":
-                        url = URL + "frmView.php" + para;
-                        break;
-                    case "TICKET":
-                        url = URL + "frmTicket.php" + para;
-                        break;
-                    case "LOGOUT":
-                        url = URL + "frmLogout.php" + para;
-                        break;
-                    default:
-                        url = 'closeWindow.php';
-                        break;
-                }
+            // function selectMenu(toMenu, userId) {
+            //     var URL = document.getElementById('txtsURL').value;
+            //     var sCompCode = document.getElementById('txtCompanyCode').value;
+            //     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+            //     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+            //     switch (toMenu) {
+            //         case "REGISTER":
+            //             url = URL + "frmRegister.php" + para;
+            //             break;
+            //         case "QUERY":
+            //             url = URL + "frmQuery.php" + para;
+            //             break;
+            //         case "VIEW":
+            //             url = URL + "frmView.php" + para;
+            //             break;
+            //         case "TICKET":
+            //             url = URL + "frmTicket.php" + para;
+            //             break;
+            //         case "LOGOUT":
+            //             url = URL + "frmLogout.php" + para;
+            //             break;
+            //         default:
+            //             url = 'closeWindow.php';
+            //             break;
+            //     }
 
-                return url;
-            }
+            //     return url;
+            // }
 
             function getProfileLiffUserId() {
                 liff.getProfile()
@@ -94,7 +94,7 @@ if (isset($_GET['Function']))
                         }
                         if (sFunction != '') {
                             var userIdProfile = profile.userId;
-                            var url = selectMenu(sFunction, userIdProfile);
+                            var url = rmxSelectMenu(sFunction, userIdProfile);
                             window.location.assign(url);
                         }
                     })
