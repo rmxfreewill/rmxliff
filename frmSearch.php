@@ -82,8 +82,8 @@ if ($LinkCode == 'SEARCH') {
 
 function ticketSearchScreen($LineId)
 {
-            //     <label><b>LINE ID: </b>'.$LineId.'</label>
-            // <p>
+    //     <label><b>LINE ID: </b>'.$LineId.'</label>
+    // <p>
     echo
     '<div class="login_container">
         <div class="login_container">
@@ -96,7 +96,7 @@ function ticketSearchScreen($LineId)
             <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
             <button type="button" id="btnSearch" onclick="SearchClick()">SEARCH</button>
         </div>
-        <button type="button" id="btnSearch" onclick="hi()">Hi</button>
+
     </div>';
 }
 
@@ -323,13 +323,13 @@ function ticketSearchScreen($LineId)
 
 <body>
 
-
+    <button type="button" id="btnSearch" onclick="hi()">Hi</button>
 
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
         if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreen(false,[]);
+            echo registerScreen(false, []);
         } else {
             ticketSearchScreen($LineId);
         }
