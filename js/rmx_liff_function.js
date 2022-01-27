@@ -3,6 +3,7 @@ function hi() {
 }
 
 function rmxCloseWindow() {
+    liff.closeWindow();
     // if (liff.getOS() != "web") {
     //     liff.closeWindow();
     // } else {
