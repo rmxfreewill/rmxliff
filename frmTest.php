@@ -105,6 +105,13 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
     <form class="animate" method="GET" enctype="multipart/form-data">
+        <?php
+        if ($sFlag == '0' || $sFlag == '') {
+            echo "NNNNNNNN";
+        } else {
+            echo "YYYYY";
+        }
+        ?>
         <div id="searchForm" class="login_container">
             <div class="login_container">
                 <label for="txtFirst"><b>Start Date</b></label>
@@ -192,7 +199,7 @@ if ($LinkCode == 'SEARCH') {
                 alert("Please select first date before click search");
                 return;
             }
-            
+
             if (sLast == "") {
                 alert("Please select end date before click search");
                 return;
