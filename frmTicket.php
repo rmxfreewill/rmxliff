@@ -47,10 +47,10 @@ $SoldToCode = '';
 $SoldToName = '';
 $sFlagMsg = '';
 $sFlag = '5';
-$sTitle = 'View';
+$sTitle = 'TICKET';
 $sShowMsg = '';
 
-if ($LinkCode == 'VIEW') {
+if ($LinkCode == 'TICKET') {
 
     $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
     if ($RetCommand) {
@@ -68,7 +68,7 @@ if ($LinkCode == 'VIEW') {
             $sFlag = $ASRet[1];
             $sShowMsg = '0';
             if ($sFlag != '0') {
-                $sTitle = 'View';
+                $sTitle = 'TICKET';
 
                 $CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','20/2/2022')";
 
@@ -97,7 +97,6 @@ if ($LinkCode == 'VIEW') {
 
 
     <title>Ticket List</title>
-    <!-- <title><?php echo $sTitle; ?></title> -->
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
     <link rel="stylesheet" href="css/style.css">
