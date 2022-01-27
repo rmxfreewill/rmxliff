@@ -91,8 +91,6 @@ if (isset($_GET['menu']))
                         var sMenu = document.getElementById('txtMenu').value;
                         if (sMenu == 'profile') {
                             sFunction = 'LOGOUT';
-                        } else if (sMenu == 'register') {
-                            sFunction = 'register';
                         }
                         if (sFunction != '') {
                             var userIdProfile = profile.userId;
