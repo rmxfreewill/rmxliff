@@ -111,7 +111,6 @@ if (isset($_GET['menu']))
                         liffId: myLiffId
                     })
                     .then(() => {
-                        hi();
                         var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
                         if (sMenu == 'profile') {
