@@ -551,7 +551,6 @@ if ($LinkCode == 'LOGOUT') {
                     if (isCheckRegister == 'true') {
                         liff.closeWindow();
                     } else if (isCheckRegister == 'false') {
-                        alert('Register Form');
                         initializeApp();
                     }
                 })
