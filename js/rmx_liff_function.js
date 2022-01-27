@@ -28,6 +28,9 @@ function rmxSelectMenu(toMenu, userId) {
         case "register":
             url = URL + "menu_register.php" + para;
             break;
+        case "search":
+            url = URL + "frmLogout.php" + para;
+            break;
         case "REGISTER":
             url = URL + "frmRegister.php" + para;
             break;
