@@ -438,7 +438,7 @@ if ($LinkCode == 'LOGOUT') {
             if (sTel == '') {
                 alert("Input Telephone / Mobile");
             } else {
-                if (sTel.length > 8) {
+                if (sTel.length < 8) {
                     alert("Telephone / Mobile must be at least 7 digits long");
                 } else {
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
