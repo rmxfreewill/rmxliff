@@ -50,7 +50,7 @@ $sFlag = '0';
 $sTitle = 'Search';
 $sShowMsg = '';
 
-if ($LinkCode == 'Search') {
+if ($LinkCode == 'SEARCH') {
 
     $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
     if ($RetCommand) {
@@ -476,11 +476,11 @@ function ticketSearchScreen($LineId)
             var sCmd = "call sp_comp_select_ticket('" + sLineId + "','" + sFirst + "','" + sLast + "')";
             var sTableTitle = "Date " + sFirst + " to " + sLast;
 
-            var para = "?LinkCode=QUERY&LineId=" + sLineId + "&CmdCommand=" + sCmd +
+            var para = "?LinkCode=SEARCH&LineId=" + sLineId + "&CmdCommand=" + sCmd +
                 "&TableTitle=" + sTableTitle;
 
             var URL = document.getElementById('txtsURL').value;
-            url = URL + "frmQuery.php" + para;
+            url = URL + "frmSearch.php" + para;
             // alert(url);
             window.location.assign(url);
 
