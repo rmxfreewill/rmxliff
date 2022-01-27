@@ -201,7 +201,7 @@ function registerScreen($type, $arr)
         ';
         //
         $scrTypeC = '
-
+<b hidden>HiHi</b>
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="tel" placeholder="Enter Telephone/Mobile" 
             name="txtTel" id="txtTel" 
