@@ -114,7 +114,7 @@ if ($LinkCode == 'SEARCH') {
                 <label for="txtTicketNo"><b>Ticket No</b></label>
                 <input type="text" id="txtTicketNo" value="">
                 <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
-                <button type="button" id="btnSearch" onclick="hi()">SEARCH</button>
+                <button type="button" id="btnSearch" onclick="checkSearch()">SEARCH</button>
             </div>
         </div>
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
@@ -169,9 +169,173 @@ if ($LinkCode == 'SEARCH') {
         window.onload = function() {
 
             var myLiffId = document.getElementById('txtLiffId').value;
+            var sFlag = document.getElementById('txtFlag').value;
+            if (sFlag == "5") {
+                var sRetCommand = document.getElementById('txtRetCommand').value;
+                if (sRetCommand.length > 0) {
+                    fillTableData('tblList', sRetCommand);
+                    modal.style.display = "block";
+                }
+            }
 
 
         };
+
+
+        function checkSearch() {
+
+            var sLineId = document.getElementById('txtLineId').value;
+
+            var sFirst = document.getElementById('txtFirst').value;
+            if (sFirst == "") {
+                alert("Please select first date before click search");
+                return;
+            }
+            var sLast = document.getElementById('txtLast').value;
+            if (sLast == "") {
+                alert("Please select end date before click search");
+                return;
+            }
+
+            var dF = new Date(sFirst);
+            sFirst = dF.getDate() + '/' + (dF.getMonth() + 1) + '/' + dF.getFullYear();
+            var dL = new Date(sLast);
+            sLast = dL.getDate() + '/' + (dL.getMonth() + 1) + '/' + dL.getFullYear();
+
+            var sCmd = "call sp_comp_select_ticket('" + sLineId + "','" + sFirst + "','" + sLast + "')";
+            var sTableTitle = "Date " + sFirst + " to " + sLast;
+
+            var para = "?LinkCode=SEARCH&LineId=" + sLineId + "&CmdCommand=" + sCmd +
+                "&TableTitle=" + sTableTitle;
+
+            var URL = document.getElementById('txtsURL').value;
+            url = URL + "frmSearch.php" + para;
+            alert(url);
+            window.location.assign(url);
+
+
+        }
+
+        function clearTableData(table) {
+            var rowCount = table.rows.length;
+            while (--rowCount) {
+                if (rowCount > 0) table.deleteRow(rowCount);
+            }
+            table.deleteTHead();
+
+        }
+
+        function fillTableData(tableName, sRet) {
+            var anPos = [1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0];
+
+            var table = document.getElementById(tableName);
+            if (table) {
+
+                //clearTableData(table);
+                table.innerHTML = "";
+                if (sRet.length > 0) {
+
+                    var arTable = sRet.split("^t");
+                    if (arTable.length > 0) {
+
+                        var arTmp = arTable[0].split("^f");
+                        if (arTmp.length > 1) {
+                            var sColumnName = arTmp[0];
+                            var asCol = arTmp[0].split("^c");
+                            var asRow = arTmp[1].split("^r");
+
+                            if (asRow.length > 0) {
+
+                                var colCount = asCol.length;
+                                if (colCount > 1) {
+
+                                    var header = table.createTHead();
+                                    var row = header.insertRow(0);
+                                    row.style.backgroundColor = "#04AA6D";
+                                    row.style.color = "white";
+
+
+                                    for (var c = 0; c < colCount; c++) {
+                                        var cell = row.insertCell(-1);
+                                        cell.innerHTML = asCol[c].trim();
+                                        cell.style.display = anPos[c] == 1 ? '' : 'none';
+                                    }
+
+                                    var nRLen = asRow.length;
+                                    for (var r = 0; r < nRLen; r++) {
+                                        if (asRow[r].length > 0) {
+                                            var row2 = table.insertRow(-1);
+                                            var asData = asRow[r].split("^c");
+
+                                            for (var c = 0; c < colCount; c++) {
+                                                var cell = row2.insertCell(-1);
+                                                cell.style.display = anPos[c] == 1 ? '' : 'none';
+                                                cell.innerHTML = asData[c].trim();
+                                            }
+                                            row2.onclick = function(asCol, asData) {
+                                                return function() {
+                                                    fillTicketData('tblTicket', asCol, asData);
+                                                };
+                                            }(asCol, asData);
+                                        }
+                                    }
+                                } //if (colCount>1){
+
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        function fillTicketData(tableName, asCol, asData) {
+
+            var table = document.getElementById(tableName);
+            if (table) {
+                var sHtml = "";
+                var nRLen = asData.length;
+                for (var r = 0; r < nRLen; r++) {
+                    var sC = asCol[r];
+                    var sD = asData[r];
+                    sHtml = sHtml +
+                        "<tr><th>" + sC + "  " +
+                        "</th>" +
+                        "<td class='textLeft'>" + sD + "</td></tr>";
+                }
+                table.innerHTML = sHtml;
+
+
+            }
+            modal2.style.display = "block";
+
+        }
+        // Get the modal
+
+        /************************************************************** */
+        var modal = document.getElementById("myModal");
+        var modal2 = document.getElementById("ticketModal");
+
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        var span2 = document.getElementsByClassName("close2")[0];
+        span2.onclick = function() {
+            modal2.style.display = "none";
+        }
+
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
     </script>
 </body>
 
