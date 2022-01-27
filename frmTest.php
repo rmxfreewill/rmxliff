@@ -105,13 +105,6 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
     <form class="animate" method="GET" enctype="multipart/form-data">
-        <?php
-        if ($sFlag == '0' || $sFlag == '') {
-            echo "NNNNNNNN";
-        } else {
-            echo "YYYYY";
-        }
-        ?>
         <div id="searchForm" class="login_container">
             <div class="login_container">
                 <label for="txtFirst"><b>Start Date</b></label>
@@ -136,7 +129,8 @@ if ($LinkCode == 'SEARCH') {
     </form>
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <!-- <span class="close">&times;</span> -->
+            <button onclick="hi()"><b><</b></button>
             <div style="overflow-x:auto;">
                 <h2><?php echo $TableTitle; ?></h2>
 
