@@ -191,7 +191,7 @@ if ($LinkCode == 'VIEW') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
-
+echo $RetCommand;
         if ($sFlag == '0' || $sFlag == '') {
             echo "<center>$LineId<h1><br>No Record List</h1></center>";
         } else {
