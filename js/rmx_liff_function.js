@@ -29,12 +29,10 @@ function rmxSelectMenu(toMenu, userId) {
             url = URL + "frmRegister.php" + para;
             break;
         case "ticket":
-            // url = URL + "frmTicket.php" + para;
-            url = URL + "frmQuery.php" + para;
+            url = URL + "frmTicket.php" + para;
             break;
         case "search":
             url = URL + "frmSearch.php" + para;
-            // url = URL + "frmLogout.php" + para;
             break;
         default:
             url = URL + "frmLogout.php" + para;

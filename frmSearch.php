@@ -82,11 +82,12 @@ if ($LinkCode == 'SEARCH') {
 
 function ticketSearchScreen($LineId)
 {
+            //     <label><b>LINE ID: </b>'.$LineId.'</label>
+            // <p>
     echo
     '<div class="login_container">
         <div class="login_container">
-            <label><b>LINE ID: </b>'.$LineId.'</label>
-            <p>
+
             <label for="txtFirst"><b>Start Date</b></label>
             <input type="date" dateformat="d M y" id="txtFirst">
             <label for="txtLast"><b>End Date</b></label>
@@ -94,7 +95,7 @@ function ticketSearchScreen($LineId)
             <label for="txtTicketNo"><b>Ticket No</b></label>
             <input type="text" id="txtTicketNo" value="">
             <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
-            <button type="button" id="btnSearch" onclick="SearchClick()">Serach</button>
+            <button type="button" id="btnSearch" onclick="SearchClick()">SEARCH</button>
         </div>
     </div>';
 }
@@ -481,7 +482,7 @@ function ticketSearchScreen($LineId)
 
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmSearch.php" + para;
-            // alert(url);
+            alert(url);
             window.location.assign(url);
 
 
