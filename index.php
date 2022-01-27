@@ -16,11 +16,11 @@ if (isset($_POST['Function']))
 if (isset($_GET['Function']))
     $Function = $_GET['Function'];
 
-    $menu = '';
-    if (isset($_POST['menu']))
-        $menu = $_POST['menu'];
-    if (isset($_GET['menu']))
-        $menu = $_GET['menu'];
+$menu = '';
+if (isset($_POST['menu']))
+    $menu = $_POST['menu'];
+if (isset($_GET['menu']))
+    $menu = $_GET['menu'];
 
 
 ?>
@@ -44,7 +44,7 @@ if (isset($_GET['Function']))
 
 <body>
 
-    <form  method="GET" enctype="multipart/form-data" action="index.php">
+    <form method="GET" enctype="multipart/form-data" action="index.php">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
         <input type="hidden" id="txtMenu" value="<?php echo $menu; ?>">
@@ -89,13 +89,12 @@ if (isset($_GET['Function']))
                     .then(profile => {
                         var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
-                        if(sMenu=='profile'){
+                        if (sMenu == 'profile') {
                             sFunction = 'LOGOUT';
-                        }else if(sMenu=='register'){
+                        } else if (sMenu == 'register') {
                             sFunction = 'register';
                         }
                         if (sFunction != '') {
-                            hi();
                             var userIdProfile = profile.userId;
                             var url = rmxSelectMenu(sFunction, userIdProfile);
                             window.location.assign(url);
@@ -112,7 +111,15 @@ if (isset($_GET['Function']))
                         liffId: myLiffId
                     })
                     .then(() => {
-                        liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
+                        hi();
+                        var sFunction = document.getElementById('txtFunction').value;
+                        var sMenu = document.getElementById('txtMenu').value;
+                        if (sMenu == 'profile') {
+                            sFunction = 'LOGOUT';
+                        } else if (sMenu == 'register') {
+                            sFunction = 'register';
+                        }
+                        liff.isLoggedIn() ? rmxGetProfileLiffUserId(sFunction) : liff.login();
                     })
                     .catch((err) => {
                         console.log("initializeLiff: " + err);

@@ -33,16 +33,19 @@ function rmxSelectMenu(toMenu, userId) {
     return url;
 }
 
-function rmxGetProfileLiffUserId() {
+function rmxGetProfileLiffUserId(toMenu) {
     liff.getProfile()
         .then(profile => {
-            // var sFunction = document.getElementById('txtFunction').value;
-            // var sFunction = type;
-            // if (sFunction != '') {
-            var userIdProfile = profile.userId;
-            var url = selectMenu(sFunction, userIdProfile);
-            window.location.assign(url);
-            // }
+            if(toMenu=='profile'){
+                var sFunction = 'LOGOUT';
+            }else if(sMenu=='register'){
+                var sFunction = 'register';
+            }
+            if (toMenu != '') {
+                var userIdProfile = profile.userId;
+                var url = rmxSelectMenu(toMenu, userIdProfile);
+                window.location.assign(url);
+            }
         })
         .catch((err) => {
             console.log('getProfile: ', err);
