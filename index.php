@@ -118,7 +118,7 @@ if (isset($_GET['menu']))
                         } else if (sMenu == 'search') {
                             sFunction = 'LOGOUT';
                         }
-                        liff.isLoggedIn() ? getProfileLiffUserId(sFunction) : liff.login();
+                        liff.isLoggedIn() ? getProfileLiffUserId(sMenu) : liff.login();
                     })
                     .catch((err) => {
                         console.log("initializeLiff: " + err);
