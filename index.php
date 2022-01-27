@@ -95,9 +95,6 @@ if (isset($_GET['menu']))
                             window.location.assign(url);
                         } else {
                             if (sMenu != '') {
-                                if (sMenu == 'ticket') {
-                                    sMenu == 'logout';
-                                }
                                 var userIdProfile = profile.userId;
                                 var url = rmxSelectMenu(sMenu, userIdProfile);
                                 window.location.assign(url);
