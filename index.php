@@ -113,10 +113,10 @@ if (isset($_GET['menu']))
                     .then(() => {
                         var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
-                        if (sMenu == 'profile') {
-                            sFunction = 'LOGOUT';
-                        } else if (sMenu == 'register') {
+                        if (sMenu == 'register') {
                             sFunction = 'register';
+                        } else if (sMenu == 'search') {
+                            sFunction = 'LOGOUT';
                         }
                         liff.isLoggedIn() ? getProfileLiffUserId(sFunction) : liff.login();
                     })
