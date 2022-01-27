@@ -47,10 +47,10 @@ $SoldToCode = '';
 $SoldToName = '';
 $sFlagMsg = '';
 $sFlag = '0';
-$sTitle = 'Query';
+$sTitle = 'Search';
 $sShowMsg = '';
 
-if ($LinkCode == 'QUERY') {
+if ($LinkCode == 'Search') {
 
     $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
     if ($RetCommand) {
@@ -75,7 +75,7 @@ if ($LinkCode == 'QUERY') {
 
 
             $sShowMsg = '0';
-            if ($sFlag != '0') $sTitle = 'Query';
+            if ($sFlag != '0') $sTitle = 'Search';
         }
     }
 }
@@ -121,7 +121,7 @@ function ticketSearchScreen($LineId)
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
         body {

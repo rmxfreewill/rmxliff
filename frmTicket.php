@@ -70,7 +70,7 @@ if ($LinkCode == 'VIEW') {
             if ($sFlag != '0') {
                 $sTitle = 'View';
 
-                $CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','30/9/2021')";
+                $CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','20/2/2022')";
 
                 $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
             }
@@ -96,12 +96,11 @@ if ($LinkCode == 'VIEW') {
     <meta http-equiv="pragma" content="no-cache">
 
 
-    <title>History</title>
+    <title>Ticket List</title>
     <!-- <title><?php echo $sTitle; ?></title> -->
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
         * {
@@ -188,7 +187,7 @@ if ($LinkCode == 'VIEW') {
 </head>
 
 <body>
-    <form class="animate" method="GET" enctype="multipart/form-data">
+    <form  method="GET" enctype="multipart/form-data">
 
         <?php
 
