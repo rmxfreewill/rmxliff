@@ -188,16 +188,16 @@ function registerScreen($type, $arr)
         $scrTypeBackup = '
         <label for="uname"><b>Line Id</b></label>
         <label for="uname"><b>Username</b></label>
-        <input type="text" name="txtUserName" id="txtUserName">
+        
         <label for="psw"><b>EMail</b></label>
-        <input type="text" id="txtLineDisplay" hidden>
-                      <input type="email" placeholder="Enter EMail" name="txtEMail" 
-            id="txtEMail" 
-        required>
+
                 <input type="email" placeholder="Enter EMail" name="txtEMail" id="txtEMail" required>
         ';
         //
         $scrTypeC = '
+        <input type="hidden" id="txtUserName">
+        <input type="hidden" id="txtLineDisplay">
+        <input type="hidden" id="txtEMail">
         <input type="hidden" id="txtLineId">
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="tel" placeholder="Enter Telephone/Mobile" 
@@ -427,14 +427,13 @@ if ($LinkCode == 'LOGOUT') {
 
 
         function RegisterClick() {
-            var sLineId = document.getElementById('txtLineId').value;
-            // var sLineDisplay = document.getElementById('txtLineDisplay').value;
+            var sUserName = document.getElementById('txtUserName').value;
+            var sLineDisplay = document.getElementById('txtLineDisplay').value;
+            var sEMail = document.getElementById('txtEMail').value;
+            //
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
-            // var sUserName = document.getElementById('txtUserName').value;
-            // var sEMail = document.getElementById('txtEMail').value;
-            var sLineDisplay = '';
-            var sUserName = '';
-            var sEMail = '';
+            var sLineId = document.getElementById('txtLineId').value;
+            //
             var sTel = document.getElementById('txtTel').value;
             var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
             var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
