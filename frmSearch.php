@@ -323,7 +323,7 @@ function ticketSearchScreen($LineId)
 
 <body>
 
-    <button type="button" id="btnSearch" onclick="hi()">Hi</button>
+
 
     <form class="animate" method="GET" enctype="multipart/form-data">
 
