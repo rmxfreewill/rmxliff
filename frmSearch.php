@@ -195,8 +195,15 @@ function ticketSearchScreen($LineId)
         window.onload = function() {
 
             var myLiffId = document.getElementById('txtLiffId').value;
-            initializeLiff(myLiffId);
-
+            // initializeLiff(myLiffId);
+            var sFlag = document.getElementById('txtFlag').value;
+                if (sFlag == "5") {
+                    var sRetCommand = document.getElementById('txtRetCommand').value;
+                    if (sRetCommand.length > 0) {
+                        fillTableData('tblList', sRetCommand);
+                        modal.style.display = "block";
+                    }
+                }
         };
 
 
