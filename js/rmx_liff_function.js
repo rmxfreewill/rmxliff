@@ -56,9 +56,8 @@ async function rmxInitializeLiff(myLiffId, type) {
         liffId: myLiffId
     })
         .then(() => {
-            if (type == 'logout' && type == 'close' && liff.isLoggedIn()) {
-                liff.closeWindow();
-            }
+            type == 'logout' && liff.isLoggedIn() ? liff.closeWindow() : alert('Thx');
+            type == 'close' ?? liff.closeWindow();
         })
         .catch((err) => {
             console.log("initializeLiff: " + err);
