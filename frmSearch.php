@@ -108,230 +108,24 @@ function ticketSearchScreen($LineId)
 <html>
 
 <head>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-
-
     <title><?php echo $sTitle; ?></title>
-
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 30px;
-            /* Location of the box */
-            padding-bottom: 30px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 90%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 10px;
-            border: 1px solid #888;
-            width: 90%;
-
-            height: 100%;
-            overflow: auto;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-
-        .modal2 {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 999;
-            /* Sit on top */
-            padding-top: 10px;
-            /* Location of the box */
-            padding-bottom: 10px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal2-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 10px;
-            border: 1px solid #888;
-            width: 90%;
-
-            height: 100%;
-            overflow: auto;
-        }
-
-        .close2 {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close2:hover,
-        .close2:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-
-        #loader {
-            clear: both;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            z-index: 999;
-            width: 150px;
-            height: 150px;
-            margin: -75px 0 0 -75px;
-            border: 16px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 16px solid #3498db;
-            border-right: 16px solid green;
-            border-bottom: 16px solid red;
-            width: 120px;
-            height: 120px;
-            -webkit-animation: spin 2s linear infinite;
-            animation: spin 2s linear infinite;
-        }
-
-
-        table#tblList {
-            border-collapse: collapse;
-            width: 100%;
-            background: #ccc;
-            height: 90%;
-            overflow: auto;
-        }
-
-
-        table#tblList th,
-        table#tblList td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        table#tblList td {
-            Font-size: 11px;
-        }
-
-        table#tblList th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #04AA6D;
-            color: white;
-        }
-
-        table#tblList tr:nth-child(even) {
-            background-color: #eee;
-        }
-
-        table#tblList tr:nth-child(odd) {
-            background-color: #fff;
-        }
-
-        table#tblList th {
-            background-color: black;
-            color: white;
-        }
-
-
-        #tblTicket {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        #tblTicket td,
-        #tblTickets th {
-
-            border: 1px solid black;
-            padding: 8px;
-        }
-
-
-        #tblTicket th {
-            /*padding-top: 12px;*
-        /*padding-bottom: 12px;*/
-            text-align: right;
-            /*background-color: #04AA6D;*/
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="css/search_style.css">
 </head>
-
 <body>
-
-
-
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
-        } else {
-            ticketSearchScreen($LineId);
         }
         ?>
 
