@@ -185,13 +185,14 @@ if ($LinkCode == 'SEARCH') {
         function checkSearch() {
 
             var sLineId = document.getElementById('txtLineId').value;
-
             var sFirst = document.getElementById('txtFirst').value;
+            var sLast = document.getElementById('txtLast').value;
+
             if (sFirst == "") {
                 alert("Please select first date before click search");
                 return;
             }
-            var sLast = document.getElementById('txtLast').value;
+            
             if (sLast == "") {
                 alert("Please select end date before click search");
                 return;
@@ -210,7 +211,6 @@ if ($LinkCode == 'SEARCH') {
 
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmSearch.php" + para;
-            alert(url);
             window.location.assign(url);
 
 
