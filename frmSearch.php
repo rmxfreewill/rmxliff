@@ -286,7 +286,6 @@ function ticketSearchScreen($LineId)
 
             var URL = document.getElementById('txtsURL').value;
             url = URL + "frmSearch.php" + para;
-            alert(url);
             window.location.assign(url);
 
 
