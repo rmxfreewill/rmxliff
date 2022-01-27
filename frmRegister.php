@@ -196,12 +196,11 @@ function registerScreen($type, $arr)
         required>
                 <input type="email" placeholder="Enter EMail" name="txtEMail" id="txtEMail" required>
         ';
-        $scrTypeA = '
-        <input type="text" id="txtLineId" hidden>
-        ';
         //
         $scrTypeC = '
-<b hidden>HiHi</b>
+        <b hidden>HiHi</b>
+        <input type="text" id="txtLineId" >
+        <input type="text" id="txtLineId" hidden>
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="tel" placeholder="Enter Telephone/Mobile" 
             name="txtTel" id="txtTel" 
@@ -214,10 +213,10 @@ function registerScreen($type, $arr)
         ';
         //
         //
-        $scrType = $scrTypeA.$scrTypeC;
+        $scrType = $scrTypeC;
         //
         //
-    
+
     }
 
     $scr = '
@@ -225,8 +224,8 @@ function registerScreen($type, $arr)
     ' . $scrType . '
     </div>
     ';
-//true = AutoClose
-//False = Show Form
+    //true = AutoClose
+    //False = Show Form
     return $scr;
 }
 
@@ -273,7 +272,6 @@ function changeMemberRichMenu($type, $LINEID)
 }
 
 if ($LinkCode == 'LOGOUT') {
-    
 } else {
     if ($LinkCode == 'REGISTER') {
         // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
@@ -376,7 +374,7 @@ if ($LinkCode == 'LOGOUT') {
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
-        
+
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
@@ -436,7 +434,7 @@ if ($LinkCode == 'LOGOUT') {
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             // var sUserName = document.getElementById('txtUserName').value;
             // var sEMail = document.getElementById('txtEMail').value;
-            var sLineDisplay ='';
+            var sLineDisplay = '';
             var sUserName = '';
             var sEMail = '';
             var sTel = document.getElementById('txtTel').value;
