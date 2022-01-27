@@ -136,7 +136,7 @@ function registerScreen($type, $arr)
         $SoldToCode = $arr[5];
         $SoldToName = $arr[6];
 
-        $scrType = '<input type="hidden" id="txtIsCheckRegister" value="success">';
+        $scrType = '<input type="hidden" id="txtIsCheckRegister" value="true">';
 
         $scrTypeBackupB = '
         <label for="uname"><b>Line Id: </b></label><span id="txtLineId">' . $LineId . '</span>
@@ -208,6 +208,7 @@ function registerScreen($type, $arr)
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
             maxlength="10"
         required>
+        <input type="hidden" id="txtIsCheckRegister" value="false">
         <button type="button"  name="btnLogin" id="btnLogin" onclick="RegisterClick()">
             Register
         </button>
@@ -547,9 +548,9 @@ if ($LinkCode == 'LOGOUT') {
                     liffId: myLiffId
                 })
                 .then(() => {
-                    if (isCheckRegister == 'success') {
+                    if (isCheckRegister == 'true') {
                         liff.closeWindow();
-                    } else {
+                    } else if (isCheckRegister == 'false') {
                         alert('Register Form');
                         initializeApp();
                     }
