@@ -473,6 +473,7 @@ if ($LinkCode == 'LOGOUT') {
 
 
         function OkClick(msg) {
+            alert('Close');
             var myLiffId = document.getElementById('txtLiffId').value;
             if (liff.getOS() != "web") {
                 liff.closeWindow();
