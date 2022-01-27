@@ -2,7 +2,7 @@
 
 session_start();
 
-error_reporting(E_ALL & ~E_NOTICE);
+// error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
 
 $CompanyUrl = COMPANY_URL;
@@ -91,6 +91,8 @@ if (isset($_GET['Function']))
                         var sMenu = document.getElementById('txtMenu').value;
                         if(sMenu=='profile'){
                             sFunction = 'LOGOUT';
+                        }else if(sMenu=='register'){
+                            sFunction = 'register';
                         }
                         if (sFunction != '') {
                             var userIdProfile = profile.userId;

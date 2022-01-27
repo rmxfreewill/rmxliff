@@ -4,6 +4,9 @@ function rmxSelectMenu(toMenu, userId) {
     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
     switch (toMenu) {
+        case "register":
+            url = URL + "menu_register.php" + para;
+            break;
         case "REGISTER":
             url = URL + "frmRegister.php" + para;
             break;
