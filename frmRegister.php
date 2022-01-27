@@ -136,7 +136,7 @@ function registerScreen($type, $arr)
         $SoldToCode = $arr[5];
         $SoldToName = $arr[6];
 
-        $scrType = '<input type="hidden" id="txtIsCheckRegister">success</input>';
+        $scrType = '<input type="hidden" id="txtIsCheckRegister" value="success">';
 
         $scrTypeBackup2 = '
         <label for="uname"><b>Line Id: </b></label><span id="txtLineId">' . $LineId . '</span>
@@ -542,7 +542,10 @@ if ($LinkCode == 'LOGOUT') {
             var myLiffId = document.getElementById('txtLiffId').value;
             initializeLiff(myLiffId);
             var isCheckRegister = document.getElementById('txtIsCheckRegister').value;
-            isCheckRegister == 'success' ?? rmxCloseWindow();
+            if(isCheckRegister == 'success'){
+                alert('Success');
+                liff.closeWindow();
+            }
         };
     </script>
 
