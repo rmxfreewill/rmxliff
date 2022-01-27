@@ -24,6 +24,7 @@ function rmxSelectMenu(toMenu, userId) {
     var sCompCode = document.getElementById('txtCompanyCode').value;
     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+    alert(para);
     switch (toMenu) {
         case "register":
             url = URL + "menu_register.php" + para;
