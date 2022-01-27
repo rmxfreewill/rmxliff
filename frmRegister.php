@@ -472,22 +472,22 @@ if ($LinkCode == 'LOGOUT') {
         // }
 
 
-        // function OkClick(msg) {
-        //     var myLiffId = document.getElementById('txtLiffId').value;
-        //     if (liff.getOS() != "web") {
-        //         liff.closeWindow();
-        //     } else {
+        function OkClick(msg) {
+            var myLiffId = document.getElementById('txtLiffId').value;
+            if (liff.getOS() != "web") {
+                liff.closeWindow();
+            } else {
 
-        //         var elementRegisterForm = document.getElementById('registerForm');
-        //         var elementSuccessMsg = document.getElementById('successMsg');
+                var elementRegisterForm = document.getElementById('registerForm');
+                var elementSuccessMsg = document.getElementById('successMsg');
 
-        //         elementRegisterForm.style.display = "none";
-        //         elementSuccessMsg.removeAttribute("hidden");
+                elementRegisterForm.style.display = "none";
+                elementSuccessMsg.removeAttribute("hidden");
 
 
 
-        //     }
-        // }
+            }
+        }
 
         function initializeApp() {
             if (liff.isLoggedIn()) {
@@ -525,7 +525,7 @@ if ($LinkCode == 'LOGOUT') {
         }
 
         function initializeLiff(myLiffId) {
-            console.log('initializeLiff: ', myLiffId);
+            // console.log('initializeLiff: ', myLiffId);
             liff.init({
                     liffId: myLiffId
                 })
@@ -543,11 +543,7 @@ if ($LinkCode == 'LOGOUT') {
             initializeLiff(myLiffId);
             var isCheckRegister = document.getElementById('txtIsCheckRegister').value;
             if (isCheckRegister == 'success') {
-                if (liff.getOS() != "web") {
-                    liff.closeWindow();
-                }else{
-                    alert('Thank You');
-                }
+                OkClick('');
             }
         };
     </script>
