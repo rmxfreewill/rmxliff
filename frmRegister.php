@@ -438,12 +438,19 @@ if ($LinkCode == 'LOGOUT') {
             if (sTel == '') {
                 alert("Input Telephone / Mobile");
             } else {
-                var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-                var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-                var surl = document.getElementById('txtsURL').value;
-                url = surl + "frmRegister.php" + para;
-                window.location.assign(url);
+                if (sTel.length > 8) {
+                    alert("Telephone / Mobile must be at least 7 digits long");
+                } else {
+                    var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+                    var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+                    var surl = document.getElementById('txtsURL').value;
+                    url = surl + "frmRegister.php" + para;
+                    window.location.assign(url);
+                }
             }
+
+
+
 
         }
 
