@@ -34,7 +34,6 @@ function rmxSelectMenu(toMenu, userId) {
 }
 
 function rmxGetProfileLiffUserId(toMenu) {
-    hi();
     liff.getProfile()
         .then(profile => {
             if(toMenu=='profile'){
@@ -43,6 +42,7 @@ function rmxGetProfileLiffUserId(toMenu) {
                 var sFunction = 'register';
             }
             if (toMenu != '') {
+                hi();
                 var userIdProfile = profile.userId;
                 var url = rmxSelectMenu(sFunction, userIdProfile);
                 window.location.assign(url);
