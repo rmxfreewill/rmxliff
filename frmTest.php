@@ -130,7 +130,8 @@ if ($LinkCode == 'SEARCH') {
     <div id="myModal" class="modal">
         <div class="modal-content">
             <!-- <span class="close">&times;</span> -->
-            <button onclick="hi()"><b><</b></button>
+            <button onclick="hi()"><b>
+                    << /b></button>
             <div style="overflow-x:auto;">
                 <h2><?php echo $TableTitle; ?></h2>
 
@@ -289,6 +290,36 @@ if ($LinkCode == 'SEARCH') {
 
                 }
             }
+        }
+        /****************************************************************************** */
+        var tTime;
+
+        function showLoader() {
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("loader").style.display = "inline";
+
+            tTime = setTimeout(hideLoader, 30000);
+        }
+
+
+        function hideLoader() {
+            if (document.getElementById("loader").style.display != "none") {
+                document.getElementById("loader").style.display = "none";
+                if (tTime) {
+                    clearTimeout(tTime);
+                }
+            }
+            //document.getElementById("myDiv").style.display = "block";
+        }
+
+
+        function clearTableData(table) {
+            var rowCount = table.rows.length;
+            while (--rowCount) {
+                if (rowCount > 0) table.deleteRow(rowCount);
+            }
+            table.deleteTHead();
+
         }
 
         function fillTicketData(tableName, asCol, asData) {
