@@ -118,7 +118,7 @@ if (isset($_GET['menu']))
                         } else if (sMenu == 'register') {
                             sFunction = 'register';
                         }
-                        liff.isLoggedIn() ? rmxGetProfileLiffUserId(sFunction) : liff.login();
+                        liff.isLoggedIn() ? getProfileLiffUserId(sFunction) : liff.login();
                     })
                     .catch((err) => {
                         console.log("initializeLiff: " + err);

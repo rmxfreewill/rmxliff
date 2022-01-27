@@ -33,26 +33,6 @@ function rmxSelectMenu(toMenu, userId) {
     return url;
 }
 
-function rmxGetProfileLiffUserId(toMenu) {
-    liff.getProfile()
-        .then(profile => {
-            if(toMenu=='profile'){
-                var sFunction = 'LOGOUT';
-            }else if(sMenu=='register'){
-                var sFunction = 'register';
-            }
-            if (toMenu != '') {
-                hi();
-                var userIdProfile = profile.userId;
-                var url = rmxSelectMenu(sFunction, userIdProfile);
-                window.location.assign(url);
-            }
-        })
-        .catch((err) => {
-            console.log('getProfile: ', err);
-        });
-}
-
 async function rmxInitializeLiff(myLiffId, type) {
     await liff.init({
         liffId: myLiffId
