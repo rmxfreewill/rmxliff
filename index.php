@@ -89,13 +89,17 @@ if (isset($_GET['menu']))
                     .then(profile => {
                         var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
-                        if (sMenu == 'profile') {
-                            sFunction = 'LOGOUT';
-                        }
+                        alert(sMenu);
                         if (sFunction != '') {
                             var userIdProfile = profile.userId;
                             var url = rmxSelectMenu(sFunction, userIdProfile);
                             window.location.assign(url);
+                        } else {
+                            if (sMenu != '') {
+                                var userIdProfile = profile.userId;
+                                var url = rmxSelectMenu(sMenu, userIdProfile);
+                                window.location.assign(url);
+                            }
                         }
                     })
                     .catch((err) => {
@@ -109,16 +113,7 @@ if (isset($_GET['menu']))
                         liffId: myLiffId
                     })
                     .then(() => {
-                        var sFunction = document.getElementById('txtFunction').value;
-                        var sMenu = document.getElementById('txtMenu').value;
-                        if (sMenu == 'profile') {
-                            sFunction = 'LOGOUT';
-                        } else if (sMenu == 'register') {
-                            sFunction = 'register';
-                        } else if (sMenu == 'search') {
-                            sFunction = 'LOGOUT';
-                        }
-                        liff.isLoggedIn() ? getProfileLiffUserId(sMenu) : liff.login();
+                        liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
                     })
                     .catch((err) => {
                         console.log("initializeLiff: " + err);
