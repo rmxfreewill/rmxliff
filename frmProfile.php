@@ -4,19 +4,15 @@ session_start();
 
 header('Access-Control-Allow-Origin: *');
 
-error_reporting(E_ALL & ~E_NOTICE);
-include_once("rmxLineFunction.php");
+// error_reporting(E_ALL & ~E_NOTICE);
+// include_once("rmxLineFunction.php");
 // include_once("function/rmx_liff_function.php");
 
 $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 $sURL = sURL;
-$menu = '';
-if (isset($_POST['menu']))
-    $menu = $_POST['menu'];
-if (isset($_GET['menu']))
-    $menu = $_GET['menu'];
+
 
 ?>
 
@@ -39,7 +35,7 @@ if (isset($_GET['menu']))
 <body>
     <?php
 
-    echo $menu;
+
 
     // getProfile();
 
