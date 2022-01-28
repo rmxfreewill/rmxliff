@@ -22,6 +22,7 @@ if (isset($_POST['menu']))
 if (isset($_GET['menu']))
     $menu = $_GET['menu'];
 
+    echo $menu;
 
 ?>
 
@@ -38,7 +39,8 @@ if (isset($_GET['menu']))
     <meta http-equiv="pragma" content="no-cache">
     <title>RMX-E Official</title>
 
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+    <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script> -->
+    <script charset="utf-8" src="https://static.line-scdn.net/.../edge/versions/2.18.1/sdk.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
 </head>
 
