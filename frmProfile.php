@@ -110,13 +110,13 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
     <?php
-
-    $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
-    if ($conn) {
-        echo "Connect";
-    } else {
-        rmxhi();
-    }
+    getProfile();
+    // $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+    // if ($conn) {
+    //     echo "Connect";
+    // } else {
+    //     rmxhi();
+    // }
 
     ?>
     <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
@@ -130,7 +130,6 @@ if ($LinkCode == 'SEARCH') {
     <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
     <script>
         window.onload = function() {}
-        alert('Profile');
     </script>
 </body>
 
