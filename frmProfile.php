@@ -108,7 +108,23 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
     <?php
-    getProfile();
+    $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+    if ($conn) {
+        $sql = "SELECT * FROM m_user WHERE sLineId = 'Udec130bc9006e11217378370fc75436c'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (count($row) > 0) {
+            echo "<b>Name:</b>";
+            echo "<br>";
+            echo $row["sName"] . ' ' . $row["sSurName"];
+            echo "<p>";
+            echo "<b>Mobile No.</b>";
+            echo "<br>";
+            echo $row["sMobileNo"];
+        }
+    } else {
+        echo "What";
+    }
     ?>
     <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
     <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
