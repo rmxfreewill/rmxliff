@@ -91,7 +91,6 @@ if (isset($_GET['menu']))
                         var userIdProfile = profile.userId;
                         // var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
-                        alert('sMenu '+sMenu);
                         var url = rmxSelectMenu(sMenu, userIdProfile);
                         window.location.assign(url);
                     })
