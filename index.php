@@ -4,6 +4,7 @@ session_start();
 
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
+include("function/rmx_liff_function.php");
 
 $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
@@ -115,7 +116,10 @@ if (isset($_GET['menu']))
 
         }
     </script>
+    <?php
+    getProfile();
 
+    ?>
 </body>
 
 </html>
