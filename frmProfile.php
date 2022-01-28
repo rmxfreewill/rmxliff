@@ -7,6 +7,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 include("rmxLineFunction.php");
 include("function/rmx_liff_function.php");
 
+header('Access-Control-Allow-Origin: *');
+
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
