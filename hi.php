@@ -3,7 +3,12 @@
 session_start();
 
 // error_reporting(E_ALL & ~E_NOTICE);
-// include("rmxLineFunction.php");
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include("rmxLineFunction.php");
 include("rmxApi/define_Api_Global.php");
 
 header('Access-Control-Allow-Origin: *');
