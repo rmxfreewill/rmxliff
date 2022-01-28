@@ -46,6 +46,7 @@ if ($conn) {
 </head>
 
 <body>
+    Profile
 <script>
     alert('Profile Page');
 </script>
