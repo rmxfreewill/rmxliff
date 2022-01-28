@@ -107,11 +107,12 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
 
-        <div id="searchForm" class="login_container">
+       
 <?php
 rmxhi();
+getProfile();
 ?>
-        </div>
+       
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
