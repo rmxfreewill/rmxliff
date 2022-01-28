@@ -40,7 +40,7 @@ function getProfile($LineId)
 {
     $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
     if ($conn) {
-        $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'";
+        $sql = "SELECT * FROM m_user WHERE sLineId = 'Ucd102187a2dfb7494ea9d723a5ae4041'";
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (count($row) > 0) {
