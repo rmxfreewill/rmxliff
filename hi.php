@@ -19,5 +19,3 @@ if ($conn) {
 } else {
     rmxhi();
 }
-
-echo 'dd'

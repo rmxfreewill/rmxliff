@@ -5,10 +5,10 @@ session_start();
 
 error_reporting(E_ALL & ~E_NOTICE);
 include("rmxLineFunction.php");
+include("rmxApi/define_Api_Global.php");
 include("function/rmx_liff_function.php");
 
 header('Access-Control-Allow-Origin: *');
-
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
@@ -110,13 +110,14 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
     <?php
-    // $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
-    // if ($conn) {
-    //     echo "Connect";
-    // } else {
-    //     rmxhi();
-    // }
-    rmxhi();
+
+    $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+    if ($conn) {
+        echo "Connect";
+    } else {
+        rmxhi();
+    }
+
     ?>
     <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
     <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
