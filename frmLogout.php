@@ -73,9 +73,9 @@ rmxChangeMemberRichMenuDefualt($LineId);
         <h1>Thank You</h1>
     </center>
     <script>
-        var myLiffId = document.getElementById('txtLiffId').value;
-        var type = "logout";
-        rmxInitializeLiff(myLiffId,type);
+        // var myLiffId = document.getElementById('txtLiffId').value;
+        // var type = "logout";
+        // rmxInitializeLiff(myLiffId,type);
     </script>
 </body>
 
