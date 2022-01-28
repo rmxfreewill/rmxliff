@@ -2,7 +2,9 @@
 
 session_start();
 
-error_reporting(E_ALL & ~E_NOTICE);
+header('Access-Control-Allow-Origin: *');
+
+// error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
 
 $CompanyUrl = COMPANY_URL;
@@ -19,13 +21,13 @@ if (isset($_GET['menu']))
 
 <?php
 
-$conn = mysqli_connect($HOST, $USER, $PASS, $DB, $PORT);
+// $conn = mysqli_connect($HOST, $USER, $PASS, $DB, $PORT);
 
-if ($conn) {
-    echo $conn;
-} else {
-    echo "What";
-}
+// if ($conn) {
+//     echo $conn;
+// } else {
+//     echo "What";
+// }
 
 ?>
 
@@ -41,8 +43,8 @@ if ($conn) {
     <meta http-equiv="pragma" content="no-cache">
     <title>Profile</title>
 
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
-    <script charset="utf-8" src="js/rmx_liff_function.js"></script>
+    <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script> -->
+    <!-- <script charset="utf-8" src="js/rmx_liff_function.js"></script> -->
 </head>
 
 <body>
