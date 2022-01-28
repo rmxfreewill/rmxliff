@@ -87,19 +87,11 @@ if (isset($_GET['menu']))
             function getProfileLiffUserId() {
                 liff.getProfile()
                     .then(profile => {
-                        var sFunction = document.getElementById('txtFunction').value;
+                        var userIdProfile = profile.userId;
+                        // var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
-                        if (sFunction != '') {
-                            var userIdProfile = profile.userId;
-                            var url = rmxSelectMenu(sFunction, userIdProfile);
-                            window.location.assign(url);
-                        } else {
-                            if (sMenu != '') {
-                                var userIdProfile = profile.userId;
-                                var url = rmxSelectMenu(sMenu, userIdProfile);
-                                window.location.assign(url);
-                            }
-                        }
+                        var url = rmxSelectMenu(sMenu, userIdProfile);
+                        window.location.assign(url);
                     })
                     .catch((err) => {
                         console.log('getProfile: ', err);
