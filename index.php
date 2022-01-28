@@ -6,6 +6,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
 include("function/rmx_liff_function.php");
 
+header('Access-Control-Allow-Origin: *');
+
 $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
