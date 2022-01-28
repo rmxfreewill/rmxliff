@@ -80,17 +80,17 @@ if ($LinkCode == 'SEARCH') {
     }
 }
 
-function ticketSearchScreen($LineId)
+function ticketSearchScreen($LineId,$arrRet)
 {
-    //     <label><b>LINE ID: </b>'.$LineId.'</label>
-    // <p>
+
+
     echo
     '
     <label><b>LINE ID: </b>'.$LineId.'</label><p>
-    <label><b>SoldToCode: </b>'.$SoldToCode.'</label><p>
-    <label><b>SoldToName: </b>'.$SoldToName.'</label><p>
-    <label><b>Tel: </b>'.$Tel.'</label><p>
-    <label><b>EMail: </b>'.$EMail.'</label><p>
+    <label><b>SoldToCode: </b>'.$arrRet[5].'</label><p>
+    <label><b>SoldToName: </b>'.$arrRet[6].'</label><p>
+    <label><b>Tel: </b>'.$arrRet[4].'</label><p>
+    <label><b>EMail: </b>'.$arrRet[3].'</label><p>
 
     <div class="login_container">
         <div class="login_container">
@@ -136,7 +136,7 @@ function ticketSearchScreen($LineId)
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
-            ticketSearchScreen($LineId);
+            ticketSearchScreen($LineId,$ASRet);
         }
         ?>
 
