@@ -37,7 +37,9 @@ function rmxChangeMemberRichMenuDefualt($LINEID)
 }
 
 function getProfile(){
-    $conn = mysqli_connect($HOST, $USER, $PASS, $DB, $PORT);
+    // $conn = mysqli_connect($HOST, $USER, $PASS, $DB, $PORT);
+
+    $conn = mysqli_connect('freewillmdc.loginto.me', 'root', 'fwg@04111', 'fwghr', '56860');
 
     if ($conn) {
         echo $conn;
