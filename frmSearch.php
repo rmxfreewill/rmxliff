@@ -82,16 +82,15 @@ if ($LinkCode == 'SEARCH') {
 
 function ticketSearchScreen($LineId,$arrRet)
 {
-
-
-    echo
-    '
-    <label><b>LINE ID: </b>'.$LineId.'</label><p>
+    $aa = '
+        <label><b>LINE ID: </b>'.$LineId.'</label><p>
     <label><b>SoldToCode: </b>'.$arrRet[5].'</label><p>
     <label><b>SoldToName: </b>'.$arrRet[6].'</label><p>
     <label><b>Tel: </b>'.$arrRet[4].'</label><p>
     <label><b>EMail: </b>'.$arrRet[3].'</label><p>
+    ';
 
+    $res='
     <div class="login_container">
         <div class="login_container">
             <label for="txtFirst"><b>Start Date</b></label>
@@ -106,6 +105,8 @@ function ticketSearchScreen($LineId,$arrRet)
 
     </div>
     ';
+
+    echo $res;
 }
 
 
