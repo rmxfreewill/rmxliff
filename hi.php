@@ -14,3 +14,5 @@ if ($conn) {
 } else {
     rmxhi();
 }
+
+echo 'HIHI';
