@@ -1,5 +1,11 @@
 <?php
 
+	define("HEROKU_HOST", "ble5mmo2o5v9oouq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com");
+	define("HEROKU_USER", "qayjkfc2mllng4im");
+	define("HEROKU_PASS", "kmfff0oqvbysalq0");
+	define("HEROKU_DB", "oxmxf50x8px26gtj");
+
+
 
 	define("HOST", "127.0.0.1");
 	define("PORT", 3306);

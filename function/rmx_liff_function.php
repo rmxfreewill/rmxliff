@@ -36,16 +36,22 @@ function rmxChangeMemberRichMenuDefualt($LINEID)
     }
 }
 
-function getProfile(){
-    $conn = mysqli_connect(HOST, USER, PASS, DB, PORT);
+function getProfile()
+{
+    $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+
+    $sql = "SELECT * FROM m_user";
+    $result = $conn->query($sql);
 
     if ($conn) {
-        print_r($conn);
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        printf( $row["sName"]);
     } else {
         echo "What";
     }
 }
 
-function rmxhi(){
+function rmxhi()
+{
     echo "RMX Hi";
 }
