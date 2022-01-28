@@ -36,7 +36,7 @@ if (isset($_GET['menu']))
 
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-    <title>Line</title>
+    <title>RMX-E Official</title>
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
@@ -50,6 +50,8 @@ if (isset($_GET['menu']))
         <input type="hidden" id="txtMenu" value="<?php echo $menu; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
+
+        <input type="hidden" id="txtTest" value="testtest">
     </form>
 
     <script>
@@ -90,8 +92,8 @@ if (isset($_GET['menu']))
                         var userIdProfile = profile.userId;
                         var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
-                        alert('fun '+sFunction);
-                        alert('menu '+sMenu);
+                        var sTest = document.getElementById('txtTest').value;
+                        alert('test '+sTest);
                         var url = rmxSelectMenu(sMenu, userIdProfile);
                         window.location.assign(url);
                     })
