@@ -47,3 +47,7 @@ function getProfile(){
         echo "What";
     }
 }
+
+function rmxhi(){
+    echo "RMX Hi";
+}
