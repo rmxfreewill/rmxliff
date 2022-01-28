@@ -4,7 +4,7 @@ session_start();
 
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
-include("function/rmx_liff_function.php");
+include("rmxLiffFunction.php");
 
 header('Access-Control-Allow-Origin: *');
 

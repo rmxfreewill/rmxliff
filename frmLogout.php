@@ -3,7 +3,7 @@ session_start();
 
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
-include_once("function/rmx_liff_function.php");
+include_once("rmxLiffFunction.php");
 
 $LiffId = LIFF_ID;
 

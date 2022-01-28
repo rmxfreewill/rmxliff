@@ -5,7 +5,7 @@ session_start();
 
 error_reporting(E_ALL & ~E_NOTICE);
 include("rmxLineFunction.php");
-include("function/rmx_liff_function.php");
+include_once("rmxLiffFunction.php");
 
 
 $CompanyUrl = COMPANY_URL;
@@ -108,10 +108,7 @@ if ($LinkCode == 'SEARCH') {
 <body>
 
        
-<?php
-rmxhi();
-getProfile();
-?>
+
        
         <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
