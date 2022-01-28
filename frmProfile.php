@@ -21,7 +21,7 @@ if (isset($_GET['menu']))
 
 <?php
 
-// $conn = mysqli_connect($HOST, $USER, $PASS, $DB, $PORT);
+$conn = mysqli_connect($HOST, $USER, $PASS, $DB, $PORT);
 
 // if ($conn) {
 //     echo $conn;
