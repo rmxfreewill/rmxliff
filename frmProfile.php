@@ -110,7 +110,7 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
     <?php
-    getProfile();
+    getProfile($LineId);
     // $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
     // if ($conn) {
     //     echo "Connect";

@@ -36,14 +36,16 @@ function rmxChangeMemberRichMenuDefualt($LINEID)
     }
 }
 
-function getProfile()
+function getProfile($LineId)
 {
     $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
     if ($conn) {
-        $sql = "SELECT * FROM m_user WHERE sLineId = 'Udec130bc9006e11217378370fc75436c'";
+        $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'";
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (count($row) > 0) {
+            echo "USER PROFILE";
+            echo "<p>";
             echo "<b>Name:</b>";
             echo "<br>";
             echo $row["sName"] . ' ' . $row["sSurName"];
