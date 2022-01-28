@@ -107,13 +107,9 @@ if ($LinkCode == 'SEARCH') {
 </head>
 
 <body>
-
-
     <?php
-    rmxhi();
     getProfile();
     ?>
-
     <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
     <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
     <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
@@ -123,7 +119,6 @@ if ($LinkCode == 'SEARCH') {
     <input type="hidden" id="txtLineId" value="<?php echo $LiffId; ?>">
     <input type="hidden" id="txtTableTitle" value="<?php echo $TableTitle; ?>">
     <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
-
     <script>
         window.onload = function() {}
     </script>
