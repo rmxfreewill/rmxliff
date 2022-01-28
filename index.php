@@ -117,7 +117,6 @@ if (isset($_GET['menu']))
                     .catch((err) => {
                         console.log("initializeLiff: " + err);
                     });
-
             }
 
             var myLiffId = document.getElementById('txtLiffId').value;
