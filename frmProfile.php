@@ -129,6 +129,7 @@ if ($LinkCode == 'SEARCH') {
     <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
     <script>
         window.onload = function() {}
+        alert('Profile');
     </script>
 </body>
 

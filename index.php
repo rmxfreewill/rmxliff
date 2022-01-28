@@ -116,10 +116,6 @@ if (isset($_GET['menu']))
 
         }
     </script>
-    <?php
-    getProfile();
-
-    ?>
 </body>
 
 </html>
