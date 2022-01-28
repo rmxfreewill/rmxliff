@@ -358,17 +358,11 @@ if ($LinkCode == 'LOGOUT') {
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-
-
     <title><?php echo $sTitle; ?></title>
-
-    <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script> -->
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     <link rel="stylesheet" href="style.css">
 
 </head>

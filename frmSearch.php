@@ -118,7 +118,7 @@ function ticketSearchScreen($LineId)
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
     <title><?php echo $sTitle; ?></title>
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/search_style.css">
