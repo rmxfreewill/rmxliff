@@ -110,13 +110,13 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
     <?php
-    $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
-    if ($conn) {
-        echo "Connect";
-    } else {
-        rmxhi();
-    }
-
+    // $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+    // if ($conn) {
+    //     echo "Connect";
+    // } else {
+    //     rmxhi();
+    // }
+    rmxhi();
     ?>
     <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
     <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
