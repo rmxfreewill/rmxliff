@@ -366,7 +366,7 @@ if ($LinkCode == 'LOGOUT') {
     <title><?php echo $sTitle; ?></title>
 
     <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script> -->
-    <script charset="utf-8" src="https://static.line-scdn.net/.../edge/versions/2.18.1/sdk.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
