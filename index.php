@@ -90,10 +90,9 @@ if (isset($_GET['menu']))
                 liff.getProfile()
                     .then(profile => {
                         var userIdProfile = profile.userId;
-                        var sFunction = document.getElementById('txtFunction').value;
+                        // var sFunction = document.getElementById('txtFunction').value;
                         var sMenu = document.getElementById('txtMenu').value;
-                        var sTest = document.getElementById('txtTest').value;
-                        alert('test '+sTest);
+                        alert('sMenu '+sMenu);
                         var url = rmxSelectMenu(sMenu, userIdProfile);
                         window.location.assign(url);
                     })
