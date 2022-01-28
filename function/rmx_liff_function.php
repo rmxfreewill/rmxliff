@@ -1,5 +1,7 @@
 <?php
 
+include_once("rmxApi/define_Api_Gobal.php");
+
 //Line Api
 function rmxChangeMemberRichMenuDefualt($LINEID)
 {
@@ -31,5 +33,15 @@ function rmxChangeMemberRichMenuDefualt($LINEID)
         $data = "{}";
     } catch (Exception $ex) {
         $data = $ex;
+    }
+}
+
+function getProfile(){
+    $conn = mysqli_connect($HOST, $USER, $PASS, $DB, $PORT);
+
+    if ($conn) {
+        echo $conn;
+    } else {
+        echo "What";
     }
 }

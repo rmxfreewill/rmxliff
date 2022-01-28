@@ -6,6 +6,7 @@ header('Access-Control-Allow-Origin: *');
 
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
+include_once("function/rmx_liff_function.php.php");
 
 $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
@@ -21,13 +22,7 @@ if (isset($_GET['menu']))
 
 <?php
 
-$conn = mysqli_connect($HOST, $USER, $PASS, $DB, $PORT);
-
-// if ($conn) {
-//     echo $conn;
-// } else {
-//     echo "What";
-// }
+getProfile();
 
 ?>
 
