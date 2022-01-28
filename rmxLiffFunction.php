@@ -44,7 +44,7 @@ function getProfile($LineId)
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (count($row) > 0) {
-            echo "USER PROFILE";
+            echo "<b>USER PROFILE</b>";
             echo "<p>";
             echo "<b>Name:</b>";
             echo "<br>";

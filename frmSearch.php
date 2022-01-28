@@ -87,6 +87,11 @@ function ticketSearchScreen($LineId)
     echo
     '
     <label><b>LINE ID: </b>'.$LineId.'</label><p>
+    <label><b>SoldToCode: </b>'.$SoldToCode.'</label><p>
+    <label><b>SoldToName: </b>'.$SoldToName.'</label><p>
+    <label><b>Tel: </b>'.$Tel.'</label><p>
+    <label><b>EMail: </b>'.$EMail.'</label><p>
+
     <div class="login_container">
         <div class="login_container">
             <label for="txtFirst"><b>Start Date</b></label>
