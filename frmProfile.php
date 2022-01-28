@@ -4,7 +4,7 @@ session_start();
 
 header('Access-Control-Allow-Origin: *');
 
-// error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
 
 $CompanyUrl = COMPANY_URL;
@@ -44,7 +44,7 @@ if (isset($_GET['menu']))
     <title>Profile</title>
 
     <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script> -->
-    <!-- <script charset="utf-8" src="js/rmx_liff_function.js"></script> -->
+    <script charset="utf-8" src="js/rmx_liff_function.js"></script>
 </head>
 
 <body>
