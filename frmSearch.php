@@ -85,7 +85,9 @@ function ticketSearchScreen($LineId)
     //     <label><b>LINE ID: </b>'.$LineId.'</label>
     // <p>
     echo
-    '<div class="login_container">
+    '
+    <label><b>LINE ID: </b>'.$LineId.'</label><p>
+    <div class="login_container">
         <div class="login_container">
             <label for="txtFirst"><b>Start Date</b></label>
             <input type="date" dateformat="d M y" id="txtFirst">
@@ -97,7 +99,8 @@ function ticketSearchScreen($LineId)
             <button type="button" id="btnSearch" onclick="SearchClick()">SEARCH</button>
         </div>
 
-    </div>';
+    </div>
+    ';
 }
 
 
