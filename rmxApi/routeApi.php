@@ -11,12 +11,13 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $bearer_token = BEARER_TOKEN;
 $header_token = $_SERVER['HTTP_AUTHORIZATION'];
 
-// $api_menu = $_SERVER['QUERY_STRING']['menu'];
+$api_query = $_SERVER['QUERY_STRING'];
+$api_menu = $api_query['menu'];
 
 
 
 // echo $bearer_token . '==' . $header_token;
 
-print_r( $header_token);
+// print_r( $header_token);
 
-// echo $bearer_token;
+ echo $api_menu;
