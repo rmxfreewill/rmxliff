@@ -23,7 +23,7 @@ $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 // print_r( $header_token);
 
 
-$part = parse_url($_SERVER['QUERY_STRING']);
-print_r ($part);
+$parts = parse_url($_SERVER['QUERY_STRING']);
+print_r ($parts);
 
-echo $part['part'] ;
+echo $parts[0] ;
