@@ -24,4 +24,4 @@ $data = json_decode($json);
 
 // print_r( $header_token);
 
-echo $data;
+echo $data["menu"];
