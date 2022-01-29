@@ -5,7 +5,7 @@ include(dirname(__FILE__) . "../../define_Global.php");
 function rmxGetProfileLiff($LineId)
 {
     $url = RMX_API_URL;
-    $param = "menu=profile&lineid=$LineId";
+    $param = "?menu=profile&lineid=$LineId";
 
     $token = BEARER_TOKEN;
     $authorization = "Authorization: Bearer $token";
