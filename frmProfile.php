@@ -107,7 +107,8 @@ $sShowMsg = '';
     $getDataProfile = rmxGetProfileLiff($LineId, $mobileNo);
     $getDataProfileObj = json_decode($getDataProfile);
 
-    echo "<b>USER PROFILE</b>";
+    echo "<b>USER PROFILE</b><p>";
+    echo "<b>LINEID: </b>" . $LineId;
     echo "<p>";
     echo "<b>Name:</b>";
     echo "<br>";
