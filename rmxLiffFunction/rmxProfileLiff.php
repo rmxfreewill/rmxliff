@@ -5,6 +5,7 @@ include(dirname(__FILE__) . "../../define_Global.php");
 function rmxGetProfileLiff($LineId)
 {
     $url = RMX_API_URL;
+    $url = "https://jsonplaceholder.typicode.com/post/";
     $param = "?menu=profile&lineid=$LineId";
 
     $headers = [
@@ -33,4 +34,4 @@ function rmxGetProfileLiff($LineId)
     }
 }
 
-rmxGetProfileLiff($LineId);
+rmxGetProfileLiff('');
