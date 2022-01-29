@@ -17,12 +17,13 @@ function rmxApiGetProfile($LineId)
     $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
     //  $conn = mysqli_connect(HOST, USER, PASS, DB, PORT);
     //
-   
+
     if ($conn) {
         $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'";
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
-        if ($row) {
+        $numRow = $result->fetch_array(MYSQLI_NUM);
+        if ($numRow > 0) {
 
 
             // echo "<b>USER PROFILE</b>";
