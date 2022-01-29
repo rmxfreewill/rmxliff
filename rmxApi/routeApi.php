@@ -29,4 +29,4 @@ $get_string = $_SERVER['QUERY_STRING'];
 
 parse_str($get_string, $get_array);
 
-print_r($get_array);
+print_r($get_array['menu']);
