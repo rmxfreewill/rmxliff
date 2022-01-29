@@ -100,20 +100,23 @@ $sShowMsg = '';
     <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
     <?php
     $mobileNo = '';
     $getDataProfile = rmxGetProfileLiff($LineId, $mobileNo);
     $getDataProfileObj = json_decode($getDataProfile);
+    $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
+    $mobileText = $getDataProfileObj->mobile;
 
     echo "<b>USER PROFILE</b><p>";
     // echo "<b>LINEID: </b>" . $LineId;
     // echo "<p>";
     echo "<b>Name:</b><p>";
-    echo $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
+    echo $nameText;
     echo "<p>";
     echo "<b>Mobile No.</b><p>";
-    echo $getDataProfileObj->mobile;
+    echo $mobileText;
     ?>
 </body>
 

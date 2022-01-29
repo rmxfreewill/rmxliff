@@ -4,8 +4,8 @@ include(dirname(__FILE__) . "../../define_Global.php");
 
 function rmxGetProfileLiff($LineId, $mobileNo = '')
 {
-    // $rmx_api_url = RMX_API_URL;
-    $rmx_api_url = "https://rmx.freewillsolutions.com/rmxLineApi/";
+    $rmx_api_url = RMX_HEROKU_API_URL;
+    // $rmx_api_url = RMX_SERVER_API_URL;
     $param_menu = "?menu=profile&lineid=$LineId";
     if ($mobileNo != '') {
         $param_mobileno = "&mobile=$mobileNo";
