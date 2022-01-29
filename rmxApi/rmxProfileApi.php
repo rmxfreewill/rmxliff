@@ -4,6 +4,8 @@ include("define_rmxApi.php");
 
 header('Access-Control-Allow-Origin: *');
 
+$GLOBALS['obj'] = new stdClass();
+
 function rmxGetProfile($LineId)
 {
     //
@@ -15,7 +17,7 @@ function rmxGetProfile($LineId)
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if (count($row) > 0) {
-            $obj = new stdClass();
+
 
             // echo "<b>USER PROFILE</b>";
             // echo "<p>";
@@ -26,11 +28,11 @@ function rmxGetProfile($LineId)
             // echo "<b>Mobile No.</b>";
             // echo "<br>";
             // echo $row["sMobileNo"];
-
-            $obj->name = $row["sName"];
-            $obj->surname = $row["sSurName"];
-            $obj->mobile = $row["sMobileNo"];
-            echo json_encode($obj);
+            
+            $GLOBALS['obj']->name = $row["sName"];
+            $GLOBALS['obj']->surname = $row["sSurName"];
+            $GLOBALS['obj']->mobile = $row["sMobileNo"];
+            echo json_encode($GLOBALS['obj']);
         }
     }
 }
