@@ -28,3 +28,5 @@ function rmxGetProfileLiff($LineId)
         print($ex);
     }
 }
+
+rmxGetProfileLiff($LineId);
