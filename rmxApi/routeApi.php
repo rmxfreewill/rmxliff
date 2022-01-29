@@ -25,4 +25,4 @@ $api_query = $_SERVER['REQUEST_URI'];
 
 // print_r( $header_token);
 
-echo print_f($api_query);
+ print_r($api_query);
