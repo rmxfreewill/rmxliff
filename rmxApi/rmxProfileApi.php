@@ -22,7 +22,6 @@ function rmxApiGetProfile($LineId)
         $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'";
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
-
         if ($row) {
 
 
