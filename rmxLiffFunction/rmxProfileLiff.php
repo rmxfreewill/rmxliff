@@ -6,6 +6,7 @@ function rmxGetProfileLiff($LineId, $mobileNo)
 {
     $rmx_api_url = RMX_API_URL;
     $param_menu = "?menu=profile";
+    $param_mobileno = '';
     if ($LineId != '') {
         $param_lineid = "&lineid=$LineId";
     } else if ($mobileNo != '') {
