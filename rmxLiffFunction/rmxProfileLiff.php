@@ -1,6 +1,6 @@
 <?php
 
-include("../define_Global.php");
+include(dirname(__FILE__) . "../../define_Global.php");
 
 function rmxGetProfileLiff($LineId)
 {
@@ -14,7 +14,7 @@ function rmxGetProfileLiff($LineId)
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $content = curl_exec($ch);
- 
+
         echo $content;
 
         curl_close($ch);
