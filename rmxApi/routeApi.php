@@ -16,13 +16,12 @@ $header_token = $_SERVER['HTTP_AUTHORIZATION'];
 
 $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
-$api_req = trim($_SERVER['REQUEST_URI'], '/api/');
 
-
-
+$json = file_get_contents('php://input');
+$data = json_decode($json);
 
 // echo $bearer_token . '==' . $header_token;
 
 // print_r( $header_token);
 
-echo $api_req["menu"];
+echo $data;
