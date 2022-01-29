@@ -1,6 +1,6 @@
 <?php
 
-include_once("../rmxApi/define_Api_Global.php");
+include_once("define_Api_Global.php");
 
 //Line Api
 function rmxChangeMemberRichMenuDefualt($LINEID)
@@ -36,9 +36,31 @@ function rmxChangeMemberRichMenuDefualt($LINEID)
     }
 }
 
+function abc()
+{
+    $url = 'http://localhost:81/Api/RestfulApi.php';
+    $data = "fn=login&test=1";
+    try {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $content = curl_exec($ch);
+        curl_close($ch);
+    } catch (Exception $ex) {
+
+        echo $ex;
+    }
+}
+
 function getProfile($LineId)
 {
-    $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+    //
+    // $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+    //
+    $conn = mysqli_connect(HOST, USER, PASS, DB, PORT);
     if ($conn) {
         $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'";
         $result = $conn->query($sql);
