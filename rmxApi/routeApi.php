@@ -28,8 +28,7 @@ function checkRequest()
     return $requestMethod == $isToken;
 }
 
-$checkReq = checkRequest();
-
+$checkReq = $_SERVER['HTTP_AUTHORIZATION'] == null ? false : checkRequest();
 if ($checkReq == true) {
     $menu = getDataUrl()['menu'];
     $lineid = getDataUrl()['lineid'];
