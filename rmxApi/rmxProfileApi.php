@@ -23,18 +23,6 @@ function rmxApiGetProfile($LineId)
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if ($row) {
-
-
-            // echo "<b>USER PROFILE</b>";
-            // echo "<p>";
-            // echo "<b>Name:</b>";
-            // echo "<br>";
-            // echo $row["sName"] . ' ' . $row["sSurName"];
-            // echo "<p>";
-            // echo "<b>Mobile No.</b>";
-            // echo "<br>";
-            // echo $row["sMobileNo"];
-
             $GLOBALS['obj']->name = $row["sName"];
             $GLOBALS['obj']->surname = $row["sSurName"];
             $GLOBALS['obj']->mobile = $row["sMobileNo"];
