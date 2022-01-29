@@ -12,10 +12,9 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 $bearer_token = 'Bearer ' . BEARER_TOKEN;
-$header_token = $_SERVER['HTTP_AUTHORIZATION'];
+$header_token = trim($_SERVER['HTTP_AUTHORIZATION'], 'Bearer ');
 
 $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
-
 
 $json = file_get_contents('php://input');
 $data = json_decode($json);
@@ -24,4 +23,4 @@ $data = json_decode($json);
 
 // print_r( $header_token);
 
-echo $data["menu"];
+print_r($data);
