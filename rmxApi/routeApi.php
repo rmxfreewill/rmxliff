@@ -28,7 +28,7 @@ function checkRequest()
     return $requestMethod == $isToken;
 }
 
-try {
+
     $checkReq = $_SERVER['HTTP_AUTHORIZATION'] == null ? false : checkRequest();
     if ($checkReq == true) {
         $menu = getDataUrl()['menu'];
@@ -38,6 +38,4 @@ try {
             rmxApiGetProfile($lineid);
         }
     }
-} catch (\Throwable $th) {
-    echo $th;
-}
+
