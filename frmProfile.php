@@ -104,17 +104,19 @@ $sShowMsg = '';
 <body>
     <?php
     $getDataProfile = rmxGetProfileLiff($LineId);
-    $getDataProfileJson = json_decode($getDataProfile);
+    $getDataProfileObj = json_decode($getDataProfile);
 
-    echo "<b>USER PROFILE</b>";
-    echo "<p>";
-    echo "<b>Name:</b>";
-    echo "<br>";
-    echo $getDataProfileJson["name"] . ' ' . $getDataProfileJson["surname"];
-    echo "<p>";
-    echo "<b>Mobile No.</b>";
-    echo "<br>";
-    echo $getDataProfileJson["mobile"];
+    echo $getDataProfileObj->name; 
+
+    // echo "<b>USER PROFILE</b>";
+    // echo "<p>";
+    // echo "<b>Name:</b>";
+    // echo "<br>";
+    // echo $getDataProfileJson["name"] . ' ' . $getDataProfileJson["surname"];
+    // echo "<p>";
+    // echo "<b>Mobile No.</b>";
+    // echo "<br>";
+    // echo $getDataProfileJson["mobile"];
     ?>
 
 </body>
