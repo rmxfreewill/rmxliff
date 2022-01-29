@@ -9,7 +9,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 $bearer_token = BEARER_TOKEN;
-$header_token = $_SERVER['HTTP_AUTHORIZATION']['Bearer'];
+$header_token = $_SERVER['HTTP_AUTHORIZATION'];
 
 // $api_menu = $_SERVER['QUERY_STRING']['menu'];
 
