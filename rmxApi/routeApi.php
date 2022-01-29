@@ -13,7 +13,7 @@ $uri = explode( '/', $uri );
 
 // echo "<br>";
 
-echo $_SERVER['HTTP_AUTHORIZATION'];
+print_r($_SERVER['HTTP_AUTHORIZATION']);
 
 // echo "<br>";
 
