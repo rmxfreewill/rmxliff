@@ -24,6 +24,6 @@ $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
 
 $parts = parse_url($_SERVER['QUERY_STRING']);
-print_r ($parts);
+print_r ($parts[0]);
 
 echo $_POST['menu'];
