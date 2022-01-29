@@ -8,10 +8,9 @@ header("Access-Control-Allow-Methods: GET,POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-
 $GLOBALS['obj'] = new stdClass();
 
-function rmxApiGetProfile($LineId)
+function rmxApiGetProfile($LineId, $mobileNo = '')
 {
     //
     $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
@@ -19,7 +18,10 @@ function rmxApiGetProfile($LineId)
     //
 
     if ($conn) {
-        $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'";
+        if ($mobileNo != '') {
+            $sql_mobile = " OR sMobileNo = '$mobileNo'";
+        }
+        $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'" . $sql_mobile;
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if ($row) {

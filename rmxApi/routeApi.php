@@ -33,6 +33,6 @@ if ($checkReq == true) {
     $menu = getDataUrl()['menu'];
     if ($menu = 'profile') {
         $lineid = getDataUrl()['lineid'];
-        rmxApiGetProfile($lineid);
+        rmxApiGetProfile($lineid, $mobileNo);
     }
 }
