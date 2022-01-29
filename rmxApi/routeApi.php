@@ -11,7 +11,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // $bearer_token = BEARER_TOKEN;
 $header_token = $_SERVER['HTTP_AUTHORIZATION']['Bearer'];
 
-$api_menu = $_SERVER['QUERY_STRING']['menu'];
+// $api_menu = $_SERVER['QUERY_STRING']['menu'];
 
 
 
