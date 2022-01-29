@@ -3,8 +3,8 @@
 include_once("define_rmxApi.php");
 include_once("rmxProfileApi.php");
 
-// error_reporting(-1);
-// ini_set('display_errors', 'On');
+error_reporting(-1);
+ini_set('display_errors', 'On');
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
