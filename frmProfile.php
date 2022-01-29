@@ -107,14 +107,12 @@ $sShowMsg = '';
     $getDataProfileObj = json_decode($getDataProfile);
 
     echo "<b>USER PROFILE</b><p>";
-    echo "<b>LINEID: </b>" . $LineId;
-    echo "<p>";
-    echo "<b>Name:</b>";
-    echo "<br>";
+    // echo "<b>LINEID: </b>" . $LineId;
+    // echo "<p>";
+    echo "<b>Name:</b><p>";
     echo $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     echo "<p>";
-    echo "<b>Mobile No.</b>";
-    echo "<br>";
+    echo "<b>Mobile No.</b><p>";
     echo $getDataProfileObj->mobile;
     ?>
 </body>
