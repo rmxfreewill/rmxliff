@@ -1,6 +1,6 @@
 <?php
 
-// include_once("define_rmxApi.php");
+include_once("define_rmxApi.php");
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
