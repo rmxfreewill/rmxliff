@@ -35,6 +35,6 @@ if ($checkReq == true) {
     $lineid = getDataUrl()['lineid'];
 
     if ($menu = 'profile') {
-        rmxProfileHi();
+        rmxGetProfile($lineid);
     }
 }
