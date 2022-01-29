@@ -2,6 +2,9 @@
 
 include_once("define_rmxApi.php");
 
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET,POST");
