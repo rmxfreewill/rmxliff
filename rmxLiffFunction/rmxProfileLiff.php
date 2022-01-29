@@ -2,7 +2,7 @@
 
 include_once("../define_Gobal.php");
 
-function rmxLiffGetProfile($LineId)
+function rmxGetProfileLiff($LineId)
 {
     $url = RMX_API_URL;
     $data = "menu=profile&lineid=$LineId";
@@ -14,7 +14,7 @@ function rmxLiffGetProfile($LineId)
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $content = curl_exec($ch);
-
+ 
         echo $content;
 
         curl_close($ch);
