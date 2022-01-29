@@ -104,22 +104,19 @@ $sShowMsg = '';
 <body>
     <?php
     $getProfile = rmxGetProfileLiff($LineId);
-    echo "FF: " . $getProfile;
+    $aa = json_decode($getProfile);
 
-
+    echo "<b>USER PROFILE</b>";
+    echo "<p>";
+    echo "<b>Name:</b>";
+    echo "<br>";
+    echo $aa["sName"] . ' ' . $aa["sSurName"];
+    echo "<p>";
+    echo "<b>Mobile No.</b>";
+    echo "<br>";
+    echo $aa["sMobileNo"];
     ?>
-    <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
-    <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
-    <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-    <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
-    <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
-    <input type="hidden" id="txtRetCommand" value="<?php echo $RetCommand; ?>">
-    <input type="hidden" id="txtLineId" value="<?php echo $LiffId; ?>">
-    <input type="hidden" id="txtTableTitle" value="<?php echo $TableTitle; ?>">
-    <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
-    <script>
-        window.onload = function() {}
-    </script>
+
 </body>
 
 </html>
