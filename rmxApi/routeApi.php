@@ -24,6 +24,9 @@ $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
 
 // $parts = parse_url($_SERVER['QUERY_STRING']);
-var_dump($_SERVER['QUERY_STRING']);
+
+$aa= encode($_SERVER['QUERY_STRING']);
+
+var_dump($aa);
 
 var_dump($_POST);
