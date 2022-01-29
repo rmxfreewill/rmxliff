@@ -24,4 +24,4 @@ $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
 
 $parts = parse_url($_SERVER['QUERY_STRING']);
-echo $parts['query'];
+print_r ($parts);
