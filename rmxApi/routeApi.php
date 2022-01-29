@@ -15,7 +15,7 @@ function getDataUrl()
 {
     $get_string = $_SERVER['QUERY_STRING'];
     parse_str($get_string, $get_array);
-    echo $get_array;
+    return  $get_array;
 }
 $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
