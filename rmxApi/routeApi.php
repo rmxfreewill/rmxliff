@@ -16,11 +16,12 @@ $header_token = trim($_SERVER['HTTP_AUTHORIZATION'], 'Bearer ');
 
 $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
-$json = file_get_contents('php://input');
-$data = json_decode($json);
+
 
 // echo $bearer_token . '==' . $header_token;
 
 // print_r( $header_token);
 
-print_r($data);
+
+$parts = parse_url($_SERVER['QUERY_STRING']);
+echo $parts['query'];
