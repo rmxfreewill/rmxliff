@@ -23,5 +23,5 @@ $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 // print_r( $header_token);
 
 
-$parts = parse_url($_SERVER['QUERY_STRING']);
-print_r ($parts);
+$part = parse_url($_SERVER['QUERY_STRING']);
+print_r ($part['menu']);
