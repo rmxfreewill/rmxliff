@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode( '/', $uri );
 
-echo $uri;
+// echo $uri;
 
 echo "<br>";
 
@@ -17,4 +17,4 @@ echo $_POST["menu"];
 
 echo "<br>";
 
-print_r($_SERVER['HTTP_AUTHORIZATION']);
+// print_r($_SERVER['HTTP_AUTHORIZATION']);
