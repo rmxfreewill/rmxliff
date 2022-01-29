@@ -103,7 +103,7 @@ $sShowMsg = '';
 
 <body>
     <?php
-    $getProfile = rmxGetProfileLiff($LineId);
+    // $getProfile = rmxGetProfileLiff($LineId);
     // echo $getProfile;
 
 
