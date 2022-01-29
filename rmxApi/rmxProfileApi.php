@@ -20,6 +20,8 @@ function rmxApiGetProfile($LineId, $mobileNo = '')
     if ($conn) {
         if ($mobileNo != '') {
             $sql_mobile = " OR sMobileNo = '$mobileNo'";
+        } else {
+            $sql_mobile = '';
         }
         $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'" . $sql_mobile;
         $result = $conn->query($sql);
