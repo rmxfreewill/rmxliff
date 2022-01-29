@@ -25,4 +25,4 @@ $api_req = trim($_SERVER['REQUEST_URI'], '/api/');
 
 // print_r( $header_token);
 
-echo $api_req;
+echo $api_req["menu"];
