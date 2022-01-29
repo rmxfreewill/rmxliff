@@ -110,11 +110,11 @@ $sShowMsg = '';
     echo "<p>";
     echo "<b>Name:</b>";
     echo "<br>";
-    echo $getDataProfileJson->name . ' ' . $getDataProfileJson->surname;
+    echo $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     echo "<p>";
     echo "<b>Mobile No.</b>";
     echo "<br>";
-    echo $getDataProfileJson->mobile;
+    echo $getDataProfileObj->mobile;
     ?>
 </body>
 
