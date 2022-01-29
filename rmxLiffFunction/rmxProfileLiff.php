@@ -7,22 +7,26 @@ function rmxGetProfileLiff($LineId)
     $url = RMX_API_URL;
     $param = "?menu=profile&lineid=$LineId";
 
-    $token = BEARER_TOKEN;
-    $authorization = "Authorization: Bearer $token";
+    $headers = [
+        "Authorization: Bearer " . BEARER_TOKEN
+    ];
 
     try {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url.$param);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization));
-        $content = curl_exec($ch);
-
-        echo $content;
-
+        curl_setopt($ch, CURLOPT_URL, $url . $param);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt(
+            $ch,
+            CURLOPT_POSTFIELDS,
+            array()
+        );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
+        $data = curl_exec($ch);
         curl_close($ch);
+
+        echo $data;
     } catch (Exception $ex) {
 
         print($ex);
