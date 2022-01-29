@@ -103,7 +103,8 @@ $sShowMsg = '';
 
 <body>
     <?php
-    $getDataProfile = rmxGetProfileLiff($LineId,$mobileNo);
+    $mobileNo = '';
+    $getDataProfile = rmxGetProfileLiff($LineId, $mobileNo);
     $getDataProfileObj = json_decode($getDataProfile);
 
     echo "<b>USER PROFILE</b>";
