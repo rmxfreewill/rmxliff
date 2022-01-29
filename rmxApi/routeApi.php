@@ -17,12 +17,19 @@ function getDataUrl()
     parse_str($get_string, $get_array);
     return  $get_array;
 }
-$bearer_token = BEARER_TOKEN;
-$header_token = trim($_SERVER['HTTP_AUTHORIZATION'], 'Bearer ');
-$isToken = $bearer_token == $header_token;
-$requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
-if ($requestMethod == $isToken) {
+function checkRequest()
+{
+    $bearer_token = BEARER_TOKEN;
+    $header_token = trim($_SERVER['HTTP_AUTHORIZATION'], 'Bearer ');
+    $isToken = $bearer_token == $header_token;
+    $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
+    return $requestMethod == $isToken;
+}
+
+$checkReq = checkRequest();
+
+if ($checkReq == true) {
     $get_string = $_SERVER['QUERY_STRING'];
     parse_str($get_string, $get_array);
     echo   $get_array['menu'];
