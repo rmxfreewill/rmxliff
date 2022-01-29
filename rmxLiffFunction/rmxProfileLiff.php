@@ -4,14 +4,10 @@ include(dirname(__FILE__) . "../../define_Global.php");
 
 function rmxGetProfileLiff($LineId)
 {
-    // $url = "https://jsonplaceholder.typicode.com/post/";
     $url = RMX_API_URL;
     $param = "?menu=profile&lineid=$LineId";
-
     $url = $url . $param;
-    $headers = [
-        "Authorization: Bearer " . BEARER_TOKEN
-    ];
+    $headers = ["Authorization: Bearer " . BEARER_TOKEN];
 
     try {
         $ch = curl_init();
@@ -23,10 +19,8 @@ function rmxGetProfileLiff($LineId)
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
         $data = curl_exec($ch);
         curl_close($ch);
-
-        echo  $data;
+        return  $data;
     } catch (Exception $ex) {
-
         print('Error rmxProfileLiff: ' . $ex);
     }
 }

@@ -28,14 +28,11 @@ function checkRequest()
     return $requestMethod == $isToken;
 }
 
-
-    $checkReq = $_SERVER['HTTP_AUTHORIZATION'] == null ? false : checkRequest();
-    if ($checkReq == true) {
-        $menu = getDataUrl()['menu'];
+$checkReq = $_SERVER['HTTP_AUTHORIZATION'] == null ? false : checkRequest();
+if ($checkReq == true) {
+    $menu = getDataUrl()['menu'];
+    if ($menu = 'profile') {
         $lineid = getDataUrl()['lineid'];
-
-        if ($menu = 'profile') {
-            rmxApiGetProfile($lineid);
-        }
+        rmxApiGetProfile($lineid);
     }
-
+}
