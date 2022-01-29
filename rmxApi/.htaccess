@@ -1,3 +1,4 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ routeApi.php [QSA,L]
+#RewriteRule ^ routeApi.php [QSA,L]
+RewriteRule ^api rmxApi.php [NC,L]
