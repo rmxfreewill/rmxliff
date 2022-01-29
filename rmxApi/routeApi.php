@@ -11,12 +11,12 @@ header("Access-Control-Allow-Methods: GET,POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-$bearer_token = 'Bearer '.BEARER_TOKEN;
+$bearer_token = 'Bearer ' . BEARER_TOKEN;
 $header_token = $_SERVER['HTTP_AUTHORIZATION'];
 
 $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
-$api_query = $_SERVER['REQUEST_URI'];
+$api_req = trim($_SERVER['REQUEST_URI'], '/api/');
 
 
 
@@ -25,4 +25,4 @@ $api_query = $_SERVER['REQUEST_URI'];
 
 // print_r( $header_token);
 
- echo $api_query;
+echo $api_req;
