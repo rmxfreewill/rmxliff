@@ -1,6 +1,7 @@
 <?php
 
 include_once("define_rmxApi.php");
+include_once("rmxProfileApi.php");
 
 error_reporting(-1);
 ini_set('display_errors', 'On');
@@ -31,5 +32,9 @@ $checkReq = checkRequest();
 
 if ($checkReq == true) {
     $menu = getDataUrl()['menu'];
-    echo  $menu;
+    $lineid = getDataUrl()['lineid'];
+
+    if ($menu = 'profile') {
+        rmxProfileHi();
+    }
 }

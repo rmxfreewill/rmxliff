@@ -29,3 +29,8 @@ function getProfile($LineId)
         echo "What";
     }
 }
+
+function rmxProfileHi()
+{
+    echo 'rmxProfile';
+}
