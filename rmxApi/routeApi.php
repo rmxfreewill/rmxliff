@@ -25,6 +25,8 @@ $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
 // $parts = parse_url($_SERVER['QUERY_STRING']);
 
-$aa= json_encode($_SERVER['QUERY_STRING']);
+$get_string = $_SERVER['QUERY_STRING'];
 
-var_dump($aa);
+parse_str($get_string, $get_array);
+
+print_r($get_array);
