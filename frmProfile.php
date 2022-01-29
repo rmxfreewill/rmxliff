@@ -1,15 +1,11 @@
 <?php
 
-session_start();
-
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-include("rmxLineFunction.php");
-include("define_Api_Global.php");
-include("rmxLiffFunction.php");
-
 header('Access-Control-Allow-Origin: *');
+
+include("rmxLiffFunction/rmxProfileLiff.php");
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
