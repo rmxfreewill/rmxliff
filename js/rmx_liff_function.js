@@ -37,9 +37,6 @@ function rmxSelectMenu(toMenu, userId) {
         case "profile":
             url = URL + "frmProfile.php" + para;
             break;
-        case "hi":
-            url = URL + "hi.php";
-            break;
         default:
             url = URL + "frmLogout.php" + para;
             break;
