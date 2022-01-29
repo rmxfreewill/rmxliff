@@ -2,11 +2,16 @@
 
 include(dirname(__FILE__) . "../../define_Global.php");
 
-function rmxGetProfileLiff($LineId)
+function rmxGetProfileLiff($LineId, $mobileNo)
 {
-    $url = RMX_API_URL;
-    $param = "?menu=profile&lineid=$LineId";
-    $url = $url . $param;
+    $rmx_api_url = RMX_API_URL;
+    $param_menu = "?menu=profile";
+    if ($LineId != '') {
+        $param_lineid = "&lineid=$LineId";
+    } else if ($mobileNo != '') {
+        $param_mobileno = "&mobile=$mobileNo";
+    }
+    $url = $rmx_api_url  . $param_menu . $param_lineid . $param_mobileno;
     $headers = ["Authorization: Bearer " . BEARER_TOKEN];
 
     try {
@@ -24,5 +29,3 @@ function rmxGetProfileLiff($LineId)
         print('Error rmxProfileLiff: ' . $ex);
     }
 }
-
-rmxGetProfileLiff('Uc1dd5c7730988280c6c7731980655f7a');
