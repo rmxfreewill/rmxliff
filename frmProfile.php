@@ -116,7 +116,6 @@ $sShowMsg = '';
     echo "<br>";
     echo $getDataProfileJson->mobile;
     ?>
-
 </body>
 
 </html>
