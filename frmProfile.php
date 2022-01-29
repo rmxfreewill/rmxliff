@@ -104,7 +104,7 @@ $sShowMsg = '';
 <body>
     <?php
     $getProfile = rmxGetProfileLiff($LineId);
-    echo json_encode($getProfile);
+    echo $getProfile;
 
 
     ?>

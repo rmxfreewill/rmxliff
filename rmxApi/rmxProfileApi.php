@@ -38,7 +38,7 @@ function rmxApiGetProfile($LineId)
             $GLOBALS['obj']->name = $row["sName"];
             $GLOBALS['obj']->surname = $row["sSurName"];
             $GLOBALS['obj']->mobile = $row["sMobileNo"];
-            echo $GLOBALS['obj'];
+            echo json_encode($GLOBALS['obj']);
         }
     }
 }
