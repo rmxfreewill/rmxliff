@@ -6,12 +6,13 @@ header('Access-Control-Allow-Origin: *');
 
 $GLOBALS['obj'] = new stdClass();
 
-function rmxGetProfile($LineId)
+function rmxApiGetProfile($LineId)
 {
     //
     $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+    //  $conn = mysqli_connect(HOST, USER, PASS, DB, PORT);
     //
-    // $conn = mysqli_connect(HOST, USER, PASS, DB, PORT);
+   
     if ($conn) {
         $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'";
         $result = $conn->query($sql);
@@ -28,16 +29,11 @@ function rmxGetProfile($LineId)
             // echo "<b>Mobile No.</b>";
             // echo "<br>";
             // echo $row["sMobileNo"];
-            
+
             $GLOBALS['obj']->name = $row["sName"];
             $GLOBALS['obj']->surname = $row["sSurName"];
             $GLOBALS['obj']->mobile = $row["sMobileNo"];
             echo json_encode($GLOBALS['obj']);
         }
     }
-}
-
-function rmxProfileHi()
-{
-    echo 'rmxProfile';
 }

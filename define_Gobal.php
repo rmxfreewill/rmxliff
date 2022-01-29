@@ -4,10 +4,11 @@
 define("COMPANY_CODE", "00001");
 define("COMPANY_URL", "https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php");
 define("REGISTER_URL", "https://rmx.freewillsolutions.com/rmxline/rmxLineRegister.php");
-define("RMX_API_URL", "https://rmx.freewillsolutions.com/rmxApi/");
+// define("RMX_API_URL", "https://rmx.freewillsolutions.com/rmxApi/");
 
 //Heroku Server
 define("sURL", "https://rmxliff.herokuapp.com/");
+define("RMX_API_URL", "https://rmxliff.herokuapp.com/rmxApi/");
 
 //LINE Server
 //d8b3c212046b6876f19e33a2e9238f31

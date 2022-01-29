@@ -1,5 +1,4 @@
 <?php
-/*    include_once("index.html"); */
 
 session_start();
 
@@ -54,35 +53,35 @@ $sFlag = '0';
 $sTitle = 'Profile';
 $sShowMsg = '';
 
-if ($LinkCode == 'SEARCH') {
+// if ($LinkCode == 'SEARCH') {
 
-    $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-    if ($RetCommand) {
-    }
-    $sFlag = '5';
-} else if ($LinkCode == 'CHECK') {
+//     $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
+//     if ($RetCommand) {
+//     }
+//     $sFlag = '5';
+// } else if ($LinkCode == 'CHECK') {
 
-    $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
-    if ($RetCommand) {
-        //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
-        $ASRet = [];
-        $ASRet = explode("^c", $RetCommand);
-        if (count($ASRet) >= 2) {
-            $sFlagMsg = $ASRet[0];
-            $sFlag = $ASRet[1];
+//     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+//     if ($RetCommand) {
+//         //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
+//         $ASRet = [];
+//         $ASRet = explode("^c", $RetCommand);
+//         if (count($ASRet) >= 2) {
+//             $sFlagMsg = $ASRet[0];
+//             $sFlag = $ASRet[1];
 
-            $UserName = $ASRet[2];
-            $EMail = $ASRet[3];
-            $Tel = $ASRet[4];
-            $SoldToCode = $ASRet[5];
-            $SoldToName = $ASRet[6];
+//             $UserName = $ASRet[2];
+//             $EMail = $ASRet[3];
+//             $Tel = $ASRet[4];
+//             $SoldToCode = $ASRet[5];
+//             $SoldToName = $ASRet[6];
 
 
-            $sShowMsg = '0';
-            if ($sFlag != '0') $sTitle = 'Search';
-        }
-    }
-}
+//             $sShowMsg = '0';
+//             if ($sFlag != '0') $sTitle = 'Search';
+//         }
+//     }
+// }
 
 ?>
 
@@ -106,7 +105,10 @@ if ($LinkCode == 'SEARCH') {
 
 <body>
     <?php
-    getProfile($LineId);
+    $getProfile = rmxLiffGetProfile($LineId);
+    $getProfileJson;
+    var_dump($getProfile);
+
     ?>
     <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
     <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
