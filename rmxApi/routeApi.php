@@ -14,7 +14,9 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $bearer_token = BEARER_TOKEN;
 $header_token = $_SERVER['HTTP_AUTHORIZATION'];
 
-$api_query = $_SERVER['QUERY_STRING'];
+$requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
+
+$api_query = $_SERVER['REQUEST_URI'];
 $api_menu = $api_query['menu'];
 
 
@@ -23,4 +25,4 @@ $api_menu = $api_query['menu'];
 
 // print_r( $header_token);
 
- echo $api_menu;
+echo $api_menu;
