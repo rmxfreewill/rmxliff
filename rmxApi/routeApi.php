@@ -21,8 +21,8 @@ $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
 
 $bearer_token = BEARER_TOKEN;
 $header_token = trim($_SERVER['HTTP_AUTHORIZATION'], 'Bearer ');
-// $isToken = $bearer_token == $header_token;
-// echo $isToken;
+$isToken = $bearer_token == $header_token;
+echo $isToken;
 
 if ($requestMethod) {
     $get_string = $_SERVER['QUERY_STRING'];
