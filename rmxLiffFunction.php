@@ -1,7 +1,5 @@
 <?php
 
-include_once("define_Api_Global.php");
-
 //Line Api
 function rmxChangeMemberRichMenuDefualt($LINEID)
 {
@@ -36,24 +34,6 @@ function rmxChangeMemberRichMenuDefualt($LINEID)
     }
 }
 
-function abc()
-{
-    $url = 'http://localhost:81/Api/RestfulApi.php';
-    $data = "fn=login&test=1";
-    try {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $content = curl_exec($ch);
-        curl_close($ch);
-    } catch (Exception $ex) {
-
-        echo $ex;
-    }
-}
 
 function getProfile($LineId)
 {
@@ -79,9 +59,4 @@ function getProfile($LineId)
     } else {
         echo "What";
     }
-}
-
-function rmxhi()
-{
-    echo "RMX Hi";
 }
