@@ -1,6 +1,6 @@
 <?php
 
-include_once("../define_Gobal.php");
+include_once("../define_Global.php");
 
 function rmxGetProfileLiff($LineId)
 {
