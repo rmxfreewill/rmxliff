@@ -24,10 +24,10 @@ function rmxGetProfileLiff($LineId)
         $data = curl_exec($ch);
         curl_close($ch);
 
-        echo $data;
+        echo json_encode($data);
     } catch (Exception $ex) {
 
-        print($ex);
+        print('Error rmxProfileLiff: ' . $ex);
     }
 }
 

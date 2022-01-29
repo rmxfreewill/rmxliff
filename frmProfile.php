@@ -104,8 +104,8 @@ $sShowMsg = '';
 <body>
     <?php
     $getProfile = rmxGetProfileLiff($LineId);
-    $getProfileJson;
-    var_dump($getProfile);
+    echo $getProfile;
+
 
     ?>
     <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
