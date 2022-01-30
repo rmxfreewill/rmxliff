@@ -96,26 +96,24 @@ try {
         </div>
     </div>
     <div class="container">
-        <div class="card">
-            <div class="card-body">Basic card</div>
-        </div>
-        <br>
-        <div class="card bg-primary text-white">
-            <div class="card-body">Primary card</div>
-        </div>
-        <br>
-        <div class="card bg-success text-white">
-            <div class="card-body">
-                <h5 class="card-title">USER PROFILE</h5>
-                <p class="card-text">Name:</p>
-                <p class="card-text">Name:</p>
-                <p class="card-text">Mobile No:</p>
-                <p class="card-text">Name:</p>
-
-
+        <div class="card rounded">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title text-center">USER PROFILE</h5>
+                    <p class="card-text">Name:</p>
+                    <p class="card-text">
+                        <?php
+                        echo $nameText;
+                        ?></p>
+                    <p class="card-text">Mobile No:</p>
+                    <p class="card-text">
+                        <?php
+                        echo $mobileText;
+                        ?>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
 
 </body>
 
