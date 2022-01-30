@@ -1,36 +1,53 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+@import 'https://fonts.googleapis.com/css?family=Kanit|Prompt';
 
 
+/* body {font-family: Arial, Helvetica, sans-serif;} */
 
-  /* Add Zoom Animation */
+
+body {
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
 }
 
 @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
 }
-    
+
 @keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
 }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 260px) {
     span.psw {
-    display: block;
-    float: none;
+        display: block;
+        float: none;
     }
+
     .cancelbtn {
-    width: 90%;
+        width: 90%;
     }
 
     .submitbtn {
-    width: 45%;
-    display: inline-block;
+        width: 45%;
+        display: inline-block;
     }
 }
 
@@ -58,9 +75,9 @@ table, th, td {
     border: 1px solid black;
 }
 
-img { 
-    max-width: 25%; 
-    height: auto; 
+img {
+    max-width: 25%;
+    height: auto;
 }
 
 button {
@@ -85,24 +102,23 @@ button {
 }
 
 
-.login_container input[type=text], input[type=password]
-    ,input[type=date],input[type=email],input[type=tel] {
+.login_container input[type=text], input[type=password], input[type=date], input[type=email], input[type=tel] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    color:#000;
+    color: #000;
 
 }
 
 .login_container label {
-    color:#000;
+    color: #000;
 
 }
 
-.login_container  select, textarea {
+.login_container select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -111,7 +127,7 @@ button {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
-    color:#000;
+    color: #000;
 }
 
 /* Set a style for all buttons */
@@ -128,4 +144,3 @@ button {
 .login_container button:hover {
     opacity: 0.8;
 }
-
