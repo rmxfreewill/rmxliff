@@ -73,7 +73,7 @@ try {
                                 ?>
                             </div>
                         </div>
-                        <div class="row card-text mt-2">
+                        <div class="row card-text mt-3">
                             <div class="col-5 text-uppercase font-weight-bold">
                                 mobile no
                             </div>
