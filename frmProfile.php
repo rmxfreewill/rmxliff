@@ -62,7 +62,7 @@ try {
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body bg-gradient-success text-dark">
-                    <div class="row text-lg">
+                    <div class="row">
                         <div class="col-5 text-uppercase font-weight-bold">
                             name
                         </div>
@@ -73,7 +73,7 @@ try {
                         </div>
                     </div>
                     <div class="row mt-5">
-                        <div class="card-text col-5 text-uppercase font-weight-bold">
+                        <div class="card-text col-5 text-uppercase font-weight-bold text-lg">
                             mobile no
                         </div>
                         <div class="card-text col-7">
