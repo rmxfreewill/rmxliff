@@ -368,6 +368,12 @@ if ($LinkCode == 'LOGOUT') {
 </head>
 
 <body>
+
+    <div class="jumbotron text-center">
+        <h3>Register</h3>
+    </div>
+
+
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
