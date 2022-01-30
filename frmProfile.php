@@ -67,7 +67,7 @@ try {
                             <div class="col-5 text-uppercase font-weight-bold">
                                 name
                             </div>
-                            <div class="col-7">
+                            <div class="col-7 font-weight-normal">
                                 <?php
                                 echo $nameText;
                                 ?>
@@ -77,7 +77,7 @@ try {
                             <div class="col-5 text-uppercase font-weight-bold">
                                 mobile no
                             </div>
-                            <div class="col-7">
+                            <div class="col-7 font-weight-normal">
                                 <?php
                                 echo $mobileText;
                                 ?>
