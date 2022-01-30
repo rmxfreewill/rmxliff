@@ -64,22 +64,26 @@ try {
                 <div class="card-body bg-light text-dark">
                     <div class="row">
                         <div class="col-4 text-uppercase font-weight-bold text-lg-right">
-                            name
+                            <h5>name</h5>
                         </div>
                         <div class="col-8">
-                            <?php
-                            echo $nameText;
-                            ?>
+                            <h5>
+                                <?php
+                                echo $nameText;
+                                ?>
+                            </h5>
                         </div>
                     </div>
-                    <div class="row mt-1">
+                    <div class="row mt-2">
                         <div class="card-text col-4 text-uppercase font-weight-bold text-lg-right">
-                            mobile no
+                            <h4>mobile no</h4>
                         </div>
                         <div class="card-text col-8">
-                            <?php
-                            echo $mobileText;
-                            ?>
+                            <h4>
+                                <?php
+                                echo $mobileText;
+                                ?>
+                            </h4>
                         </div>
                     </div>
                 </div>
