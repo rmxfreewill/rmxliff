@@ -22,13 +22,13 @@ try {
     $mobileText = $getDataProfileObj->mobile;
     // echo "<b>LINEID: </b>" . $LineId;
     // echo "<p>";
-    echo "<b>Name:</b><p>";
-    echo $nameText;
-    echo "<p>";
-    echo "<b>Mobile No.</b><p>";
-    echo $mobileText;
+    // echo "<b>Name:</b><p>";
+    // echo $nameText;
+    // echo "<p>";
+    // echo "<b>Mobile No.</b><p>";
+    // echo $mobileText;
 } catch (\Throwable $th) {
-    echo $th;
+    // echo $th;
 }
 
 ?>
@@ -58,27 +58,29 @@ try {
 
 <body>
     <div class="container">
-        <div class="row text-center">
-            <h3>USER PROFILE</h3>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                Name:
+        <div class="row ">
+            <div class="row ">
+                <h3 class=" text-center">USER PROFILE</h3>
             </div>
-            <div class="col-8">
-                <?php
-                echo $nameText;
-                ?>
+            <div class="row text-left">
+                <div class="col-sm">
+                    Name:
+                </div>
+                <div class="col-sm">
+                    <?php
+                    echo $nameText;
+                    ?>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                Mobile No:
-            </div>
-            <div class="col-8">
-                <?php
-                echo $mobileText;
-                ?>
+            <div class="row">
+                <div class="col-sm">
+                    Mobile No:
+                </div>
+                <div class="col-sm">
+                    <?php
+                    echo $mobileText;
+                    ?>
+                </div>
             </div>
         </div>
     </div>
