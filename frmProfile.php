@@ -61,7 +61,7 @@ try {
         <div class="card border-success rounded-14">
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
-                <div class="card-body bg-gradient-success text-dark">
+                <div class="card-body text-dark" style="background-color:LightGray;">
                     <h5>
                         <div class="row card-text">
                             <div class="col-5 text-uppercase font-weight-bold">
