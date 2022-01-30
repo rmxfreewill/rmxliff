@@ -20,8 +20,8 @@ try {
     $getDataProfileObj = json_decode($getDataProfile);
     $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     $mobileText = $getDataProfileObj->mobile;
-    // echo "<b>LINEID: </b>" . $LineId;
-    // echo "<p>";
+    echo "<b>LINEID: </b>" . $LineId;
+    echo "<p>";
     // echo "<b>Name:</b><p>";
     // echo $nameText;
     // echo "<p>";
