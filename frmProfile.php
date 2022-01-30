@@ -60,14 +60,14 @@ try {
     <div class="container">
         <div class="card rounded">
             <div class="card bg-success text-white">
-                <h4 class="card-header">USER PROFILE</h4>
+                <h4 class="card-header text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body">
-                    <h5 class="card-text text-bold">NAME:</h5>
+                    <h5 class="card-text text-uppercase text-bold">name:</h5>
                     <p class="card-text">
                         <?php
                         echo $nameText;
                         ?></p>
-                    <h5 class="card-text text-bold">MOBILE:</h5>
+                    <h5 class="card-text text-uppercase text-bold">mobile:</h5>
                     <p class="card-text">
                         <?php
                         echo $mobileText;
