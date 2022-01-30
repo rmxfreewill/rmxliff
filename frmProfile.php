@@ -62,12 +62,12 @@ try {
             <div class="card bg-success text-white">
                 <div class="card-body">
                     <h5 class="card-title text-center">USER PROFILE</h5>
-                    <p class="card-text">Name:</p>
+                    <p class="card-text text-bold">NAME:</p>
                     <p class="card-text">
                         <?php
                         echo $nameText;
                         ?></p>
-                    <p class="card-text">Mobile No:</p>
+                    <p class="card-text text-bold">MOBILE:</p>
                     <p class="card-text">
                         <?php
                         echo $mobileText;
