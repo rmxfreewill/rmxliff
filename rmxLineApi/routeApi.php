@@ -1,6 +1,5 @@
 <?php
 
-include_once("define_rmxLineApi.php");
 include_once("rmxProfileApi.php");
 
 error_reporting(-1);

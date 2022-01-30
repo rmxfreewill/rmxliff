@@ -103,20 +103,26 @@ $sShowMsg = '';
 
 <body>
     <?php
-    $mobileNo = '';
-    $getDataProfile = rmxGetProfileLiff($LineId);
-    $getDataProfileObj = json_decode($getDataProfile);
-    $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
-    $mobileText = $getDataProfileObj->mobile;
 
-    echo "<b>USER PROFILE</b><p>";
-    echo "<b>LINEID: </b>" . $LineId;
-    echo "<p>";
-    echo "<b>Name:</b><p>";
-    echo $nameText;
-    echo "<p>";
-    echo "<b>Mobile No.</b><p>";
-    echo $mobileText;
+    try {
+        $getDataProfile = rmxGetProfileLiff($LineId);
+        $getDataProfileObj = json_decode($getDataProfile);
+        $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
+        $mobileText = $getDataProfileObj->mobile;
+        echo "<b>USER PROFILE</b><p>";
+        echo "<b>LINEID: </b>" . $LineId;
+        echo "<p>";
+        echo "<b>Name:</b><p>";
+        echo $nameText;
+        echo "<p>";
+        echo "<b>Mobile No.</b><p>";
+        echo $mobileText;
+    } catch (\Throwable $th) {
+        echo $th;
+    }
+
+
+
     ?>
 </body>
 
