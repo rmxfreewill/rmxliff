@@ -64,20 +64,20 @@ try {
                 <div class="card-body text-dark">
                     <h5>
                         <div class="row card-text">
-                            <div class="col-4 text-uppercase font-weight-bold">
+                            <div class="col-5 text-uppercase font-weight-bold">
                                 name
                             </div>
-                            <div class="col-8">
+                            <div class="col-7">
                                 <?php
                                 echo $nameText;
                                 ?>
                             </div>
                         </div>
                         <div class="row card-text mt-2">
-                            <div class="col-4 text-uppercase font-weight-bold">
+                            <div class="col-5 text-uppercase font-weight-bold">
                                 mobile no
                             </div>
-                            <div class="col-8">
+                            <div class="col-7">
                                 <?php
                                 echo $mobileText;
                                 ?>
