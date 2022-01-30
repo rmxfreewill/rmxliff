@@ -63,10 +63,10 @@ try {
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body bg-gradient-success text-dark">
                     <div class="row">
-                        <div class="card-text text-uppercase text-bold">
+                        <div class="col-5 text-uppercase text-bold">
                             name:
                         </div>
-                        <div class="card-text">
+                        <div class="col-7">
                             <?php
                             echo $nameText;
                             ?>
@@ -84,10 +84,8 @@ try {
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 </body>
 
 </html>
