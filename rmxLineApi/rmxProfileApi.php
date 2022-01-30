@@ -13,8 +13,8 @@ $GLOBALS['obj'] = new stdClass();
 function rmxApiGetProfile($LineId, $mobileNo = '')
 {
     //
-    // $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
-     $conn = mysqli_connect(HOST, USER, PASS, DB, PORT);
+    $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
+    //  $conn = mysqli_connect(HOST, USER, PASS, DB, PORT);
     //
 
     if ($conn) {

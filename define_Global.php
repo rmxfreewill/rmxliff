@@ -4,7 +4,7 @@
 define("COMPANY_CODE", "00001");
 define("COMPANY_URL", "https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php");
 define("REGISTER_URL", "https://rmx.freewillsolutions.com/rmxline/rmxLineRegister.php");
-define("RMX_SERVER_API_URL", "https://rmx.freewillsolutions.com/rmxApi/");
+define("RMX_SERVER_API_URL", "https://rmx.freewillsolutions.com/rmxLineApi/");
 
 //Heroku Server
 define("sURL", "https://rmxliff.herokuapp.com/");
