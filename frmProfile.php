@@ -7,72 +7,29 @@ header('Access-Control-Allow-Origin: *');
 
 include("rmxLiffFunction/rmxProfileLiff.php");
 
-$LinkCode = '';
-if (isset($_POST['LinkCode']))
-    $LinkCode = $_POST['LinkCode'];
-if (isset($_GET['LinkCode']))
-    $LinkCode = $_GET['LinkCode'];
-
+$nameText = '';
+$mobileText = '';
 $LineId = '';
 if (isset($_POST['LineId']))
     $LineId = $_POST['LineId'];
 if (isset($_GET['LineId']))
     $LineId = $_GET['LineId'];
 
-$CmdCommand = '';
-if (isset($_POST['CmdCommand']))
-    $CmdCommand = $_POST['CmdCommand'];
-if (isset($_GET['CmdCommand']))
-    $CmdCommand = $_GET['CmdCommand'];
-
-$TableTitle = 'Query Result';
-if (isset($_POST['TableTitle']))
-    $TableTitle = $_POST['TableTitle'];
-if (isset($_GET['TableTitle']))
-    $TableTitle = $_GET['TableTitle'];
-
-$RetCommand = '';
-$Ret = '';
-
-$UserName = '';
-$EMail = '';
-$Tel = '';
-$SoldToCode = '';
-$SoldToName = '';
-$sFlagMsg = '';
-$sFlag = '0';
-$sTitle = 'Profile';
-$sShowMsg = '';
-
-// if ($LinkCode == 'SEARCH') {
-
-//     $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-//     if ($RetCommand) {
-//     }
-//     $sFlag = '5';
-// } else if ($LinkCode == 'CHECK') {
-
-//     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
-//     if ($RetCommand) {
-//         //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
-//         $ASRet = [];
-//         $ASRet = explode("^c", $RetCommand);
-//         if (count($ASRet) >= 2) {
-//             $sFlagMsg = $ASRet[0];
-//             $sFlag = $ASRet[1];
-
-//             $UserName = $ASRet[2];
-//             $EMail = $ASRet[3];
-//             $Tel = $ASRet[4];
-//             $SoldToCode = $ASRet[5];
-//             $SoldToName = $ASRet[6];
-
-
-//             $sShowMsg = '0';
-//             if ($sFlag != '0') $sTitle = 'Search';
-//         }
-//     }
-// }
+try {
+    $getDataProfile = rmxGetProfileLiff($LineId);
+    $getDataProfileObj = json_decode($getDataProfile);
+    $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
+    $mobileText = $getDataProfileObj->mobile;
+    // echo "<b>LINEID: </b>" . $LineId;
+    // echo "<p>";
+    echo "<b>Name:</b><p>";
+    echo $nameText;
+    echo "<p>";
+    echo "<b>Mobile No.</b><p>";
+    echo $mobileText;
+} catch (\Throwable $th) {
+    echo $th;
+}
 
 ?>
 
@@ -101,35 +58,30 @@ $sShowMsg = '';
 
 <body>
     <div class="container">
-        <div class="row jumbotron text-center">
+        <div class="row text-center">
             <h3>USER PROFILE</h3>
         </div>
-        <div class="row text-center">
-            <div class="col-12">
+        <div class="row">
+            <div class="col-4">
                 Name:
             </div>
-        </div>
-        <div>
-            <?php
-
-            try {
-                $getDataProfile = rmxGetProfileLiff($LineId);
-                $getDataProfileObj = json_decode($getDataProfile);
-                $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
-                $mobileText = $getDataProfileObj->mobile;
-                // echo "<b>LINEID: </b>" . $LineId;
-                // echo "<p>";
-                echo "<b>Name:</b><p>";
+            <div class="col-8">
+                <?php
                 echo $nameText;
-                echo "<p>";
-                echo "<b>Mobile No.</b><p>";
-                echo $mobileText;
-            } catch (\Throwable $th) {
-                echo $th;
-            }
-
-            ?>
+                ?>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-4">
+                Mobile No:
+            </div>
+            <div class="col-8">
+                <?php
+                echo $mobileText;
+                ?>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
