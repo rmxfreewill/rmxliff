@@ -58,7 +58,7 @@ try {
 
 <body>
     <div class="container">
-        <div class="card rounded">
+        <div class="card border-success mb-3" style="max-width: 18rem;">
             <div class="card text-white">
                 <h4 class="card-header text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body">
