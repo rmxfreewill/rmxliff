@@ -76,7 +76,9 @@ try {
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary " onclick="liff.closeWindow()">Close</a>
+        <div class="row-sm mt-5 ">
+            <a class="btn btn-primary " onclick="liff.closeWindow()">Close</a>
+        </div>
     </div>
 
 </body>
