@@ -95,31 +95,36 @@ $sShowMsg = '';
 </head>
 
 <body>
+    <div class="container">
+        <div class="row jumbotron text-center">
+            <h3>USER PROFILE</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                Name:
+            </div>
+        </div>
+        <div>
+            <?php
 
-    <div class="jumbotron text-center">
-        <h3>USER PROFILE</h3>
-    </div>
-    <div>
-        <?php
+            try {
+                $getDataProfile = rmxGetProfileLiff($LineId);
+                $getDataProfileObj = json_decode($getDataProfile);
+                $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
+                $mobileText = $getDataProfileObj->mobile;
+                // echo "<b>LINEID: </b>" . $LineId;
+                // echo "<p>";
+                echo "<b>Name:</b><p>";
+                echo $nameText;
+                echo "<p>";
+                echo "<b>Mobile No.</b><p>";
+                echo $mobileText;
+            } catch (\Throwable $th) {
+                echo $th;
+            }
 
-        try {
-            $getDataProfile = rmxGetProfileLiff($LineId);
-            $getDataProfileObj = json_decode($getDataProfile);
-            $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
-            $mobileText = $getDataProfileObj->mobile;
-            // echo "<b>LINEID: </b>" . $LineId;
-            // echo "<p>";
-            echo "<b>Name:</b><p>";
-            echo $nameText;
-            echo "<p>";
-            echo "<b>Mobile No.</b><p>";
-            echo $mobileText;
-        } catch (\Throwable $th) {
-            echo $th;
-        }
-
-        ?>
-    </div>
+            ?>
+        </div>
 </body>
 
 </html>
