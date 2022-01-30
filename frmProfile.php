@@ -64,10 +64,11 @@ try {
             </div>
         </div>
         <div class="row">
+
             <div class="card bg-success text-white">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm">
+                        <!-- <div class="col-sm">
                             Name:
                         </div>
                         <div class="col-sm">
@@ -85,14 +86,30 @@ try {
                             echo $mobileText;
                             ?>
                         </div>
+                    </div> -->
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row text-center">
-            <button onclick="liff.closeWindow()">Close</button>
+            <div class="row text-center">
+                <button onclick="liff.closeWindow()">Close</button>
+            </div>
         </div>
     </div>
+    <div class="container">
+        <h2>Cards with Contextual Classes</h2>
+        <div class="card">
+            <div class="card-body">Basic card</div>
+        </div>
+        <br>
+        <div class="card bg-primary text-white">
+            <div class="card-body">Primary card</div>
+        </div>
+        <br>
+        <div class="card bg-success text-white">
+            <div class="card-body">Success card</div>
+        </div>
+    </div>
+
 </body>
 
 </html>
