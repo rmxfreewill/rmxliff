@@ -1,7 +1,6 @@
 <?php
 
 include(dirname(__FILE__) . "../../define_Global.php");
-// include_once("define_rmxLineApi.php");
 
 function rmxGetProfileLiff($LineId)
 {
@@ -16,7 +15,7 @@ function rmxGetProfileLiff($LineId)
     //     $param_mobileno = '';
     // }
 
-    
+
     $url = $rmx_api_url  . $param_menu;
     $headers = ["Authorization: Bearer " . BEARER_TOKEN];
 

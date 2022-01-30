@@ -10,7 +10,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $GLOBALS['obj'] = new stdClass();
 
-function rmxApiGetProfile($LineId, $mobileNo = '')
+function rmxApiGetProfile($LineId)
 {
     //
     $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
@@ -18,11 +18,12 @@ function rmxApiGetProfile($LineId, $mobileNo = '')
     //
 
     if ($conn) {
-        if ($mobileNo != '') {
-            $sql_mobile = " OR sMobileNo = '$mobileNo'";
-        } else {
-            $sql_mobile = '';
-        }
+        // if ($mobileNo != '') {
+        //     $sql_mobile = " OR sMobileNo = '$mobileNo'";
+        // } else {
+        //     $sql_mobile = '';
+        // }
+
         $sql = "SELECT * FROM m_user WHERE sLineId = '$LineId'";
         $result = $conn->query($sql);
         $row = $result->fetch_array(MYSQLI_ASSOC);
