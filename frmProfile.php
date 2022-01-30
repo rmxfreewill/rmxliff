@@ -63,20 +63,20 @@ try {
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body bg-gradient-success text-dark">
                     <div class="row">
-                        <div class="col-5 text-uppercase font-weight-bold">
+                        <div class="col-4 text-uppercase font-weight-bold text-lg-right">
                             name
                         </div>
-                        <div class="col-7">
+                        <div class="col-8">
                             <?php
                             echo $nameText;
                             ?>
                         </div>
                     </div>
-                    <div class="row mt-5">
-                        <div class="card-text col-5 text-uppercase font-weight-bold text-lg">
+                    <div class="row mt-1">
+                        <div class="card-text col-4 text-uppercase font-weight-bold text-lg-right">
                             mobile no
                         </div>
-                        <div class="card-text col-7">
+                        <div class="card-text col-8">
                             <?php
                             echo $mobileText;
                             ?>
