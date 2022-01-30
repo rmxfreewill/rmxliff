@@ -8,13 +8,11 @@ function rmxGetProfileLiff($LineId)
     $rmx_api_url = RMX_SERVER_API_URL;
     $param_menu = "?menu=profile&lineid=$LineId";
 
-
     // if ($mobileNo != '') {
     //     $param_mobileno = "&mobile=$mobileNo";
     // } else {
     //     $param_mobileno = '';
     // }
-
 
     $url = $rmx_api_url  . $param_menu;
     $headers = ["Authorization: Bearer " . BEARER_TOKEN];
