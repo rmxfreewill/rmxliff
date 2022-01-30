@@ -75,9 +75,14 @@ try {
                     </p>
                 </div>
             </div>
+            <div class="card-footer text-muted">
+                <button class="btn-lg btn-primary mt-10" onclick="liff.closeWindow()">
+                    CLOSE
+                </button>
+            </div>
         </div>
         <div class="row">
-            <button class="btn-lg btn-primary mt-10" onclick="liff.closeWindow()">Close</button>
+
         </div>
     </div>
 
