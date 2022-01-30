@@ -58,13 +58,13 @@ try {
 
 <body>
     <div class="container">
-        <div class="card">
+        <div class="card border-success">
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body bg-light text-dark">
-                    <div class="row">
-                        <div class="col-4 text-uppercase font-weight-bold text-lg-right">
-                            <h5>name</h5>
+                    <div class="row card-text">
+                        <div class="col-4 text-uppercase font-weight-bold">
+                            <h2>name</h5>
                         </div>
                         <div class="col-8">
                             <h5>
@@ -74,11 +74,11 @@ try {
                             </h5>
                         </div>
                     </div>
-                    <div class="row mt-2">
-                        <div class="card-text col-4 text-uppercase font-weight-bold text-lg-right">
+                    <div class="row card-text mt-2">
+                        <div class="col-4 text-uppercase font-weight-bold">
                             <h4>mobile no</h4>
                         </div>
-                        <div class="card-text col-8">
+                        <div class="col-8">
                             <h4>
                                 <?php
                                 echo $mobileText;
