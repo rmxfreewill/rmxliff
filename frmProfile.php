@@ -104,7 +104,7 @@ $sShowMsg = '';
 <body>
     <?php
     $mobileNo = '';
-    $getDataProfile = rmxGetProfileLiff($LineId, $mobileNo);
+    $getDataProfile = rmxGetProfileLiff($LineId);
     $getDataProfileObj = json_decode($getDataProfile);
     $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     $mobileText = $getDataProfileObj->mobile;
