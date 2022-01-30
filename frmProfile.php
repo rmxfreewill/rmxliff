@@ -62,16 +62,14 @@ try {
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body bg-gradient-success text-dark">
-                    <div class="row">
+                    <div class="row text-lg">
                         <div class="col-5 text-uppercase font-weight-bold">
                             name
                         </div>
                         <div class="col-7">
-
                             <?php
                             echo $nameText;
                             ?>
-
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -79,11 +77,9 @@ try {
                             mobile no
                         </div>
                         <div class="card-text col-7">
-
                             <?php
                             echo $mobileText;
                             ?>
-
                         </div>
                     </div>
                 </div>
