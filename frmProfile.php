@@ -58,11 +58,11 @@ try {
 
 <body>
     <div class="container">
-        <div class="card border-success">
+        <div class="card border-success rounded-14">
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
-                <div class="card-body bg-success text-dark">
-                    <h6>
+                <div class="card-body text-dark">
+                    <h5>
                         <div class="row card-text">
                             <div class="col-4 text-uppercase font-weight-bold">
                                 name
@@ -83,7 +83,7 @@ try {
                                 ?>
                             </div>
                         </div>
-                    </h6>
+                    </h5>
                 </div>
             </div>
         </div>
