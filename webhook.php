@@ -154,9 +154,9 @@ if ($ActionMenuText == 'status') {
     http_response_code(200);
 }
 
-// else {
-//     $replyJson["messages"][0] = getFormatTextMessageDefualt('What');
-//     $results = sendMessage($encodeJson);
-//     echo $results;
-//     http_response_code(200);
-// }
+else {
+    $replyJson["messages"][0] = getFormatTextMessageDefualt('What');
+    $results = sendMessage($encodeJson);
+    echo $results;
+    http_response_code(200);
+}
