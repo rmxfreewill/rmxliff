@@ -57,7 +57,7 @@ try {
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mb-3">
         <div class="card border-success">
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
