@@ -58,10 +58,10 @@ try {
 
 <body>
     <div class="container">
-        <div class="card border-success">
+        <div class="card">
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
-                <div class="card-body bg-gradient-success text-dark">
+                <div class="card-body bg-light text-dark">
                     <div class="row">
                         <div class="col-4 text-uppercase font-weight-bold text-lg-right">
                             name
