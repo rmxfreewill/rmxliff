@@ -79,6 +79,8 @@ function selectTicketDetail()
     $title = array("Ticket No.", "Ticket Date", "Order No.", "Order Date", "Ship To", "Product Name", "Plant Name", "Order Qty.", "Ticket Qty.", "Driver Name", "Truck No.", "License Plate", "Leave Time", "Ship Condition", "Ticket Status");
     $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5");
 
+    $title;
+
     for ($i = 0; $i < count($title); $i++) {
         array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
     }
@@ -120,6 +122,15 @@ function ticketDetailFlexMessage()
     return $replyText;
 }
 
+function getFormatTextMessageDefualt($text)
+{
+    $datas = [];
+    $datas['type'] = 'text';
+    $datas['text'] = $text;
+
+    return $datas;
+}
+
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
 
@@ -138,6 +149,11 @@ $replyJson["messages"][0] = ticketDetailFlexMessage();
 $encodeJson = json_encode($replyJson);
 
 if ($ActionMenuText == 'status') {
+    $results = sendMessage($encodeJson);
+    echo $results;
+    http_response_code(200);
+} else {
+    $replyJson["messages"][0] = getFormatTextMessageDefualt('What');
     $results = sendMessage($encodeJson);
     echo $results;
     http_response_code(200);
