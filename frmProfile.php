@@ -61,27 +61,29 @@ try {
         <div class="card border-success">
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
-                <div class="card-body bg-light text-dark">
-                    <div class="row card-text">
-                        <div class="col-4 text-uppercase font-weight-bold">
-                            name
+                <div class="card-body bg-success text-dark">
+                    <h6>
+                        <div class="row card-text">
+                            <div class="col-4 text-uppercase font-weight-bold">
+                                name
+                            </div>
+                            <div class="col-8">
+                                <?php
+                                echo $nameText;
+                                ?>
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <?php
-                            echo $nameText;
-                            ?>
+                        <div class="row card-text mt-2">
+                            <div class="col-4 text-uppercase font-weight-bold">
+                                mobile no
+                            </div>
+                            <div class="col-8">
+                                <?php
+                                echo $mobileText;
+                                ?>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row card-text mt-2">
-                        <div class="col-4 text-uppercase font-weight-bold">
-                            mobile no
-                        </div>
-                        <div class="col-8">
-                            <?php
-                            echo $mobileText;
-                            ?>
-                        </div>
-                    </div>
+                    </h6>
                 </div>
             </div>
         </div>
