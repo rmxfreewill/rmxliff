@@ -75,11 +75,7 @@ try {
                     </p>
                 </div>
             </div>
-            <div class="card-footer text-muted">
-                <button class="btn-lg btn-primary mt-10" onclick="liff.closeWindow()">
-                    CLOSE
-                </button>
-            </div>
+            <div class="card-footer btn-primary text-muted" onclick="liff.closeWindow()">CLOSE</div>
         </div>
     </div>
 
