@@ -64,22 +64,26 @@ try {
                 <div class="card-body bg-gradient-success text-dark">
                     <div class="row">
                         <div class="col-5 text-uppercase text-bold">
-                            name:
+                            <h4>name:</h4>
                         </div>
                         <div class="col-7">
-                            <?php
-                            echo $nameText;
-                            ?>
+                            <h4>
+                                <?php
+                                echo $nameText;
+                                ?>
+                            </h4>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="card-text text-uppercase text-bold">
-                            mobile:
+                        <div class="card-text col-5 text-uppercase text-bold">
+                            <h4>mobile:</h4>
                         </div>
-                        <div class="card-text">
-                            <?php
-                            echo $mobileText;
-                            ?>
+                        <div class="card-text col-7">
+                            <h4>
+                                <?php
+                                echo $mobileText;
+                                ?>
+                            </h4>
                         </div>
                     </div>
                 </div>
