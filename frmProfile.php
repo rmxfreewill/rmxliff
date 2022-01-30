@@ -74,7 +74,7 @@ try {
 
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-5">
                         <div class="card-text col-5 text-uppercase font-weight-bold">
                             mobile no
                         </div>
