@@ -91,7 +91,7 @@ try {
                 </div>
             </div>
             <div class="row text-center">
-                <button onclick="liff.closeWindow()">Close</button>
+                <a class="btn btn-primary" onclick="liff.closeWindow()">Close</a>
             </div>
         </div>
     </div>
@@ -114,6 +114,8 @@ try {
                 </div>
             </div>
         </div>
+        <a class="btn btn-primary" onclick="liff.closeWindow()">Close</a>
+    </div>
 
 </body>
 
