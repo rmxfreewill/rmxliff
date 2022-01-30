@@ -110,8 +110,8 @@ $sShowMsg = '';
     $mobileText = $getDataProfileObj->mobile;
 
     echo "<b>USER PROFILE</b><p>";
-    // echo "<b>LINEID: </b>" . $LineId;
-    // echo "<p>";
+    echo "<b>LINEID: </b>" . $LineId;
+    echo "<p>";
     echo "<b>Name:</b><p>";
     echo $nameText;
     echo "<p>";
