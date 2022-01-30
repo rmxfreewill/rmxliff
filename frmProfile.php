@@ -62,17 +62,26 @@ try {
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body bg-gradient-success text-dark">
-                    <h5 class="card-text text-uppercase text-bold">name:</h5>
-                    <p class="card-text">
-                        <?php
-                        echo $nameText;
-                        ?></p>
-                    <h5 class="card-text text-uppercase text-bold">mobile:</h5>
-                    <p class="card-text">
-                        <?php
-                        echo $mobileText;
-                        ?>
-                    </p>
+                    <div class="row">
+                        <div class="card-text text-uppercase text-bold">
+                            name:
+                        </div>
+                        <div class="card-text">
+                            <?php
+                            echo $nameText;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card-text text-uppercase text-bold">
+                            mobile:
+                        </div>
+                        <div class="card-text">
+                            <?php
+                            echo $mobileText;
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </div>
 
