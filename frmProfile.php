@@ -7,13 +7,6 @@ header('Access-Control-Allow-Origin: *');
 
 include("rmxLiffFunction/rmxProfileLiff.php");
 
-
-$RegisterUrl = REGISTER_URL;
-$CompanyCode = COMPANY_CODE;
-$LiffId = LIFF_ID;
-$sURL = sURL;
-
-
 $LinkCode = '';
 if (isset($_POST['LinkCode']))
     $LinkCode = $_POST['LinkCode'];
