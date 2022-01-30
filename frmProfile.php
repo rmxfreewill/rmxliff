@@ -61,7 +61,7 @@ try {
         <div class="card border-success mb-3">
             <div class="card text-white">
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
-                <div class="card-body bg-light ">
+                <div class="card-body bg-light text-dark">
                     <h5 class="card-text text-uppercase text-bold">name:</h5>
                     <p class="card-text">
                         <?php
