@@ -60,7 +60,9 @@ try {
     <div class="container">
         <div class="row ">
             <div class="row ">
-                <h3 class=" text-center">USER PROFILE</h3>
+                <div class="col-sm text-center">
+                    <h3>USER PROFILE</h3>
+                </div>
             </div>
             <div class="row text-left">
                 <div class="col-sm">
