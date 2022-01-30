@@ -59,7 +59,7 @@ try {
 <body>
     <div class="container">
         <div class="card rounded">
-            <div class="card bg-success text-white">
+            <div class="card text-white">
                 <h4 class="card-header text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body">
                     <h5 class="card-text text-uppercase text-bold">name:</h5>
@@ -74,10 +74,11 @@ try {
                         ?>
                     </p>
                 </div>
+                <div class="card-footer bg-secondary text-center text-uppercase text-bold text-white" onclick="liff.closeWindow()">
+                    close
+                </div>
             </div>
-            <div class="card-footer bg-secondary text-center text-uppercase text-bold text-white" onclick="liff.closeWindow()">
-                close
-            </div>
+
         </div>
     </div>
 
