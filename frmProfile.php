@@ -96,7 +96,6 @@ try {
         </div>
     </div>
     <div class="container">
-        <h2>Cards with Contextual Classes</h2>
         <div class="card">
             <div class="card-body">Basic card</div>
         </div>
@@ -106,7 +105,15 @@ try {
         </div>
         <br>
         <div class="card bg-success text-white">
-            <div class="card-body">Success card</div>
+            <div class="card-body">
+                <h5 class="card-title">USER PROFILE</h5>
+                <p class="card-text">Name:</p>
+                <p class="card-text">Name:</p>
+                <p class="card-text">Mobile No:</p>
+                <p class="card-text">Name:</p>
+
+
+            </div>
         </div>
     </div>
 
