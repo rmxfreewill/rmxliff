@@ -75,7 +75,7 @@ try {
                     </p>
                 </div>
             </div>
-            <div class="card-footer text-center text-uppercase text-bold" onclick="liff.closeWindow()">
+            <div class="card-footer bg-secondary text-center text-uppercase text-bold text-white" onclick="liff.closeWindow()">
                 close
             </div>
         </div>
