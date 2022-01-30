@@ -7,7 +7,7 @@ header('Access-Control-Allow-Origin: *');
 
 include("rmxLiffFunction/rmxProfileLiff.php");
 
-$CompanyUrl = COMPANY_URL;
+
 $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
