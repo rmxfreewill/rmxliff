@@ -60,8 +60,8 @@ try {
     <div class="container">
         <div class="card rounded">
             <div class="card bg-success text-white">
+                <h5 class="card-header">USER PROFILE</h5>
                 <div class="card-body">
-                    <h5 class="card-title text-center">USER PROFILE</h5>
                     <p class="card-text text-bold">NAME:</p>
                     <p class="card-text">
                         <?php
@@ -76,7 +76,7 @@ try {
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary" onclick="liff.closeWindow()">Close</a>
+        <a class="btn btn-primary " onclick="liff.closeWindow()">Close</a>
     </div>
 
 </body>
