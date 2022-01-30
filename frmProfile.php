@@ -83,6 +83,9 @@ try {
                 </div>
             </div>
         </div>
+        <div class="row text-center">
+            <button onclick="liff.closeWindow()">Close</button>
+        </div>
     </div>
 </body>
 
