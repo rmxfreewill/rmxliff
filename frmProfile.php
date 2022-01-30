@@ -58,44 +58,6 @@ try {
 
 <body>
     <div class="container">
-        <div class="row ">
-            <div class="col-sm text-center">
-                <h3>USER PROFILE</h3>
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="card bg-success text-white">
-                <div class="card-body">
-                    <div class="row">
-                        <!-- <div class="col-sm">
-                            Name:
-                        </div>
-                        <div class="col-sm">
-                            <?php
-                            echo $nameText;
-                            ?>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm">
-                            Mobile No:
-                        </div>
-                        <div class="col-sm">
-                            <?php
-                            echo $mobileText;
-                            ?>
-                        </div>
-                    </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="row text-center">
-                <a class="btn btn-primary" onclick="liff.closeWindow()">Close</a>
-            </div>
-        </div>
-    </div>
-    <div class="container">
         <div class="card rounded">
             <div class="card bg-success text-white">
                 <div class="card-body">
