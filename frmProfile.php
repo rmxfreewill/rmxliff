@@ -59,35 +59,34 @@ try {
 <body>
     <div class="container">
         <div class="row ">
-            <div class="row ">
-                <div class="col-sm text-center">
-                    <h3>USER PROFILE</h3>
-                </div>
-            </div>
-            <div class="row text-left">
-                <div class="col-sm">
-                    Name:
-                </div>
-                <div class="col-sm">
-                    <?php
-                    echo $nameText;
-                    ?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm">
-                    Mobile No:
-                </div>
-                <div class="col-sm">
-                    <?php
-                    echo $mobileText;
-                    ?>
-                </div>
+            <div class="col-sm text-center">
+                <h3>USER PROFILE</h3>
             </div>
         </div>
-        <div class="row text-center">
-            <button onclick="liff.closeWindow()">Close</button>
+        <div class="row text-left">
+            <div class="col-sm">
+                Name:
+            </div>
+            <div class="col-sm">
+                <?php
+                echo $nameText;
+                ?>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-sm">
+                Mobile No:
+            </div>
+            <div class="col-sm">
+                <?php
+                echo $mobileText;
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <button onclick="liff.closeWindow()">Close</button>
+    </div>
     </div>
 </body>
 
