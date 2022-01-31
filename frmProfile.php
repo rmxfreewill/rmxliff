@@ -9,6 +9,7 @@ include("rmxLiffFunction/rmxProfileLiff.php");
 
 $nameText = '';
 $mobileText = '';
+$emailText = '';
 $LineId = '';
 if (isset($_POST['LineId']))
     $LineId = $_POST['LineId'];
@@ -20,6 +21,7 @@ try {
     $getDataProfileObj = json_decode($getDataProfile);
     $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     $mobileText = $getDataProfileObj->mobile;
+    $emailText = $getDataProfileObj->email;
     echo "<b>LINEID: </b>" . $LineId;
     echo "<p>";
     // echo "<b>Name:</b><p>";
@@ -80,6 +82,16 @@ try {
                             <div class="col-7 font-weight-normal">
                                 <?php
                                 echo $mobileText;
+                                ?>
+                            </div>
+                        </div>
+                        <div class="row card-text mt-3">
+                            <div class="col-5 text-uppercase font-weight-bold">
+                                email
+                            </div>
+                            <div class="col-7 font-weight-normal">
+                                <?php
+                                echo $emailText;
                                 ?>
                             </div>
                         </div>
