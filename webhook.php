@@ -174,7 +174,7 @@ function replyJsonMessage($jsonData)
     $textTypeParams = $jsonData["events"][0]["message"]["type"];
     if ($textTypeParams == 'text') {
         $textParams = $jsonData["events"][0]["message"]["text"];
-        if ($textParams == 'status') {
+        if (strtolower($textParams) == 'status') {
             $replyJson["messages"][0] = ticketDetailFlexMessage();
         } else {
             $replyJson["messages"][0] = testFlexMessage($textParams);
@@ -191,18 +191,18 @@ $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
 //
-$textTypeParams = $jsonData["events"][0]["message"]["type"];
-$textTypeParams = strtolower($textTypeParams);
-if ($textTypeParams == 'text') {
-    $textParams = $jsonData["events"][0]["message"]["text"];
-    if ($textParams == 'status') {
-        $replyJson["messages"][0] = ticketDetailFlexMessage();
-    } else {
-        $replyJson["messages"][0] = testFlexMessage($textParams);
-    }
-}
+// $textTypeParams = $jsonData["events"][0]["message"]["type"];
+// if ($textTypeParams == 'text') {
+//     $textParams = $jsonData["events"][0]["message"]["text"];
+//     if (strtolower($textParams) == 'status') {
+//         $replyJson["messages"][0] = ticketDetailFlexMessage();
+//     } else {
+//         $replyJson["messages"][0] = testFlexMessage($textParams);
+//     }
+// }
 //
 
+replyJsonMessage($jsonData);
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
 
