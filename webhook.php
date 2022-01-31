@@ -188,9 +188,17 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-replyJsonMessage($jsonData);
+$textTypeParams = $jsonData["events"][0]["message"]["type"];
+if ($textTypeParams == 'text') {
+    $textParams = $jsonData["events"][0]["message"]["text"];
+    $replyJson["messages"][0] = testFlexMessage($textParams);
+}
+    // $replyJson["messages"][0] = ticketDetailFlexMessage();
+
+
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
+
 $encodeJson = json_encode($replyJson);
 $results = sendMessage($encodeJson);
 echo $results;
