@@ -159,14 +159,14 @@ function ticketDetailFlexMessage()
 
 function replyJsonPostBack($jsonData)
 {
-    $postbackParams = $jsonData["events"][0]["postback"]["data"];
-    parse_str($postbackParams, $arr);
-    $ActionMenuText = $arr["action"];
-    if ($ActionMenuText == 'status') {
-        $replyJson["messages"][0] = ticketDetailFlexMessage();
-    } else if ($ActionMenuText == 'text') {
-        $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
-    }
+    // $postbackParams = $jsonData["events"][0]["postback"]["data"];
+    // parse_str($postbackParams, $arr);
+    // $ActionMenuText = $arr["action"];
+    // if ($ActionMenuText == 'status') {
+    //     $replyJson["messages"][0] = ticketDetailFlexMessage();
+    // } else if ($ActionMenuText == 'text') {
+    //     $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
+    // }
 }
 
 function replyJsonMessage($jsonData)
