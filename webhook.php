@@ -172,7 +172,8 @@ if (isset($jsonData["events"][0]["postback"])) {
     $ActionMenuText = $arr["action"];
     if ($ActionMenuText == 'status') {
         $replyJson["messages"][0] = ticketDetailFlexMessage();
-    } else {
+    } else if ($ActionMenuText == 'text') {
+        $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
     }
 } else if (isset($jsonData["events"][0]["message"])) {
     $textTypeParams = $jsonData["events"][0]["message"]["type"];
