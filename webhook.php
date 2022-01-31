@@ -3,7 +3,7 @@ function sendMessage($replyJson)
 {
     $sendInfo['URL'] = "https://api.line.me/v2/bot/message/push";
 
-    $sendInfo['AccessToken'] = "s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=";
+    $sendInfo['AccessToken'] = BEARER_TOKEN;
 
     try {
 
@@ -138,7 +138,7 @@ $replyJson["messages"][0] = ticketDetailFlexMessage();
 $encodeJson = json_encode($replyJson);
 
 // if ($ActionMenuText == 'status') {
-    $results = sendMessage($encodeJson);
-    echo $results;
-    http_response_code(200);
+$results = sendMessage($encodeJson);
+echo $results;
+http_response_code(200);
 // }
