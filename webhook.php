@@ -131,17 +131,16 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 $postbackParams = $jsonData["events"][0]["postback"]["data"];
 parse_str($postbackParams, $arr);
 $ActionMenuText = $arr["action"];
-
-$replyJson["to"] = $replyUserId;
-$replyJson["replyToken"] = $replyToken;
-$encodeJson = json_encode($replyJson);
 if ($ActionMenuText == 'status') {
     $replyJson["messages"][0] = ticketDetailFlexMessage();
 } else {
     $replyJson["messages"][0] = ['WHAT'];
 }
 
+$replyJson["to"] = $replyUserId;
+$replyJson["replyToken"] = $replyToken;
+
+$encodeJson = json_encode($replyJson);
 $results = sendMessage($encodeJson);
 echo $results;
-echo $replyUserId;
 http_response_code(200);
