@@ -55,7 +55,7 @@ function testFlexMessage($txt)
     $objTitleH1->text = $txt;
     $objTitleH1->weight = "bold";
     $objTitleH1->color = "#B6961EFF";
-    $objTitleH1->size = "md";
+    $objTitleH1->size = "sm";
     $objTitleH1->wrap = true;
     $objTitleH1->contents = [];
 
@@ -73,6 +73,7 @@ function testFlexMessage($txt)
     $replyText["contents"]["type"] = "bubble";
     $replyText["contents"]["body"]["type"] = "box";
     $replyText["contents"]["body"]["layout"] = "vertical";
+    $replyText["contents"]["body"]["wrap"] = true;
     $replyText["contents"]["body"]["spacing"] = "sm";
     $replyText["contents"]["body"]["contents"] = $output;
 
