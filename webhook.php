@@ -192,6 +192,7 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 
 //
 $textTypeParams = $jsonData["events"][0]["message"]["type"];
+$textTypeParams = strtolower($textTypeParams);
 if ($textTypeParams == 'text') {
     $textParams = $jsonData["events"][0]["message"]["text"];
     if ($textParams == 'status') {
