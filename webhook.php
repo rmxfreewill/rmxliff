@@ -1,6 +1,6 @@
 <?php
 
-include("rmxLogoutLiff.php");
+include("rmxLiffFunction/rmxLogoutLiff.php");
 
 function sendMessage($type, $replyJson)
 {
@@ -176,9 +176,10 @@ function replyJsonMessage($jsonData, $LineId)
     if ($textTypeParams == 'text') {
         $textParams = $jsonData["events"][0]["message"]["text"];
         $data = testFlexMessage($textParams);
-        if (strtolower($textParams) == 'status') {
+        $case = strtolower($textParams);
+        if ($case  == 'status') {
             $data = ticketDetailFlexMessage();
-        } else if (strtolower($textParams) == 'logout') {
+        } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
         }
     }
