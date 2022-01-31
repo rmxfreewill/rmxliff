@@ -2,7 +2,7 @@
 
 include("rmxLogoutLiff.php");
 
-function sendMessage($type = 'MessageAPI', $replyJson)
+function sendMessage($type, $replyJson)
 {
     $url = "https://api.line.me/v2/bot/message/push";
 
@@ -198,6 +198,6 @@ $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
 
 $encodeJson = json_encode($replyJson);
-$results = sendMessage($encodeJson);
+$results = sendMessage('MessageAPI', $encodeJson);
 echo $results;
 http_response_code(200);
