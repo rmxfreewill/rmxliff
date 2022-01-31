@@ -134,7 +134,7 @@ $ActionMenuText = $arr["action"];
 if ($ActionMenuText == 'status') {
     $replyJson["messages"][0] = ticketDetailFlexMessage();
 } else {
-    $replyJson["messages"][0] = ['WHAT'];
+    $replyJson["messages"][0] = ticketDetailFlexMessage();
 }
 
 $replyJson["to"] = $replyUserId;
