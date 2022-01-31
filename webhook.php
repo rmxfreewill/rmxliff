@@ -157,6 +157,29 @@ function ticketDetailFlexMessage()
     return $replyText;
 }
 
+function replyJsonPostBack($jsonData)
+{
+    $postbackParams = $jsonData["events"][0]["postback"]["data"];
+    parse_str($postbackParams, $arr);
+    $ActionMenuText = $arr["action"];
+    if ($ActionMenuText == 'status') {
+        $replyJson["messages"][0] = ticketDetailFlexMessage();
+    } else if ($ActionMenuText == 'text') {
+        $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
+    }
+}
+
+function replyJsonMessage($jsonData)
+{
+    $textTypeParams = $jsonData["events"][0]["message"]["type"];
+    if ($textTypeParams == 'text') {
+        $textParams = $jsonData["events"][0]["message"]["text"];
+        $replyJson["messages"][0] = testFlexMessage($textParams);
+    } else if ($textTypeParams == 'status') {
+        $replyJson["messages"][0] = ticketDetailFlexMessage();
+    }
+}
+
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
 
@@ -165,31 +188,9 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-
-// if (isset($jsonData["events"][0]["postback"])) {
-//     $postbackParams = $jsonData["events"][0]["postback"]["data"];
-//     parse_str($postbackParams, $arr);
-//     $ActionMenuText = $arr["action"];
-//     if ($ActionMenuText == 'status') {
-//         $replyJson["messages"][0] = ticketDetailFlexMessage();
-//     } else if ($ActionMenuText == 'text') {
-//         $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
-//     }
-// } 
-
-$textTypeParams = $jsonData["events"][0]["message"]["type"];
-if ($textTypeParams == 'text') {
-    $textParams = $jsonData["events"][0]["message"]["text"];
-    $replyJson["messages"][0] = testFlexMessage($textParams);
-} else if ($textTypeParams == 'status') {
-    $replyJson["messages"][0] = ticketDetailFlexMessage();
-}
-
-
-
+replyJsonMessage($jsonData);
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-
 $encodeJson = json_encode($replyJson);
 $results = sendMessage($encodeJson);
 echo $results;
