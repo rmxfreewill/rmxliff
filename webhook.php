@@ -177,11 +177,12 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 //     }
 // } 
 
-
 $textTypeParams = $jsonData["events"][0]["message"]["type"];
 if ($textTypeParams == 'text') {
     $textParams = $jsonData["events"][0]["message"]["text"];
     $replyJson["messages"][0] = testFlexMessage($textParams);
+} else if ($textTypeParams == 'status') {
+    $replyJson["messages"][0] = ticketDetailFlexMessage();
 }
 
 
