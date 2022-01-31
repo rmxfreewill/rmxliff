@@ -55,15 +55,15 @@ function testFlexMessage($txt)
     $objTitleH1->text = $txt;
     $objTitleH1->weight = "bold";
     $objTitleH1->color = "#B6961EFF";
-    $objTitleH1->size = "xl";
+    $objTitleH1->size = "md";
     $objTitleH1->wrap = true;
     $objTitleH1->contents = [];
 
     $objDetail = new stdClass;
     $objDetail->type = "box";
     $objDetail->layout = "vertical";
-    $objDetail->spacing = "sm";
-    $objDetail->margin = "sm";
+    $objDetail->spacing = "xs";
+    $objDetail->margin = "xs";
     $objDetail->contents = [];
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
