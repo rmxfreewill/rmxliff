@@ -92,7 +92,7 @@ function ticketDetailRowLayout($title, $val)
     $objDetailBaselineTitle->size = "xs";
     $objDetailBaselineTitle->color = "#AAAAAA";
     $objDetailBaselineTitle->weight = "bold";
-    $objDetailBaselineTitle->flex = 2;
+    $objDetailBaselineTitle->flex = 3;
     $objDetailBaselineValue->wrap = true;
     $objDetailBaselineTitle->contents = [];
 
