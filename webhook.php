@@ -170,7 +170,7 @@ function replyJsonPostBack($jsonData)
     // }
 }
 
-function replyJsonMessage($jsonData, $LineId = '')
+function replyJsonMessage($jsonData, $LineId)
 {
     $textTypeParams = $jsonData["events"][0]["message"]["type"];
     if ($textTypeParams == 'text') {
@@ -193,7 +193,7 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-$replyJson["messages"][0] = replyJsonMessage($jsonData);
+$replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
 
