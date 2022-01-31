@@ -62,8 +62,8 @@ function testFlexMessage($txt)
     $objDetail = new stdClass;
     $objDetail->type = "box";
     $objDetail->layout = "vertical";
-    $objDetail->spacing = "md";
-    $objDetail->margin = "lg";
+    $objDetail->spacing = "sm";
+    $objDetail->margin = "sm";
     $objDetail->contents = [];
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
@@ -101,8 +101,8 @@ function ticketDetailRowLayout($title, $val)
     $objDetailBaselineValue->size = "xs";
     $objDetailBaselineValue->color = "#666666";
     $objDetailBaselineValue->flex = 4;
-    $objDetailBaselineValue->wrap = true;
     $objDetailBaselineValue->align = "end";
+    $objDetailBaselineValue->wrap = true;
     $objDetailBaselineValue->contents = [];
 
     $contentsList = [$objDetailBaselineTitle, $objDetailBaselineValue];
