@@ -185,6 +185,7 @@ function replyJsonMessage($jsonData, $LineId)
             $data = ticketDetailFlexMessage();
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
+            $data = '';
         }
     }
     return $data;
