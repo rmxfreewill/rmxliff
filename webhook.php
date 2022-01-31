@@ -3,7 +3,7 @@ function sendMessage($replyJson)
 {
     $sendInfo['URL'] = "https://api.line.me/v2/bot/message/push";
 
-    $sendInfo['AccessToken'] = "6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=";
+    $sendInfo['AccessToken'] = "s2l19GfGgdDnsbO9cidJGvlkKDvlT9MRiQla/SKo63c3Us7Tv/xKjLnkLnafX15C3U9N9AT5FiL/ARZHWhicfAqm7bSmB1TJWFAzYkBxgSdZbHVKMag6WdTUtnsb56UmvcwbxVq5WUiRzRfTcLTv9QdB04t89/1O/w1cDnyilFU=";
 
     try {
 
@@ -131,16 +131,14 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 $postbackParams = $jsonData["events"][0]["postback"]["data"];
 parse_str($postbackParams, $arr);
 $ActionMenuText = $arr["action"];
-if ($ActionMenuText == 'status') {
-    $replyJson["messages"][0] = ticketDetailFlexMessage();
-} else {
-    $replyJson["messages"][0] = ticketDetailFlexMessage();
-}
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-
+$replyJson["messages"][0] = ticketDetailFlexMessage();
 $encodeJson = json_encode($replyJson);
-$results = sendMessage($encodeJson);
-echo $results;
-http_response_code(200);
+
+// if ($ActionMenuText == 'status') {
+    $results = sendMessage($encodeJson);
+    echo $results;
+    http_response_code(200);
+// }
