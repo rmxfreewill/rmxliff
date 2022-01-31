@@ -174,7 +174,7 @@ function replyJsonMessage($jsonData)
     $textTypeParams = $jsonData["events"][0]["message"]["type"];
     if ($textTypeParams == 'text') {
         $textParams = $jsonData["events"][0]["message"]["text"];
-        if ($textTypeParams == 'status') {
+        if ($textParams == 'status') {
             $replyJson["messages"][0] = ticketDetailFlexMessage();
         } else {
             $replyJson["messages"][0] = testFlexMessage($textParams);
@@ -190,7 +190,8 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-replyJsonMessage($jsonData);
+
+
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
 
