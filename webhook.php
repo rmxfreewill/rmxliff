@@ -139,6 +139,9 @@ $encodeJson = json_encode($replyJson);
 
 if ($ActionMenuText == 'status') {
     $results = sendMessage($encodeJson);
-    echo $results;
-    http_response_code(200);
+} else {
+    $results = sendMessage('What');
 }
+
+echo $results;
+http_response_code(200);
