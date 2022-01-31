@@ -134,14 +134,13 @@ $ActionMenuText = $arr["action"];
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-$replyJson["messages"][0] = ticketDetailFlexMessage();
 $encodeJson = json_encode($replyJson);
-
 if ($ActionMenuText == 'status') {
-    $results = sendMessage($encodeJson);
+    $replyJson["messages"][0] = ticketDetailFlexMessage();
 } else {
-    $results = sendMessage('What');
+    $replyJson["messages"][0] = 'WHAT';
 }
 
+$results = sendMessage($encodeJson);
 echo $results;
 http_response_code(200);
