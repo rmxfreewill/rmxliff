@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
-
 function sendMessage($replyJson)
 {
     $sendInfo['URL'] = "https://api.line.me/v2/bot/message/push";
