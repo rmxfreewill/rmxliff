@@ -143,4 +143,5 @@ if ($ActionMenuText == 'status') {
 
 $results = sendMessage($encodeJson);
 echo $results;
+echo $replyUserId;
 http_response_code(200);
