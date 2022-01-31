@@ -12,7 +12,7 @@ function sendMessage($replyJson)
 
     $sendInfo['URL'] = $url;
     $sendInfo['AccessToken'] = BEARER_TOKEN;
-    
+
     try {
 
         $ch = curl_init();
@@ -88,7 +88,7 @@ function ticketDetailRowLayout($title, $val)
     //Title
     $objDetailBaselineTitle->type = "text";
     $objDetailBaselineTitle->text = $title;
-    $objDetailBaselineTitle->size = "sm";
+    $objDetailBaselineTitle->size = "xs";
     $objDetailBaselineTitle->color = "#AAAAAA";
     $objDetailBaselineTitle->weight = "bold";
     $objDetailBaselineTitle->flex = 2;
@@ -98,7 +98,7 @@ function ticketDetailRowLayout($title, $val)
     //Value
     $objDetailBaselineValue->type = "text";
     $objDetailBaselineValue->text = $val;
-    $objDetailBaselineValue->size = "sm";
+    $objDetailBaselineValue->size = "xs";
     $objDetailBaselineValue->color = "#666666";
     $objDetailBaselineValue->flex = 4;
     $objDetailBaselineValue->wrap = true;
@@ -109,7 +109,7 @@ function ticketDetailRowLayout($title, $val)
 
     $objDetailRow->type = "box";
     $objDetailRow->layout = "baseline";
-    $objDetailRow->spacing = "sm";
+    $objDetailRow->spacing = "xs";
     $objDetailRow->contents = $contentsList;
 
     return $objDetailRow;
