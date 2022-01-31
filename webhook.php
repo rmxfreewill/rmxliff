@@ -166,22 +166,24 @@ $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
 
-if (isset($jsonData["events"][0]["postback"])) {
-    $postbackParams = $jsonData["events"][0]["postback"]["data"];
-    parse_str($postbackParams, $arr);
-    $ActionMenuText = $arr["action"];
-    if ($ActionMenuText == 'status') {
-        $replyJson["messages"][0] = ticketDetailFlexMessage();
-    } else if ($ActionMenuText == 'text') {
-        $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
-    }
-} else if (isset($jsonData["events"][0]["message"])) {
-    $textTypeParams = $jsonData["events"][0]["message"]["type"];
-    if ($textTypeParams == 'text') {
-        $textParams = $jsonData["events"][0]["message"]["text"];
-        $replyJson["messages"][0] = testFlexMessage($textParams);
-    }
+// if (isset($jsonData["events"][0]["postback"])) {
+//     $postbackParams = $jsonData["events"][0]["postback"]["data"];
+//     parse_str($postbackParams, $arr);
+//     $ActionMenuText = $arr["action"];
+//     if ($ActionMenuText == 'status') {
+//         $replyJson["messages"][0] = ticketDetailFlexMessage();
+//     } else if ($ActionMenuText == 'text') {
+//         $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
+//     }
+// } 
+
+
+$textTypeParams = $jsonData["events"][0]["message"]["type"];
+if ($textTypeParams == 'text') {
+    $textParams = $jsonData["events"][0]["message"]["text"];
+    $replyJson["messages"][0] = testFlexMessage($textParams);
 }
+
 
 
 $replyJson["to"] = $replyUserId;
