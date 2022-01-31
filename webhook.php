@@ -145,11 +145,18 @@ $ActionMenuText = $arr["action"];
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-$replyJson["messages"][0] = ticketDetailFlexMessage();
+// $replyJson["messages"][0] = ticketDetailFlexMessage();
+//
+$replyJson["messages"][0] = $jsonData;
+//
 $encodeJson = json_encode($replyJson);
 
-if ($ActionMenuText == 'status') {
-    $results = sendMessage($encodeJson);
-    echo $results;
-    http_response_code(200);
-}
+// if ($ActionMenuText == 'status') {
+//     $results = sendMessage($encodeJson);
+//     echo $results;
+//     http_response_code(200);
+// }
+
+$results = sendMessage($encodeJson);
+echo $results;
+http_response_code(200);
