@@ -52,7 +52,8 @@ $ActionMenuText = $arr["action"];
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-$replyJson["messages"][0] = ticketDetailFlexMessage();
+// $replyJson["messages"][0] = ticketDetailFlexMessage();
+$replyJson["messages"][0] = $jsonData;
 $encodeJson = json_encode($replyJson);
 
 
