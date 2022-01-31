@@ -6,13 +6,13 @@
 include("define_Global.php");
 include("rmxLiffFunction/rmxLogoutLiff.php");
 
-function sendMessage($type, $replyJson)
+function sendMessage($replyJson)
 {
     $url = "https://api.line.me/v2/bot/message/push";
 
-    $type == 'MessageAPI' ? $sendInfo['URL'] = $url : $type;
-
+    $sendInfo['URL'] = $url;
     $sendInfo['AccessToken'] = BEARER_TOKEN;
+    
     try {
 
         $ch = curl_init();
@@ -121,8 +121,8 @@ function selectTicketDetail()
     // $title = array("Ticket No.", "Ticket Date", "Order No.", "Order Date", "Ship To", "Product Name", "Plant Name", "Order Qty.", "Ticket Qty.", "Driver Name", "Truck No.", "License Plate", "Leave Time", "Ship Condition", "Ticket Status");
     // $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5");
 
-    $title = array("Ticket Number","Product code","Date","Time","Company Name","Customer Name","Contact Person","Mobile","Ship To Location","Time to Load ","Time to Leave","Time to Jobsite","Truck code","Drive Name","Load size (m3)","Plant Code","Product Name","Slump","Strength CU/CY","Special Instruction");
-    $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5","a","a","a","a","a");
+    $title = array("Ticket Number", "Product code", "Date", "Time", "Company Name", "Customer Name", "Contact Person", "Mobile", "Ship To Location", "Time to Load ", "Time to Leave", "Time to Jobsite", "Truck code", "Drive Name", "Load size (m3)", "Plant Code", "Product Name", "Slump", "Strength CU/CY", "Special Instruction");
+    $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5", "a", "a", "a", "a", "a");
 
     for ($i = 0; $i < count($title); $i++) {
         array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
@@ -207,6 +207,6 @@ $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
 
 $encodeJson = json_encode($replyJson);
-$results = sendMessage('MessageAPI', $encodeJson);
+$results = sendMessage($encodeJson);
 echo $results;
 http_response_code(200);
