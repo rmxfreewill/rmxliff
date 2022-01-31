@@ -37,14 +37,14 @@ function sendMessage($replyJson)
     return $data;
 }
 
-function testFlexMessage()
+function testFlexMessage($txt)
 {
     $objSeparator = new stdClass;
     $objSeparator->type = "separator";
 
     $objTitleH1 = new stdClass;
     $objTitleH1->type = "text";
-    $objTitleH1->text = "TestTest";
+    $objTitleH1->text = $txt;
     $objTitleH1->weight = "bold";
     $objTitleH1->color = "#B6961EFF";
     $objTitleH1->size = "xl";
@@ -168,8 +168,11 @@ $ActionMenuText = $arr["action"];
 if ($ActionMenuText == 'status') {
     $replyJson["messages"][0] = ticketDetailFlexMessage();
 } else {
-    $replyJson["messages"][0] = testFlexMessage();
+    $replyJson["messages"][0] = testFlexMessage($ActionMenuText);
 }
+
+
+
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
