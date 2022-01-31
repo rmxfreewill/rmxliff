@@ -56,7 +56,7 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["messages"][0] = $jsonData;
 $encodeJson = json_encode($replyJson);
 
-
-$results = sendMessage($encodeJson);
-echo $results;
+echo $encodeJson;
+// $results = sendMessage($encodeJson);
+// echo $results;
 http_response_code(200);
