@@ -37,6 +37,40 @@ function sendMessage($replyJson)
     return $data;
 }
 
+function testFlexMessage()
+{
+    $objSeparator = new stdClass;
+    $objSeparator->type = "separator";
+
+    $objTitleH1 = new stdClass;
+    $objTitleH1->type = "text";
+    $objTitleH1->text = "TestTest";
+    $objTitleH1->weight = "bold";
+    $objTitleH1->color = "#B6961EFF";
+    $objTitleH1->size = "xl";
+    $objTitleH1->wrap = true;
+    $objTitleH1->contents = [];
+
+    $objDetail = new stdClass;
+    $objDetail->type = "box";
+    $objDetail->layout = "vertical";
+    $objDetail->spacing = "md";
+    $objDetail->margin = "lg";
+    $objDetail->contents = [];
+
+    $output = array($objTitleH1, $objSeparator, $objDetail);
+
+    $replyText["type"] = "flex";
+    $replyText["altText"] =  "Ticket Detail";
+    $replyText["contents"]["type"] = "bubble";
+    $replyText["contents"]["body"]["type"] = "box";
+    $replyText["contents"]["body"]["layout"] = "vertical";
+    $replyText["contents"]["body"]["spacing"] = "sm";
+    $replyText["contents"]["body"]["contents"] = $output;
+
+    return $replyText;
+}
+
 function ticketDetailRowLayout($title, $val)
 {
     $objDetailRow = new stdClass;
@@ -131,14 +165,16 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 $postbackParams = $jsonData["events"][0]["postback"]["data"];
 parse_str($postbackParams, $arr);
 $ActionMenuText = $arr["action"];
+if ($ActionMenuText == 'status') {
+    $replyJson["messages"][0] = ticketDetailFlexMessage();
+} else {
+    $replyJson["messages"][0] = testFlexMessage();
+}
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
-$replyJson["messages"][0] = ticketDetailFlexMessage();
-$encodeJson = json_encode($replyJson);
 
-// if ($ActionMenuText == 'status') {
+$encodeJson = json_encode($replyJson);
 $results = sendMessage($encodeJson);
 echo $results;
 http_response_code(200);
-// }
