@@ -168,11 +168,12 @@ $ActionMenuText = $arr["action"];
 if ($ActionMenuText == 'status') {
     $replyJson["messages"][0] = ticketDetailFlexMessage();
 } else {
-    $replyJson["messages"][0] = testFlexMessage($ActionMenuText);
+    $textTypeParams = $jsonData["events"][0]["message"]["type"];
+    if ($textTypeParams == 'text') {
+        $textParams = $jsonData["events"][0]["message"]["text"];
+        $replyJson["messages"][0] = testFlexMessage($textParams);
+    }
 }
-
-
-
 
 $replyJson["to"] = $replyUserId;
 $replyJson["replyToken"] = $replyToken;
