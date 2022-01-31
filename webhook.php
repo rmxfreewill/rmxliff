@@ -1,8 +1,12 @@
 <?php
 
-function sendMessage($replyJson)
+include("rmxLogoutLiff.php");
+
+function sendMessage($type = 'MessageAPI', $replyJson)
 {
-    $sendInfo['URL'] = "https://api.line.me/v2/bot/message/push";
+    $url = "https://api.line.me/v2/bot/message/push";
+
+    $type == 'MessageAPI' ? $sendInfo['URL'] = $url : $type;
 
     $sendInfo['AccessToken'] = "6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=";
     try {
@@ -166,7 +170,7 @@ function replyJsonPostBack($jsonData)
     // }
 }
 
-function replyJsonMessage($jsonData)
+function replyJsonMessage($jsonData, $LineId = '')
 {
     $textTypeParams = $jsonData["events"][0]["message"]["type"];
     if ($textTypeParams == 'text') {
@@ -174,6 +178,8 @@ function replyJsonMessage($jsonData)
         $data = testFlexMessage($textParams);
         if (strtolower($textParams) == 'status') {
             $data = ticketDetailFlexMessage();
+        } else if (strtolower($textParams) == 'logout') {
+            rmxChangeMemberRichMenuDefualt($LineId);
         }
     }
     return $data;
