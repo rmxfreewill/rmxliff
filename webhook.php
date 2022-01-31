@@ -137,8 +137,11 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["messages"][0] = ticketDetailFlexMessage();
 $encodeJson = json_encode($replyJson);
 
-// if ($ActionMenuText == 'status') {
+echo $encodeJson;
+echo "<br>";
+
+if ($ActionMenuText == 'status') {
     $results = sendMessage($encodeJson);
     echo $results;
     http_response_code(200);
-// }
+}
