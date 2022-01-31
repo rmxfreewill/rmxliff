@@ -12,7 +12,7 @@ function sendMessage($type, $replyJson)
 
     $type == 'MessageAPI' ? $sendInfo['URL'] = $url : $type;
 
-    $sendInfo['AccessToken'] = "6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=";
+    $sendInfo['AccessToken'] = BEARER_TOKEN;
     try {
 
         $ch = curl_init();
