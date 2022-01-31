@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
+// error_reporting(-1);
+// ini_set('display_errors', 'On');
 
 include("define_Global.php");
 include("rmxLiffFunction/rmxLogoutLiff.php");
