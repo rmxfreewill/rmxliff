@@ -209,7 +209,6 @@ function replyJsonMessage($jsonData, $LineId)
     $textTypeParams = $jsonData["events"][0]["message"]["type"];
     if ($textTypeParams == 'text') {
         $textParams = $jsonData["events"][0]["message"]["text"];
-        $data = testFlexMessage($textParams);
         $case = strtolower($textParams);
         if ($case  == 'status') {
             $data = ticketDetailFlexMessage($LineId);
@@ -236,6 +235,8 @@ function replyJsonMessage($jsonData, $LineId)
 
             </html>
 <?php
+        } else {
+            $data = testFlexMessage($textParams);
         }
     }
     return $data;
