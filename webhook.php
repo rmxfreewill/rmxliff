@@ -48,37 +48,59 @@ function sendMessage($replyJson)
 
 function testFlexMessage($txt)
 {
-    $objSeparator = new stdClass;
-    $objSeparator->type = "separator";
+    //     $objSeparator = new stdClass;
+    //     $objSeparator->type = "separator";
 
-    $objTitleH1 = new stdClass;
-    $objTitleH1->type = "text";
-    $objTitleH1->text = $txt;
-    $objTitleH1->weight = "bold";
-    $objTitleH1->color = "#B6961EFF";
-    $objTitleH1->size = "sm";
-    $objTitleH1->wrap = true;
-    $objTitleH1->contents = [];
+    //     $objTitleH1 = new stdClass;
+    //     $objTitleH1->type = "text";
+    //     $objTitleH1->text = $txt;
+    //     $objTitleH1->weight = "bold";
+    //     $objTitleH1->color = "#B6961EFF";
+    //     $objTitleH1->size = "sm";
+    //     $objTitleH1->wrap = true;
+    //     $objTitleH1->contents = [];
 
-    $objDetail = new stdClass;
-    $objDetail->type = "box";
-    $objDetail->layout = "vertical";
-    $objDetail->spacing = "xs";
-    $objDetail->margin = "xs";
-    $objDetail->contents = [];
+    //     $objDetail = new stdClass;
+    //     $objDetail->type = "box";
+    //     $objDetail->layout = "vertical";
+    //     $objDetail->spacing = "xs";
+    //     $objDetail->margin = "xs";
+    //     $objDetail->contents = [];
 
-    $output = array($objTitleH1, $objSeparator, $objDetail);
+    //     $output = array($objTitleH1, $objSeparator, $objDetail);
 
-    $replyText["type"] = "flex";
-    $replyText["altText"] =  "Ticket Detail";
-    $replyText["contents"]["type"] = "bubble";
-    $replyText["contents"]["body"]["type"] = "box";
-    $replyText["contents"]["body"]["layout"] = "vertical";
-    $replyText["contents"]["body"]["wrap"] = true;
-    $replyText["contents"]["body"]["spacing"] = "sm";
-    $replyText["contents"]["body"]["contents"] = $output;
+    //     $replyText["type"] = "flex";
+    //     $replyText["altText"] =  "Ticket Detail";
+    //     $replyText["contents"]["type"] = "bubble";
+    //     $replyText["contents"]["body"]["type"] = "box";
+    //     $replyText["contents"]["body"]["layout"] = "vertical";
+    //     $replyText["contents"]["body"]["wrap"] = true;
+    //     $replyText["contents"]["body"]["spacing"] = "sm";
+    //     $replyText["contents"]["body"]["contents"] = $output;
 
-    return $replyText;
+    $aa = '
+        {
+            "type": "flex",
+            "altText": "FIFA Home",
+            "contents": {
+                "type": "bubble",
+                "header": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "$txt",
+                            "size": "xl",
+                            "weight": "bold"
+                        }
+                    ]
+                }
+            }
+        }
+';
+
+    return $aa;
 }
 
 function ticketDetailRowLayout($title, $val)
@@ -196,8 +218,8 @@ function replyJsonMessage($jsonData, $LineId)
             $data = testFlexMessage('GGGG');
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
-            ?>
-             <html>
+?>
+            <html>
 
             <head>
                 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
@@ -212,8 +234,8 @@ function replyJsonMessage($jsonData, $LineId)
                 </script>
             </body>
 
-            </html> 
-            <?php
+            </html>
+<?php
         }
     }
     return $data;
