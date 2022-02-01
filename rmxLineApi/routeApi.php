@@ -1,12 +1,12 @@
 <?php
 
-include_once("define_rmxLineApi.php");
+
 
 include_once("rmxProfileApi.php");
-include_once("rmxTicketStatusApi.php");
 
-// error_reporting(-1);
-// ini_set('display_errors', 'On');
+
+ error_reporting(-1);
+ ini_set('display_errors', 'On');
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -23,20 +23,22 @@ function getDataUrl()
 
 function checkRequest()
 {
-    $bearer_token = BEARER_TOKEN;
+    $bearer_token = "6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=";
     $header_token = trim($_SERVER['HTTP_AUTHORIZATION'], 'Bearer ');
     $isToken = $bearer_token == $header_token;
     $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
     return $requestMethod == $isToken;
 }
-// ticketdetails
+
 $checkReq = $_SERVER['HTTP_AUTHORIZATION'] == null ? false : checkRequest();
 if ($checkReq == true) {
     $lineid = getDataUrl()['lineid'];
     $menu = getDataUrl()['menu'];
-    if ($menu = 'profile') {
+    if ($menu == 'profile') {
         rmxApiGetProfile($lineid);
-    } else if ($menu = 'ticketdetails') {
+    } else if ($menu == 'ticketdetails') {
         rmxApiGetSoldToCode($lineId);
+    }else{
+	echo '{}';
     }
 }
