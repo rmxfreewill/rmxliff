@@ -17,7 +17,7 @@ if (isset($_GET['LineId']))
     $LineId = $_GET['LineId'];
 
 try {
-    $getDataProfile = rmxGetProfileLiff($LineId);
+    $getDataProfile = rmxGetProfileLiff('profile',$LineId);
     $getDataProfileObj = json_decode($getDataProfile);
     $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     $mobileText = $getDataProfileObj->mobile;

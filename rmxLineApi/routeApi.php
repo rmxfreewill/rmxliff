@@ -1,9 +1,12 @@
 <?php
 
-include_once("rmxProfileApi.php");
+include_once("define_rmxLineApi.php");
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
+include_once("rmxProfileApi.php");
+include_once("rmxTicketStatusApi.php");
+
+// error_reporting(-1);
+// ini_set('display_errors', 'On');
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -26,12 +29,14 @@ function checkRequest()
     $requestMethod = $_SERVER["REQUEST_METHOD"] == 'POST';
     return $requestMethod == $isToken;
 }
-
+// ticketdetails
 $checkReq = $_SERVER['HTTP_AUTHORIZATION'] == null ? false : checkRequest();
 if ($checkReq == true) {
     $menu = getDataUrl()['menu'];
     if ($menu = 'profile') {
         $lineid = getDataUrl()['lineid'];
         rmxApiGetProfile($lineid);
+    }else if ($menu = 'ticketdetails'){
+      
     }
 }

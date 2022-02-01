@@ -2,11 +2,11 @@
 
 include("define_Global.php");
 
-function rmxGetProfileLiff($LineId)
+function rmxGetProfileLiff($menu, $LineId)
 {
     // $rmx_api_url = RMX_HEROKU_API_URL;
     $rmx_api_url = RMX_SERVER_API_URL;
-    $param_menu = "?menu=profile&lineid=$LineId";
+    $param_menu = "?menu=$menu&lineid=$LineId";
 
     // if ($mobileNo != '') {
     //     $param_mobileno = "&mobile=$mobileNo";

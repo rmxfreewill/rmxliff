@@ -28,5 +28,4 @@
 	define("RMXUSER", "root");
 	define("RMXPASS",  "freewill@kernel1168/86-88");
 	define("RMXDB", "rmxmain");
-
 ?>
