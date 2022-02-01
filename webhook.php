@@ -9,13 +9,12 @@ include("rmxLiffFunction.php");
 
 function sendMessage($replyJson)
 {
-    $url = "https://api.line.me/v2/bot/message/push";
+    $url = "https://api.line.me/v2/bot/message/multicast";
 
     $sendInfo['URL'] = $url;
     $sendInfo['AccessToken'] = "6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=";
 
     try {
-
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $sendInfo['URL']);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
@@ -44,63 +43,6 @@ function sendMessage($replyJson)
         $data = $ex;
     }
     return $data;
-}
-
-function testFlexMessage($txt)
-{
-    //     $objSeparator = new stdClass;
-    //     $objSeparator->type = "separator";
-
-    //     $objTitleH1 = new stdClass;
-    //     $objTitleH1->type = "text";
-    //     $objTitleH1->text = $txt;
-    //     $objTitleH1->weight = "bold";
-    //     $objTitleH1->color = "#B6961EFF";
-    //     $objTitleH1->size = "sm";
-    //     $objTitleH1->wrap = true;
-    //     $objTitleH1->contents = [];
-
-    //     $objDetail = new stdClass;
-    //     $objDetail->type = "box";
-    //     $objDetail->layout = "vertical";
-    //     $objDetail->spacing = "xs";
-    //     $objDetail->margin = "xs";
-    //     $objDetail->contents = [];
-
-    //     $output = array($objTitleH1, $objSeparator, $objDetail);
-
-    //     $replyText["type"] = "flex";
-    //     $replyText["altText"] =  "Ticket Detail";
-    //     $replyText["contents"]["type"] = "bubble";
-    //     $replyText["contents"]["body"]["type"] = "box";
-    //     $replyText["contents"]["body"]["layout"] = "vertical";
-    //     $replyText["contents"]["body"]["wrap"] = true;
-    //     $replyText["contents"]["body"]["spacing"] = "sm";
-    //     $replyText["contents"]["body"]["contents"] = $output;
-
-    $aa = '
-        {
-            "type": "flex",
-            "altText": "FIFA Home",
-            "contents": {
-                "type": "bubble",
-                "header": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "$txt",
-                            "size": "xl",
-                            "weight": "bold"
-                        }
-                    ]
-                }
-            }
-        }
-';
-
-    return $aa;
 }
 
 function ticketDetailRowLayout($title, $val)
@@ -246,7 +188,7 @@ $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
 $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-$replyJson["to"] = $replyUserId;
+$replyJson["to"] = [$replyUserId];
 $replyJson["replyToken"] = $replyToken;
 
 $encodeJson = json_encode($replyJson);

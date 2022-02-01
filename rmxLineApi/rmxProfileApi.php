@@ -37,3 +37,41 @@ function rmxApiGetProfile($LineId)
         }
     }
 }
+
+
+function mySQLconnect($query)
+{
+    $conn = mysqli_connect("127.0.0.1", "root", "freewill@kernel1168/86-88", "rmxmain", 3306);
+    $result = mysqli_query($conn, $query);
+    return $result;
+}
+
+function rmxApiGetSoldToCode($lineId)
+{
+    $soldtocode = '';
+    $sql = "SELECT * FROM m_user WHERE sLineId = '$lineId'";
+    $result = mySQLconnect($sql);
+    if ($result) {
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if ($row) {
+            $soldtocode = $row["sSoldToCode"];
+        }
+    }
+    return $soldtocode;
+}
+
+function rmxApiGetAllLineId($soldtocode)
+{
+    $data = [];
+    $sql = "SELECT sLineId FROM m_user WHERE sSoldToCode = '$soldtocode'";
+    $result = mySQLconnect($sql);
+    if ($result) {
+        $numRow = mysqli_num_rows($result);
+        if ($numRow) {
+            while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
+                array_push($data, $row[0]);
+            }
+        }
+    }
+    return $data;
+}

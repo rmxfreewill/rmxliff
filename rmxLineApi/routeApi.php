@@ -37,7 +37,7 @@ if ($checkReq == true) {
     if ($menu == 'profile') {
         rmxApiGetProfile($lineid);
     } else if ($menu == 'ticketdetails') {
-        rmxApiGetSoldToCode($lineId);
+        rmxApiGetTicketDetails($lineid);
     }else{
 	echo '{}';
     }
