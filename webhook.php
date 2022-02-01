@@ -180,6 +180,7 @@ function replyJsonPostBack($jsonData)
 
 function replyJsonMessage($jsonData, $LineId)
 {
+    $data = '';
     $textTypeParams = $jsonData["events"][0]["message"]["type"];
     if ($textTypeParams == 'text') {
         $textParams = $jsonData["events"][0]["message"]["text"];
@@ -189,7 +190,24 @@ function replyJsonMessage($jsonData, $LineId)
             $data = ticketDetailFlexMessage();
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
-            $data = '';
+?>
+            <html>
+
+            <head>
+                <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+                <script charset="utf-8" src="js/rmx_liff_function.js"></script>
+            </head>
+
+            <body>
+                <script>
+                    var myLiffId = document.getElementById('txtLiffId').value;
+                    var type = "logout";
+                    rmxInitializeLiff(myLiffId, type);
+                </script>
+            </body>
+
+            </html>
+<?php
         }
     }
     return $data;
