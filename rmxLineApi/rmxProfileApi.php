@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET,POST");
@@ -11,8 +14,7 @@ $GLOBALS['obj'] = new stdClass();
 function rmxApiGetProfile($LineId)
 {
     //
-    // $conn = mysqli_connect(HEROKU_HOST, HEROKU_USER, HEROKU_PASS, HEROKU_DB, PORT);
-    $conn = mysqli_connect("127.0.0.1","root", "freewill@kernel1168/86-88", "rmxmain", 3306);
+    $conn = mysqli_connect("127.0.0.1", "root", "freewill@kernel1168/86-88", "rmxmain", 3306);
     //
 
     if ($conn) {
@@ -29,6 +31,7 @@ function rmxApiGetProfile($LineId)
             $GLOBALS['obj']->name = $row["sName"];
             $GLOBALS['obj']->surname = $row["sSurName"];
             $GLOBALS['obj']->mobile = $row["sMobileNo"];
+            $GLOBALS['obj']->email = $row["sEMail"];
             $GLOBALS['obj']->soldtocode = $row["sSoldToCode"];
             echo json_encode($GLOBALS['obj']);
         }
