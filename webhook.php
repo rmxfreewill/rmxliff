@@ -197,7 +197,7 @@ function replyJsonMessage($jsonData, $LineId)
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
 ?>
-            <!-- <html>
+            <html>
 
             <head>
                 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
@@ -212,7 +212,7 @@ function replyJsonMessage($jsonData, $LineId)
                 </script>
             </body>
 
-            </html> -->
+            </html>
 <?php
         }
     }
