@@ -196,7 +196,7 @@ function replyJsonMessage($jsonData, $LineId)
             $data = testFlexMessage($tt);
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
-?>
+            ?>
              <html>
 
             <head>
@@ -213,7 +213,7 @@ function replyJsonMessage($jsonData, $LineId)
             </body>
 
             </html> 
-<?php
+            <?php
         }
     }
     return $data;
