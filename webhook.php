@@ -192,8 +192,8 @@ function replyJsonMessage($jsonData, $LineId)
         if ($case  == 'status') {
             $data = ticketDetailFlexMessage($LineId);
         } else if ($case  == 'test') {
-            $tt = rmxGetDataLiff('ticketdetails', $LineId);
-            $data = testFlexMessage($tt);
+            // $tt = rmxGetDataLiff('ticketdetails', $LineId);
+            $data = testFlexMessage('GGGG');
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
             ?>
