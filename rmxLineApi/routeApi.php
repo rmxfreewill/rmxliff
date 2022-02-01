@@ -32,11 +32,11 @@ function checkRequest()
 // ticketdetails
 $checkReq = $_SERVER['HTTP_AUTHORIZATION'] == null ? false : checkRequest();
 if ($checkReq == true) {
+    $lineid = getDataUrl()['lineid'];
     $menu = getDataUrl()['menu'];
     if ($menu = 'profile') {
-        $lineid = getDataUrl()['lineid'];
         rmxApiGetProfile($lineid);
-    }else if ($menu = 'ticketdetails'){
-      
+    } else if ($menu = 'ticketdetails') {
+        rmxApiGetSoldToCode($lineId);
     }
 }

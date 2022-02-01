@@ -22,7 +22,14 @@ function rmxApiGetSoldToCode($lineId)
 {
     $conn = mySQLconnect();
     if ($conn) {
-        $sql = "SELECT sSoldToCode FROM rmx01.M_User WHERE  rmx01.M_User.sLineId='$lineId'";
+        // $sql = "SELECT sSoldToCode FROM rmx01.M_User WHERE  rmx01.M_User.sLineId='$lineId'";
+        $aa = rmxApiGetProfile($lineId);
+        $getDataObj = $aa;
+
+
+
+        $data = array($getDataObj);
+        return $data;
     }
 }
 
