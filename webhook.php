@@ -199,9 +199,9 @@ function sendMessageWebhook($LINEData)
     $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $replyUserId), true);
     $numCount = count($arrVal);
     for ($i = 0; $i < $numCount; $i++) {
-        $results = sendMessage($encodeJson);
-        echo $results;
-        http_response_code(200);
+        // $results = sendMessage($encodeJson);
+        // echo $results;
+        // http_response_code(200);
     }
 }
 
