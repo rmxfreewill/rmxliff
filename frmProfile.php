@@ -6,6 +6,34 @@ session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
 
+$nameText = '';
+$mobileText = '';
+$emailText = '';
+$LineId = '';
+if (isset($_POST['LineId'])) {
+    $LineId = $_POST['LineId'];
+}
+if (isset($_GET['LineId'])) {
+    $LineId = $_GET['LineId'];
+}
+
+
+try {
+    $getDataProfile = rmxGetDataLiff('profile', $LineId);
+    $getDataProfileObj = json_decode($getDataProfile);
+    $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
+    $mobileText = $getDataProfileObj->mobile;
+    $emailText = $getDataProfileObj->email;
+    // echo "<b>LINEID: </b>" . $LineId;
+    // echo "<p>";
+    // echo "<b>Name:</b><p>";
+    // echo $nameText;
+    // echo "<p>";
+    // echo "<b>Mobile No.</b><p>";
+    // echo $mobileText;
+} catch (\Throwable $th) {
+    // echo $th;
+}
 
 
 ?>
