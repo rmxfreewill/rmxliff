@@ -218,7 +218,7 @@ $replyJson["to"] = getLineIdAll($replyUserId);
 
 $aa = getLineIdAll($replyUserId);
 
-// $aa = '{"lineid":"Hi"}';
+// $aa = '{"soldtocode":"Hi"}';
 // $bb = json_decode($aa, true);
 
-echo json_decode($aa, true);
+echo json_encode($aa, true);
