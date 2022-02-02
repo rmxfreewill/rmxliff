@@ -183,9 +183,9 @@ function replyJsonMessage($jsonData, $LineId)
 function getLineIdAll($LineId)
 {
     $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
-    $aa = json_encode($ProfileAndSoldtocode,true);
 
-    return $aa['lineid'];
+
+    return $ProfileAndSoldtocode;
 }
 
 $LINEData = file_get_contents('php://input');
