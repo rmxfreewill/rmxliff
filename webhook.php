@@ -182,10 +182,11 @@ function replyJsonMessage($jsonData, $LineId)
 
 function getLineIdAll($LineId)
 {
-    $soldToCode = rmxGetProfileLiff('soldtocode', $LineId);
-    $soldToCode = json_decode($soldToCode, true);
-    $LineIdArray = rmxApiGetAllLineId($soldToCode['soldtocode']);
-    return $LineIdArray;
+    $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
+
+$aa = json_decode($ProfileAndSoldtocode);
+
+    return $aa;
 }
 
 $LINEData = file_get_contents('php://input');
@@ -196,18 +197,12 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-$soldToCode = rmxGetProfileLiff('soldtocode', $replyUserId);
-$soldToCode = json_decode($soldToCode, true);
-$LineIdArray = rmxApiGetAllLineId($soldToCode['soldtocode']);
-echo $LineIdArray;
+$replyJson["replyToken"] = $replyToken;
+$replyJson["to"] = getLineIdAll($replyUserId);
+$replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 
+$encodeJson = json_encode($replyJson);
+$results = sendMessage($encodeJson);
 
-// $replyJson["replyToken"] = $replyToken;
-// $replyJson["to"] = getLineIdAll($replyUserId);
-// $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-
-// $encodeJson = json_encode($replyJson);
-// $results = sendMessage($encodeJson);
-
-// echo $results;
-// http_response_code(200);
+echo $results;
+http_response_code(200);

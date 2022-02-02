@@ -55,7 +55,7 @@ function rmxApiGetSoldToCode($lineId)
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if ($row) {
             $GLOBALS['obj']->soldtocode = $row["sSoldToCode"];
-            echo json_encode($GLOBALS['obj']);
+            // echo json_encode($GLOBALS['obj']);
         }
     }
     return $soldtocode;
@@ -75,4 +75,32 @@ function rmxApiGetAllLineId($soldtocode)
         }
     }
     return $data;
+}
+
+function rmxApiGetSoldToCodeAndLineId($lineId)
+{
+    $data = [];
+    $soldtocode = '';
+    $sql = "SELECT * FROM m_user WHERE sLineId = '$lineId'";
+    $result = mySQLconnect($sql);
+    if ($result) {
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if ($row) {
+            $soldtocode = $row["sSoldToCode"];
+            $GLOBALS['obj']->soldtocode = $soldtocode;
+
+            $sql = "SELECT sLineId FROM m_user WHERE sSoldToCode = '$soldtocode'";
+            $result = mySQLconnect($sql);
+            if ($result) {
+                $numRow = mysqli_num_rows($result);
+                if ($numRow) {
+                    while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
+                        array_push($data, $row[0]);
+                    }
+                }
+                $GLOBALS['obj']->lineid = $data;
+            }
+        }
+    }
+    echo json_encode($GLOBALS['obj']);
 }

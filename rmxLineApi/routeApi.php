@@ -6,8 +6,8 @@ include_once("rmxProfileApi.php");
 include_once("rmxTicketApi.php");
 
 
- error_reporting(-1);
- ini_set('display_errors', 'On');
+error_reporting(-1);
+ini_set('display_errors', 'On');
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -37,12 +37,13 @@ if ($checkReq == true) {
     $menu = getDataUrl()['menu'];
     if ($menu == 'profile') {
         rmxApiGetProfile($lineid);
-    } else if($menu == 'soldtocode'){
+    } else if ($menu == 'soldtocode') {
         rmxApiGetSoldToCode($lineid);
-    }
-    else if ($menu == 'ticketdetails') {
+    } else if ($menu == 'ProfileAndSoldtocode') {
+        rmxApiGetSoldToCodeAndLineId($lineid);
+    } else if ($menu == 'ticketdetails') {
         rmxApiGetTicketDetails($lineid);
-    }else{
-	echo '{}';
+    } else {
+        echo '{}';
     }
 }
