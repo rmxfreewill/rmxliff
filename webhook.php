@@ -147,13 +147,14 @@ function replyJsonPostBack($jsonData)
 
 function replyJsonMessage($jsonData, $LineId)
 {
-    $data = '';
+    $flexMessage = '';
     $textTypeParams = $jsonData["events"][0]["message"]["type"];
     if ($textTypeParams == 'text') {
         $textParams = $jsonData["events"][0]["message"]["text"];
         $case = strtolower($textParams);
         if ($case  == 'status') {
-            $data = ticketDetailFlexMessage($LineId);
+            //Message
+            $flexMessage = ticketDetailFlexMessage($LineId);
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
 ?>
@@ -176,7 +177,14 @@ function replyJsonMessage($jsonData, $LineId)
 <?php
         }
     }
-    return $data;
+    return $flexMessage;
+}
+
+function getLineIdAll($LineId)
+{
+    $soldToCode = rmxApiGetSoldToCode($LineId);
+    $LineIdArray = rmxApiGetAllLineId($soldToCode);
+    return $LineIdArray;
 }
 
 $LINEData = file_get_contents('php://input');
@@ -188,7 +196,7 @@ $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
 $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-$replyJson["to"] = [$replyUserId];
+$replyJson["to"] = getLineIdAll($LineId);
 $replyJson["replyToken"] = $replyToken;
 
 $encodeJson = json_encode($replyJson);
