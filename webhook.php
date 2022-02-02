@@ -86,7 +86,7 @@ function ticketDetailRowLayout($title, $val)
     return $objDetailRow;
 }
 
-function selectTicketDetail(array $arrVal)
+function selectTicketDetail($arrVal)
 {
     $data = [];
     $title = array("Ticket Number", "Product code", "Date", "Time", "Company Name", "Customer Name", "Contact Person", "Mobile", "Ship To Location", "Time to Load ", "Time to Leave", "Time to Jobsite", "Truck code", "Drive Name", "Load size (m3)", "Plant Code", "Product Name", "Slump", "Strength CU/CY", "Special Instruction");
