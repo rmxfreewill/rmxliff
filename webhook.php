@@ -196,8 +196,11 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-// $replyJson["replyToken"] = $replyToken;
-// $replyJson["to"] = getLineIdAll($replyUserId);
+$replyJson["replyToken"] = $replyToken;
+
+
+
+$replyJson["to"] = getLineIdAll($replyUserId);
 // $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 
 // $encodeJson = json_encode($replyJson);
@@ -206,4 +209,4 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 // echo $results;
 // http_response_code(200);
 
-echo getLineIdAll($replyUserId);
+echo json_decode(getLineIdAll($replyUserId));
