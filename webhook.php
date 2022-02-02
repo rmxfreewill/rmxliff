@@ -7,6 +7,13 @@ ini_set('display_errors', 'On');
 include("rmxLiffFunction.php");
 include("rmxLiffFunction/rmxProfileLiff.php");
 
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: GET,POST");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+
 
 function sendMessage($replyJson)
 {
@@ -185,7 +192,7 @@ function getLineIdAll($LineId)
     $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
 
 
-    return json_encode($ProfileAndSoldtocode);
+    return $ProfileAndSoldtocode;
 }
 
 $LINEData = file_get_contents('php://input');
