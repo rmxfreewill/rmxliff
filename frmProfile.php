@@ -51,64 +51,20 @@ $sFlag = '0';
 $sTitle = 'Profile';
 $sShowMsg = '';
 
-if ($LinkCode == 'SEARCH') {
+$nameText = '';
+$mobileText = '';
+$emailText = '';
+$LineId = '';
+if (isset($_POST['LineId']))
+    $LineId = $_POST['LineId'];
+if (isset($_GET['LineId']))
+    $LineId = $_GET['LineId'];
 
-    $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-    if ($RetCommand) {
-    }
-    $sFlag = '5';
-} else if ($LinkCode == 'CHECK') {
-
-    $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
-    if ($RetCommand) {
-        //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
-        $ASRet = [];
-        $ASRet = explode("^c", $RetCommand);
-        if (count($ASRet) >= 2) {
-            $sFlagMsg = $ASRet[0];
-            $sFlag = $ASRet[1];
-
-            $UserName = $ASRet[2];
-            $EMail = $ASRet[3];
-            $Tel = $ASRet[4];
-            $SoldToCode = $ASRet[5];
-            $SoldToName = $ASRet[6];
-
-
-            $sShowMsg = '0';
-            if ($sFlag != '0') $sTitle = 'Search';
-        }
-    }
-}
-
-function ticketSearchScreen($LineId, $arrRet)
-{
-    $aa = '
-        <label><b>LINE ID: </b>' . $LineId . '</label><p>
-    <label><b>SoldToCode: </b>' . $arrRet[5] . '</label><p>
-    <label><b>SoldToName: </b>' . $arrRet[6] . '</label><p>
-    <label><b>Tel: </b>' . $arrRet[4] . '</label><p>
-    <label><b>EMail: </b>' . $arrRet[3] . '</label><p>
-    ';
-
-    $res = '
-    <div class="login_container">
-        <div class="login_container">
-            <label for="txtFirst"><b>Start Date</b></label>
-            <input type="date" dateformat="d M y" id="txtFirst">
-            <label for="txtLast"><b>End Date</b></label>
-            <input type="date" id="txtLast" dateformat="d M y">
-            <label for="txtTicketNo"><b>Ticket No</b></label>
-            <input type="text" id="txtTicketNo" value="">
-            <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
-            <button type="button" id="btnSearch" onclick="SearchClick()">SEARCH</button>
-        </div>
-
-    </div>
-    ';
-
-    echo $res;
-}
+$getDataProfile = rmxGetProfileLiff('profile', $LineId);
+$getDataProfileObj = json_decode($getDataProfile);
+$nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
+$mobileText = $getDataProfileObj->mobile;
+$emailText = $getDataProfileObj->email;
 
 
 
