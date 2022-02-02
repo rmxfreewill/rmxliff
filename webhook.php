@@ -223,7 +223,5 @@ $personJSON = getLineIdAll($replyUserId);
 
 $person = json_decode($personJSON);
 
-// print_r($person[0]);
-// print_r($person['soldtocode']);
-// print_r($person['lineid']);
-print_r($person->soldtocode);
+
+echo "W::: ".$person->soldtocode;
