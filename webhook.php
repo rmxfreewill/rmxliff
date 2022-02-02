@@ -199,7 +199,7 @@ $aa =  rmxGetProfileLiff('soldtocode', $replyUserId);
 
 $manage = json_decode($aa, true);
 
-echo $manage;
+echo $manage->soldtocode;
 
 
 // $replyJson["replyToken"] = $replyToken;
