@@ -185,7 +185,7 @@ function getLineIdAll($LineId)
     $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
 
 
-    return $ProfileAndSoldtocode;
+    return json_encode($ProfileAndSoldtocode);
 }
 
 $LINEData = file_get_contents('php://input');
@@ -209,4 +209,4 @@ $replyJson["to"] = getLineIdAll($replyUserId);
 // echo $results;
 // http_response_code(200);
 
-echo getLineIdAll($replyUserId)["lineid"];
+echo getLineIdAll($replyUserId);
