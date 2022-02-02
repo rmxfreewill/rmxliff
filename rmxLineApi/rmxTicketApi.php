@@ -25,27 +25,29 @@ function rmxApiGetTicketDetails($lineId)
         $numRow = mysqli_num_rows($result);
         if ($numRow) {
             $data_sub = array();
-            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sProductCode"]);
-                array_push($data_sub, $row["dTicketDate"]);
-                array_push($data_sub, $row["sProductCode"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
-                array_push($data_sub, $row["sTicketNo"]);
+            while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
+                array_push($data_sub, $row[0]);
+                array_push($data_sub, $row[1]);
+                array_push($data_sub, $row[2]);
+                array_push($data_sub, $row[3]);
+                array_push($data_sub, $row[4]);
+                array_push($data_sub, $row[5]);
+                array_push($data_sub, $row[6]);
+                array_push($data_sub, $row[7]);
+                array_push($data_sub, $row[8]);
+                array_push($data_sub, $row[9]);
+                array_push($data_sub, $row[10]);
+                array_push($data_sub, $row[11]);
+                array_push($data_sub, $row[12]);
+                array_push($data_sub, $row[13]);
+                array_push($data_sub, $row[14]);
+                array_push($data_sub, $row[15]);
+                array_push($data_sub, $row[16]);
+                array_push($data_sub, $row[17]);
+                array_push($data_sub, $row[18]);
+                array_push($data_sub, $row[19]);
+
+
 
 
                 // $GLOBALS['obj']->sTicketNo = $row[0];
@@ -75,6 +77,7 @@ function rmxApiGetTicketDetails($lineId)
                 // }
                 // array_push($data, $data_sub);
             }
+            array_push($data, $data_sub);
         }
         mysqli_free_result($result);
         echo json_encode($data);
