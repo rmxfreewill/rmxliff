@@ -219,4 +219,4 @@ $replyJson["to"] = getLineIdAll($replyUserId);
 $aa = json_decode(getLineIdAll($replyUserId), true);
 
 
-echo $aa->lineid;
+echo $aa['lineid'];
