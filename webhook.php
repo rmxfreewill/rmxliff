@@ -118,8 +118,8 @@ function ticketDetailFlexMessage($LineId)
     $objDetail->spacing = "md";
     $objDetail->margin = "lg";
 
-    $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true);
-    print_r( $arrVal);
+    $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true)[0];
+    echo count($arrVal);
     $objDetail->contents = selectTicketDetail($arrVal);
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
