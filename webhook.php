@@ -185,6 +185,29 @@ function replyJsonMessage($jsonData, $LineId)
     return $flexMessage;
 }
 
+function sendMessageWebhook($LINEData)
+{
+
+    $jsonData = json_decode($LINEData, true);
+    $replyToken = $jsonData["events"][0]["replyToken"];
+    $replyUserId = $jsonData["events"][0]["source"]["userId"];
+    $MessageType = $jsonData["events"][0]["message"]["type"];
+    $MessageText = $jsonData["events"][0]["message"]["text"];
+    $replyJson["replyToken"] = $replyToken;
+    $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
+    $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
+    $encodeJson = json_encode($replyJson);
+
+    $arrVal = json_decode(rmxApiGetTicketDetails($replyUserId));
+    $numCount = count($arrVal);
+    for ($i = 0; $i < $numCount; $i++) {
+        $results = sendMessage($encodeJson);
+        echo $results;
+        http_response_code(200);
+    }
+}
+
+
 function getLineIdAll($LineId, $getType)
 {
     $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
@@ -197,18 +220,4 @@ function getLineIdAll($LineId, $getType)
 }
 
 $LINEData = file_get_contents('php://input');
-$jsonData = json_decode($LINEData, true);
-
-$replyToken = $jsonData["events"][0]["replyToken"];
-$replyUserId = $jsonData["events"][0]["source"]["userId"];
-$MessageType = $jsonData["events"][0]["message"]["type"];
-$MessageText = $jsonData["events"][0]["message"]["text"];
-
-$replyJson["replyToken"] = $replyToken;
-$replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
-$replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-$encodeJson = json_encode($replyJson);
-$results = sendMessage($encodeJson);
-
-echo $results;
-http_response_code(200);
+sendMessageWebhook($LINEData);
