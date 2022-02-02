@@ -96,7 +96,7 @@ function selectTicketDetail($LineId)
     for ($a = 0; $a < $numCount; $a++) {
         for ($i = 0; $i < count($title); $i++) {
             array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
-            echo $i;
+         
         }
     }
 
