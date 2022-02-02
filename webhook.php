@@ -5,7 +5,6 @@ ini_set('display_errors', 'On');
 
 include("define_Global.php");
 include("rmxLiffFunction.php");
-include("rmxLiffFunction/rmxProfileLiff.php");
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -208,7 +207,7 @@ function sendMessageWebhook($LINEData)
 
 function getLineIdAll($LineId, $getType)
 {
-    $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
+    $ProfileAndSoldtocode = rmxGetDataLiff('ProfileAndSoldtocode', $LineId);
     $ProfileAndSoldtocodeObj = json_decode($ProfileAndSoldtocode);
     $res = $ProfileAndSoldtocodeObj->soldtocode;
     if ($getType == 'lineid') {
