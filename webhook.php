@@ -196,7 +196,10 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-echo getLineIdAll($replyUserId);
+$soldToCode = rmxGetProfileLiff('soldtocode', $replyUserId);
+$soldToCode = json_decode($soldToCode, true);
+$LineIdArray = rmxApiGetAllLineId($soldToCode['soldtocode']);
+echo $LineIdArray;
 
 
 // $replyJson["replyToken"] = $replyToken;
