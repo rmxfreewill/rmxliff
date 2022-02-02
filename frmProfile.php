@@ -5,7 +5,7 @@
 
 // header('Access-Control-Allow-Origin: *');
 
-include("rmxLiffFunction/rmxProfileLiff.php");
+include_once("rmxLiffFunction/rmxProfileLiff.php");
 
 $nameText = '';
 $mobileText = '';
