@@ -216,8 +216,8 @@ $replyJson["to"] = getLineIdAll($replyUserId);
 // echo $results;
 // http_response_code(200);
 
-$aa = json_decode(getLineIdAll($replyUserId), true);
+$aa = getLineIdAll($replyUserId);
 
-$aa = '{"lineid":"Hi"}';
-$bb = json_decode($aa, true);
-echo $bb['lineid'];
+// $aa = '{"lineid":"Hi"}';
+// $bb = json_decode($aa, true);
+var_dump($aa);
