@@ -216,9 +216,11 @@ $replyJson["to"] = getLineIdAll($replyUserId);
 // echo $results;
 // http_response_code(200);
 
-$aa = gettype(getLineIdAll($replyUserId));
+$personJSON = getLineIdAll($replyUserId);
 
 // $aa = '{"soldtocode":"Hi"}';
 // $bb = json_decode($aa, true);
 
-echo $aa;
+$person = json_decode($personJSON);
+
+echo $person;
