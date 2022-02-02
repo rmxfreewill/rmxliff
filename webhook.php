@@ -119,7 +119,7 @@ function ticketDetailFlexMessage($LineId)
     $objDetail->margin = "lg";
 
     $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true)[0];
-    echo $arrVal;
+    echo gettype($arrVal);
     $objDetail->contents = selectTicketDetail($arrVal);
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
