@@ -206,17 +206,13 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-// $replyJson["replyToken"] = $replyToken;
-// $replyJson["to"] = '';
-// $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-// $encodeJson = json_encode($replyJson);
-// $results = sendMessage($encodeJson);
+$getLineIdGroup = getLineIdAll($replyUserId, 'lineid');
 
-// echo $results;
-// http_response_code(200);
+$replyJson["replyToken"] = $replyToken;
+$replyJson["to"] = $getLineIdGroup;
+$replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
+$encodeJson = json_encode($replyJson);
+$results = sendMessage($encodeJson);
 
-
-
-$getJSON = getLineIdAll($replyUserId, 'lineid');
-$cc = $getJSON[1];
-echo $cc[0];
+echo $results;
+http_response_code(200);
