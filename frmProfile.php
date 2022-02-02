@@ -5,6 +5,7 @@ session_start();
 
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
+include_once("rmxLiffFunction/rmxProfileLiff.php");
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
@@ -123,7 +124,7 @@ function ticketSearchScreen($LineId, $arrRet)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-    <title><?php echo $sTitle; ?></title>
+    <title>Profile</title>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
     <link rel="stylesheet" href="css/style.css">
