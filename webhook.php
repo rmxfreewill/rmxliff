@@ -187,13 +187,18 @@ function replyJsonMessage($jsonData, $LineId)
     return $flexMessage;
 }
 
-function getLineIdAll($LineId)
+function getLineIdAll($LineId,$getType)
 {
     $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
+    $ProfileAndSoldtocodeObj = json_decode($ProfileAndSoldtocode);
+    $soldToCode = $ProfileAndSoldtocodeObj->soldtocode;
 
-
-    return $ProfileAndSoldtocode;
+    return $ProfileAndSoldtocodeObj;
 }
+
+$getJSON = getLineIdAll($replyUserId,'lineid');
+$soldToCode = $person->lineid;
+
 
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
@@ -204,24 +209,12 @@ $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
 $replyJson["replyToken"] = $replyToken;
-
-
-
-$replyJson["to"] = getLineIdAll($replyUserId);
-// $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-
-// $encodeJson = json_encode($replyJson);
+$replyJson["to"] = '';
+$replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
+$encodeJson = json_encode($replyJson);
 // $results = sendMessage($encodeJson);
 
 // echo $results;
 // http_response_code(200);
 
-$personJSON = getLineIdAll($replyUserId);
-
-// $aa = '{"soldtocode":"Hi"}';
-// $bb = json_decode($aa, true);
-
-$person = json_decode($personJSON);
-
-
-echo "W::: ".$person->soldtocode;
+print_r ($soldToCode);
