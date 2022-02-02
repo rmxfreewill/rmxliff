@@ -213,8 +213,8 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
 $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 $encodeJson = json_encode($replyJson);
-// $results = sendMessage($encodeJson);
-// echo $results;
+$results = sendMessage($encodeJson);
+echo $results;
 http_response_code(200);
 
 
