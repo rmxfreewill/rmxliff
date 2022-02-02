@@ -5,13 +5,7 @@ session_start();
 
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
-include_once("rmxLiffFunction/rmxProfileLiff.php");
 
-$CompanyUrl = COMPANY_URL;
-$RegisterUrl = REGISTER_URL;
-$CompanyCode = COMPANY_CODE;
-$LiffId = LIFF_ID;
-$sURL = sURL;
 
 
 ?>
