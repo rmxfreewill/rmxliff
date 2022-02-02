@@ -86,13 +86,11 @@ function ticketDetailRowLayout($title, $val)
     return $objDetailRow;
 }
 
-function selectTicketDetail($LineId)
+function selectTicketDetail($arrVal)
 {
     $data = [];
     $title = array("Ticket Number", "Product code", "Date", "Time", "Company Name", "Customer Name", "Contact Person", "Mobile", "Ship To Location", "Time to Load ", "Time to Leave", "Time to Jobsite", "Truck code", "Drive Name", "Load size (m3)", "Plant Code", "Product Name", "Slump", "Strength CU/CY", "Special Instruction");
-    $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5", "a", "a", "a", "a", "a");
-    // $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true)[0];
-
+    // $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5", "a", "a", "a", "a", "a");
     for ($i = 0; $i < count($title); $i++) {
         array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
     }
@@ -119,7 +117,10 @@ function ticketDetailFlexMessage($LineId)
     $objDetail->layout = "vertical";
     $objDetail->spacing = "md";
     $objDetail->margin = "lg";
-    $objDetail->contents = selectTicketDetail($LineId);
+
+    $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true)[0];
+    echo $arrVal;
+    $objDetail->contents = selectTicketDetail($arrVal);
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
 
@@ -134,17 +135,7 @@ function ticketDetailFlexMessage($LineId)
     return $replyText;
 }
 
-function replyJsonPostBack($jsonData)
-{
-    // $postbackParams = $jsonData["events"][0]["postback"]["data"];
-    // parse_str($postbackParams, $arr);
-    // $ActionMenuText = $arr["action"];
-    // if ($ActionMenuText == 'status') {
-    //     $replyJson["messages"][0] = ticketDetailFlexMessage();
-    // } else if ($ActionMenuText == 'text') {
-    //     $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
-    // }
-}
+
 
 function replyJsonMessage($jsonData, $LineId)
 {
@@ -183,23 +174,23 @@ function replyJsonMessage($jsonData, $LineId)
 function sendMessageWebhook($LINEData)
 {
 
-    $jsonData = json_decode($LINEData, true);
-    $replyToken = $jsonData["events"][0]["replyToken"];
-    $replyUserId = $jsonData["events"][0]["source"]["userId"];
-    $MessageType = $jsonData["events"][0]["message"]["type"];
-    $MessageText = $jsonData["events"][0]["message"]["text"];
-    $replyJson["replyToken"] = $replyToken;
-    $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
+    // $jsonData = json_decode($LINEData, true);
+    // $replyToken = $jsonData["events"][0]["replyToken"];
+    // $replyUserId = $jsonData["events"][0]["source"]["userId"];
+    // $MessageType = $jsonData["events"][0]["message"]["type"];
+    // $MessageText = $jsonData["events"][0]["message"]["text"];
+    // $replyJson["replyToken"] = $replyToken;
+    // $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
 
-    $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $replyUserId), true);
-    $replyCount = count($arrVal);
-    for ($i = 0; $i < $replyCount; $i++) {
-        $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-        $encodeJson = json_encode($replyJson);
-        $results = sendMessage($encodeJson);
-        echo $results;
-        http_response_code(200);
-    }
+    // $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $replyUserId), true);
+    // $replyCount = count($arrVal);
+    // for ($i = 0; $i < $replyCount; $i++) {
+    //     $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
+    //     $encodeJson = json_encode($replyJson);
+    //     $results = sendMessage($encodeJson);
+    //     echo $results;
+    //     http_response_code(200);
+    // }
 }
 
 
@@ -227,3 +218,19 @@ $encodeJson = json_encode($replyJson);
 // $results = sendMessage($encodeJson);
 // echo $results;
 http_response_code(200);
+
+
+
+
+
+function replyJsonPostBack($jsonData)
+{
+    // $postbackParams = $jsonData["events"][0]["postback"]["data"];
+    // parse_str($postbackParams, $arr);
+    // $ActionMenuText = $arr["action"];
+    // if ($ActionMenuText == 'status') {
+    //     $replyJson["messages"][0] = ticketDetailFlexMessage();
+    // } else if ($ActionMenuText == 'text') {
+    //     $replyJson["messages"][0] = testFlexMessage('TEXTTEST');
+    // }
+}
