@@ -209,4 +209,4 @@ $replyJson["to"] = getLineIdAll($replyUserId);
 // echo $results;
 // http_response_code(200);
 
-echo json_decode(getLineIdAll($replyUserId), true);
+echo getLineIdAll($replyUserId)["lineid"];
