@@ -86,8 +86,9 @@ function ticketDetailRowLayout($title, $val)
     return $objDetailRow;
 }
 
-function selectTicketDetail($arrVal)
+function selectTicketDetail(array $arrVal)
 {
+    echo count($arrVal);
     $data = [];
     $title = array("Ticket Number", "Product code", "Date", "Time", "Company Name", "Customer Name", "Contact Person", "Mobile", "Ship To Location", "Time to Load ", "Time to Leave", "Time to Jobsite", "Truck code", "Drive Name", "Load size (m3)", "Plant Code", "Product Name", "Slump", "Strength CU/CY", "Special Instruction");
     // $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5", "a", "a", "a", "a", "a");
@@ -119,7 +120,6 @@ function ticketDetailFlexMessage($LineId)
     $objDetail->margin = "lg";
 
     $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true);
-    echo json_encode($arrVal[0]);
     $objDetail->contents = selectTicketDetail($arrVal[0]);
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
