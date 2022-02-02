@@ -5,6 +5,7 @@ ini_set('display_errors', 'On');
 
 include("define_Global.php");
 include("rmxLiffFunction.php");
+include("rmxLiffFunction/rmxProfileLiff.php");
 
 
 function sendMessage($replyJson)
