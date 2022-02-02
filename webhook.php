@@ -223,4 +223,4 @@ $personJSON = getLineIdAll($replyUserId);
 
 $person = json_decode($personJSON);
 
-echo $person;
+print_r($person);
