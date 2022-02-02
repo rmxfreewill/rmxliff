@@ -216,5 +216,5 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 
 
 $getJSON = getLineIdAll($replyUserId, 'lineid');
-$soldToCode = $person->lineid;
-print_r($soldToCode);
+$cc = $getJSON->lineid;
+print_r($cc);
