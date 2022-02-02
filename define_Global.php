@@ -8,7 +8,7 @@ define("RMX_SERVER_API_URL", "https://rmx.freewillsolutions.com/RMX_LINE_API/");
 
 //Heroku Server
 define("sURL", "https://rmxliff.herokuapp.com/");
-define("RMX_HEROKU_API_URL", "https://rmxliff.herokuapp.com/rmxLineApi/");
+
 
 //LINE Server
 //d8b3c212046b6876f19e33a2e9238f31
