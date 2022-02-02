@@ -60,13 +60,6 @@ if (isset($_POST['LineId']))
 if (isset($_GET['LineId']))
     $LineId = $_GET['LineId'];
 
-$getDataProfile = rmxGetProfileLiff('profile', $LineId);
-$getDataProfileObj = json_decode($getDataProfile);
-$nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
-$mobileText = $getDataProfileObj->mobile;
-$emailText = $getDataProfileObj->email;
-
-
 
 ?>
 
