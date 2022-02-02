@@ -164,7 +164,7 @@ function replyJsonMessage($jsonData, $LineId)
             $flexMessage = ticketDetailFlexMessage($LineId);
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
-?>
+            ?>
             <html>
 
             <head>
@@ -181,7 +181,7 @@ function replyJsonMessage($jsonData, $LineId)
             </body>
 
             </html>
-<?php
+            <?php
         }
     }
     return $flexMessage;
@@ -206,10 +206,8 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-$getLineIdGroup = getLineIdAll($replyUserId, 'lineid');
-
 $replyJson["replyToken"] = $replyToken;
-$replyJson["to"] = $getLineIdGroup;
+$replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
 $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 $encodeJson = json_encode($replyJson);
 $results = sendMessage($encodeJson);
