@@ -37,8 +37,6 @@ if ($checkReq == true) {
     $menu = getDataUrl()['menu'];
     if ($menu == 'profile') {
         rmxApiGetProfile($lineid);
-    } else if ($menu == 'soldtocode') {
-        rmxApiGetSoldToCode($lineid);
     } else if ($menu == 'ProfileAndSoldtocode') {
         rmxApiGetSoldToCodeAndLineId($lineid);
     } else if ($menu == 'ticketdetails') {

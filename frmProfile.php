@@ -1,9 +1,9 @@
 <?php
 
-error_reporting(-1);
-ini_set('display_errors', 'On');
+// error_reporting(-1);
+// ini_set('display_errors', 'On');
 
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 
 include("rmxLiffFunction/rmxProfileLiff.php");
 
@@ -22,8 +22,8 @@ try {
     $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     $mobileText = $getDataProfileObj->mobile;
     $emailText = $getDataProfileObj->email;
-    echo "<b>LINEID: </b>" . $LineId;
-    echo "<p>";
+    // echo "<b>LINEID: </b>" . $LineId;
+    // echo "<p>";
     // echo "<b>Name:</b><p>";
     // echo $nameText;
     // echo "<p>";

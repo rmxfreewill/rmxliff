@@ -54,8 +54,7 @@ function rmxApiGetSoldToCode($lineId)
     if ($result) {
         $row = $result->fetch_array(MYSQLI_ASSOC);
         if ($row) {
-            $GLOBALS['obj']->soldtocode = $row["sSoldToCode"];
-            // echo json_encode($GLOBALS['obj']);
+            $soldtocode = $row["sSoldToCode"];
         }
     }
     return $soldtocode;
