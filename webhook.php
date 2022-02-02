@@ -119,7 +119,7 @@ function ticketDetailFlexMessage($LineId)
     $objDetail->margin = "lg";
 
     $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true)[0];
-    print_r($arrVal);
+    // print_r($arrVal);
     $objDetail->contents = selectTicketDetail($arrVal);
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
@@ -215,7 +215,7 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
 $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 $encodeJson = json_encode($replyJson);
-// $results = sendMessage($encodeJson);
+$results = sendMessage($encodeJson);
 echo $results;
 http_response_code(200);
 

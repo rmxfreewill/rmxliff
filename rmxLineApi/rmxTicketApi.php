@@ -15,6 +15,7 @@ $GLOBALS['obj'] = new stdClass();
 function rmxApiGetTicketDetails($lineId)
 {
     $data = [];
+    $data_sub = [];
     $soldToCode = rmxApiGetSoldToCode($lineId);
     $sql = "SELECT sTicketNo,sProductCode,dTicketDate,sCompanyName,sSoldToName,sShipToPerson,sShipToMobile,sShipToName,dLoadDate,dLoadTime,dLeaveDate,
     dLeaveTime,dDeliveryDate,dDeliveryTime,sTruckNo,sDriverName,nOrderQty,sPlantCode,sProductName,sSlump,
@@ -24,29 +25,32 @@ function rmxApiGetTicketDetails($lineId)
         $numRow = mysqli_num_rows($result);
         if ($numRow) {
             while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
-                $GLOBALS['obj']->sTicketNo = $row[0];
-                $GLOBALS['obj']->sProductCode = $row[1];
-                $GLOBALS['obj']->dTicketDate = $row[2];
-                $GLOBALS['obj']->sCompanyName = $row[3];
-                $GLOBALS['obj']->sSoldToName = $row[4];
-                $GLOBALS['obj']->sShipToPerson = $row[5];
-                $GLOBALS['obj']->sShipToMobile = $row[6];
-                $GLOBALS['obj']->sShipToName = $row[7];
-                $GLOBALS['obj']->dLoadDate = $row[8];
-                $GLOBALS['obj']->dLoadTime = $row[9];
-                $GLOBALS['obj']->dLeaveDate = $row[10];
-                $GLOBALS['obj']->dLeaveTime = $row[11];
-                $GLOBALS['obj']->dDeliveryDate = $row[12];
-                $GLOBALS['obj']->dDeliveryTime = $row[13];
-                $GLOBALS['obj']->sTruckNo = $row[14];
-                $GLOBALS['obj']->sDriverName = $row[15];
-                $GLOBALS['obj']->nOrderQty = $row[16];
-                $GLOBALS['obj']->sPlantCode = $row[17];
-                $GLOBALS['obj']->sProductName = $row[18];
-                $GLOBALS['obj']->sSlump = $row[19];
-                $GLOBALS['obj']->sStrength = $row[20];
-                $GLOBALS['obj']->sSpecialInstruction = $row[21];
-                array_push($data, $GLOBALS['obj']);
+                // $GLOBALS['obj']->sTicketNo = $row[0];
+                // $GLOBALS['obj']->sProductCode = $row[1];
+                // $GLOBALS['obj']->dTicketDate = $row[2];
+                // $GLOBALS['obj']->sCompanyName = $row[3];
+                // $GLOBALS['obj']->sSoldToName = $row[4];
+                // $GLOBALS['obj']->sShipToPerson = $row[5];
+                // $GLOBALS['obj']->sShipToMobile = $row[6];
+                // $GLOBALS['obj']->sShipToName = $row[7];
+                // $GLOBALS['obj']->dLoadDate = $row[8];
+                // $GLOBALS['obj']->dLoadTime = $row[9];
+                // $GLOBALS['obj']->dLeaveDate = $row[10];
+                // $GLOBALS['obj']->dLeaveTime = $row[11];
+                // $GLOBALS['obj']->dDeliveryDate = $row[12];
+                // $GLOBALS['obj']->dDeliveryTime = $row[13];
+                // $GLOBALS['obj']->sTruckNo = $row[14];
+                // $GLOBALS['obj']->sDriverName = $row[15];
+                // $GLOBALS['obj']->nOrderQty = $row[16];
+                // $GLOBALS['obj']->sPlantCode = $row[17];
+                // $GLOBALS['obj']->sProductName = $row[18];
+                // $GLOBALS['obj']->sSlump = $row[19];
+                // $GLOBALS['obj']->sStrength = $row[20];
+                // $GLOBALS['obj']->sSpecialInstruction = $row[21];
+                for ($a = 0; $a <= 21; $a++) {
+                    array_push($data_sub, $row[$a]);
+                }
+                array_push($data, $data_sub);
             }
         }
         mysqli_free_result($result);
