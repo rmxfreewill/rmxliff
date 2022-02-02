@@ -28,8 +28,8 @@ function rmxApiGetTicketDetails($lineId)
     if ($result) {
         $numRow = mysqli_num_rows($result);
         if ($numRow) {
-            $data_sub = array();
-            while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) { //22
+            while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
+                $data_sub = array();
                 array_push($data_sub, $row[0]);
                 array_push($data_sub, $row[1]);
                 array_push($data_sub, $row[2]);
