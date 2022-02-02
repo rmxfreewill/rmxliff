@@ -208,10 +208,10 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-$replyJson["replyToken"] = $replyToken;
-$replyJson["to"] = '';
-$replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-$encodeJson = json_encode($replyJson);
+// $replyJson["replyToken"] = $replyToken;
+// $replyJson["to"] = '';
+// $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
+// $encodeJson = json_encode($replyJson);
 // $results = sendMessage($encodeJson);
 
 // echo $results;
