@@ -15,7 +15,7 @@ $GLOBALS['obj'] = new stdClass();
 function rmxApiGetTicketDetails($lineId)
 {
     $data = [];
-    
+
     $soldToCode = rmxApiGetSoldToCode($lineId);
     $sql = "SELECT sTicketNo,sProductCode,dTicketDate,sCompanyName,sSoldToName,sShipToPerson,sShipToMobile,sShipToName,dLoadDate,dLoadTime,dLeaveDate,
     dLeaveTime,dDeliveryDate,dDeliveryTime,sTruckNo,sDriverName,nOrderQty,sPlantCode,sProductName,sSlump,
@@ -24,8 +24,30 @@ function rmxApiGetTicketDetails($lineId)
     if ($result) {
         $numRow = mysqli_num_rows($result);
         if ($numRow) {
-            $data_sub = [];
-            while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
+            $data_sub = array();
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sProductCode"]);
+                array_push($data_sub, $row["dTicketDate"]);
+                array_push($data_sub, $row["sProductCode"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+                array_push($data_sub, $row["sTicketNo"]);
+
+
                 // $GLOBALS['obj']->sTicketNo = $row[0];
                 // $GLOBALS['obj']->sProductCode = $row[1];
                 // $GLOBALS['obj']->dTicketDate = $row[2];
@@ -48,10 +70,10 @@ function rmxApiGetTicketDetails($lineId)
                 // $GLOBALS['obj']->sSlump = $row[19];
                 // $GLOBALS['obj']->sStrength = $row[20];
                 // $GLOBALS['obj']->sSpecialInstruction = $row[21];
-                for ($a = 0; $a < 21; $a++) {
-                    array_push($data_sub, $row[$a]);
-                }
-                array_push($data, $data_sub);
+                // for ($a = 0; $a < 21; $a++) {
+                //     array_push($data_sub, $row[$a]);
+                // }
+                // array_push($data, $data_sub);
             }
         }
         mysqli_free_result($result);
