@@ -187,7 +187,7 @@ function replyJsonMessage($jsonData, $LineId)
     return $flexMessage;
 }
 
-function getLineIdAll($LineId,$getType)
+function getLineIdAll($LineId, $getType)
 {
     $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
     $ProfileAndSoldtocodeObj = json_decode($ProfileAndSoldtocode);
@@ -195,10 +195,6 @@ function getLineIdAll($LineId,$getType)
 
     return $ProfileAndSoldtocodeObj;
 }
-
-$getJSON = getLineIdAll($replyUserId,'lineid');
-$soldToCode = $person->lineid;
-
 
 $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
@@ -217,4 +213,8 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 // echo $results;
 // http_response_code(200);
 
-print_r ($soldToCode);
+
+
+$getJSON = getLineIdAll($replyUserId, 'lineid');
+$soldToCode = $person->lineid;
+print_r($soldToCode);
