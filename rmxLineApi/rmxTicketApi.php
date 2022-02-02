@@ -49,7 +49,7 @@ function rmxApiGetTicketDetails($lineId)
                 array_push($data, $GLOBALS['obj']);
             }
         }
-        echo json_encode($data);
+        mysqli_free_result($result);
+        return json_encode($data);
     }
-    mysqli_free_result($result);
 }
