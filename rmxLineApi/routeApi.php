@@ -3,6 +3,7 @@
 
 
 include_once("rmxProfileApi.php");
+include_once("rmxTicketApi.php");
 
 
  error_reporting(-1);
