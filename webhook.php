@@ -216,8 +216,7 @@ $replyJson["to"] = getLineIdAll($replyUserId);
 // echo $results;
 // http_response_code(200);
 
+$aa = json_decode(getLineIdAll($replyUserId), true);
 
-// parse_str($get_string, $get_array);
-// echo $get_array;
-$get_string = getLineIdAll($replyUserId);
-echo gettype($get_string);
+
+echo gettype($aa);
