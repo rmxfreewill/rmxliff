@@ -14,53 +14,6 @@ $LiffId = LIFF_ID;
 $sURL = sURL;
 
 
-$LinkCode = '';
-if (isset($_POST['LinkCode']))
-    $LinkCode = $_POST['LinkCode'];
-if (isset($_GET['LinkCode']))
-    $LinkCode = $_GET['LinkCode'];
-
-$LineId = '';
-if (isset($_POST['LineId']))
-    $LineId = $_POST['LineId'];
-if (isset($_GET['LineId']))
-    $LineId = $_GET['LineId'];
-
-$CmdCommand = '';
-if (isset($_POST['CmdCommand']))
-    $CmdCommand = $_POST['CmdCommand'];
-if (isset($_GET['CmdCommand']))
-    $CmdCommand = $_GET['CmdCommand'];
-
-$TableTitle = 'Query Result';
-if (isset($_POST['TableTitle']))
-    $TableTitle = $_POST['TableTitle'];
-if (isset($_GET['TableTitle']))
-    $TableTitle = $_GET['TableTitle'];
-
-$RetCommand = '';
-$Ret = '';
-
-$UserName = '';
-$EMail = '';
-$Tel = '';
-$SoldToCode = '';
-$SoldToName = '';
-$sFlagMsg = '';
-$sFlag = '0';
-$sTitle = 'Profile';
-$sShowMsg = '';
-
-$nameText = '';
-$mobileText = '';
-$emailText = '';
-$LineId = '';
-if (isset($_POST['LineId']))
-    $LineId = $_POST['LineId'];
-if (isset($_GET['LineId']))
-    $LineId = $_GET['LineId'];
-
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
