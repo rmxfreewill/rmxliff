@@ -3,7 +3,7 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-include("define_Global.php");
+// include("define_Global.php");
 include("rmxLiffFunction.php");
 include("rmxLiffFunction/rmxProfileLiff.php");
 
