@@ -90,7 +90,7 @@ function selectTicketDetail($arrVal)
 {
     $data = [];
     $title = array("Ticket Number", "Product code", "Date", "Time", "Company Name", "Customer Name", "Contact Person", "Mobile", "Ship To Location", "Time to Load ", "Time to Leave", "Time to Jobsite", "Truck code", "Drive Name", "Load size (m3)", "Plant Code", "Product Name", "Slump", "Strength CU/CY", "Special Instruction");
-    $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5", "a", "a", "a", "a", "a");
+    // $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5", "a", "a", "a", "a", "a");
     for ($i = 0; $i < count($title); $i++) {
         array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
     }
@@ -119,6 +119,7 @@ function ticketDetailFlexMessage($LineId)
     $objDetail->margin = "lg";
 
     $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true)[0];
+    echo $arrVal;
     $objDetail->contents = selectTicketDetail($arrVal);
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
@@ -214,7 +215,7 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
 $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 $encodeJson = json_encode($replyJson);
-$results = sendMessage($encodeJson);
+// $results = sendMessage($encodeJson);
 echo $results;
 http_response_code(200);
 
