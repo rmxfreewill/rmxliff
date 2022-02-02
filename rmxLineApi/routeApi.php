@@ -36,7 +36,10 @@ if ($checkReq == true) {
     $menu = getDataUrl()['menu'];
     if ($menu == 'profile') {
         rmxApiGetProfile($lineid);
-    } else if ($menu == 'ticketdetails') {
+    } else if($menu == 'soldtocode'){
+        rmxApiGetSoldToCode($lineid);
+    }
+    else if ($menu == 'ticketdetails') {
         rmxApiGetTicketDetails($lineid);
     }else{
 	echo '{}';

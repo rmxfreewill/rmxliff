@@ -181,7 +181,7 @@ function replyJsonMessage($jsonData, $LineId)
 
 function getLineIdAll($LineId)
 {
-    $soldToCode = rmxApiGetSoldToCode($LineId);
+    $soldToCode = rmxGetProfileLiff('soldtocode', $LineId);
     $LineIdArray = rmxApiGetAllLineId($soldToCode);
     return $LineIdArray;
 }
