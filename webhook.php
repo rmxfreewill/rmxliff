@@ -93,12 +93,12 @@ function selectTicketDetail($LineId)
     // $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5", "a", "a", "a", "a", "a");
     $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true);
     $numCount = count($arrVal);
-    for ($a = 0; $a < $numCount; $a++) {
+    // for ($a = 0; $a < $numCount; $a++) {
         for ($i = 0; $i < count($title); $i++) {
             array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
          
         }
-    }
+    // }
 
     return $data;
 }
