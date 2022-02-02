@@ -220,4 +220,5 @@ $aa = getLineIdAll($replyUserId);
 
 // $aa = '{"lineid":"Hi"}';
 // $bb = json_decode($aa, true);
-var_dump($aa);
+
+echo json_decode($aa, true);
