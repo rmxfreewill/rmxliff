@@ -183,7 +183,8 @@ function replyJsonMessage($jsonData, $LineId)
 function getLineIdAll($LineId)
 {
     $soldToCode = rmxGetProfileLiff('soldtocode', $LineId);
-    $LineIdArray = rmxApiGetAllLineId($soldToCode);
+    $soldToCode = json_decode($soldToCode, true);
+    $LineIdArray = rmxApiGetAllLineId($soldToCode['soldtocode']);
     return $LineIdArray;
 }
 
@@ -195,11 +196,7 @@ $replyUserId = $jsonData["events"][0]["source"]["userId"];
 $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 
-$aa =  rmxGetProfileLiff('soldtocode', $replyUserId);
-
-$manage = json_decode($aa, true);
-
-echo $manage['soldtocode'];
+echo getLineIdAll($replyUserId);
 
 
 // $replyJson["replyToken"] = $replyToken;
