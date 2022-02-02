@@ -220,4 +220,4 @@ $replyJson["to"] = getLineIdAll($replyUserId);
 // parse_str($get_string, $get_array);
 // echo $get_array;
 $get_string = getLineIdAll($replyUserId);
-echo $get_string;
+echo gettype($get_string);
