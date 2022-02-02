@@ -106,23 +106,48 @@ if ($LinkCode == 'SEARCH') {
 </head>
 
 <body>
-
-       
-
-       
-        <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
-        <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
-        <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-        <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
-        <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
-        <input type="hidden" id="txtRetCommand" value="<?php echo $RetCommand; ?>">
-        <input type="hidden" id="txtLineId" value="<?php echo $LiffId; ?>">
-        <input type="hidden" id="txtTableTitle" value="<?php echo $TableTitle; ?>">
-        <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
-
-    <script>
-        window.onload = function() {}
-    </script>
+    <div class="container mt-5">
+        <div class="card border-success">
+            <div class="card text-white">
+                <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
+                <div class="card-body text-dark" style="background-color:#ebf7f0;">
+                    <h5>
+                        <div class="row card-text">
+                            <div class="col-5 text-uppercase font-weight-bold">
+                                name
+                            </div>
+                            <div class="col-7 font-weight-normal">
+                                <?php
+                                echo $nameText;
+                                ?>
+                            </div>
+                        </div>
+                        <div class="row card-text mt-3">
+                            <div class="col-5 text-uppercase font-weight-bold">
+                                mobile no
+                            </div>
+                            <div class="col-7 font-weight-normal">
+                                <?php
+                                echo $mobileText;
+                                ?>
+                            </div>
+                        </div>
+                        <div class="row card-text mt-3">
+                            <div class="col-5 text-uppercase font-weight-bold">
+                                email
+                            </div>
+                            <div class="col-7 font-weight-normal">
+                                <?php
+                                echo $emailText;
+                                ?>
+                            </div>
+                        </div>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 
 </html>
