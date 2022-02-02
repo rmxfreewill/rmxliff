@@ -217,4 +217,4 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 
 $getJSON = getLineIdAll($replyUserId, 'lineid');
 $cc = $getJSON->lineid;
-print_r($cc);
+echo $cc[0];
