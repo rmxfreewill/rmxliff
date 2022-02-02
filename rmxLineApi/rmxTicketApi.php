@@ -17,15 +17,19 @@ function rmxApiGetTicketDetails($lineId)
     $data = [];
 
     $soldToCode = rmxApiGetSoldToCode($lineId);
-    $sql = "SELECT sTicketNo,sProductCode,dTicketDate,sCompanyName,sSoldToName,sShipToPerson,sShipToMobile,sShipToName,dLoadDate,dLoadTime,dLeaveDate,
-    dLeaveTime,dDeliveryDate,dDeliveryTime,sTruckNo,sDriverName,nOrderQty,sPlantCode,sProductName,sSlump,
-    sStrength,sSpecialInstruction FROM rmx01.T_LineTicket INNER JOIN rmxmain.M_User ON rmx01.T_LineTicket.sSoldToCode = rmxmain.M_User.sSoldToCode WHERE rmx01.T_LineTicket.sSoldToCode = '$soldToCode' AND rmx01.T_LineTicket.nLineNoti = 0  GROUP BY rmx01.T_LineTicket.sTicketNo ORDER BY rmx01.T_LineTicket.sTicketNo DESC";
+    $sql = "SELECT 
+    sTicketNo,sProductCode,dTicketDate,dTicketTime,sCompanyName,
+    sSoldToName,sShipToPerson,sShipToMobile,sShipToName,dLoadDate,
+    dLoadTime,dLeaveDate,dLeaveTime,dDeliveryDate,dDeliveryTime,
+    sTruckNo,sDriverName,nOrderQty,sPlantCode,sProductName,
+    sSlump,sStrength,sSpecialInstruction 
+    FROM rmx01.T_LineTicket INNER JOIN rmxmain.M_User ON rmx01.T_LineTicket.sSoldToCode = rmxmain.M_User.sSoldToCode WHERE rmx01.T_LineTicket.sSoldToCode = '$soldToCode' AND rmx01.T_LineTicket.nLineNoti = 0  GROUP BY rmx01.T_LineTicket.sTicketNo ORDER BY rmx01.T_LineTicket.sTicketNo DESC";
     $result = mySQLconnect($sql);
     if ($result) {
         $numRow = mysqli_num_rows($result);
         if ($numRow) {
             $data_sub = array();
-            while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
+            while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) { //22
                 array_push($data_sub, $row[0]);
                 array_push($data_sub, $row[1]);
                 array_push($data_sub, $row[2]);
@@ -46,6 +50,8 @@ function rmxApiGetTicketDetails($lineId)
                 array_push($data_sub, $row[17]);
                 array_push($data_sub, $row[18]);
                 array_push($data_sub, $row[19]);
+                array_push($data_sub, $row[20]);
+                array_push($data_sub, $row[21]);
 
 
 
