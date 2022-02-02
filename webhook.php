@@ -221,4 +221,4 @@ $aa = getLineIdAll($replyUserId);
 // $aa = '{"soldtocode":"Hi"}';
 // $bb = json_decode($aa, true);
 
-echo $aa[0];
+echo $aa["soldtocode"];
