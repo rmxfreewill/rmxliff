@@ -191,9 +191,11 @@ function getLineIdAll($LineId, $getType)
 {
     $ProfileAndSoldtocode = rmxGetProfileLiff('ProfileAndSoldtocode', $LineId);
     $ProfileAndSoldtocodeObj = json_decode($ProfileAndSoldtocode);
-    $soldToCode = $ProfileAndSoldtocodeObj->soldtocode;
-
-    return $ProfileAndSoldtocodeObj;
+    $res = $ProfileAndSoldtocodeObj->soldtocode;
+    if ($getType == 'lineid') {
+        $res = $ProfileAndSoldtocodeObj->lineid;
+    }
+    return $res;
 }
 
 $LINEData = file_get_contents('php://input');
@@ -216,5 +218,5 @@ $MessageText = $jsonData["events"][0]["message"]["text"];
 
 
 $getJSON = getLineIdAll($replyUserId, 'lineid');
-$cc = $getJSON->lineid;
+$cc = $getJSON[1];
 echo $cc[0];
