@@ -105,11 +105,11 @@ function selectTicketDetail($arrVal)
     //     "b", "b", "----"
     // );
 
-    // echo json_encode($arrVal);
+    echo json_encode($arrVal);
 
 
     for ($i = 0; $i < count($title); $i++) {
-        
+
         // echo $title[$i].' '.$arrVal[$i]."<br/>";
 
         array_push(
