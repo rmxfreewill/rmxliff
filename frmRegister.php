@@ -174,11 +174,12 @@ if ($LinkCode == 'REGISTER') {
     //     }
     // }
 
-    $actionCode = 'CHECK';
+    echo $LinkCode . '<hr>';
 }
 
-if ($actionCode == 'CHECK' || $LinkCode == 'CHECK') {
+if ($LinkCode == 'CHECK') {
     $sFlagChangeMenu  = checkLogin($CompanyUrl, $CmdCommand);
+    echo $sFlagChangeMenu;
     if ($sFlagChangeMenu == true) {
         $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
         rmxChangeMemberRichMenu('REGISTER', $LineId);
