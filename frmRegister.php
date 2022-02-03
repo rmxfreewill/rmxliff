@@ -85,8 +85,7 @@ function registerScreen($type, $arr)
             REGISTER
         </button>
         ';
-    }
-    if ($type == true) {
+    } else if ($type == true) {
         $regisForm = '
         <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
         <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
@@ -147,11 +146,9 @@ if ($LinkCode != 'LOGOUT') {
                     if ($sFlag != '') $sFlagChangeMenu = true;
                 }
 
-                echo $sFlag.' '.$sShowMsg;
-
+                echo $sFlag . ' ' . $sShowMsg;
             }
         }
-
     }
     // RICHMENU
     else if ($LinkCode == 'CHECK') {
@@ -180,7 +177,8 @@ if ($LinkCode != 'LOGOUT') {
     }
 
 
-    if ($sFlag != '0' || $sFlag != '') {
+    if ($sFlag == '0' || $sFlag == '') {
+    } else {
         $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
         $sFlagChangeMenu == true;
     }
@@ -215,7 +213,9 @@ if ($LinkCode != 'LOGOUT') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
+
         echo registerScreen($sFlagChangeMenu, $arrayList);
+
         ?>
 
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
