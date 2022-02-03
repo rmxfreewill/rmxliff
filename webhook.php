@@ -64,8 +64,7 @@ function ticketDetailRowLayout($title, $val)
         $valtmp  = $val;
     }
 
-    echo $titletmp . ' ' . $valtmp . "<br/>";
-
+    // echo $titletmp . ' ' . $valtmp . "<br/>";
 
     $objDetailRow = new stdClass;
     $objDetailBaselineTitle = new stdClass;
@@ -120,13 +119,7 @@ function selectTicketDetail($arrVal)
     //     "b", "b", "----"
     // );
 
-    // echo json_encode($arrVal);
-
-
     for ($i = 0; $i < count($title); $i++) {
-
-
-
         array_push(
             $data,
             ticketDetailRowLayout($title[$i], $arrVal[$i])
