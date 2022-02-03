@@ -88,10 +88,10 @@ function registerScreen($type, $arr)
     if ($type == true) {
         $regisForm = '
         <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
-        <label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
-        <label for="psw"><b>Sold To Code: </b></label>' . $arr[2] . '
-        <label for="psw"><b>Sold To Name: </b></label>' . $arr[3] . '
-        <button type="button"  name="btnLogin" id="btnLogin" onclick="close()">
+        <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
+        <p><label for="psw"><b>Sold To Code: </b></label>' . $arr[2] . '
+        <p><label for="psw"><b>Sold To Name: </b></label>' . $arr[3] . '
+        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="close()">
             CLOSE
         </button>
         ';
