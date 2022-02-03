@@ -172,7 +172,7 @@ function replyJsonMessage($jsonData, $LineId)
         if ($case  == 'status') {
             $flexMessage = ticketDetailFlexMessage($LineId);
         } else if ($case  == 'logout') {
-            rmxChangeMemberRichMenu('LOGOUT',$LineId);
+            rmxChangeMemberRichMenu('LOGOUT', $LineId);
             echo "
                 <html>
                 <head>
@@ -231,16 +231,19 @@ $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
 $replyToken = $jsonData["events"][0]["replyToken"];
 $replyUserId = $jsonData["events"][0]["source"]["userId"];
-$MessageType = $jsonData["events"][0]["message"]["type"];
-$MessageText = $jsonData["events"][0]["message"]["text"];
-$replyJson["replyToken"] = $replyToken;
-$replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
-echo json_encode($replyJson["to"]);
-$replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-$encodeJson = json_encode($replyJson);
-// $results = sendMessage($encodeJson);
-// echo $results;
-http_response_code(200);
+if ($replyUserId != null && $replyUserId == '') {
+    $MessageType = $jsonData["events"][0]["message"]["type"];
+    $MessageText = $jsonData["events"][0]["message"]["text"];
+    $replyJson["replyToken"] = $replyToken;
+    $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
+    $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
+    $encodeJson = json_encode($replyJson);
+    $results = sendMessage($encodeJson);
+    echo $results;
+    http_response_code(200);
+}
+
+
 
 
 
