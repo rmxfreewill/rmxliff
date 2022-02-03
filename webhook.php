@@ -199,7 +199,8 @@ function getLineIdAll($LineId, $getType)
     if ($getType == 'lineid') {
         $res = $ProfileAndSoldtocodeObj->lineid;
     }
-    return $res;
+    // return $res;
+    return ['Uc1dd5c7730988280c6c7731980655f7a'];
 }
 
 $LINEData = file_get_contents('php://input');
