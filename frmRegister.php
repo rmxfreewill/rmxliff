@@ -189,7 +189,7 @@ function checkRegister($LinkCode, $LineId, $CmdCommand)
     }
 }
 
-
+$status = false;
 
 if ($LinkCode == 'CHECK') {
     $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
