@@ -268,6 +268,13 @@ if ($LinkCode == 'LOGOUT') {
 <body>
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
+
+        <!-- 
+    http:///rmxline/rmxRegister.php?LineId=t0000-930000483&CompanyCode=00001
+&CustName=test 930000483&CustSurName=Surtest 930000483&MobileNo=024871000
+&EMail=930000483@gmail.com
+ -->
+
         <?php
         echo "DevMode<hr>";
         echo $sFlag;
@@ -276,8 +283,6 @@ if ($LinkCode == 'LOGOUT') {
         } else {
             $arrayList = [$LineId, $LineDisplay, $UserName, $EMail, $Tel, $SoldToCode, $SoldToName];
             // echo registerScreen(true, $arrayList);
-
-            echo "Thank You";
         }
         ?>
 
@@ -449,6 +454,7 @@ if ($LinkCode == 'LOGOUT') {
                     console.log('initializeLiff: ', err);
                 });
         };
+        alert(<?php echo $sTitle; ?>);
     </script>
 
 
