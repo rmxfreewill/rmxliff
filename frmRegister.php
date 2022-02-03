@@ -124,7 +124,8 @@ if ($LinkCode != 'LOGOUT') {
 
 
         $LinkCode == 'CHECK';
-
+        
+        echo $LinkCode;
 
         // if ($RetCommand) {
         //     $ASRet = [];
