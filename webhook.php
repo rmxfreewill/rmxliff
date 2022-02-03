@@ -89,13 +89,19 @@ function ticketDetailRowLayout($title, $val)
 function selectTicketDetail($arrVal)
 {
     $data = [];
-    $title = array("Ticket Number", "Product code", "Date", "Time", "Company Name", "Customer Name", "Contact Person", "Mobile", "Ship To Location", "Time to Load ", "Time to Leave", "Time to Jobsite", "Truck code", "Drive Name", "Load size (m3)", "Plant Code", "Product Name", "Slump", "Strength CU/CY", "Special Instruction");
+    $title = array(
+        "Ticket Number", "Product code", "Date", "Time", "Company Name",
+        "Customer Name", "Contact Person", "Mobile", "Ship To Location", "Date to Load ",
+        "Time to Load ", "Date to Leave", "Time to Leave", "Date to Jobsite", "Time to Jobsite",
+        "Truck code", "Drive Name", "Load size (m3)", "Plant Code", "Product Name",
+        "Slump", "Strength CU/CY", "Special Instruction"
+    );
+
     // $arrVal = array("1011808270007", "24/10/2018", "S01P901-00000331", "27/08/2018", "320000106 SH_Name 105", "997525133500 WPROOF PMP 25MPa 25mm S120 25@7DWPC1", "cV101 RMX Plant 101", "78", "2", "Theary Theary_", "FS22", "51E00491", "16:54:43", "Delivery", "5", "a", "a", "a", "a", "a");
+
     for ($i = 0; $i < count($title); $i++) {
         array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
     }
-
-    print_r ($data);
 
     return $data;
 }
@@ -121,6 +127,9 @@ function ticketDetailFlexMessage($LineId)
     $objDetail->margin = "lg";
 
     $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true);
+
+    echo json_encode($arrVal);
+
     $objDetail->contents = selectTicketDetail($arrVal[0]);
 
     $output = array($objTitleH1, $objSeparator, $objDetail);
@@ -215,8 +224,8 @@ $replyJson["replyToken"] = $replyToken;
 $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
 $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 $encodeJson = json_encode($replyJson);
-$results = sendMessage($encodeJson);
-echo $results;
+// $results = sendMessage($encodeJson);
+// echo $results;
 http_response_code(200);
 
 
