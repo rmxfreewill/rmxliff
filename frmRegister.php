@@ -147,7 +147,7 @@ if ($LinkCode != 'LOGOUT') {
                     if ($sFlag != '') $sFlagChangeMenu = true;
                 }
 
-                echo $sFlag;
+                echo $sFlag.' '.$sShowMsg;
 
             }
         }
