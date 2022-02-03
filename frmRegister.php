@@ -175,7 +175,6 @@ if ($LinkCode == 'REGISTER') {
     //     }
     // }
 
-    echo $LinkCode . '<hr>';
     $LinkCode = 'CHECK';
 }
 
@@ -385,17 +384,11 @@ if ($LinkCode == 'CHECK') {
 
         window.onload = function() {
             var myLiffId = document.getElementById('txtLiffId').value;
-            var isCheckRegister = "<?php echo $sFlagChangeMenu; ?>";
             liff.init({
                     liffId: myLiffId
                 })
                 .then(() => {
-                    if (isCheckRegister == 'true') {
-                        liff.closeWindow();
-
-                    } else if (isCheckRegister == 'false') {
-                        initializeApp();
-                    }
+                    initializeApp();
                 })
                 .catch((err) => {
                     console.log('initializeLiff: ', err);
