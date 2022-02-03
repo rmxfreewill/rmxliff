@@ -266,15 +266,6 @@ if ($LinkCode == 'LOGOUT') {
         } else {
             $arrayList = [$LineId, $LineDisplay, $UserName, $EMail, $Tel, $SoldToCode, $SoldToName];
             // echo registerScreen(true, $arrayList);
-            echo
-            '
-            <div>
-            <center>
-                <h1>Register Success</h1>
-                <h2>Close Windows</h2>
-            </center>
-        </div>
-            ';
         }
         ?>
 
