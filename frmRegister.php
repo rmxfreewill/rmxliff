@@ -228,7 +228,7 @@ if ($LinkCode == 'LOGOUT') {
     }
 
     if ($sTitle = 'View Register Info' || $sTitle = 'Register Complete') {
-        changeMemberRichMenu('REGISTER', $LineId);
+        rmxChangeMemberRichMenu('REGISTER', $LineId);
     }
 }
 

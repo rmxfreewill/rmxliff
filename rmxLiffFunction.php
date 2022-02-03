@@ -34,7 +34,7 @@ function rmxChangeMemberRichMenuDefualt($LINEID)
     }
 }
 
-function changeMemberRichMenu($type, $LINEID)
+function rmxChangeMemberRichMenu($type, $LINEID)
 {
     if ($type == 'LOGOUT') {
         $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
