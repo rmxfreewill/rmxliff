@@ -144,12 +144,14 @@ function registerScreen($type, $arr)
             maxlength="10"
         required>
         <input type="hidden" id="txtIsCheckRegister" value="false">
-        <button type="button"  name="btnLogin" id="btnLogin" onclick="RegisterClick()">
+        <button type="button"  name="btnLogin" id="btnLogin" onclick="registerCheck()">
             Register
         </button>
         ';
 
         $regisForm = $mobileForm;
+    }else{
+        $regisForm = '<input type="hidden" id="txtIsCheckRegister" value="true">';
     }
     $scr = '<div class="login_container">' . $regisForm . '</div>';
     return $scr;
@@ -307,7 +309,7 @@ if ($LinkCode == 'LOGOUT') {
         // }
 
 
-        function RegisterClick() {
+        function registerCheck() {
             // var sUserName = document.getElementById('txtUserName').value;
             // var sLineDisplay = document.getElementById('txtLineDisplay').value;
             // var sEMail = document.getElementById('txtEMail').value;
@@ -426,7 +428,6 @@ if ($LinkCode == 'LOGOUT') {
                     liffId: myLiffId
                 })
                 .then(() => {
-                    liff.closeWindow();
                     if (isCheckRegister == 'true') {
                         liff.closeWindow();
                     } else if (isCheckRegister == 'false') {
