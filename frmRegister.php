@@ -180,7 +180,6 @@ if ($LinkCode == 'REGISTER') {
 }
 
 if ($LinkCode == 'CHECK' || $aa == 'check') {
-    echo $LinkCode;
     $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
     if ($sSoldToCode != '') {
         $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
