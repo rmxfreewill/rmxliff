@@ -146,8 +146,12 @@ if ($LinkCode != 'LOGOUT') {
                 if ($sFlag != '0') {
                     if ($sFlag != '') $sFlagChangeMenu = true;
                 }
+
+                echo $sFlag;
+
             }
         }
+
     }
     // RICHMENU
     else if ($LinkCode == 'CHECK') {
@@ -212,7 +216,6 @@ if ($LinkCode != 'LOGOUT') {
 
         <?php
         echo registerScreen($sFlagChangeMenu, $arrayList);
-        echo json_encode($RetCommand);
         ?>
 
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
