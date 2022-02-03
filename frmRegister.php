@@ -122,6 +122,8 @@ if ($LinkCode != 'LOGOUT') {
             $EMail
         );
 
+        echo $RetCommand;
+
         if ($RetCommand) {
             $ASRet = [];
             $ASRet = explode("^c", $RetCommand);
@@ -292,7 +294,7 @@ if ($LinkCode != 'LOGOUT') {
             // var sUserName = document.getElementById('txtUserName').value;
             // var sLineDisplay = document.getElementById('txtLineDisplay').value;
             var sUserName = 'rmxadmin';
-            var sLineDisplay = '';
+            var sLineDisplay = 'rmxadmin';
             //
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             var sLineId = document.getElementById('txtLineId').value;
