@@ -8,6 +8,7 @@ ini_set('display_errors', 'On');
 
 // error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
+include_once("frmRegister.php");
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
