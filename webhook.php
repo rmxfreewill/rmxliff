@@ -55,13 +55,13 @@ function ticketDetailRowLayout($title, $val)
     if ($title == '') {
         $titletmp = '-';
     } else {
-        $title = $titletmp;
+        $titletmp = $title;
     }
 
     if ($val == '') {
         $valtmp = '-';
     } else {
-        $val = $valtmp;
+        $valtmp  = $val;
     }
 
     echo $titletmp . ' ' . $valtmp . "<br/>";
