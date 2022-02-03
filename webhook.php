@@ -52,13 +52,7 @@ function sendMessage($replyJson)
 
 function ticketDetailRowLayout($title, $val)
 {
-    if ($title == '') {
-        $titletmp = '-';
-    } else {
-        $titletmp = $title;
-    }
-
-    if ($val == '') {
+    if ($val == '' || $val == null) {
         $valtmp = '-';
     } else {
         $valtmp  = $val;
@@ -70,7 +64,7 @@ function ticketDetailRowLayout($title, $val)
 
     //Title
     $objDetailBaselineTitle->type = "text";
-    $objDetailBaselineTitle->text = $titletmp;
+    $objDetailBaselineTitle->text = $title;
     $objDetailBaselineTitle->size = "xs";
     $objDetailBaselineTitle->color = "#AAAAAA";
     $objDetailBaselineTitle->weight = "bold";
