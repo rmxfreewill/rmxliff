@@ -89,7 +89,7 @@ function registerScreen($type, $arr)
         $regisForm = '
         <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
         <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
-        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="close()">
+        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
             CLOSE
         </button>
         ';
@@ -312,14 +312,18 @@ if ($LinkCode != 'LOGOUT') {
 
 
 
-        function close() {
+        function closeClick() {
 
             var myLiffId = document.getElementById('txtLiffId').value;
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             } else {
 
+                var elementRegisterForm = document.getElementById('registerForm');
+                var elementSuccessMsg = document.getElementById('successMsg');
 
+                elementRegisterForm.style.display = "none";
+                elementSuccessMsg.removeAttribute("hidden");
 
             }
         }
