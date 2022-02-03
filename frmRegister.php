@@ -199,10 +199,13 @@ if ($LinkCode != 'LOGOUT') {
     <title>RMX LINE OFFICIAL</title>
 </head>
 
-<body>
-    <form class="animate" method="GET" enctype="multipart/form-data" hidden>
 
-        <?php echo "Hi";
+
+
+<body>
+    <form class="animate" method="GET" enctype="multipart/form-data">
+
+        <?php echo $sFlagChangeMenu;
         $arrayList = [];
         if ($sFlagChangeMenu == true) {
             $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
