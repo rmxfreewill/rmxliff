@@ -401,7 +401,7 @@ if ($LinkCode == 'LOGOUT') {
                             elementRegisterForm.removeAttribute("hidden");
                             var sMsg = document.getElementById('txtMsg').value;
                             if (sMsg.length > 0) {
-                                // alert(sMsg);
+                                alert(sMsg);
                             }
                         }
                     })
