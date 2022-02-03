@@ -444,7 +444,7 @@ if ($LinkCode == 'LOGOUT') {
                     console.log('initializeLiff: ', err);
                 });
         };
-        alert('<?php echo $sTitle; ?>');
+        // alert('<?php //echo $sTitle; ?>');
     </script>
 
 
