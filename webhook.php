@@ -200,7 +200,7 @@ function getLineIdAll($LineId, $getType)
         $res = $ProfileAndSoldtocodeObj->lineid;
     }
     // return $res;
-    return ['Uc1dd5c7730988280c6c7731980655f7a'];
+    return ['U194d6a8a8d6557a6b1ee0e2f16737d77'];
 }
 
 $LINEData = file_get_contents('php://input');
