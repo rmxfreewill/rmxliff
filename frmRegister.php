@@ -265,7 +265,16 @@ if ($LinkCode == 'LOGOUT') {
             echo registerScreen(false, []);
         } else {
             $arrayList = [$LineId, $LineDisplay, $UserName, $EMail, $Tel, $SoldToCode, $SoldToName];
-            echo registerScreen(true, $arrayList);
+            // echo registerScreen(true, $arrayList);
+            echo
+            '
+            <div id="successMsg">
+            <center>
+                <h1>Register Success</h1>
+                <h2>Close Windows</h2>
+            </center>
+        </div>
+            ';
         }
         ?>
 
@@ -444,7 +453,6 @@ if ($LinkCode == 'LOGOUT') {
                     console.log('initializeLiff: ', err);
                 });
         };
-        alert('Start');
     </script>
 
 
