@@ -276,6 +276,8 @@ if ($LinkCode == 'LOGOUT') {
         } else {
             $arrayList = [$LineId, $LineDisplay, $UserName, $EMail, $Tel, $SoldToCode, $SoldToName];
             // echo registerScreen(true, $arrayList);
+
+            echo "Thank You";
         }
         ?>
 
@@ -340,7 +342,6 @@ if ($LinkCode == 'LOGOUT') {
                     var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
                     var surl = document.getElementById('txtsURL').value;
                     url = surl + "frmRegister.php" + para;
-                    alert(url);
                     window.location.assign(url);
                 }
             }
