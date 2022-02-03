@@ -136,6 +136,13 @@ function registerScreen($type, $arr)
         <input type="hidden" id="txtLineDisplay">
         <input type="hidden" id="txtEMail">
         <input type="hidden" id="txtLineId">
+        <label for="psw"><b>EMail</b></label>
+        <input type="email"
+            id="txtEMail" 
+            name="txtEMail"
+            placeholder="Enter EMail"
+            maxlength="40"
+        required>
         <label for="psw"><b>Telephone / Mobile</b></label>
         <input type="tel" 
             placeholder="Enter Telephone/Mobile" 
@@ -150,7 +157,7 @@ function registerScreen($type, $arr)
         ';
 
         $regisForm = $mobileForm;
-    }else{
+    } else {
         $regisForm = '<input type="hidden" id="txtIsCheckRegister" value="true">';
     }
     $scr = '<div class="login_container">' . $regisForm . '</div>';
@@ -312,17 +319,18 @@ if ($LinkCode == 'LOGOUT') {
         function registerCheck() {
             // var sUserName = document.getElementById('txtUserName').value;
             // var sLineDisplay = document.getElementById('txtLineDisplay').value;
-            // var sEMail = document.getElementById('txtEMail').value;
             var sUserName = '';
             var sLineDisplay = '';
-            var sEMail = '';
             //
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             var sLineId = document.getElementById('txtLineId').value;
+            var sEMail = document.getElementById('txtEMail').value;
             //
             var sTel = document.getElementById('txtTel').value;
             if (sTel == '') {
                 alert("Input Telephone / Mobile");
+            } else if (sEMail == '') {
+                alert("Input Email");
             } else {
                 if (sTel.length < 8) {
                     alert("Telephone / Mobile must be at least 8 digits long");
