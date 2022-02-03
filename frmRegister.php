@@ -18,7 +18,7 @@ $LiffId = LIFF_ID;
 $sURL = sURL;
 // $RichMenuId = RICHMENU_ID;
 
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 
 /*
   if (isset($_POST['CompanyCode']))
@@ -463,7 +463,7 @@ if ($LinkCode == 'LOGOUT') {
                     console.log('initializeLiff: ', err);
                 });
         };
-        alert(<?php echo $sTitle; ?>);
+        
     </script>
 
 
