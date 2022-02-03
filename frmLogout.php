@@ -65,7 +65,7 @@ rmxChangeMemberRichMenuDefualt($LineId);
     <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
-    <script charset="utf-8" src="js/rmx_liff_function.js"></script>
+    <script charset="utf-8" src="rmx_liff_function.js"></script>
 </head>
 
 <body>

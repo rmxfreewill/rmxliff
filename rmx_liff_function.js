@@ -1,6 +1,3 @@
-function hi() {
-    alert('Hi');
-}
 
 function rmxCloseWindow() {
     liff.closeWindow();
@@ -17,6 +14,20 @@ function rmxCloseWindow() {
 
 
     // }
+}
+
+function getProfileLiffUserId() {
+    liff.getProfile()
+        .then(profile => {
+            var userIdProfile = profile.userId;
+            // var sFunction = document.getElementById('txtFunction').value;
+            var sMenu = document.getElementById('txtMenu').value;
+            var url = rmxSelectMenu(sMenu, userIdProfile);
+            window.location.assign(url);
+        })
+        .catch((err) => {
+            console.log('getProfile: ', err);
+        });
 }
 
 function rmxSelectMenu(toMenu, userId) {

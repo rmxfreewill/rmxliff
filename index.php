@@ -43,7 +43,7 @@ if (isset($_GET['menu']))
     <title>RMX-E LINE Official</title>
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
-    <script charset="utf-8" src="js/rmx_liff_function.js"></script>
+    <script charset="utf-8" src="rmx_liff_function.js"></script>
 </head>
 
 <body>
@@ -59,48 +59,19 @@ if (isset($_GET['menu']))
     <script>
         window.onload = function() {
 
-            // function selectMenu(toMenu, userId) {
-            //     var URL = document.getElementById('txtsURL').value;
-            //     var sCompCode = document.getElementById('txtCompanyCode').value;
-            //     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-            //     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-            //     switch (toMenu) {
-            //         case "REGISTER":
-            //             url = URL + "frmRegister.php" + para;
-            //             break;
-            //         case "QUERY":
-            //             url = URL + "frmQuery.php" + para;
-            //             break;
-            //         case "VIEW":
-            //             url = URL + "frmView.php" + para;
-            //             break;
-            //         case "TICKET":
-            //             url = URL + "frmTicket.php" + para;
-            //             break;
-            //         case "LOGOUT":
-            //             url = URL + "frmLogout.php" + para;
-            //             break;
-            //         default:
-            //             url = 'closeWindow.php';
-            //             break;
-            //     }
-
-            //     return url;
+            // function getProfileLiffUserId() {
+            //     liff.getProfile()
+            //         .then(profile => {
+            //             var userIdProfile = profile.userId;
+            //             // var sFunction = document.getElementById('txtFunction').value;
+            //             var sMenu = document.getElementById('txtMenu').value;
+            //             var url = rmxSelectMenu(sMenu, userIdProfile);
+            //             window.location.assign(url);
+            //         })
+            //         .catch((err) => {
+            //             console.log('getProfile: ', err);
+            //         });
             // }
-
-            function getProfileLiffUserId() {
-                liff.getProfile()
-                    .then(profile => {
-                        var userIdProfile = profile.userId;
-                        // var sFunction = document.getElementById('txtFunction').value;
-                        var sMenu = document.getElementById('txtMenu').value;
-                        var url = rmxSelectMenu(sMenu, userIdProfile);
-                        window.location.assign(url);
-                    })
-                    .catch((err) => {
-                        console.log('getProfile: ', err);
-                    });
-            }
 
             async function initializeLiff() {
                 var myLiffId = document.getElementById('txtLiffId').value;

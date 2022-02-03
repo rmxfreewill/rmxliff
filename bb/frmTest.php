@@ -100,7 +100,7 @@ if ($LinkCode == 'SEARCH') {
     <meta http-equiv="pragma" content="no-cache">
     <title><?php echo $sTitle; ?></title>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
-    <script charset="utf-8" src="js/rmx_liff_function.js"></script>
+    <script charset="utf-8" src="rmx_liff_function.js"></script>
     <link rel="stylesheet" href="css/style.css">
 
 </head>

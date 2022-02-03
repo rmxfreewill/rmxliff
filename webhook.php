@@ -177,7 +177,7 @@ function replyJsonMessage($jsonData, $LineId)
                 <html>
                 <head>
                     <script src='https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js'></script>
-                    <script  src='js/rmx_liff_function.js'></script>
+                    <script  src='rmx_liff_function.js'></script>
                 </head>
                 <body>
                     <script>
