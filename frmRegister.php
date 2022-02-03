@@ -270,9 +270,15 @@ if ($LinkCode == 'LOGOUT') {
 
 
         <!-- 
-    http:///rmxline/rmxRegister.php?LineId=t0000-930000483&CompanyCode=00001
-&CustName=test 930000483&CustSurName=Surtest 930000483&MobileNo=024871000
-&EMail=930000483@gmail.com
+
+    https://rmx.freewillsolutions.com/rmxline/rmxLineRegister.php
+    ?LineId=U194d6a8a8d6557a6b1ee0e2f16737d77
+    &CompanyCode=00001
+    &CustName=Pat
+    &CustSurName=Cha
+    &MobileNo=0990000050
+    &EMail=soso@gmail.com
+
  -->
 
         <?php
@@ -347,6 +353,7 @@ if ($LinkCode == 'LOGOUT') {
                     var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
                     var surl = document.getElementById('txtsURL').value;
                     url = surl + "frmRegister.php" + para;
+                    alert(url);
                     window.location.assign(url);
                 }
             }
