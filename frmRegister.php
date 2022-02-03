@@ -261,7 +261,6 @@ if ($LinkCode == 'LOGOUT') {
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
-        echo $sFlag;
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
@@ -441,6 +440,7 @@ if ($LinkCode == 'LOGOUT') {
                     console.log('initializeLiff: ', err);
                 });
         };
+        alert('Start');
     </script>
 
 

@@ -9,7 +9,7 @@ ini_set('display_errors', 'On');
 include_once("rmxLineFunction.php");
 include("rmxLiffFunction.php");
 
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 
 $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
@@ -44,6 +44,7 @@ if (isset($_GET['menu']))
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <script charset="utf-8" src="rmx_liff_function.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
