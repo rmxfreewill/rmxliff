@@ -95,7 +95,7 @@ function selectTicketDetail($arrVal)
         array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
     }
 
-    echo $data;
+    print_r ($data);
 
     return $data;
 }
