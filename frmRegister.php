@@ -203,6 +203,7 @@ if ($LinkCode != 'LOGOUT') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
+        echo $sFlagChangeMenu."<br>";
         $arrayList = [];
         if ($sFlagChangeMenu == true) {
             $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
@@ -273,7 +274,6 @@ if ($LinkCode != 'LOGOUT') {
                     var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
                     var surl = document.getElementById('txtsURL').value;
                     url = surl + "frmRegister.php" + para;
-                    alert(url);
                     window.location.assign(url);
                 }
             }
@@ -315,7 +315,16 @@ if ($LinkCode != 'LOGOUT') {
         // }
 
         function close() {
-            liff.closeWindow();
+            var myLiffId = document.getElementById('txtLiffId').value;
+            liff.init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    liff.closeWindow();
+                })
+                .catch((err) => {
+                    console.log('close: ', err);
+                });
 
         }
 
