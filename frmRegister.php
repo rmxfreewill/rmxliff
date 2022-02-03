@@ -57,7 +57,7 @@ $SoldToName = '';
 $sFlagMsg = '';
 $sFlagChangeMenu = false;
 $sFlag = '0';
-$sTitle = 'Register';
+$sTitle = 'Please Register';
 $sShowMsg = '';
 
 // registerScreen Defualt
