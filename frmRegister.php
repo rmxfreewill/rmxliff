@@ -59,6 +59,7 @@ $sFlagChangeMenu = false;
 $sFlag = '0';
 $sTitle = 'Please Register';
 $sShowMsg = '';
+$arrayList = [];
 
 // registerScreen Defualt
 function registerScreen($type, $arr)
@@ -174,6 +175,12 @@ if ($LinkCode != 'LOGOUT') {
         }
     }
 
+
+    if ($sFlag != '0' || $sFlag != '') {
+        $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
+        $sFlagChangeMenu == true;
+    }
+
     if ($sFlagChangeMenu == true) {
         rmxChangeMemberRichMenu('REGISTER', $LineId);
     }
@@ -204,11 +211,6 @@ if ($LinkCode != 'LOGOUT') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
-        $arrayList = [];
-        if ($sFlag != '0' || $sFlag != '') {
-            $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
-            $sFlagChangeMenu == true;
-        }
         echo registerScreen($sFlagChangeMenu, $arrayList);
         ?>
 
