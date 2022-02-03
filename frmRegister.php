@@ -259,12 +259,10 @@ if ($LinkCode == 'LOGOUT') {
     <div class="jumbotron text-center">
         <h3>Register</h3>
     </div>
-
-
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
-
+        echo $sFlag;
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
