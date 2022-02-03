@@ -78,7 +78,7 @@ function registerScreen($type, $arr)
             placeholder="Enter Mobile" 
             name="txtTel" id="txtTel" 
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
-            maxlength="11"
+            maxlength="10"
         required>
         <button type="button"  name="btnLogin" id="btnLogin" onclick="registerCheck()">
             REGISTER
