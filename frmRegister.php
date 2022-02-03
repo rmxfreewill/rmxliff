@@ -212,6 +212,7 @@ if ($LinkCode != 'LOGOUT') {
 
         <?php
         echo registerScreen($sFlagChangeMenu, $arrayList);
+        echo json_encode($ASRet);
         ?>
 
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
@@ -350,7 +351,7 @@ if ($LinkCode != 'LOGOUT') {
                             elementRegisterForm.removeAttribute("hidden");
                             var sMsg = document.getElementById('txtMsg').value;
                             if (sMsg.length > 0) {
-                                // alert(sMsg);
+                                alert(sMsg);
                             }
                         }
                     })
