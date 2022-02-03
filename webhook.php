@@ -103,8 +103,8 @@ function selectTicketDetail($arrVal)
 
 
     for ($i = 0; $i < count($title); $i++) {
-        echo $title[$i]);
-        echo $arrVal[$i]);
+        echo $title[$i];
+        echo $arrVal[$i];
         array_push($data, ticketDetailRowLayout($title[$i], $arrVal[$i]));
     }
 
