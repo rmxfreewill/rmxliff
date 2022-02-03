@@ -123,6 +123,8 @@ $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 $sURL = sURL;
 
+$sFlagMsg = '';
+
 function checkRegister($LinkCode, $LineId, $CmdCommand)
 {
     $CompanyUrl = COMPANY_URL;
@@ -136,7 +138,7 @@ function checkRegister($LinkCode, $LineId, $CmdCommand)
     $Tel = '';
     $SoldToCode = '';
     $SoldToName = '';
-    $sFlagMsg = '';
+    
     //BUTTON
     if ($LinkCode == 'REGISTER') {
         // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
