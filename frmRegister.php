@@ -11,11 +11,7 @@ ini_set('display_errors', 'On');
 include_once("rmxLineFunction.php");
 include_once("rmxLiffFunction.php");
 
-$CompanyUrl = COMPANY_URL;
-$RegisterUrl = REGISTER_URL;
-$CompanyCode = COMPANY_CODE;
-$LiffId = LIFF_ID;
-$sURL = sURL;
+
 // $RichMenuId = RICHMENU_ID;
 
 // header('Access-Control-Allow-Origin: *');
@@ -49,12 +45,7 @@ if (isset($_GET['CmdCommand']))
 $RetCommand = '';
 $Ret = '';
 
-$UserName = '';
-$EMail = '';
-$Tel = '';
-$SoldToCode = '';
-$SoldToName = '';
-$sFlagMsg = '';
+
 $sFlag = '0';
 $sTitle = 'Please Register';
 $sShowMsg = '';
@@ -126,69 +117,82 @@ function getSoldToCode($CompanyUrl, $CmdCommand)
     return $SoldToCode;
 }
 
-$aa = '';
+function checkRegister($LinkCode, $LineId, $CmdCommand)
+{
+    $CompanyUrl = COMPANY_URL;
+    $RegisterUrl = REGISTER_URL;
+    $CompanyCode = COMPANY_CODE;
+    $LiffId = LIFF_ID;
+    $sURL = sURL;
 
-//BUTTON
-if ($LinkCode == 'REGISTER') {
-    // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
-    $ASRet = [];
-    $ASRet = explode("^c", $CmdCommand);
-    $LineDisplay = $ASRet[0];
-    $UserName = $ASRet[1];
-    $Tel = $ASRet[2];
-    $EMail = $ASRet[3];
+    $UserName = '';
+    $EMail = '';
+    $Tel = '';
+    $SoldToCode = '';
+    $SoldToName = '';
+    $sFlagMsg = '';
+    //BUTTON
+    if ($LinkCode == 'REGISTER') {
+        // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
+        $ASRet = [];
+        $ASRet = explode("^c", $CmdCommand);
+        $LineDisplay = $ASRet[0];
+        $UserName = $ASRet[1];
+        $Tel = $ASRet[2];
+        $EMail = $ASRet[3];
 
-    $RetCommand = register_command(
-        $RegisterUrl,
-        $LineId,
-        $CompanyCode,
-        $LineDisplay,
-        $UserName,
-        $Tel,
-        $EMail
-    );
+        $RetCommand = register_command(
+            $RegisterUrl,
+            $LineId,
+            $CompanyCode,
+            $LineDisplay,
+            $UserName,
+            $Tel,
+            $EMail
+        );
 
-    // if ($RetCommand) {
-    //     $ASRet = [];
-    //     $ASRet = explode("^c", $RetCommand);
-    //     if (count($ASRet) >= 5) {
+        // if ($RetCommand) {
+        //     $ASRet = [];
+        //     $ASRet = explode("^c", $RetCommand);
+        //     if (count($ASRet) >= 5) {
 
-    //         $sFlagMsg = $ASRet[0];
-    //         $sFlag = $ASRet[1];
-    //         $UserName = $ASRet[2];
-    //         $Tel = $ASRet[3];
-    //         $EMail = $ASRet[4];
+        //         $sFlagMsg = $ASRet[0];
+        //         $sFlag = $ASRet[1];
+        //         $UserName = $ASRet[2];
+        //         $Tel = $ASRet[3];
+        //         $EMail = $ASRet[4];
 
-    //         $SoldToCode = $ASRet[5];
-    //         $SoldToName = $ASRet[6];
+        //         $SoldToCode = $ASRet[5];
+        //         $SoldToName = $ASRet[6];
 
-    //         $sShowMsg = '1';
-    //         if ($sFlag == '4') {
-    //             $sFlag = '5';
-    //             $sFlagMsg = "Register Complete";
-    //         }
+        //         $sShowMsg = '1';
+        //         if ($sFlag == '4') {
+        //             $sFlag = '5';
+        //             $sFlagMsg = "Register Complete";
+        //         }
 
-    //         if ($sFlag != '0') {
-    //             if ($sFlag != '') $sFlagChangeMenu = true;
-    //         }
+        //         if ($sFlag != '0') {
+        //             if ($sFlag != '') $sFlagChangeMenu = true;
+        //         }
 
-    //         echo $sFlag . ' ' . $sShowMsg;
-    //     }
-    // }
+        //         echo $sFlag . ' ' . $sShowMsg;
+        //     }
+        // }
 
-    $aa = 'check';
-}
 
-if ($LinkCode == 'CHECK' || $aa == 'check') {
-    $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
-    if ($sSoldToCode != '') {
-        $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
-        rmxChangeMemberRichMenu('REGISTER', $LineId);
     }
 }
 
 
 
+if ($LinkCode == 'CHECK') {
+    $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
+    if ($sSoldToCode != '') {
+        $status = true;
+        $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
+        rmxChangeMemberRichMenu('REGISTER', $LineId);
+    }
+}
 
 ?>
 
@@ -212,15 +216,10 @@ if ($LinkCode == 'CHECK' || $aa == 'check') {
 
 <body>
     <form class="animate" method="GET" enctype="multipart/form-data">
-
         <?php
-        if ($sSoldToCode == '') {
-            echo registerScreen(false, $arrayList);
-        } else {
-            echo registerScreen(true, $arrayList);
-        }
+        checkRegister($LinkCode, $LineId, $CmdCommand);
+        registerScreen($status, $arrayList);
         ?>
-
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
