@@ -25,6 +25,7 @@ try {
     $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     $mobileText = $getDataProfileObj->mobile;
     $emailText = $getDataProfileObj->email;
+    echo "<b>DevMode</b><hr>";
     echo "<b>LINEID: </b>" . $LineId;
     echo "<p>";
     // echo "<b>Name:</b><p>";
