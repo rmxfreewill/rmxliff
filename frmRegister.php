@@ -200,7 +200,7 @@ if ($LinkCode != 'LOGOUT') {
 </head>
 
 <body>
-    <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
+    <form class="animate" method="GET" enctype="multipart/form-data" hidden>
 
         <?php
         $arrayList = [];
