@@ -97,9 +97,9 @@ function registerScreen($type, $arr)
     return $scr;
 }
 
-function checkLogin($CompanyUrl, $CmdCommand)
+function getSoldToCode($CompanyUrl, $CmdCommand)
 {
-    $sFlagChangeMenu = false;
+    $SoldToCode = '';
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
     if ($RetCommand) {
         //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
@@ -122,7 +122,8 @@ function checkLogin($CompanyUrl, $CmdCommand)
             }
         }
     }
-    return $sFlagChangeMenu;
+    echo $SoldToCode;
+    return $SoldToCode;
 }
 
 
@@ -176,13 +177,12 @@ if ($LinkCode == 'REGISTER') {
 
     echo $LinkCode . '<hr>';
     $LinkCode = 'CHECK';
-    echo $LinkCode;
 }
 
 if ($LinkCode == 'CHECK') {
-    $sFlagChangeMenu  = checkLogin($CompanyUrl, $CmdCommand);
-    echo $sFlagChangeMenu;
-    if ($sFlagChangeMenu == true) {
+    echo $LinkCode;
+    $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
+    if ($sSoldToCode != '') {
         $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
         rmxChangeMemberRichMenu('REGISTER', $LineId);
     }
@@ -215,9 +215,11 @@ if ($LinkCode == 'CHECK') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
-
-        echo registerScreen($sFlagChangeMenu, $arrayList);
-
+        if ($sSoldToCode == '') {
+            echo registerScreen(false, $arrayList);
+        } else {
+            echo registerScreen(true, $arrayList);
+        }
         ?>
 
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
