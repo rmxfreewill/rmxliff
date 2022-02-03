@@ -354,8 +354,8 @@ if ($LinkCode == 'CHECK' || $aa == 'check') {
                         }
 
                         if (document.getElementById('txtShowMsg')) {
-                            var elementRegisterForm = document.getElementById('registerForm');
-                            elementRegisterForm.removeAttribute("hidden");
+                            // var elementRegisterForm = document.getElementById('registerForm');
+                            // elementRegisterForm.removeAttribute("hidden");
                             var sMsg = document.getElementById('txtMsg').value;
                             if (sMsg.length > 0) {
                                 alert(sMsg);
