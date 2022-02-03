@@ -253,7 +253,7 @@ if ($LinkCode == 'LOGOUT') {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>Register</title>
+    <title>RMX LINE OFFICIAL</title>
 
 </head>
 
