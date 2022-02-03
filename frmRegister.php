@@ -201,7 +201,7 @@ if ($LinkCode != 'LOGOUT') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
-        echo $sFlagChangeMenu."<br>";
+        echo $sFlagChangeMenu . "<br>";
         $arrayList = [];
         if ($sFlagChangeMenu == true) {
             $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
@@ -249,38 +249,6 @@ if ($LinkCode != 'LOGOUT') {
         // }
 
 
-        function registerCheck() {
-            // var sUserName = document.getElementById('txtUserName').value;
-            // var sLineDisplay = document.getElementById('txtLineDisplay').value;
-            var sUserName = 'rmxadmin';
-            var sLineDisplay = '';
-            //
-            var sCompanyCode = document.getElementById('txtCompanyCode').value;
-            var sLineId = document.getElementById('txtLineId').value;
-            var sEMail = document.getElementById('txtEMail').value;
-            //
-            var sTel = document.getElementById('txtTel').value;
-            if (sTel == '') {
-                alert("Input Telephone / Mobile");
-            } else if (sEMail == '') {
-                alert("Input Email");
-            } else {
-                if (sTel.length < 8) {
-                    alert("Telephone / Mobile must be at least 8 digits long");
-                } else {
-                    var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-                    var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-                    var surl = document.getElementById('txtsURL').value;
-                    url = surl + "frmRegister.php" + para;
-                    window.location.assign(url);
-                }
-            }
-
-
-
-
-        }
-
         // function RegisterClickBB(msg) {
         //     var sLineId = document.getElementById('lblUserId').textContent;
         //     var sLineDisplay = document.getElementById('txtDisplay').value;
@@ -311,20 +279,45 @@ if ($LinkCode != 'LOGOUT') {
         // }
 
 
+        function registerCheck() {
+            // var sUserName = document.getElementById('txtUserName').value;
+            // var sLineDisplay = document.getElementById('txtLineDisplay').value;
+            var sUserName = 'rmxadmin';
+            var sLineDisplay = '';
+            //
+            var sCompanyCode = document.getElementById('txtCompanyCode').value;
+            var sLineId = document.getElementById('txtLineId').value;
+            var sEMail = document.getElementById('txtEMail').value;
+            //
+            var sTel = document.getElementById('txtTel').value;
+            if (sTel == '') {
+                alert("Input Telephone / Mobile");
+            } else if (sEMail == '') {
+                alert("Input Email");
+            } else {
+                if (sTel.length < 8) {
+                    alert("Telephone / Mobile must be at least 8 digits long");
+                } else {
+                    var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+                    var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+                    var surl = document.getElementById('txtsURL').value;
+                    url = surl + "frmRegister.php" + para;
+                    window.location.assign(url);
+                }
+            }
+
+
+        }
 
         function closeClick() {
-
             var myLiffId = document.getElementById('txtLiffId').value;
             if (liff.getOS() != "web") {
                 liff.closeWindow();
             } else {
-
                 var elementRegisterForm = document.getElementById('registerForm');
                 var elementSuccessMsg = document.getElementById('successMsg');
-
                 elementRegisterForm.style.display = "none";
                 elementSuccessMsg.removeAttribute("hidden");
-
             }
         }
 
