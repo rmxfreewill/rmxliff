@@ -191,6 +191,8 @@ function checkRegister($LinkCode, $LineId, $CmdCommand)
     }
 }
 
+checkRegister($LinkCode, $LineId, $CmdCommand);
+
 $status = false;
 
 if ($LinkCode == 'CHECK') {
@@ -225,7 +227,6 @@ if ($LinkCode == 'CHECK') {
 <body>
     <form class="animate" method="GET" enctype="multipart/form-data">
         <?php
-        checkRegister($LinkCode, $LineId, $CmdCommand);
         registerScreen($status, $arrayList);
         ?>
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
