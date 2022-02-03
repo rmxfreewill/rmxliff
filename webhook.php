@@ -64,8 +64,6 @@ function ticketDetailRowLayout($title, $val)
         $valtmp  = $val;
     }
 
-    // echo $titletmp . ' ' . $valtmp . "<br/>";
-
     $objDetailRow = new stdClass;
     $objDetailBaselineTitle = new stdClass;
     $objDetailBaselineValue = new stdClass;
@@ -150,11 +148,7 @@ function ticketDetailFlexMessage($LineId)
     $objDetail->margin = "lg";
 
     $arrVal = json_decode(rmxGetDataLiff('ticketdetails', $LineId), true)[0];
-
-    // echo json_encode($arrVal);
-
     $objDetail->contents = selectTicketDetail($arrVal);
-
     $output = array($objTitleH1, $objSeparator, $objDetail);
 
     $replyText["type"] = "flex";
@@ -233,8 +227,8 @@ function getLineIdAll($LineId, $getType)
     if ($getType == 'lineid') {
         $res = $ProfileAndSoldtocodeObj->lineid;
     }
-    // return $res;
-    return ['U194d6a8a8d6557a6b1ee0e2f16737d77'];
+    return $res;
+    // return ['U194d6a8a8d6557a6b1ee0e2f16737d77'];
 }
 
 $LINEData = file_get_contents('php://input');

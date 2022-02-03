@@ -23,7 +23,10 @@ function rmxApiGetTicketDetails($lineId)
     dLoadTime,dLeaveDate,dLeaveTime,dDeliveryDate,dDeliveryTime,
     sTruckNo,sDriverName,nOrderQty,sPlantCode,sProductName,
     sSlump,sStrength,sSpecialInstruction 
-    FROM rmx01.T_LineTicket INNER JOIN rmxmain.M_User ON rmx01.T_LineTicket.sSoldToCode = rmxmain.M_User.sSoldToCode WHERE rmx01.T_LineTicket.sSoldToCode = '$soldToCode' AND rmx01.T_LineTicket.nLineNoti = 0  GROUP BY rmx01.T_LineTicket.sTicketNo ORDER BY rmx01.T_LineTicket.sTicketNo DESC";
+    FROM rmx01.T_LineTicket INNER JOIN rmxmain.M_User ON rmx01.T_LineTicket.sSoldToCode = rmxmain.M_User.sSoldToCode 
+    WHERE rmx01.T_LineTicket.sSoldToCode = '$soldToCode' AND rmx01.T_LineTicket.nLineNoti = 0  
+    GROUP BY rmx01.T_LineTicket.sTicketNo ORDER BY rmx01.T_LineTicket.sTicketNo DESC LIMIT 1";
+    
     $result = mySQLconnect($sql);
     if ($result) {
         $numRow = mysqli_num_rows($result);
