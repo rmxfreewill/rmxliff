@@ -175,6 +175,8 @@ if ($LinkCode == 'REGISTER') {
     // }
 
     echo $LinkCode . '<hr>';
+    $LinkCode = 'CHECK';
+    echo $LinkCode;
 }
 
 if ($LinkCode == 'CHECK') {
