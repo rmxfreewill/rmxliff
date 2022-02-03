@@ -426,7 +426,7 @@ if ($LinkCode == 'LOGOUT') {
                     liffId: myLiffId
                 })
                 .then(() => {
-                    alert(isCheckRegister);
+                    liff.closeWindow();
                     if (isCheckRegister == 'true') {
                         liff.closeWindow();
                     } else if (isCheckRegister == 'false') {
