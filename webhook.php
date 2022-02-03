@@ -227,26 +227,29 @@ function getLineIdAll($LineId, $getType)
     // return ['U194d6a8a8d6557a6b1ee0e2f16737d77'];
 }
 
+function inputWebhook($LINEData)
+{
+    $jsonData = json_decode($LINEData, true);
+    $replyToken = $jsonData["events"][0]["replyToken"];
+    $replyUserId = $jsonData["events"][0]["source"]["userId"];
+    if ($replyUserId != null && $replyUserId != '') {
+        $MessageType = $jsonData["events"][0]["message"]["type"];
+        $MessageText = $jsonData["events"][0]["message"]["text"];
+        $replyJson["replyToken"] = $replyToken;
+        $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
+        $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
+        $encodeJson = json_encode($replyJson);
+        $results = sendMessage($encodeJson);
+        echo $results;
+        http_response_code(200);
+    }
+}
+
 //
 //
 //
 $LINEData = file_get_contents('php://input');
-$jsonData = json_decode($LINEData, true);
-$replyToken = $jsonData["events"][0]["replyToken"];
-$replyUserId = $jsonData["events"][0]["source"]["userId"];
-
-if ($replyUserId != null && $replyUserId == '') {
-    echo $replyUserId ;
-    $MessageType = $jsonData["events"][0]["message"]["type"];
-    $MessageText = $jsonData["events"][0]["message"]["text"];
-    $replyJson["replyToken"] = $replyToken;
-    $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
-    $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
-    $encodeJson = json_encode($replyJson);
-    $results = sendMessage($encodeJson);
-    echo $results;
-    http_response_code(200);
-}
+inputWebhook($LINEData);
 //
 //
 //
