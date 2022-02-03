@@ -55,7 +55,6 @@ $Tel = '';
 $SoldToCode = '';
 $SoldToName = '';
 $sFlagMsg = '';
-$sFlagChangeMenu = false;
 $sFlag = '0';
 $sTitle = 'Please Register';
 $sShowMsg = '';
@@ -64,7 +63,15 @@ $arrayList = [];
 // registerScreen Defualt
 function registerScreen($type, $arr)
 {
-    if ($type == false) {
+    if ($type == true) {
+        $regisForm = '
+        <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
+        <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
+        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
+            CLOSE
+        </button>
+        ';
+    } else {
         $regisForm = '
         <label for="psw"><b>EMail</b></label>
         <input type="email"
@@ -85,23 +92,14 @@ function registerScreen($type, $arr)
             REGISTER
         </button>
         ';
-    } else if ($type == true) {
-        $regisForm = '
-        <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
-        <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
-        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
-            CLOSE
-        </button>
-        ';
     }
     $scr = '<div class="login_container">' . $regisForm . '</div>';
     return $scr;
 }
 
-function abc($CompanyUrl, $CmdCommand)
+function checkLogin($CompanyUrl, $CmdCommand)
 {
     $sFlagChangeMenu = false;
-
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
     if ($RetCommand) {
         //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
@@ -124,104 +122,71 @@ function abc($CompanyUrl, $CmdCommand)
             }
         }
     }
-
     return $sFlagChangeMenu;
 }
 
 
-if ($LinkCode != 'LOGOUT') {
+//BUTTON
+if ($LinkCode == 'REGISTER') {
+    // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
+    $ASRet = [];
+    $ASRet = explode("^c", $CmdCommand);
+    $LineDisplay = $ASRet[0];
+    $UserName = $ASRet[1];
+    $Tel = $ASRet[2];
+    $EMail = $ASRet[3];
 
-    //BUTTON
-    if ($LinkCode == 'REGISTER') {
-        // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
-        $ASRet = [];
-        $ASRet = explode("^c", $CmdCommand);
-        $LineDisplay = $ASRet[0];
-        $UserName = $ASRet[1];
-        $Tel = $ASRet[2];
-        $EMail = $ASRet[3];
+    $RetCommand = register_command(
+        $RegisterUrl,
+        $LineId,
+        $CompanyCode,
+        $LineDisplay,
+        $UserName,
+        $Tel,
+        $EMail
+    );
 
-        $RetCommand = register_command(
-            $RegisterUrl,
-            $LineId,
-            $CompanyCode,
-            $LineDisplay,
-            $UserName,
-            $Tel,
-            $EMail
-        );
+    // if ($RetCommand) {
+    //     $ASRet = [];
+    //     $ASRet = explode("^c", $RetCommand);
+    //     if (count($ASRet) >= 5) {
 
-        // if ($RetCommand) {
-        //     $ASRet = [];
-        //     $ASRet = explode("^c", $RetCommand);
-        //     if (count($ASRet) >= 5) {
+    //         $sFlagMsg = $ASRet[0];
+    //         $sFlag = $ASRet[1];
+    //         $UserName = $ASRet[2];
+    //         $Tel = $ASRet[3];
+    //         $EMail = $ASRet[4];
 
-        //         $sFlagMsg = $ASRet[0];
-        //         $sFlag = $ASRet[1];
-        //         $UserName = $ASRet[2];
-        //         $Tel = $ASRet[3];
-        //         $EMail = $ASRet[4];
+    //         $SoldToCode = $ASRet[5];
+    //         $SoldToName = $ASRet[6];
 
-        //         $SoldToCode = $ASRet[5];
-        //         $SoldToName = $ASRet[6];
+    //         $sShowMsg = '1';
+    //         if ($sFlag == '4') {
+    //             $sFlag = '5';
+    //             $sFlagMsg = "Register Complete";
+    //         }
 
-        //         $sShowMsg = '1';
-        //         if ($sFlag == '4') {
-        //             $sFlag = '5';
-        //             $sFlagMsg = "Register Complete";
-        //         }
+    //         if ($sFlag != '0') {
+    //             if ($sFlag != '') $sFlagChangeMenu = true;
+    //         }
 
-        //         if ($sFlag != '0') {
-        //             if ($sFlag != '') $sFlagChangeMenu = true;
-        //         }
+    //         echo $sFlag . ' ' . $sShowMsg;
+    //     }
+    // }
 
-        //         echo $sFlag . ' ' . $sShowMsg;
-        //     }
-        // }
+    $actionCode = 'CHECK';
+}
 
-        $linkcode_ = 'CHECK';
-
-        echo  $linkcode_;
-
-        if ($linkcode_ == 'CHECK') {
-            $sFlagChangeMenu  = abc($CompanyUrl, $CmdCommand);
-        }
-    }
-
-
-
-    // RICHMENU
-    if ($LinkCode == 'CHECK') {
-        $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
-        if ($RetCommand) {
-            //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
-            $ASRet = [];
-            $ASRet = explode("^c", $RetCommand);
-            if (count($ASRet) >= 2) {
-                $sFlagMsg = $ASRet[0];
-                $sFlag = $ASRet[1];
-
-                $UserName = $ASRet[2];
-                $EMail = $ASRet[3];
-                $Tel = $ASRet[4];
-                $SoldToCode = $ASRet[5];
-                $SoldToName = $ASRet[6];
-
-                $sShowMsg = '0';
-                if ($sFlag != '0') {
-                    $sTitle = 'View Register Info';
-                    $sFlagChangeMenu = true;
-                }
-            }
-        }
-    }
-
-
+if ($actionCode == 'CHECK' || $LinkCode == 'CHECK') {
+    $sFlagChangeMenu  = checkLogin($CompanyUrl, $CmdCommand);
     if ($sFlagChangeMenu == true) {
         $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
         rmxChangeMemberRichMenu('REGISTER', $LineId);
     }
 }
+
+
+
 
 ?>
 
