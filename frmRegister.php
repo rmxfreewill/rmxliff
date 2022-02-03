@@ -98,33 +98,33 @@ function registerScreen($type, $arr)
     return $scr;
 }
 
-function abc($LinkCode, $CompanyUrl, $CmdCommand)
+function abc($CompanyUrl, $CmdCommand)
 {
     $sFlagChangeMenu = false;
-    if ($LinkCode == 'CHECK') {
-        $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
-        if ($RetCommand) {
-            //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
-            $ASRet = [];
-            $ASRet = explode("^c", $RetCommand);
-            if (count($ASRet) >= 2) {
-                $sFlagMsg = $ASRet[0];
-                $sFlag = $ASRet[1];
 
-                $UserName = $ASRet[2];
-                $EMail = $ASRet[3];
-                $Tel = $ASRet[4];
-                $SoldToCode = $ASRet[5];
-                $SoldToName = $ASRet[6];
+    $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+    if ($RetCommand) {
+        //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
+        $ASRet = [];
+        $ASRet = explode("^c", $RetCommand);
+        if (count($ASRet) >= 2) {
+            $sFlagMsg = $ASRet[0];
+            $sFlag = $ASRet[1];
 
-                $sShowMsg = '0';
-                if ($sFlag != '0') {
-                    $sTitle = 'View Register Info';
-                    $sFlagChangeMenu = true;
-                }
+            $UserName = $ASRet[2];
+            $EMail = $ASRet[3];
+            $Tel = $ASRet[4];
+            $SoldToCode = $ASRet[5];
+            $SoldToName = $ASRet[6];
+
+            $sShowMsg = '0';
+            if ($sFlag != '0') {
+                $sTitle = 'View Register Info';
+                $sFlagChangeMenu = true;
             }
         }
     }
+
     return $sFlagChangeMenu;
 }
 
@@ -179,9 +179,12 @@ if ($LinkCode != 'LOGOUT') {
         //     }
         // }
 
-        $LinkCode = 'CHECK';
-        if ($LinkCode == 'CHECK') {
-            $sFlagChangeMenu  = abc($LinkCode, $CompanyUrl, $CmdCommand);
+        $linkcode_ = 'CHECK';
+
+        echo  $linkcode_;
+
+        if ($linkcode_ == 'CHECK') {
+            $sFlagChangeMenu  = abc($CompanyUrl, $CmdCommand);
         }
     }
 
