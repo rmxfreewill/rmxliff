@@ -99,8 +99,6 @@ function registerScreen($type, $arr)
 }
 
 
-echo  $LinkCode.'<hr>';
-
 if ($LinkCode != 'LOGOUT') {
 
     //BUTTON
@@ -152,8 +150,10 @@ if ($LinkCode != 'LOGOUT') {
         // }
 
         $LinkCode = 'CHECK';
-        echo  $LinkCode;
-
+        if ($LinkCode == 'CHECK') {
+            $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+            echo $RetCommand;
+        }
     }
 
 
