@@ -199,9 +199,6 @@ if ($LinkCode != 'LOGOUT') {
     <title>RMX LINE OFFICIAL</title>
 </head>
 
-
-
-
 <body>
     <form class="animate" method="GET" enctype="multipart/form-data">
 
