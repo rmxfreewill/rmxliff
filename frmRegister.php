@@ -273,6 +273,7 @@ if ($LinkCode == 'LOGOUT') {
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
+        <input type="hidden" id="txtTitle" value="<?php echo $sTitle; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
         <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
 
@@ -401,7 +402,7 @@ if ($LinkCode == 'LOGOUT') {
                             elementRegisterForm.removeAttribute("hidden");
                             var sMsg = document.getElementById('txtMsg').value;
                             if (sMsg.length > 0) {
-                                alert(sMsg);
+                                // alert(sMsg);
                             }
                         }
                     })
@@ -443,6 +444,7 @@ if ($LinkCode == 'LOGOUT') {
                     console.log('initializeLiff: ', err);
                 });
         };
+        alert('<?php echo $sShowMsg; ?>');
     </script>
 
 
