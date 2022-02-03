@@ -99,13 +99,9 @@ function registerScreen($type, $arr)
 }
 
 
-
+echo  $LinkCode.'<hr>';
 
 if ($LinkCode != 'LOGOUT') {
-
-
-
-echo 'Hi';
 
     //BUTTON
     if ($LinkCode == 'REGISTER') {
@@ -126,11 +122,6 @@ echo 'Hi';
             $Tel,
             $EMail
         );
-
-
-        $LinkCode == 'CHECK';
-
-        echo $LinkCode;
 
         // if ($RetCommand) {
         //     $ASRet = [];
@@ -159,7 +150,14 @@ echo 'Hi';
         //         echo $sFlag . ' ' . $sShowMsg;
         //     }
         // }
+
+        $LinkCode = 'CHECK';
+        echo  $LinkCode;
+
     }
+
+
+
     // RICHMENU
     if ($LinkCode == 'CHECK') {
         $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
