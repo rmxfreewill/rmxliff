@@ -212,7 +212,7 @@ if ($LinkCode != 'LOGOUT') {
 
         <?php
         echo registerScreen($sFlagChangeMenu, $arrayList);
-        echo json_encode($ASRet);
+        echo json_encode($RetCommand);
         ?>
 
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
