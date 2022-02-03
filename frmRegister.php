@@ -90,8 +90,7 @@ function registerScreen($type, $arr)
         <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
         <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
         <p><label for="psw"><b>Sold To Code: </b></label>' . $arr[2] . '
-        <p><label for="psw"><b>Sold To Name: </b></label>' . $arr[3] . '
-        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="close()">
+        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="OkClick()">
             CLOSE
         </button>
         ';
@@ -298,33 +297,24 @@ if ($LinkCode != 'LOGOUT') {
         // }
 
 
-        // function OkClick(msg) {
-        //     alert('Close');
-        //     var myLiffId = document.getElementById('txtLiffId').value;
-        //     if (liff.getOS() != "web") {
-        //         liff.closeWindow();
-        //     } else {
+        function OkClick() {
 
-        //         var elementRegisterForm = document.getElementById('registerForm');
-        //         var elementSuccessMsg = document.getElementById('successMsg');
+            var myLiffId = document.getElementById('txtLiffId').value;
+            if (liff.getOS() != "web") {
+                liff.closeWindow();
+            } else {
 
-        //         elementRegisterForm.style.display = "none";
-        //         elementSuccessMsg.removeAttribute("hidden");
+                var elementRegisterForm = document.getElementById('registerForm');
+                var elementSuccessMsg = document.getElementById('successMsg');
 
-        //     }
-        // }
+                elementRegisterForm.style.display = "none";
+                elementSuccessMsg.removeAttribute("hidden");
+
+            }
+        }
 
         function close() {
-            var myLiffId = document.getElementById('txtLiffId').value;
-            liff.init({
-                    liffId: myLiffId
-                })
-                .then(() => {
-                    liff.closeWindow();
-                })
-                .catch((err) => {
-                    console.log('close: ', err);
-                });
+            rmxCloseWindow();
 
         }
 
