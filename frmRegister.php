@@ -260,30 +260,19 @@ if ($LinkCode == 'LOGOUT') {
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
     <title>RMX LINE OFFICIAL</title>
-
 </head>
 
 <body>
+    <?php
+
+    echo "DevMode<hr>";
+    echo $sFlag;
+
+    ?>
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
-
-        <!-- 
-
-    https://rmx.freewillsolutions.com/rmxline/rmxLineRegister.php
-    ?LineId=U194d6a8a8d6557a6b1ee0e2f16737d77
-    &CompanyCode=00001
-    &CustName=Pat
-    &CustSurName=Cha
-    &MobileNo=0990000050
-    &EMail=soso@gmail.com
-
- -->
-
         <?php
-        echo "DevMode<hr>";
-        echo $sFlag;
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
@@ -463,10 +452,21 @@ if ($LinkCode == 'LOGOUT') {
                     console.log('initializeLiff: ', err);
                 });
         };
-        
     </script>
 
 
 </body>
 
 </html>
+
+<!-- 
+
+    https://rmx.freewillsolutions.com/rmxline/rmxLineRegister.php
+    ?LineId=U194d6a8a8d6557a6b1ee0e2f16737d77
+    &CompanyCode=00001
+    &CustName=Pat
+    &CustSurName=Cha
+    &MobileNo=0990000050
+    &EMail=soso@gmail.com
+
+ -->
