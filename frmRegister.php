@@ -181,13 +181,8 @@ if ($LinkCode != 'LOGOUT') {
     }
 
 
-    if ($sFlag == '0' || $sFlag == '') {
-    } else {
-        $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
-        $sFlagChangeMenu == true;
-    }
-
     if ($sFlagChangeMenu == true) {
+        $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
         rmxChangeMemberRichMenu('REGISTER', $LineId);
     }
 }
