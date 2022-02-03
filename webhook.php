@@ -173,24 +173,20 @@ function replyJsonMessage($jsonData, $LineId)
             $flexMessage = ticketDetailFlexMessage($LineId);
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenuDefualt($LineId);
-?>
-            <html>
-
-            <head>
-                <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
-                <script charset="utf-8" src="js/rmx_liff_function.js"></script>
-            </head>
-
-            <body>
-                <script>
-                    var myLiffId = document.getElementById('txtLiffId').value;
-                    var type = "logout";
-                    rmxInitializeLiff(myLiffId, type);
-                </script>
-            </body>
-
-            </html>
-<?php
+            echo "
+                <html>
+                <head>
+                    <script src='https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js'></script>
+                    <script  src='js/rmx_liff_function.js'></script>
+                </head>
+                <body>
+                    <script>
+                        var myLiffId = document.getElementById('txtLiffId').value;
+                        rmxInitializeLiff(myLiffId, 'logout');
+                    </script>
+                </body>
+                </html>
+            ";
         }
     }
     return $flexMessage;
