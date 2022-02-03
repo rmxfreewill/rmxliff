@@ -126,6 +126,7 @@ function getSoldToCode($CompanyUrl, $CmdCommand)
     return $SoldToCode;
 }
 
+$aa = '';
 
 //BUTTON
 if ($LinkCode == 'REGISTER') {
@@ -175,10 +176,10 @@ if ($LinkCode == 'REGISTER') {
     //     }
     // }
 
-    $LinkCode = 'CHECK';
+    $aa = 'check';
 }
 
-if ($LinkCode == 'CHECK') {
+if ($LinkCode == 'CHECK' || $aa == 'check') {
     echo $LinkCode;
     $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
     if ($sSoldToCode != '') {
