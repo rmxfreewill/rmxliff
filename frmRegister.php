@@ -122,38 +122,40 @@ if ($LinkCode != 'LOGOUT') {
             $EMail
         );
 
-        echo $RetCommand;
 
-        if ($RetCommand) {
-            $ASRet = [];
-            $ASRet = explode("^c", $RetCommand);
-            if (count($ASRet) >= 5) {
+        $LinkCode == 'CHECK';
 
-                $sFlagMsg = $ASRet[0];
-                $sFlag = $ASRet[1];
-                $UserName = $ASRet[2];
-                $Tel = $ASRet[3];
-                $EMail = $ASRet[4];
 
-                $SoldToCode = $ASRet[5];
-                $SoldToName = $ASRet[6];
+        // if ($RetCommand) {
+        //     $ASRet = [];
+        //     $ASRet = explode("^c", $RetCommand);
+        //     if (count($ASRet) >= 5) {
 
-                $sShowMsg = '1';
-                if ($sFlag == '4') {
-                    $sFlag = '5';
-                    $sFlagMsg = "Register Complete";
-                }
+        //         $sFlagMsg = $ASRet[0];
+        //         $sFlag = $ASRet[1];
+        //         $UserName = $ASRet[2];
+        //         $Tel = $ASRet[3];
+        //         $EMail = $ASRet[4];
 
-                if ($sFlag != '0') {
-                    if ($sFlag != '') $sFlagChangeMenu = true;
-                }
+        //         $SoldToCode = $ASRet[5];
+        //         $SoldToName = $ASRet[6];
 
-                echo $sFlag . ' ' . $sShowMsg;
-            }
-        }
+        //         $sShowMsg = '1';
+        //         if ($sFlag == '4') {
+        //             $sFlag = '5';
+        //             $sFlagMsg = "Register Complete";
+        //         }
+
+        //         if ($sFlag != '0') {
+        //             if ($sFlag != '') $sFlagChangeMenu = true;
+        //         }
+
+        //         echo $sFlag . ' ' . $sShowMsg;
+        //     }
+        // }
     }
     // RICHMENU
-    else if ($LinkCode == 'CHECK') {
+    if ($LinkCode == 'CHECK') {
         $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
         if ($RetCommand) {
             //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
