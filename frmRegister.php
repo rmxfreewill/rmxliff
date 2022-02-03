@@ -268,7 +268,7 @@ if ($LinkCode == 'LOGOUT') {
             // echo registerScreen(true, $arrayList);
             echo
             '
-            <div id="successMsg">
+            <div>
             <center>
                 <h1>Register Success</h1>
                 <h2>Close Windows</h2>
@@ -287,14 +287,6 @@ if ($LinkCode == 'LOGOUT') {
         <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
 
     </form>
-
-    <div id="successMsg" hidden>
-        <center>
-            <h1>Register Success</h1>
-            <h2>Close Windows</h2>
-        </center>
-    </div>
-
 
     <script>
         // function displayLiffData() {

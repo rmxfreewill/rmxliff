@@ -127,7 +127,7 @@ function ticketSearchScreen($LineId,$arrRet)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-    <title><?php echo $sTitle; ?></title>
+    <title>RMX LINE OFFICIAL</title>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <script charset="utf-8" src="rmx_liff_function.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -141,6 +141,7 @@ function ticketSearchScreen($LineId,$arrRet)
         if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen(false, []);
         } else {
+
             ticketSearchScreen($LineId,$ASRet);
         }
         ?>
