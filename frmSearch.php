@@ -152,7 +152,7 @@ function ticketSearchScreen($LineId)
         <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtRetCommand" value="<?php echo $RetCommand; ?>">
-        <input type="hidden" id="txtLineId" value="<?php echo $LiffId; ?>">
+        <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
         <input type="hidden" id="txtTableTitle" value="<?php echo $TableTitle; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 

@@ -63,101 +63,38 @@ $sShowMsg = '';
 // registerScreen Defualt
 function registerScreen($type, $arr)
 {
-
-    $scrType = '
-        <label for="uname"><b>Username</b></label>
-        <input type="text" name="txtUserName" id="txtUserName"   >
-
-        <label for="psw"><b>EMail</b></label>
-        <input type="email" placeholder="Enter EMail" name="txtEMail" 
-            id="txtEMail" required >
-        
-        <label for="psw"><b>Telephone / Mobile</b></label>
-        <input type="tel" placeholder="Enter Telephone/Mobile" 
-            name="txtTel" id="txtTel" 
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-        
-        <button type="button"  name="btnLogin" id="btnLogin" 
-            onclick="RegisterClick()">Register</button>
-    
-        </div>
-
-        <div id="liffAppContent" class="hidden">
-              
-        <!-- ACCESS TOKEN DATA -->
-        <div id="accessTokenData" class="hidden textLeft">
-            <h2>Access Token</h2>
-            <a href="#" onclick="toggleAccessToken()">Close Access Token</a>
-            <table>
-                <tr>
-                    <th>accessToken</th>
-                    <td id="accessTokenField"></td>
-                </tr>
-            </table>
-        </div>
-       
-     
-        <!-- LIFF DATA -->
-        <div id="liffData">
-            <h2 id="liffDataHeader" class="textLeft">Line Data</h2>
-            <table>
-                <tr>
-                    <th>User Id</th>
-                    <td id="lblUserId" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>User Name</th>
-                    <td id="lblUserName" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>OS</th>
-                    <td id="deviceOS" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>Language</th>
-                    <td id="browserLanguage" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>LIFF SDK Version</th>
-                    <td id="sdkVersion" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>LINE Version</th>
-                    <td id="lineVersion" class="textLeft"></td>
-                </tr>
-              
-            </table>
-        </div>  
-    ';
-
     if ($type == false) {
-        $mobileForm = '
-        <input type="hidden" id="txtUserName">
-        <input type="hidden" id="txtLineDisplay">
-        <input type="hidden" id="txtLineId">
+        $regisForm = '
         <label for="psw"><b>EMail</b></label>
         <input type="email"
             id="txtEMail" 
             name="txtEMail"
             placeholder="Enter EMail"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             maxlength="40"
         required>
-        <label for="psw"><b>Telephone / Mobile</b></label>
+        <label for="psw"><b>Mobile</b></label>
         <input type="tel" 
-            placeholder="Enter Telephone/Mobile" 
+            placeholder="Enter Mobile" 
             name="txtTel" id="txtTel" 
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
-            maxlength="10"
+            maxlength="11"
         required>
-        <input type="hidden" id="txtIsCheckRegister" value="false">
         <button type="button"  name="btnLogin" id="btnLogin" onclick="registerCheck()">
-            Register
+            REGISTER
         </button>
         ';
-
-        $regisForm = $mobileForm;
-    } else {
-        $regisForm = '<input type="hidden" id="txtIsCheckRegister" value="true">';
+    }
+    if ($type == true) {
+        $regisForm = '
+        <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
+        <label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
+        <label for="psw"><b>Sold To Code: </b></label>' . $arr[2] . '
+        <label for="psw"><b>Sold To Name: </b></label>' . $arr[3] . '
+        <button type="button"  name="btnLogin" id="btnLogin" onclick="close()">
+            CLOSE
+        </button>
+        ';
     }
     $scr = '<div class="login_container">' . $regisForm . '</div>';
     return $scr;
@@ -166,8 +103,8 @@ function registerScreen($type, $arr)
 
 
 
-if ($LinkCode == 'LOGOUT') {
-} else {
+if ($LinkCode != 'LOGOUT') {
+    //BUTTON
     if ($LinkCode == 'REGISTER') {
         // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
         $ASRet = [];
@@ -209,8 +146,9 @@ if ($LinkCode == 'LOGOUT') {
                 }
             }
         }
-    } else if ($LinkCode == 'CHECK') {
-
+    }
+    // RICHMENU
+    else if ($LinkCode == 'CHECK') {
         $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
         if ($RetCommand) {
             //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
@@ -235,7 +173,7 @@ if ($LinkCode == 'LOGOUT') {
         }
     }
 
-    if ($sTitle == 'View Register Info' || $sTitle == 'Register Complete') {
+    if ($sFlagChangeMenu == true) {
         rmxChangeMemberRichMenu('REGISTER', $LineId);
     }
 }
@@ -264,26 +202,21 @@ if ($LinkCode == 'LOGOUT') {
 </head>
 
 <body>
-    <?php
-
-    echo "DevMode<hr>";
-    echo $sFlag;
-
-    ?>
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
-        if ($sFlag == '0' || $sFlag == '') {
-            echo registerScreen(false, []);
-        } else {
-            $arrayList = [$LineId, $LineDisplay, $UserName, $EMail, $Tel, $SoldToCode, $SoldToName];
-            // echo registerScreen(true, $arrayList);
+        $arrayList = [];
+        if ($sFlagChangeMenu == true) {
+            $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
         }
+        echo registerScreen($sFlagChangeMenu, $arrayList);
         ?>
 
-        <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
+        <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
+
+        <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
         <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
         <input type="hidden" id="txtTitle" value="<?php echo $sTitle; ?>">
         <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
@@ -320,10 +253,8 @@ if ($LinkCode == 'LOGOUT') {
 
 
         function registerCheck() {
-            // var sUserName = document.getElementById('txtUserName').value;
-            // var sLineDisplay = document.getElementById('txtLineDisplay').value;
-            var sUserName = '';
-            var sLineDisplay = '';
+            var sUserName = document.getElementById('txtUserName').value;
+            var sLineDisplay = document.getElementById('txtLineDisplay').value;
             //
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             var sLineId = document.getElementById('txtLineId').value;
@@ -383,17 +314,21 @@ if ($LinkCode == 'LOGOUT') {
         //     }
         // }
 
+        function close() {
+            liff.closeWindow();
+
+        }
+
         function initializeApp() {
             if (liff.isLoggedIn()) {
 
                 liff.getProfile().then(profile => {
                         const userName = profile.displayName;
-
+                        const userId = profile.userId;
 
                         if (document.getElementById('txtLineDisplay'))
                             document.getElementById('txtLineDisplay').value = userName;
 
-                        const userId = profile.userId;
                         if (document.getElementById('txtLineId'))
                             document.getElementById('txtLineId').value = userId;
 
@@ -435,12 +370,11 @@ if ($LinkCode == 'LOGOUT') {
 
         window.onload = function() {
             var myLiffId = document.getElementById('txtLiffId').value;
-            var isCheckRegister = document.getElementById('txtIsCheckRegister').value;
+            var isCheckRegister = "<?php echo $sFlagChangeMenu; ?>";
             liff.init({
                     liffId: myLiffId
                 })
                 .then(() => {
-                    alert(isCheckRegister);
                     if (isCheckRegister == 'true') {
                         liff.closeWindow();
 
