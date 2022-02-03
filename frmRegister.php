@@ -295,27 +295,28 @@ if ($LinkCode != 'LOGOUT') {
         //     url = URL + "frmRegister.php" + para;
         //     window.location.assign(url);
         // }
+        // function OkClick() {
+
+        //     var myLiffId = document.getElementById('txtLiffId').value;
+        //     if (liff.getOS() != "web") {
+        //         liff.closeWindow();
+        //     } else {
+
+        //         var elementRegisterForm = document.getElementById('registerForm');
+        //         var elementSuccessMsg = document.getElementById('successMsg');
+
+        //         elementRegisterForm.style.display = "none";
+        //         elementSuccessMsg.removeAttribute("hidden");
+
+        //     }
+        // }
 
 
-        function OkClick() {
-
-            var myLiffId = document.getElementById('txtLiffId').value;
-            if (liff.getOS() != "web") {
-                liff.closeWindow();
-            } else {
-
-                var elementRegisterForm = document.getElementById('registerForm');
-                var elementSuccessMsg = document.getElementById('successMsg');
-
-                elementRegisterForm.style.display = "none";
-                elementSuccessMsg.removeAttribute("hidden");
-
-            }
-        }
 
         function close() {
-            rmxCloseWindow();
-
+            if (liff.getOS() != "web") {
+                liff.closeWindow();
+            }
         }
 
         function initializeApp() {
