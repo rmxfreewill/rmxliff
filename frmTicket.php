@@ -94,104 +94,19 @@ if ($LinkCode == 'TICKET') {
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-
 
     <title>RMX LINE OFFICIAL</title>
 
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ticket_style.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-    <style>
-        * {
-            box-sizing: border-box
-        }
-
-        /* Set height of body and the document to 100% */
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial;
-        }
-
-        div.scrollmenu {
-            background-color: #333;
-            overflow: auto;
-            white-space: nowrap;
-            height: 40px;
-
-        }
-
-        div.scrollmenu a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px;
-            text-decoration: none;
-        }
-
-        div.scrollmenu a:hover {
-            background-color: #777;
-        }
-
-        /* Style tab links */
-        .tablink {
-            margin: 0;
-        }
-
-        .tablink:hover {
-            background-color: #777;
-        }
-
-        /* Style the tab content (and add height:100% for full page content) */
-        .tabcontent {
-            color: white;
-            display: none;
-            padding: 10px 20px;
-            height: 100%;
-        }
-
-
-        table.tblticket {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-            font-size: 12px;
-        }
-
-        table.tblticket td,
-        table.tblticket th {
-
-            border: 1px solid black;
-            padding: 8px;
-        }
-
-
-        table.tblticket th {
-            /*padding-top: 12px;*
-        /*padding-bottom: 12px;*/
-            text-align: right;
-            /*background-color: #04AA6D;*/
-            color: blue;
-        }
-
-        table.tblticket td {
-            /*padding-top: 12px;*
-        /*padding-bottom: 12px;*/
-            text-align: left;
-            /*background-color: #04AA6D;*/
-            color: black;
-        }
-    </style>
 </head>
 
 <body>

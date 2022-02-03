@@ -23,6 +23,7 @@ function getProfileLiffUserId() {
             // var sFunction = document.getElementById('txtFunction').value;
             var sMenu = document.getElementById('txtMenu').value;
             var url = rmxSelectMenu(sMenu, userIdProfile);
+            alert(url);
             window.location.assign(url);
         })
         .catch((err) => {
