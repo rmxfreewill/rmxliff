@@ -1,7 +1,7 @@
 <?php
 
 //Line Api
-function rmxChangeMemberRichMenuDefualt($LINEID)
+function rmxChangeMemberRichMenuDefualt($type,$LINEID)
 {
     $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
     $method = 'DELETE';

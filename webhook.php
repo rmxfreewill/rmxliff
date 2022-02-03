@@ -172,7 +172,7 @@ function replyJsonMessage($jsonData, $LineId)
         if ($case  == 'status') {
             $flexMessage = ticketDetailFlexMessage($LineId);
         } else if ($case  == 'logout') {
-            rmxChangeMemberRichMenu('LOGOUT', $LineId);
+            rmxChangeMemberRichMenuDefualt('LOGOUT', $LineId);
             echo "
                 <html>
                 <head>
