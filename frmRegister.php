@@ -251,8 +251,10 @@ if ($LinkCode != 'LOGOUT') {
 
 
         function registerCheck() {
-            var sUserName = document.getElementById('txtUserName').value;
-            var sLineDisplay = document.getElementById('txtLineDisplay').value;
+            // var sUserName = document.getElementById('txtUserName').value;
+            // var sLineDisplay = document.getElementById('txtLineDisplay').value;
+            var sUserName = 'rmxadmin';
+            var sLineDisplay = '';
             //
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             var sLineId = document.getElementById('txtLineId').value;
