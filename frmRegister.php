@@ -89,7 +89,6 @@ function registerScreen($type, $arr)
         $regisForm = '
         <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
         <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
-        <p><label for="psw"><b>Sold To Code: </b></label>' . $arr[2] . '
         <p><button type="button"  name="btnLogin" id="btnLogin" onclick="close()">
             CLOSE
         </button>
@@ -314,8 +313,14 @@ if ($LinkCode != 'LOGOUT') {
 
 
         function close() {
+
+            var myLiffId = document.getElementById('txtLiffId').value;
             if (liff.getOS() != "web") {
                 liff.closeWindow();
+            } else {
+
+
+
             }
         }
 
