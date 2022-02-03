@@ -253,16 +253,11 @@ if ($LinkCode == 'LOGOUT') {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-
-    <title><?php echo $sTitle; ?></title>
+    <title>Register</title>
 
 </head>
 
 <body>
-
-    <div class="jumbotron text-center">
-        <h3>Register</h3>
-    </div>
     <form class="animate" method="GET" id="registerForm" enctype="multipart/form-data" hidden>
 
         <?php
@@ -320,9 +315,12 @@ if ($LinkCode == 'LOGOUT') {
 
 
         function RegisterClick() {
-            var sUserName = document.getElementById('txtUserName').value;
-            var sLineDisplay = document.getElementById('txtLineDisplay').value;
-            var sEMail = document.getElementById('txtEMail').value;
+            // var sUserName = document.getElementById('txtUserName').value;
+            // var sLineDisplay = document.getElementById('txtLineDisplay').value;
+            // var sEMail = document.getElementById('txtEMail').value;
+            var sUserName = '';
+            var sLineDisplay = '';
+            var sEMail = '';
             //
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
             var sLineId = document.getElementById('txtLineId').value;
@@ -445,7 +443,6 @@ if ($LinkCode == 'LOGOUT') {
                     console.log('initializeLiff: ', err);
                 });
         };
-        alert('Start');
     </script>
 
 
