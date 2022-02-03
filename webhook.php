@@ -234,8 +234,9 @@ $LINEData = file_get_contents('php://input');
 $jsonData = json_decode($LINEData, true);
 $replyToken = $jsonData["events"][0]["replyToken"];
 $replyUserId = $jsonData["events"][0]["source"]["userId"];
-echo $replyUserId ;
+
 if ($replyUserId != null && $replyUserId == '') {
+    echo $replyUserId ;
     $MessageType = $jsonData["events"][0]["message"]["type"];
     $MessageText = $jsonData["events"][0]["message"]["text"];
     $replyJson["replyToken"] = $replyToken;
