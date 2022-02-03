@@ -134,7 +134,6 @@ function registerScreen($type, $arr)
         $mobileForm = '
         <input type="hidden" id="txtUserName">
         <input type="hidden" id="txtLineDisplay">
-        <input type="hidden" id="txtEMail">
         <input type="hidden" id="txtLineId">
         <label for="psw"><b>EMail</b></label>
         <input type="email"
@@ -452,29 +451,3 @@ if ($LinkCode == 'LOGOUT') {
 </body>
 
 </html>
-
-
-<!-- // async function changeMemberRichMenu(myLiffId) { 
-        //     BearerToken = "Bearer EDiLRqCWwuFXTmT2KGXddtlV2GVSg9kaTWJuJvsonJ1bbAKPCKISIyhavW4D5tL5tY7L+sU8jUkh+V7bxIP6lLTo7aXpV+QTKthC3vXAho+2nq50e2ZrzJguKtoC6Nhp4CLJajUtheyDbCyHvcHQ/gdB04t89/1O/w1cDnyilFU=";
-        //     urlApi = "https://api.line.me/v2/bot/user/";
-        //     pathRichmenu = "/richmenu/";
-        //     memberRichmenu = "richmenu-119fefe49b2dd01369a9416da62d7f80";
-        //     url = urlApi + myLiffId + pathRichmenu + memberRichmenu;
-        //     console.log(url);
-        //     LINE_HEADER = {
-        //         'Authorization': BearerToken
-        //     };
-        //     await axios({
-        //             method: 'POST',
-        //             url: url,
-        //             data: {},
-        //             headers: LINE_HEADER
-        //         })
-        //         .then(function(response) {
-        //             console.log(response);
-        //         })
-        //         .catch(function(error) {
-        //             console.log(error);
-        //         });
-        // }
-    -->
