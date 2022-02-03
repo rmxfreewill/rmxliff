@@ -140,7 +140,10 @@ if ($LinkCode != 'LOGOUT') {
                 if ($sFlag == '4') {
                     $sFlag = '5';
                     $sFlagMsg = "Register Complete";
-                    $sFlagChangeMenu = true;
+                }
+
+                if ($sFlag != '0') {
+                    if ($sFlag != '') $sFlagChangeMenu = true;
                 }
             }
         }
@@ -201,10 +204,10 @@ if ($LinkCode != 'LOGOUT') {
     <form class="animate" method="GET" enctype="multipart/form-data">
 
         <?php
-        echo $sFlagChangeMenu . "<br>";
         $arrayList = [];
-        if ($sFlagChangeMenu == true) {
+        if ($sFlag != '0' || $sFlag != '') {
             $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
+            $sFlagChangeMenu == true;
         }
         echo registerScreen($sFlagChangeMenu, $arrayList);
         ?>
