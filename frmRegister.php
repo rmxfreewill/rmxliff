@@ -205,7 +205,7 @@ if ($LinkCode != 'LOGOUT') {
 <body>
     <form class="animate" method="GET" enctype="multipart/form-data">
 
-        <?php echo $sFlagChangeMenu;
+        <?php
         $arrayList = [];
         if ($sFlagChangeMenu == true) {
             $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
