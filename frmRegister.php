@@ -90,7 +90,7 @@ function registerScreen($type, $arr)
         <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
         <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
         <p><label for="psw"><b>Sold To Code: </b></label>' . $arr[2] . '
-        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="OkClick()">
+        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="close()">
             CLOSE
         </button>
         ';
