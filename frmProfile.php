@@ -25,9 +25,9 @@ try {
     $nameText = $getDataProfileObj->name . ' ' . $getDataProfileObj->surname;
     $mobileText = $getDataProfileObj->mobile;
     $emailText = $getDataProfileObj->email;
-    echo "<b>DevMode</b><hr>";
-    echo "<b>LINEID: </b>" . $LineId;
-    echo "<p>";
+    // echo "<b>DevMode</b><hr>";
+    // echo "<b>LINEID: </b>" . $LineId;
+    // echo "<p>";
     // echo "<b>Name:</b><p>";
     // echo $nameText;
     // echo "<p>";
@@ -70,16 +70,16 @@ try {
                 <h4 class="card-header bg-success text-uppercase font-weight-bold">user profile</h4>
                 <div class="card-body text-dark" style="background-color:#ebf7f0;">
                     <h5>
-                        <div class="row card-text">
-                            <div class="col-5 text-uppercase font-weight-bold">
+                        <!-- <div class="row card-text"> -->
+                            <!-- <div class="col-5 text-uppercase font-weight-bold">
                                 name
-                            </div>
-                            <div class="col-7 font-weight-normal">
+                            </div> -->
+                            <!-- <div class="col-7 font-weight-normal"> -->
                                 <?php
-                                echo $nameText;
+                                // echo $nameText;
                                 ?>
-                            </div>
-                        </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
                         <div class="row card-text mt-3">
                             <div class="col-5 text-uppercase font-weight-bold">
                                 mobile no
