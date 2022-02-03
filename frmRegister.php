@@ -125,78 +125,8 @@ function registerScreen($type, $arr)
         </div>  
     ';
 
-    if ($type == true) {
-        // <label for="uname"><b>LineDisplay: </b></label><span id="txtLineDisplay" >' . $LineDisplay . '</span>
-        // <p>
-        $LineId = $arr[0];
-        $LineDisplay = $arr[1];
-        $UserName = $arr[2];
-        $EMail = $arr[3];
-        $Tel = $arr[4];
-        $SoldToCode = $arr[5];
-        $SoldToName = $arr[6];
-
-        $scrType = '<input type="hidden" id="txtIsCheckRegister" value="true">';
-
-        $scrTypeBackupB = '
-        <label for="uname"><b>Line Id: </b></label><span id="txtLineId">' . $LineId . '</span>
-        <p>
-        <label for="uname"><b>Username: </b></label><span id="txtUserName">' . $UserName . '</span>
-        <p>
-        <label for="uname"><b>EMail: </b></label><span id="txtEMail">' . $EMail . '</span>
-        <p>
-        <label for="uname"><b>Telephone: </b></label><span id="txtTel">' . $Tel . '</span>
-        <p>
-        <label for="uname"><b>SoldTo Code: </b></label><span id="txtSoldToCode">' . $SoldToCode . '</span>
-        <p>
-        <label for="uname"><b>SoldTo Name: </b></label><span id="txtSoldToName">' . $SoldToName . '</span>
-        <p>
-        <button type="button" id="btnLogin" onclick="OkClick(\'red\')">Close</button>
-        ';
-
-
-        $scrBackup = '
-        <div class="login_container">
-
-        <label for="uname"><b>Line Id</b></label>
-        <input type="text" id="txtLineId" readonly>
-
-        <!-- <label for="uname"><b>Line Display Name</b></label>
-        <input type="text" id="txtLineDisplay" readonly hidden> -->
-
-        <label for="uname"><b>Username</b></label>
-        <input type="text" value="' . $UserName . '" id="txtUserName" readonly>
-
-        <label for="psw"><b>EMail</b></label>
-        <input type="text" id="txtEMail" value="' . $EMail . '" readonly>
-
-        <label for="psw"><b>Telephone / Mobile</b></label>
-        <input type="text" id="txtTel" value="' . $Tel . '" readonly>
-
-        <label for="psw"><b>SoldTo Code</b></label>
-        <input type="text" id="txtSoldToCode" value="' . $SoldToCode . '" readonly>
-
-        <label for="psw"><b>SoldTo Name</b></label>
-        <input type="text" id="txtSoldToName" value="' . $SoldToName . '" readonly>
-
-        <button type="button" id="btnLogin" onclick="OkClick(\'red\')">Close</button>
-        </div>
-        ';
-    } else {
-        // <label for="uname"><b>Line Display Name</b></label>
-        //
-        //
-        //
-        $scrTypeBackup = '
-        <label for="uname"><b>Line Id</b></label>
-        <label for="uname"><b>Username</b></label>
-        
-        <label for="psw"><b>EMail</b></label>
-
-                <input type="email" placeholder="Enter EMail" name="txtEMail" id="txtEMail" required>
-        ';
-        //
-        $scrTypeC = '
+    if ($type == false) {
+        $mobileForm = '
         <input type="hidden" id="txtUserName">
         <input type="hidden" id="txtLineDisplay">
         <input type="hidden" id="txtEMail">
@@ -213,65 +143,15 @@ function registerScreen($type, $arr)
             Register
         </button>
         ';
-        //
-        //
-        $scrType = $scrTypeC;
-        //
-        //
 
+        $regisForm = $mobileForm;
     }
-
-    $scr = '
-    <div class="login_container">
-    ' . $scrType . '
-    </div>
-    ';
-    //true = AutoClose
-    //False = Show Form
+    $scr = '<div class="login_container">' . $regisForm . '</div>';
     return $scr;
 }
 
 
-//Line Api
-function changeMemberRichMenu($type, $LINEID)
-{
-    if ($type == 'LOGOUT') {
-        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
-        $method = 'DELETE';
-    } else {
-        $CURLOPT = CURLOPT_POST;
-        $RICHMENUID = RICHMENU_ID;
-        $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu/$RICHMENUID";
-        $method = "POST";
-    }
-    $data = array();
-    $headers = [
-        "Authorization: Bearer " . BEARER_TOKEN
-    ];
-    try {
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-        // curl_setopt($ch, $CURLOPT, 1);
-        curl_setopt(
-            $ch,
-            CURLOPT_POSTFIELDS,
-            $data
-        );
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); # receive server response
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); # do not verify SSL
-        $data = curl_exec($ch); # execute curl
-        $httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); # http response status code
-        curl_close($ch);
-
-        $data = "{}";
-    } catch (Exception $ex) {
-        $data = $ex;
-    }
-}
 
 if ($LinkCode == 'LOGOUT') {
 } else {
@@ -342,8 +222,8 @@ if ($LinkCode == 'LOGOUT') {
         }
     }
 
-    if ($LineId != '' && $sFlagChangeMenu != false) {
-        changeMemberRichMenu($LinkCode, $LineId);
+    if ($sTitle = 'View Register Info' || $sTitle = 'Register Complete') {
+        changeMemberRichMenu('REGISTER', $LineId);
     }
 }
 
