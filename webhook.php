@@ -235,10 +235,11 @@ $MessageType = $jsonData["events"][0]["message"]["type"];
 $MessageText = $jsonData["events"][0]["message"]["text"];
 $replyJson["replyToken"] = $replyToken;
 $replyJson["to"] = getLineIdAll($replyUserId, 'lineid');
+echo json_encode($replyJson["to"]);
 $replyJson["messages"][0] = replyJsonMessage($jsonData, $replyUserId);
 $encodeJson = json_encode($replyJson);
-$results = sendMessage($encodeJson);
-echo $results;
+// $results = sendMessage($encodeJson);
+// echo $results;
 http_response_code(200);
 
 
