@@ -164,11 +164,16 @@ if ($LinkCode == 'REGISTER') {
 
 
     <form class="animate" method="GET" enctype="multipart/form-data">
-
-        <?php if ($sFlag == '0' || $sFlag == '') {
-            echo  registerScreen(false, []);
-        } else { ?>
-            <div class="login_container">
+        <div class="login_container">
+            <?php if ($sFlag == '0' || $sFlag == '') { ?>
+                <label for="psw"><b>EMail</b></label>
+                <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
+                <label for="psw"><b>Mobile</b></label>
+                <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
+                <button type="button" name="btnLogin" id="btnLogin" onclick="registerCheck()">
+                    REGISTER
+                </button>
+            <?php } else { ?>
 
                 <label for="uname"><b>Line Id</b></label>
                 <input type="text" id="txtLineId" readonly>
@@ -193,17 +198,17 @@ if ($LinkCode == 'REGISTER') {
 
                 <button type="button" id="btnLogin" onclick="OkClick('red')">OK</button>
 
-            </div>
+        </div>
 
 
-        <?php }  ?>
+    <?php }  ?>
 
 
-        <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
-        <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
-        <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-        <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
-        <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
+    <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
+    <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
+    <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
+    <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
+    <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
 
     </form>
 
