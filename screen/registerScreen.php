@@ -50,8 +50,9 @@ function regisForm($type)
 
 $objData = getDataFromRoute();
 if ($objData->route == 'MENU') {
-    $getData = getDataFromDatabase($CompanyUrl, $objData->CmdCommand);
+    $getData = registerDataToDatabase($objData);
 } else if ($objData->route == 'CHECKDATA') {
+    $getData = getDataFromDatabase($objData);
 }
 
 if ($getData->sFlag == '0') {
@@ -62,7 +63,7 @@ if ($getData->sFlag == '0') {
 
 
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 
 <head>
@@ -72,7 +73,6 @@ if ($getData->sFlag == '0') {
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script> -->
     <link rel="stylesheet" href="../css/style.css">
 
     <script charset="utf-8" src="../js/jquery.js"></script>
