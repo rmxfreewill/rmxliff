@@ -72,6 +72,7 @@ function getDataFromDatabase($objParam) //select $sFlagMsg,$nFlag,$sTUserName,$s
                 // $sFlagChangeMenu = true;
             }
         }
+        $objData->RetCommand = $RetCommand;
         $objData->sFlag = $sFlag;
     } else {
         $objData->sFlag = '0';
@@ -123,6 +124,7 @@ function registerDataToDatabase($objParam)
                 $sFlagMsg = "Register Complete";
             }
         }
+        $objData->RetCommand = $RetCommand;
         $objData->sFlag = $sFlag;
     } else {
         $objData->sFlag = '0';

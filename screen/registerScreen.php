@@ -55,9 +55,12 @@ if ($objData->route == 'MENU') {
     $getData = registerDataToDatabase($objData);
 }
 
+echo $getData->RetCommand;
 if ($getData->sFlag == '0') {
+
     echo 'No';
 } else {
+
     echo 'Yes';
 }
 
