@@ -172,7 +172,7 @@ if ($LinkCode == 'REGISTER') {
                 <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
                 <label for="psw"><b>Mobile</b></label>
                 <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
-                <button type="button" name="btnLogin" id="btnLogin" onclick="hi()">
+                <button type="button" name="btnLogin" id="btnLogin" onclick="registerClick()">
                     REGISTER
                 </button>
             <?php } else { ?>
@@ -220,8 +220,31 @@ if ($LinkCode == 'REGISTER') {
 
 
     <script>
-        function hi() {
-            alert('Hi');
+        function registerClick() {
+
+            // var sLineId = document.getElementById('lblUserId').textContent;
+
+            var sLineId = document.getElementById('txtLineId').value;
+            var sLineDisplay = document.getElementById('txtDisplay').value;
+
+            var sCompanyCode = document.getElementById('txtCompanyCode').value;
+            var sUserName = 'rmxadmin';
+            var sEMail = document.getElementById('txtEMail').value;
+            var sTel = document.getElementById('txtTel').value;
+
+            /*
+            var sCmd = "call sp_main_line_reqister ('" + sLineId 
+                + "','"+ sCompanyCode+"','"+sUserName
+                + "','"+ sLineDisplay+"','"+sTel
+                + "','"+ sEMail +"')";  
+            */
+            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+            var surl = document.getElementById('txtsURL').value;
+            url = surl + "frmRegister.php" + para;
+            window.location.assign(url);
+
+
         }
         window.onload = function() {
 
@@ -324,34 +347,7 @@ if ($LinkCode == 'REGISTER') {
 
 
 
-            function RegisterClick() {
 
-                // var sLineId = document.getElementById('lblUserId').textContent;
-
-                var sLineId = document.getElementById('txtLineId').value;
-                var sLineDisplay = document.getElementById('txtDisplay').value;
-
-                var sCompanyCode = document.getElementById('txtCompanyCode').value;
-                var sUserName = 'rmxadmin';
-                var sEMail = document.getElementById('txtEMail').value;
-                var sTel = document.getElementById('txtTel').value;
-
-                /*
-                var sCmd = "call sp_main_line_reqister ('" + sLineId 
-                    + "','"+ sCompanyCode+"','"+sUserName
-                    + "','"+ sLineDisplay+"','"+sTel
-                    + "','"+ sEMail +"')";  
-                */
-                var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-                var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-                var surl = document.getElementById('txtsURL').value;
-                url = surl + "frmRegister.php" + para;
-                liff.login({
-                    redirectUri: url
-                });
-
-                //alert(url);
-            }
         }
     </script>
 
