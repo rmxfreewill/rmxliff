@@ -54,16 +54,8 @@ $arrayList = [];
 // registerScreen Defualt
 function registerScreen($type, $arr)
 {
-    if ($type == true) {
-        $regisForm = '
-        <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
-        <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
-        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
-            CLOSE
-        </button>
-        ';
-    } else {
-        $regisForm = '
+
+    $regisForm = '
         <label for="psw"><b>EMail</b></label>
         <input type="email"
             id="txtEMail" 
@@ -83,7 +75,15 @@ function registerScreen($type, $arr)
             REGISTER
         </button>
         ';
-    }
+
+    $regisForm = '
+        <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
+        <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
+        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
+            CLOSE
+        </button>
+        ';
+
     $scr = '<div class="login_container">' . $regisForm . '</div>';
     return $scr;
 }
@@ -138,7 +138,7 @@ function checkRegister($LinkCode, $LineId, $CmdCommand)
     $Tel = '';
     $SoldToCode = '';
     $SoldToName = '';
-    
+
     //BUTTON
     if ($LinkCode == 'REGISTER') {
         // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
@@ -226,9 +226,13 @@ if ($LinkCode == 'CHECK') {
 
 <body>
     <form class="animate" method="GET" enctype="multipart/form-data">
-        <?php
-        registerScreen($status, $arrayList);
-        ?>
+        <label for="psw"><b>EMail</b></label>
+        <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
+        <label for="psw"><b>Mobile</b></label>
+        <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
+        <button type="button" name="btnLogin" id="btnLogin" onclick="registerCheck()">
+            REGISTER
+        </button>
         <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
         <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
