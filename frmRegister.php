@@ -125,6 +125,12 @@ $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 $sURL = sURL;
 
+$UserName = '';
+$EMail = '';
+$Tel = '';
+$SoldToCode = '';
+$SoldToName = '';
+
 $sFlagMsg = '';
 $status = false;
 
