@@ -1,5 +1,7 @@
 <?php
 
+include($_SERVER['DOCUMENT_ROOT'] . "/rmxLineFunction.php");
+
 function getDataFromRoute()
 {
     $objData = new stdClass;
@@ -41,7 +43,7 @@ function getDataFromDatabase($CompanyUrl, $CmdCommand)
     //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
     $SoldToCode = '';
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
-    echo $RetCommand ;
+    echo $RetCommand;
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
