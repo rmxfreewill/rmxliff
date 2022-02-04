@@ -325,7 +325,7 @@ if ($LinkCode == 'REGISTER') {
                 var sLineDisplay = document.getElementById('txtDisplay').value;
 
                 var sCompanyCode = document.getElementById('txtCompanyCode').value;
-                var sUserName = document.getElementById('txtUserName').value;
+                var sUserName = 'rmxadmin';
                 var sEMail = document.getElementById('txtEMail').value;
                 var sTel = document.getElementById('txtTel').value;
 
