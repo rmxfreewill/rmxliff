@@ -18,13 +18,17 @@
 <body>
     <div id="rmxMenu">
     </div>
-    <button>CHANGE</button>
+    <button id="page1">Page1</button>
+    <button id="page2">Page2</button>
 
     <script>
         $(function() {
             $("#rmxMenu").load("screen/profileScreen.php");
-            $("button").click(function() {
+            $("#page2").click(function() {
                 $("#rmxMenu").load("frmTicket.php");
+            });
+            $("#page1").click(function() {
+                $("#rmxMenu").load("screen/profileScreen.php");
             });
         });
     </script>
