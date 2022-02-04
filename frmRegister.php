@@ -321,7 +321,7 @@ if ($LinkCode == 'REGISTER') {
                 alert(userId);
                 // var sLineId = document.getElementById('lblUserId').textContent;
 
-                var sLineId = userId;
+                var sLineId = document.getElementById('txtLineId').value;
                 var sLineDisplay = document.getElementById('txtDisplay').value;
 
                 var sCompanyCode = document.getElementById('txtCompanyCode').value;
