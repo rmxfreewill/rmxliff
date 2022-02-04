@@ -14,7 +14,34 @@ $LiffId = LIFF_ID;
 $objData = getDataFromRoute();
 
 if ($objData->route == 'MENU') {
-    echo $route;
 } else if ($objData->route == 'CHECKDATA') {
-    echo $route;
 }
+
+?>
+<html>
+
+<head>
+    <title>RMX LINE OFFICIAL</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="en-th">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script> -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script charset="utf-8" src="../js/jquery.js"></script>
+    <script charset="utf-8" src="../js/lineSdk.js"></script>
+    <script charset="utf-8" src="../js/rmx_liff_function.js"></script>
+</head>
+
+<body>
+
+    <script>
+        alert("Hi");
+        $(function() {
+            console.log("ready!");
+        });
+    </script>
+</body>
+
+</html>
