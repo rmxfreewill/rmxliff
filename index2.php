@@ -22,18 +22,15 @@
     <button id="page2">Page2</button>
 
     <script>
-        $(document).ready(function() {
+        window.onload = (event) => {
             $("#rmxMenu").load("screen/profileScreen.php");
             $("#page1").click(function() {
                 $("#rmxMenu").load("screen/profileScreen.php");
             });
             $("#page2").click(function() {
-                window.addEventListener("load", function(event) {
-                    $('#rmxMenu').load('frmTicket.php');
-
-                });
+                $('#rmxMenu').load('frmTicket.php');
             });
-        });
+        }
     </script>
 </body>
 
