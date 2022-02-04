@@ -1,10 +1,17 @@
 <?php
 /*    include_once("index.html"); */
 
+
+
 session_start();
 
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
+// error_reporting(E_ALL & ~E_NOTICE);
+
 include_once("rmxLineFunction.php");
+include_once("rmxLiffFunction.php");
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
