@@ -176,45 +176,48 @@ if ($LinkCode == 'REGISTER') {
                     REGISTER
                 </button>
             <?php } else { ?>
-
-                <label for="uname"><b>Line Id</b></label>
-                <input type="text" id="txtLineId" readonly>
+                <button type="button" name="btnLogin" id="btnLogin" onclick="closeClick()">
+                    CLOSE
+                </button>
+                <!-- <label for="uname"><b>Line Id</b></label> -->
+                <!-- <input type="text" id="txtLineId" readonly>
 
                 <label for="uname"><b>Line Display Name</b></label>
                 <input type="text" id="txtLineDisplay" readonly>
 
                 <label for="uname"><b>Username</b></label>
-                <input type="text" value="<?php echo $UserName; ?>" id="txtUserName" readonly>
+                <input type="text" value="<?php //echo $UserName; 
+                                            ?>" id="txtUserName" readonly>
 
                 <label for="psw"><b>EMail</b></label>
-                <input type="text" id="txtEMail" value="<?php echo $EMail; ?>" readonly>
+                <input type="text" id="txtEMail" value="<?php //echo $EMail; 
+                                                        ?>" readonly>
 
                 <label for="psw"><b>Telephone / Mobile</b></label>
-                <input type="text" id="txtTel" value="<?php echo $Tel; ?>" readonly>
+                <input type="text" id="txtTel" value="<?php // echo $Tel; 
+                                                        ?>" readonly>
 
                 <label for="psw"><b>SoldTo Code</b></label>
-                <input type="text" id="txtSoldToCode" value="<?php echo $SoldToCode; ?>" readonly>
+                <input type="text" id="txtSoldToCode" value="<?php //echo $SoldToCode; 
+                                                                ?>" readonly>
 
                 <label for="psw"><b>SoldTo Name</b></label>
-                <input type="text" id="txtSoldToName" value="<?php echo $SoldToName; ?>" readonly>
+                <input type="text" id="txtSoldToName" value="<?php //echo $SoldToName; 
+                                                                ?>" readonly> -->
 
-                <button type="button" id="btnLogin" onclick="OkClick('red')">OK</button>
-
+                <!-- <button type="button" id="btnLogin" onclick="OkClick('red')">OK</button> -->
+            <?php }  ?>
         </div>
+        <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
+        <input type="hidden" id="txtDisplay" value="<?php echo $LineDisplay; ?>">
 
+        <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
+        <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
+        <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
+        <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
+        <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
 
-    <?php }  ?>
-
-    <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
-    <input type="hidden" id="txtDisplay" value="<?php echo $LineDisplay; ?>">
-
-    <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
-    <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
-    <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-    <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
-    <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
-
-    <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
+        <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
     </form>
 
@@ -256,6 +259,18 @@ if ($LinkCode == 'REGISTER') {
             }
 
 
+        }
+
+        function closeClick() {
+            var myLiffId = document.getElementById('txtLiffId').value;
+            if (liff.getOS() != "web") {
+                liff.closeWindow();
+            } else {
+                // var elementRegisterForm = document.getElementById('registerForm');
+                // var elementSuccessMsg = document.getElementById('successMsg');
+                // elementRegisterForm.style.display = "none";
+                // elementSuccessMsg.removeAttribute("hidden");
+            }
         }
         window.onload = function() {
 
