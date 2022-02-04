@@ -37,9 +37,30 @@ if ($objData->route == 'MENU') {
 <body>
 
     <script>
-        alert("Hi");
+        async function initializeLiff(myLiffId) {
+            console.log('initializeLiff: ', myLiffId);
+            liff.init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    if (liff.isLoggedIn()) {
+                        liff.getProfile().then(profile => {
+                                const userName = profile.displayName;
+                                const userId = profile.userId;
+                            })
+                            .catch((err) => {
+                                console.log('error ', err);
+                            });
+                    }
+                })
+                .catch((err) => {
+                    console.log('initializeLiff: ', err);
+                });
+        }
+
         $(function() {
-            console.log("ready!");
+            var myLiffId = "<?php echo LIFF_ID; ?>";
+            initializeLiff(myLiffId);
         });
     </script>
 </body>
