@@ -132,7 +132,7 @@ if ($LinkCode == 'REGISTER') {
 }
 
 
-
+rmxChangeMemberRichMenu('REGISTER', $LineId);
 
 
 ?>
