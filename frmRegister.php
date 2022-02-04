@@ -126,6 +126,7 @@ $LiffId = LIFF_ID;
 $sURL = sURL;
 
 $sFlagMsg = '';
+$status = false;
 
 function initState($LinkCode, $LineId, $CmdCommand)
 {
@@ -141,7 +142,7 @@ function initState($LinkCode, $LineId, $CmdCommand)
     $SoldToCode = '';
     $SoldToName = '';
 
-    $status = false;
+    
 
     //BUTTON
     if ($LinkCode == 'REGISTER') {
