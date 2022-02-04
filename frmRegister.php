@@ -166,6 +166,8 @@ if ($LinkCode == 'REGISTER') {
     <form class="animate" method="GET" enctype="multipart/form-data">
         <div class="login_container">
             <?php if ($sFlag == '0' || $sFlag == '') { ?>
+                <label for="uname"><b>Line Id</b></label>
+                <input type="text" id="txtLineId" readonly>
                 <label for="psw"><b>EMail</b></label>
                 <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
                 <label for="psw"><b>Mobile</b></label>
@@ -314,8 +316,9 @@ if ($LinkCode == 'REGISTER') {
 
 
             function RegisterClick() {
-
+alert(userId);
                 // var sLineId = document.getElementById('lblUserId').textContent;
+
                 var sLineId = userId;
                 var sLineDisplay = document.getElementById('txtDisplay').value;
 
