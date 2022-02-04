@@ -247,6 +247,8 @@ if ($LinkCode == 'REGISTER') {
                     liffId: myLiffId
                 })
                 .then(() => {
+
+
                     initializeApp();
                 })
                 .catch((err) => {});
@@ -348,7 +350,7 @@ if ($LinkCode == 'REGISTER') {
         }
 
 
-        function RegisterClick(msg) {
+        function RegisterClick() {
 
             var sLineId = document.getElementById('lblUserId').textContent;
             var sLineDisplay = document.getElementById('txtDisplay').value;
@@ -365,12 +367,9 @@ if ($LinkCode == 'REGISTER') {
                 + "','"+ sEMail +"')";  
             */
             var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-
             var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            var url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
-
-
-
+            var surl = document.getElementById('txtsURL').value;
+            url = surl + "frmRegister.php" + para;
             liff.login({
                 redirectUri: url
             });
