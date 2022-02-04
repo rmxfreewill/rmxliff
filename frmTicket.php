@@ -73,7 +73,7 @@ if ($LinkCode == 'TICKET') {
             if ($sFlag != '0') {
                 $sTitle = 'TICKET';
 
-                $CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','20/2/2022')";
+                $CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','20/2/2025')";
 
                 $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
             }
@@ -81,9 +81,9 @@ if ($LinkCode == 'TICKET') {
     }
 }
 
-$CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','20/2/2022','320CT-ST-0099-50')";
-$RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-echo $RetCommand;
+// $CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','20/2/2022','320CT-ST-0099-50')";
+// $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
+// echo $RetCommand;
 
 
 ?>
