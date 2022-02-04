@@ -25,8 +25,8 @@
             $("#rmxMenu").load("screen/profileScreen.php");
         });
         $("button").click(function() {
-            alert('Hi');
-            // $("#rmxMenu").load("screen/registerScreen.php");
+            // alert('Hi');
+            $("#rmxMenu").load("frmTicket.php");
         });
     </script>
 </body>
