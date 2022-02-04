@@ -168,7 +168,9 @@ rmxChangeMemberRichMenu('REGISTER', $LineId);
 
 <body>
 
-
+<?php 
+if ($LinkCode == 'REGISTER'){
+?>
 
     <form class="animate" method="GET" enctype="multipart/form-data">
         <div class="login_container">
@@ -383,7 +385,7 @@ rmxChangeMemberRichMenu('REGISTER', $LineId);
 
         }
     </script>
-
+<?php }?>
 </body>
 
 </html>
