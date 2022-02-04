@@ -81,6 +81,9 @@ if ($LinkCode == 'TICKET') {
     }
 }
 
+$CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','20/2/2022','320CT-ST-0099-50')";
+$RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
+echo $CmdCommand;
 
 
 ?>
@@ -110,7 +113,7 @@ if ($LinkCode == 'TICKET') {
 </head>
 
 <body>
-    <form  method="GET" enctype="multipart/form-data">
+    <form method="GET" enctype="multipart/form-data">
 
         <?php
 
