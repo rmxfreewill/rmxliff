@@ -215,167 +215,131 @@ if ($LinkCode == 'REGISTER') {
 
     <script>
         window.onload = function() {
-            const useNodeJS = false; // if you are not using a node server, set this value to false
-            const defaultLiffId = "1656445468-pPVkELw7"; // change the default LIFF value if you are not using a node server
-
-            let myLiffId = "";
-
-            if (useNodeJS) {
-                fetch('/send-id')
-                    .then(function(reqResponse) {
-                        return reqResponse.json();
-                    })
-                    .then(function(jsonResponse) {
-                        myLiffId = jsonResponse.id;
-                        initializeLiffOrDie(myLiffId);
-                    })
-                    .catch(function(error) {});
-            } else {
-                myLiffId = defaultLiffId;
-                initializeLiffOrDie(myLiffId);
-            }
-        };
-
-        function initializeLiffOrDie(myLiffId) {
-            if (myLiffId) {
-                initializeLiff(myLiffId);
-            }
-        }
-
-        function initializeLiff(myLiffId) {
-            liff.init({
-                    liffId: myLiffId
-                })
-                .then(() => {
 
 
-                    initializeApp();
-                })
-                .catch((err) => {});
-        }
 
+            function initializeApp() {
+                //displayLiffData();
 
-        function initializeApp() {
-            //displayLiffData();
+                if (liff.isLoggedIn()) {
 
-            if (liff.isLoggedIn()) {
+                    liff.getProfile().then(profile => {
+                            const userName = profile.displayName;
+                            const userId = profile.userId;
 
-                liff.getProfile().then(profile => {
-                        const userName = profile.displayName;
-                        const userId = profile.userId;
+                            if (document.getElementById('txtLineDisplay'))
+                                document.getElementById('txtLineDisplay').value = userName;
 
-                        if (document.getElementById('txtLineDisplay'))
-                            document.getElementById('txtLineDisplay').value = userName;
+                            if (document.getElementById('txtLineId'))
+                                document.getElementById('txtLineId').value = userId;
 
-                        if (document.getElementById('txtLineId'))
-                            document.getElementById('txtLineId').value = userId;
-
-                        if (document.getElementById('lblUserId')) {
-                            document.getElementById('lblUserId').textContent = userId;
-                            document.getElementById('lblUserName').textContent = userName;
-                            document.getElementById('txtDisplay').value = userName;
-                        }
-
-
-                        if (document.getElementById('txtShowMsg')) {
-                            var sShow = document.getElementById('txtShowMsg').value;
-                            if (sShow == "1") {
-                                var sMsg = document.getElementById('txtMsg').value;
-                                if (sMsg.length > 0) alert(sMsg);
+                            if (document.getElementById('lblUserId')) {
+                                document.getElementById('lblUserId').textContent = userId;
+                                document.getElementById('lblUserName').textContent = userName;
+                                document.getElementById('txtDisplay').value = userName;
                             }
 
-                            /*
-                             if (sFlag=="ENDREGISTER"){
-                                 liff.sendMessages([
-                                     {
-                                     type: 'text',
-                                     text: '®Complete Register'
-                                     } ])
-                                 .then(() => {liff.closeWindow(); }) 
-                                 .catch((err) => {
-                                     console.log('error', err);
-                                     alert(err);
-                                 });
-                             }
-                             */
-                        }
+
+                            if (document.getElementById('txtShowMsg')) {
+                                var sShow = document.getElementById('txtShowMsg').value;
+                                if (sShow == "1") {
+                                    var sMsg = document.getElementById('txtMsg').value;
+                                    if (sMsg.length > 0) alert(sMsg);
+                                }
+
+                                /*
+                                 if (sFlag=="ENDREGISTER"){
+                                     liff.sendMessages([
+                                         {
+                                         type: 'text',
+                                         text: '®Complete Register'
+                                         } ])
+                                     .then(() => {liff.closeWindow(); }) 
+                                     .catch((err) => {
+                                         console.log('error', err);
+                                         alert(err);
+                                     });
+                                 }
+                                 */
+                            }
 
 
-                    })
-                    .catch((err) => {
-                        console.log('error', err);
-                    });
+                        })
+                        .catch((err) => {
+                            console.log('error', err);
+                        });
+
+                }
+                //liff.getProfile().userId;
 
             }
-            //liff.getProfile().userId;
-
-        }
 
 
-        function displayLiffData() {
+            function displayLiffData() {
 
-            if (document.getElementById('browserLanguage')) {
-                document.getElementById('browserLanguage').textContent = liff.getLanguage();
-                document.getElementById('sdkVersion').textContent = liff.getVersion();
-                document.getElementById('lineVersion').textContent = liff.getLineVersion();
-                document.getElementById('deviceOS').textContent = liff.getOS();
+                if (document.getElementById('browserLanguage')) {
+                    document.getElementById('browserLanguage').textContent = liff.getLanguage();
+                    document.getElementById('sdkVersion').textContent = liff.getVersion();
+                    document.getElementById('lineVersion').textContent = liff.getLineVersion();
+                    document.getElementById('deviceOS').textContent = liff.getOS();
+                }
             }
-        }
 
 
-        function toggleAccessToken() {
-            toggleElement('accessTokenData');
-        }
-
-
-        function toggleProfileData() {
-            toggleElement('profileInfo');
-        }
-
-
-        function toggleElement(elementId) {
-            const elem = document.getElementById(elementId);
-            if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
-                elem.style.display = 'none';
-            } else {
-                elem.style.display = 'block';
+            function toggleAccessToken() {
+                toggleElement('accessTokenData');
             }
-        }
+
+
+            function toggleProfileData() {
+                toggleElement('profileInfo');
+            }
+
+
+            function toggleElement(elementId) {
+                const elem = document.getElementById(elementId);
+                if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
+                    elem.style.display = 'none';
+                } else {
+                    elem.style.display = 'block';
+                }
+            }
 
 
 
 
-        function OkClick(msg) {
-            liff.closeWindow();
-        }
+            function OkClick(msg) {
+                liff.closeWindow();
+            }
 
 
-        function RegisterClick() {
+            function RegisterClick() {
 
-            // var sLineId = document.getElementById('lblUserId').textContent;
-            var sLineId = document.getElementById('txtLineId').value;
-            var sLineDisplay = document.getElementById('txtDisplay').value;
+                // var sLineId = document.getElementById('lblUserId').textContent;
+                var sLineId = userId;
+                var sLineDisplay = document.getElementById('txtDisplay').value;
 
-            var sCompanyCode = document.getElementById('txtCompanyCode').value;
-            var sUserName = document.getElementById('txtUserName').value;
-            var sEMail = document.getElementById('txtEMail').value;
-            var sTel = document.getElementById('txtTel').value;
+                var sCompanyCode = document.getElementById('txtCompanyCode').value;
+                var sUserName = document.getElementById('txtUserName').value;
+                var sEMail = document.getElementById('txtEMail').value;
+                var sTel = document.getElementById('txtTel').value;
 
-            /*
-            var sCmd = "call sp_main_line_reqister ('" + sLineId 
-                + "','"+ sCompanyCode+"','"+sUserName
-                + "','"+ sLineDisplay+"','"+sTel
-                + "','"+ sEMail +"')";  
-            */
-            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            var surl = document.getElementById('txtsURL').value;
-            url = surl + "frmRegister.php" + para;
-            liff.login({
-                redirectUri: url
-            });
+                /*
+                var sCmd = "call sp_main_line_reqister ('" + sLineId 
+                    + "','"+ sCompanyCode+"','"+sUserName
+                    + "','"+ sLineDisplay+"','"+sTel
+                    + "','"+ sEMail +"')";  
+                */
+                var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+                var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+                var surl = document.getElementById('txtsURL').value;
+                url = surl + "frmRegister.php" + para;
+                liff.login({
+                    redirectUri: url
+                });
 
-            //alert(url);
+                //alert(url);
+            }
         }
     </script>
 
