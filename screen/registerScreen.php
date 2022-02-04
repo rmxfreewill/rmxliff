@@ -11,10 +11,10 @@ $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 
-getDataFromRoute();
+$objData = getDataFromRoute();
 
-if ($route == 'MENU') {
+if ($objData->route == 'MENU') {
     echo $route;
-} else if ($route == 'CHECKDATA') {
+} else if ($objData->route == 'CHECKDATA') {
     echo $route;
 }

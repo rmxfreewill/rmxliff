@@ -3,6 +3,8 @@
 
 function getDataFromRoute()
 {
+    $objData = new stdClass;
+
     $LinkCode = '';
     if (isset($_POST['LinkCode']))
         $LinkCode = $_POST['LinkCode'];
@@ -26,4 +28,11 @@ function getDataFromRoute()
         $CmdCommand = $_POST['CmdCommand'];
     if (isset($_GET['CmdCommand']))
         $CmdCommand = $_GET['CmdCommand'];
+
+    $objData->LinkCode = $LinkCode;
+    $objData->route = $route;
+    $objData->LineId = $LineId;
+    $objData->CmdCommand = $CmdCommand;
+
+    return $objData;
 }
