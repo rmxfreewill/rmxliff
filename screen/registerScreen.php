@@ -30,37 +30,16 @@ if ($objData->route == 'MENU') {
     <link rel="stylesheet" href="../css/style.css">
 
     <script charset="utf-8" src="../js/jquery.js"></script>
-    <script charset="utf-8" src="../js/lineSdk.js"></script>
+    <script charset="utf-8" src="../js/lineSdk_2_18_1.js"></script>
     <script charset="utf-8" src="../js/rmx_liff_function.js"></script>
 </head>
 
 <body>
 
     <script>
-        async function initializeLiff(myLiffId) {
-            console.log('initializeLiff: ', myLiffId);
-            liff.init({
-                    liffId: myLiffId
-                })
-                .then(() => {
-                    if (liff.isLoggedIn()) {
-                        liff.getProfile().then(profile => {
-                                const userName = profile.displayName;
-                                const userId = profile.userId;
-                            })
-                            .catch((err) => {
-                                console.log('error ', err);
-                            });
-                    }
-                })
-                .catch((err) => {
-                    console.log('initializeLiff: ', err);
-                });
-        }
-
         $(function() {
             var myLiffId = "<?php echo LIFF_ID; ?>";
-            initializeLiff(myLiffId);
+            rmxInitializeLineLiff(myLiffId);
         });
     </script>
 </body>

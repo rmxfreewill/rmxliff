@@ -75,3 +75,24 @@ async function rmxInitializeLiff(myLiffId, type) {
             console.log("initializeLiff: " + err);
         });
 }
+
+async function rmxInitializeLineLiff(myLiffId) {
+    console.log('initializeLiff: ', myLiffId);
+    await liff.init({
+        liffId: myLiffId
+    })
+        .then(() => {
+            if (liff.isLoggedIn()) {
+                liff.getProfile().then(profile => {
+                    const userName = profile.displayName;
+                    const userId = profile.userId;
+                })
+                    .catch((err) => {
+                        console.log('error ', err);
+                    });
+            }
+        })
+        .catch((err) => {
+            console.log('initializeLiff: ', err);
+        });
+}
