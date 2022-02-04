@@ -172,7 +172,7 @@ if ($LinkCode == 'REGISTER') {
                 <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
                 <label for="psw"><b>Mobile</b></label>
                 <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
-                <button type="button" name="btnLogin" id="btnLogin" onclick="RegisterClick()">
+                <button type="button" name="btnLogin" id="btnLogin" onclick="hi()">
                     REGISTER
                 </button>
             <?php } else { ?>
@@ -220,6 +220,9 @@ if ($LinkCode == 'REGISTER') {
 
 
     <script>
+        function hi() {
+            alert('Hi');
+        }
         window.onload = function() {
 
 
@@ -318,9 +321,7 @@ if ($LinkCode == 'REGISTER') {
                 liff.closeWindow();
             }
 
-            function hi() {
-                alert();
-            }
+
 
 
             function RegisterClick() {
