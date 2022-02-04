@@ -238,11 +238,22 @@ if ($LinkCode == 'REGISTER') {
                 + "','"+ sLineDisplay+"','"+sTel
                 + "','"+ sEMail +"')";  
             */
-            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
-            var surl = document.getElementById('txtsURL').value;
-            url = surl + "frmRegister.php" + para;
-            window.location.assign(url);
+
+            if (sTel == '') {
+                alert("Input Telephone / Mobile");
+            } else if (sEMail == '') {
+                alert("Input Email");
+            } else {
+                if (sTel.length < 8) {
+                    alert("Telephone / Mobile must be at least 8 digits long");
+                } else {
+                    var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+                    var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+                    var surl = document.getElementById('txtsURL').value;
+                    url = surl + "frmRegister.php" + para;
+                    window.location.assign(url);
+                }
+            }
 
 
         }
