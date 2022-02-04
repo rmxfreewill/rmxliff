@@ -115,7 +115,7 @@ function getSoldToCode($CompanyUrl, $CmdCommand)
             }
         }
     }
-    echo 'Sold ' . $SoldToCode;
+
     return $SoldToCode;
 }
 
