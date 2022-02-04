@@ -166,8 +166,8 @@ if ($LinkCode == 'REGISTER') {
     <form class="animate" method="GET" enctype="multipart/form-data">
         <div class="login_container">
             <?php if ($sFlag == '0' || $sFlag == '') { ?>
-                <label for="uname"><b>Line Id</b></label>
-                <input type="text" id="txtLineId" readonly>
+                <!-- <label for="uname"><b>Line Id</b></label>
+                <input type="text" id="txtLineId" readonly> -->
                 <label for="psw"><b>EMail</b></label>
                 <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
                 <label for="psw"><b>Mobile</b></label>
@@ -211,6 +211,8 @@ if ($LinkCode == 'REGISTER') {
     <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
     <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
     <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
+    <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
+    <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
 
     </form>
 
@@ -316,7 +318,7 @@ if ($LinkCode == 'REGISTER') {
 
 
             function RegisterClick() {
-alert(userId);
+                alert(userId);
                 // var sLineId = document.getElementById('lblUserId').textContent;
 
                 var sLineId = userId;
