@@ -50,10 +50,9 @@ function regisForm($type)
 
 $objData = getDataFromRoute();
 if ($objData->route == 'MENU') {
-    regisForm($type);
     getDataFromDatabase($CompanyUrl, $CmdCommand);
 } else if ($objData->route == 'CHECKDATA') {
-    regisForm($type);
+
 }
 
 

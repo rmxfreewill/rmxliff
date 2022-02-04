@@ -41,6 +41,7 @@ function getDataFromDatabase($CompanyUrl, $CmdCommand)
     //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
     $SoldToCode = '';
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+    echo $RetCommand ;
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
