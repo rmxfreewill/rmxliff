@@ -48,14 +48,14 @@ function regisForm($type)
     return $regisForm;
 }
 
-$objData = getDataFromRoute();
-if ($objData->route == 'MENU') {
-    $getData = getDataFromDatabase($objData);
+$objDataFromRoute = getDataFromRoute();
+if ($objDataFromRoute->route == 'MENU') {
+    $getData = getDataFromDatabase($objDataFromRoute);
 } else if ($objData->route == 'CHECKDATA') {
-    $getData = registerDataToDatabase($objData);
+    $getData = registerDataToDatabase($objDataFromRoute);
 }
 
-echo $getData->RetCommand;
+// echo $getData->RetCommand;
 if ($getData->sFlag == '0') {
 
     echo 'No';

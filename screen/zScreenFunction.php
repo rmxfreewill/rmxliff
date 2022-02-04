@@ -72,6 +72,7 @@ function getDataFromDatabase($objParam) //select $sFlagMsg,$nFlag,$sTUserName,$s
                 // $sFlagChangeMenu = true;
             }
         }
+        echo $RetCommand;
         $objData->RetCommand = $RetCommand;
         $objData->sFlag = $sFlag;
     } else {
