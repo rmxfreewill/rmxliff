@@ -206,6 +206,7 @@ function initState($LinkCode, $LineId, $CmdCommand)
     // }
 }
 
+$para = "?LinkCode=REGISTER&LineId=" + $LineId;
 
 $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
 if ($sSoldToCode != '') {
@@ -213,8 +214,8 @@ if ($sSoldToCode != '') {
     $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
     rmxChangeMemberRichMenu('REGISTER', $LineId);
 } else if ($sSoldToCode == '') {
-    $para = "?LinkCode=REGISTER&LineId=" + $LineId;
-    $regisurl = $sURL . "frmRegister.php".$para;
+
+    $regisurl = $sURL . "frmRegister.php" . $para;
     header("Location: $regisurl");
 }
 
