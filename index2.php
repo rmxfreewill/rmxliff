@@ -23,10 +23,9 @@
     <script>
         $(function() {
             $("#rmxMenu").load("screen/profileScreen.php");
-        });
-        $("button").click(function() {
-            // alert('Hi');
-            $("#rmxMenu").load("frmTicket.php");
+            $("button").click(function() {
+                $("#rmxMenu").load("frmTicket.php");
+            });
         });
     </script>
 </body>
