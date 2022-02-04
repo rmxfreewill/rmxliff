@@ -1,19 +1,18 @@
 
 function rmxCloseWindow() {
-    liff.closeWindow();
-    // if (liff.getOS() != "web") {
-    //     liff.closeWindow();
-    // } else {
+    if (liff.getOS() != "web") {
+        liff.closeWindow();
+    } else {
 
-    //     var elementRegisterForm = document.getElementById('registerForm');
-    //     var elementSuccessMsg = document.getElementById('successMsg');
+        // var elementRegisterForm = document.getElementById('registerForm');
+        // var elementSuccessMsg = document.getElementById('successMsg');
 
-    //     elementRegisterForm.style.display = "none";
-    //     elementSuccessMsg.removeAttribute("hidden");
-
+        // elementRegisterForm.style.display = "none";
+        // elementSuccessMsg.removeAttribute("hidden");
 
 
-    // }
+
+    }
 }
 
 function getProfileLiffUserId() {

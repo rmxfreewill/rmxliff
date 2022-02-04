@@ -1,6 +1,5 @@
 <?php
 
-
 function getDataFromRoute()
 {
     $objData = new stdClass;
@@ -35,4 +34,33 @@ function getDataFromRoute()
     $objData->CmdCommand = $CmdCommand;
 
     return $objData;
+}
+
+function getDataFromDatabase($CompanyUrl, $CmdCommand)
+{
+    //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
+    $SoldToCode = '';
+    $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+    if ($RetCommand) {
+        $ASRet = [];
+        $ASRet = explode("^c", $RetCommand);
+        if (count($ASRet) >= 2) {
+            $sFlagMsg = $ASRet[0];
+            $sFlag = $ASRet[1];
+
+            $UserName = $ASRet[2];
+            $EMail = $ASRet[3];
+            $Tel = $ASRet[4];
+            $SoldToCode = $ASRet[5];
+            $SoldToName = $ASRet[6];
+
+            $sShowMsg = '0';
+            if ($sFlag != '0') {
+                $sTitle = 'View Register Info';
+                // $sFlagChangeMenu = true;
+            }
+        }
+    }
+
+    return $SoldToCode;
 }

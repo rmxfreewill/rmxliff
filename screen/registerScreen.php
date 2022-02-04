@@ -11,11 +11,51 @@ $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 
-$objData = getDataFromRoute();
-
-if ($objData->route == 'MENU') {
-} else if ($objData->route == 'CHECKDATA') {
+function regisForm($type)
+{
+    $arr[0] ='';
+    $arr[1] ='';
+    if ($type == true) {
+        $regisForm = '
+        <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
+        <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
+        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
+            CLOSE
+        </button>
+        ';
+    } else {
+        $regisForm = '
+        <label for="psw"><b>EMail</b></label>
+        <input type="email"
+            id="txtEMail" 
+            name="txtEMail"
+            placeholder="Enter EMail"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            maxlength="40"
+        required>
+        <label for="psw"><b>Mobile</b></label>
+        <input type="tel" 
+            placeholder="Enter Mobile" 
+            name="txtTel" id="txtTel" 
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
+            maxlength="10"
+        required>
+        <button type="button"  name="btnLogin" id="btnLogin" onclick="registerCheck()">
+            REGISTER
+        </button>
+        ';
+    }
+    return $regisForm;
 }
+
+$objData = getDataFromRoute();
+if ($objData->route == 'MENU') {
+    regisForm($type);
+    getDataFromDatabase($CompanyUrl, $CmdCommand);
+} else if ($objData->route == 'CHECKDATA') {
+    regisForm($type);
+}
+
 
 ?>
 <html>
