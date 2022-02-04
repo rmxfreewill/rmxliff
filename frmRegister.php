@@ -142,7 +142,7 @@ function initState($LinkCode, $LineId, $CmdCommand)
     $SoldToCode = '';
     $SoldToName = '';
 
-    
+
 
     //BUTTON
     if ($LinkCode == 'REGISTER') {
@@ -196,14 +196,18 @@ function initState($LinkCode, $LineId, $CmdCommand)
     }
 
     // if ($LinkCode == 'CHECK') {
-    $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
-    if ($sSoldToCode != '') {
-        $status = true;
-        $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
-        rmxChangeMemberRichMenu('REGISTER', $LineId);
-    }
+
     // }
 }
+
+
+$sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
+if ($sSoldToCode != '') {
+    $status = true;
+    $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
+    rmxChangeMemberRichMenu('REGISTER', $LineId);
+}
+
 
 initState($LinkCode, $LineId, $CmdCommand);
 
