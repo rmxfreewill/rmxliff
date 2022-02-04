@@ -207,17 +207,11 @@ function initState($LinkCode, $LineId, $CmdCommand)
 }
 
 
-
 $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
 if ($sSoldToCode != '') {
     $status = true;
     $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
     rmxChangeMemberRichMenu('REGISTER', $LineId);
-} else if ($sSoldToCode == '') {
-    $para = "?LinkCode=REGISTER&LineId=" . $LineId;
-    $regisurl = $sURL . "frmRegister.php" . $para;
-
-    header("Location: $regisurl");
 }
 
 
@@ -244,15 +238,19 @@ initState($LinkCode, $LineId, $CmdCommand);
     <div class="login_container">
         <form class="animate" method="GET" enctype="multipart/form-data">
             <?php
-            $regisForm = '
-    <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
-    <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
-    <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
-        CLOSE
-    </button>
-    ';
-            echo $regisForm;
-
+            if ($status == false) {
+            ?>
+                <label for="psw"><b>EMail</b></label>
+                <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
+                <label for="psw"><b>Mobile</b></label>
+                <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
+                <button type="button" name="btnLogin" id="btnLogin" onclick="registerCheck()">
+                    REGISTER
+                </button>
+            <?php
+            } else  if ($status == true) {
+                registerScreen($status, $arr);
+            }
             ?>
             <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
             <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
@@ -344,7 +342,7 @@ initState($LinkCode, $LineId, $CmdCommand);
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
                     var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
                     var surl = document.getElementById('txtsURL').value;
-                    url = surl + "frmRegister.php" + para;
+                    url = surl + "frmRegisterSuccess.php" + para;
                     window.location.assign(url);
                 }
             }
