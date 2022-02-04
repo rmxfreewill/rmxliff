@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
 
-    <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script charset="utf-8" src="js/lineSdk_2_18_1.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
 </head>
@@ -22,13 +22,16 @@
     <button id="page2">Page2</button>
 
     <script>
-        $(function() {
+        $(document).ready(function() {
             $("#rmxMenu").load("screen/profileScreen.php");
-            $("#page2").click(function() {
-                $("#rmxMenu").load("frmTicket.php");
-            });
             $("#page1").click(function() {
                 $("#rmxMenu").load("screen/profileScreen.php");
+            });
+            $("#page2").click(function() {
+                window.addEventListener("load", function(event) {
+                    $('#rmxMenu').load('frmTicket.php');
+
+                });
             });
         });
     </script>
