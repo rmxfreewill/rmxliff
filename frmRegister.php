@@ -84,8 +84,10 @@ function registerScreen($type, $arr)
         </button>
         ';
 
-    $scr = '<div class="login_container">' . $regisForm . '</div>';
-    return $scr;
+    // $scr = '<div class="login_container">' . $regisForm . '</div>';
+    // return $scr;
+
+    return $regisForm;
 }
 
 function getSoldToCode($CompanyUrl, $CmdCommand)
@@ -113,7 +115,7 @@ function getSoldToCode($CompanyUrl, $CmdCommand)
             }
         }
     }
-    echo $SoldToCode;
+    echo 'Sold ' . $SoldToCode;
     return $SoldToCode;
 }
 
@@ -224,17 +226,24 @@ if ($LinkCode == 'CHECK') {
 <body>
     <div class="login_container">
         <form class="animate" method="GET" enctype="multipart/form-data">
-            <label for="psw"><b>EMail</b></label>
-            <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
-            <label for="psw"><b>Mobile</b></label>
-            <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
-            <button type="button" name="btnLogin" id="btnLogin" onclick="registerCheck()">
-                REGISTER
-            </button>
+            <?php
+            if ($status == false) {
+            ?>
+                <label for="psw"><b>EMail</b></label>
+                <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
+                <label for="psw"><b>Mobile</b></label>
+                <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
+                <button type="button" name="btnLogin" id="btnLogin" onclick="registerCheck()">
+                    REGISTER
+                </button>
+            <?php
+            } else  if ($status == true) {
+                registerScreen($status, $arr);
+            }
+            ?>
             <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
             <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
             <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
-
             <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
             <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
             <input type="hidden" id="txtTitle" value="<?php echo $sTitle; ?>">
