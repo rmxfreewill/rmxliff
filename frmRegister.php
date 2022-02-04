@@ -210,13 +210,10 @@ if ($LinkCode == 'CHECK') {
 <html>
 
 <head>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <script charset="utf-8" src="rmx_liff_function.js"></script>
@@ -225,26 +222,26 @@ if ($LinkCode == 'CHECK') {
 </head>
 
 <body>
-    <form class="animate" method="GET" enctype="multipart/form-data">
-        <label for="psw"><b>EMail</b></label>
-        <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
-        <label for="psw"><b>Mobile</b></label>
-        <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
-        <button type="button" name="btnLogin" id="btnLogin" onclick="registerCheck()">
-            REGISTER
-        </button>
-        <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
-        <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-        <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
+    <div class="login_container">
+        <form class="animate" method="GET" enctype="multipart/form-data">
+            <label for="psw"><b>EMail</b></label>
+            <input type="email" id="txtEMail" name="txtEMail" placeholder="Enter EMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="40" required>
+            <label for="psw"><b>Mobile</b></label>
+            <input type="tel" placeholder="Enter Mobile" name="txtTel" id="txtTel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="10" required>
+            <button type="button" name="btnLogin" id="btnLogin" onclick="registerCheck()">
+                REGISTER
+            </button>
+            <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
+            <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
+            <input type="hidden" id="txtLineId" value="<?php echo $LineId; ?>">
 
-        <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
-        <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
-        <input type="hidden" id="txtTitle" value="<?php echo $sTitle; ?>">
-        <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
-        <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
-
-    </form>
-
+            <input type="hidden" id="txtFlag" value="<?php echo $sFlag; ?>">
+            <input type="hidden" id="txtShowMsg" value="<?php echo $sShowMsg; ?>">
+            <input type="hidden" id="txtTitle" value="<?php echo $sTitle; ?>">
+            <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
+            <input type="hidden" id="txtMsg" value="<?php echo $sFlagMsg; ?>">
+        </form>
+    </div>
     <script>
         // function displayLiffData() {
         //     if (document.getElementById('browserLanguage')) {
