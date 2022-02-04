@@ -353,7 +353,7 @@ if ($LinkCode == 'REGISTER') {
         function RegisterClick() {
 
             // var sLineId = document.getElementById('lblUserId').textContent;
-            var sLineId = document.getElementById('txtLineId').textContent;
+            var sLineId = document.getElementById('txtLineId').value;
             var sLineDisplay = document.getElementById('txtDisplay').value;
 
             var sCompanyCode = document.getElementById('txtCompanyCode').value;
