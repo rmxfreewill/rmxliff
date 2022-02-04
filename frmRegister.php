@@ -127,7 +127,7 @@ $sURL = sURL;
 
 $sFlagMsg = '';
 
-function checkRegister($LinkCode, $LineId, $CmdCommand)
+function initState($LinkCode, $LineId, $CmdCommand)
 {
     $CompanyUrl = COMPANY_URL;
     $RegisterUrl = REGISTER_URL;
@@ -140,6 +140,8 @@ function checkRegister($LinkCode, $LineId, $CmdCommand)
     $Tel = '';
     $SoldToCode = '';
     $SoldToName = '';
+
+    $status = false;
 
     //BUTTON
     if ($LinkCode == 'REGISTER') {
@@ -191,20 +193,18 @@ function checkRegister($LinkCode, $LineId, $CmdCommand)
 
 
     }
-}
 
-checkRegister($LinkCode, $LineId, $CmdCommand);
-
-$status = false;
-
-if ($LinkCode == 'CHECK') {
+    // if ($LinkCode == 'CHECK') {
     $sSoldToCode  = getSoldToCode($CompanyUrl, $CmdCommand);
     if ($sSoldToCode != '') {
         $status = true;
         $arrayList = [$EMail, $Tel, $SoldToCode, $SoldToName];
         rmxChangeMemberRichMenu('REGISTER', $LineId);
     }
+    // }
 }
+
+initState($LinkCode, $LineId, $CmdCommand);
 
 ?>
 
