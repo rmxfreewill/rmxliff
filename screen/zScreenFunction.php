@@ -41,9 +41,8 @@ function getDataFromRoute()
 function getDataFromDatabase($CompanyUrl, $CmdCommand)
 {
     //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
-    $SoldToCode = '';
+    $objData = new stdClass;
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
-    echo $RetCommand;
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
@@ -63,7 +62,9 @@ function getDataFromDatabase($CompanyUrl, $CmdCommand)
                 // $sFlagChangeMenu = true;
             }
         }
+        $objData->sFlag = $sFlag;
+    } else {
+        $objData->sFlag = '0';
     }
-
-    return $SoldToCode;
+    return $objData;
 }

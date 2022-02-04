@@ -50,8 +50,14 @@ function regisForm($type)
 
 $objData = getDataFromRoute();
 if ($objData->route == 'MENU') {
-    getDataFromDatabase($CompanyUrl, $objData->CmdCommand);
+    $getData = getDataFromDatabase($CompanyUrl, $objData->CmdCommand);
 } else if ($objData->route == 'CHECKDATA') {
+}
+
+if ($getData->sFlag == '0') {
+    echo 'No';
+} else {
+    echo 'Yes';
 }
 
 
