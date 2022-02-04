@@ -32,10 +32,11 @@ function getProfileLiffUserId() {
 
 function rmxSelectMenu(toMenu, userId) {
     var folder = 'screen/';
+    var routes = '?LinkCode=CHECK&route=MENU';
     var URL = document.getElementById('txtsURL').value;
     var sCompCode = document.getElementById('txtCompanyCode').value;
     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-    var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+    var para = routes + "&LineId=" + userId + "&CmdCommand=" + sCmd;
     switch (toMenu) {
         //
         case "registerScreen":
