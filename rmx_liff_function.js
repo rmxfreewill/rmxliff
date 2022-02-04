@@ -31,6 +31,7 @@ function getProfileLiffUserId() {
 }
 
 function rmxSelectMenu(toMenu, userId) {
+    var folder = 'screen/';
     var URL = document.getElementById('txtsURL').value;
     var sCompCode = document.getElementById('txtCompanyCode').value;
     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
@@ -38,7 +39,7 @@ function rmxSelectMenu(toMenu, userId) {
     switch (toMenu) {
         //
         case "registerScreen":
-            url = URL + "registerScreen.php" + para;
+            url = URL + folder + "registerScreen.php" + para;
             break;
         //
         case "register":
@@ -51,7 +52,7 @@ function rmxSelectMenu(toMenu, userId) {
             url = URL + "frmSearch.php" + para;
             break;
         case "profile":
-            url = URL + "registerScreen.php" + para;
+            url = URL + folder + "registerScreen.php" + para;
             break;
         // default:
         //     url = URL + "frmLogout.php" + para;
