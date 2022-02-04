@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
 
-    <script charset="utf-8" src="js/jquery.js"></script>
+    <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script charset="utf-8" src="js/lineSdk_2_18_1.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
 </head>
