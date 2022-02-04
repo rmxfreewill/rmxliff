@@ -74,7 +74,7 @@ if ($LinkCode == 'TICKET') {
                 $sTitle = 'TICKET';
 
                 $CmdCommand = "call sp_comp_select_ticket('" . $LineId . "','30/9/2018','30/12/2022')";
-echo $CmdCommand;
+
                 $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
             }
         }
