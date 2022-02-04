@@ -216,6 +216,7 @@ if ($sSoldToCode != '') {
 } else if ($sSoldToCode == '') {
 
     $regisurl = $sURL . "frmRegister.php" . $para;
+    echo $regisurl;
     header("Location: $regisurl");
 }
 
