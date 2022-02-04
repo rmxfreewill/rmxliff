@@ -13,8 +13,8 @@ $LiffId = LIFF_ID;
 
 function regisForm($type)
 {
-    $arr[0] ='';
-    $arr[1] ='';
+    $arr[0] = '';
+    $arr[1] = '';
     if ($type == true) {
         $regisForm = '
         <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
@@ -50,9 +50,8 @@ function regisForm($type)
 
 $objData = getDataFromRoute();
 if ($objData->route == 'MENU') {
-    getDataFromDatabase($CompanyUrl, $CmdCommand);
+    getDataFromDatabase($CompanyUrl, $objData->CmdCommand);
 } else if ($objData->route == 'CHECKDATA') {
-
 }
 
 
