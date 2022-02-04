@@ -318,7 +318,7 @@ if ($LinkCode == 'REGISTER') {
 
 
             function RegisterClick() {
-                alert(userId);
+
                 // var sLineId = document.getElementById('lblUserId').textContent;
 
                 var sLineId = document.getElementById('txtLineId').value;
