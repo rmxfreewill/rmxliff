@@ -37,13 +37,9 @@ function rmxSelectMenu(toMenu, userId) {
     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
     var para = routes + "&LineId=" + userId + "&CmdCommand=" + sCmd;
     switch (toMenu) {
-        //
-        case "registerScreen":
-            url = URL + folder + "registerScreen.php" + para;
-            break;
-        //
         case "register":
-            url = URL + "frmRegister.php" + para;
+            // url = URL + "frmRegister.php" + para;
+            url = URL + folder + "registerScreen.php" + para;
             break;
         case "ticket":
             url = URL + "frmTicket.php" + para;
@@ -52,7 +48,7 @@ function rmxSelectMenu(toMenu, userId) {
             url = URL + "frmSearch.php" + para;
             break;
         case "profile":
-            url = URL + folder + "registerScreen.php" + para;
+            url = URL + "frmProfile.php" + para;
             break;
         default:
             url = URL + folder + "registerScreen.php" + para;
