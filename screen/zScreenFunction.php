@@ -52,14 +52,19 @@ function getDataFromDatabase($objParam) //select $sFlagMsg,$nFlag,$sTUserName,$s
     $CmdCommand = $objParam->CmdCommand;
     $CompanyUrl = $GLOBALS['COMPANY_URL'];
 
-    $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+    $RetCommand = send_command(
+        $CompanyUrl,
+        '',
+        '',
+        $CmdCommand
+    );
+
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
         if (count($ASRet) >= 2) {
             $sFlagMsg = $ASRet[0];
             $sFlag = $ASRet[1];
-
             $UserName = $ASRet[2];
             $EMail = $ASRet[3];
             $Tel = $ASRet[4];

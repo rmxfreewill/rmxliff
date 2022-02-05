@@ -42,9 +42,9 @@ if (isset($_GET['menu']))
     <meta http-equiv="pragma" content="no-cache">
     <title>RMX LINE OFFICIAL</title>
 
+    <link rel="stylesheet" href="css/style.css">
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
     <script charset="utf-8" src="rmx_liff_function.js"></script>
-    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>

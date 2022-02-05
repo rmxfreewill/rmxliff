@@ -11,6 +11,8 @@ $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
 
+$regisType = false;
+
 function regisForm($type)
 {
     $arr[0] = '';
@@ -55,13 +57,8 @@ if ($objDataFromRoute->route == 'MENU') {
     $getData = registerDataToDatabase($objDataFromRoute);
 }
 
-// echo $getData->RetCommand;
 if ($getData->sFlag == '0') {
-
-    echo 'No';
-} else {
-
-    echo 'Yes';
+    $regisType = true;
 }
 
 
@@ -84,7 +81,9 @@ if ($getData->sFlag == '0') {
 </head>
 
 <body>
-
+    <?php
+    echo regisForm($regisType);
+    ?>
     <script>
         $(function() {
             var myLiffId = "<?php echo LIFF_ID; ?>";
