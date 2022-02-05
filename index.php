@@ -44,7 +44,7 @@ if (isset($_GET['menu']))
 
     <link rel="stylesheet" href="css/style.css">
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
-    <script charset="utf-8" src="rmx_liff_function.js"></script>
+    <script charset="utf-8" src="js/rmx_liff_function.js"></script>
 </head>
 
 <body>
