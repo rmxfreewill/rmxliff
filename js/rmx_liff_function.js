@@ -39,7 +39,7 @@ function rmxSelectMenu(toMenu, userId) {
     switch (toMenu) {
         case "register":
             // url = URL + "frmRegister.php" + para;
-            url = URL + folder + "registerScreen.php" + para;
+            url = URL + folder + "registerScreen.php" + para; 
             break;
         case "ticket":
             url = URL + "frmTicket.php" + para;
