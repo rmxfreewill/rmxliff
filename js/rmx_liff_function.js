@@ -23,25 +23,23 @@ function rmxGetParams() {
     return param;
 }
 
-function rmxSelectMenu(toMenu = String, userId = String,sCompCode = String) {
+function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCompCode = String) {
     //paramCmdCommand
     // var sCompCode = document.getElementById('txtCompanyCode').value;
     var sCmd = '';
     sCmd = toMenu=='register' ?? "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
     var paramCmdCommand = "&CmdCommand=" + sCmd;
-    alert(paramCmdCommand);
+
     //paramUserId
     var paramUserId = "&LineId=" + userId;
-    alert(paramUserId);
+
     //paramRoutes
     var RoutesStatus = "status=init";
     var paramRoutes = RoutesStatus + '&route=' + toMenu;
-    alert(paramRoutes);
-    var param = "?" + paramRoutes + paramUserId + paramCmdCommand;
-    var url = document.getElementById('txtsURL').value + "index.php";
-    var selectMenu = url + param;
 
-    alert(selectMenu);
+    var param = "?" + paramRoutes + paramUserId + paramCmdCommand;
+    var url = sUrl + "index.php";
+    var selectMenu = url + param;
 
     return selectMenu;
 }

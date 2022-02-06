@@ -71,11 +71,23 @@ $GLOBALS['sURL'] =   sURL;
                             .then(profile => {
                                 const userIdProfile = profile.userId;
                                 const sCompCode = "<? echo COMPANY_CODE; ?>";
-                                alert(sCompCode);
+                                const sUrl = "<? echo sURL; ?>";
+
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam.menu;
-                                alert(toMenu);
-                                var urlSelectMenu = rmxSelectMenu(toMenu, userIdProfile, sCompCode);
+                                var toStatus = getParam.status;
+                                if (toStatus == null) {
+                                    var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
+                                    window.location.assign(urlSelectMenu);
+                                } else if (toStatus == 'init') {
+                                    if (toMenu == "register") {
+                                        menuUrl = "menu/registerMenu.php";
+                                        $("#rmxLiFFLayout").load(menuUrl);
+                                    }
+                                }
+
+
+
 
                             })
                             .catch((err) => {
