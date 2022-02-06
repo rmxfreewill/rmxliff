@@ -52,8 +52,7 @@ function regisForm($type)
 
 
 
-$parameter = $_SERVER['QUERY_STRING'];
-echo $parameter;  
+echo parse_url($url);
 
 $CmdCommand = '';
 if (isset($_POST['CmdCommand']))
@@ -101,7 +100,7 @@ if ($getData->sFlag == '0') {
     echo regisForm($regisType);
     ?>
     <script>
-        var urlS = new URL(document.URL);
+        // var urlS = new URL(document.URL);
         // alert(urlS);
     </script>
 </body>
