@@ -50,7 +50,7 @@ function regisForm($type)
 }
 
 $getDataFromUrl = getDataFromUrl($CompanyUrl);
-// $getData = getDataFromDatabase($getDataFromUrl);
+$getData = getDataFromDatabase($getDataFromUrl);
 
 
 
