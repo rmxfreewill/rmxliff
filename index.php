@@ -17,7 +17,7 @@ $GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
 $GLOBALS['LIFF_ID'] =   LIFF_ID;
 $GLOBALS['sURL'] =   sURL;
 
-    getDataFromRoute();
+
 
 ?>
 
