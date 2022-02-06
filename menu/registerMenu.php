@@ -4,7 +4,7 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 
 // include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
-include("zScreenFunction.php");
+include("zMenuFunction.php");
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
@@ -85,10 +85,7 @@ if ($getData->sFlag == '0') {
     echo regisForm($regisType);
     ?>
     <script>
-        $(function() {
-            var myLiffId = "<?php echo LIFF_ID; ?>";
-            rmxInitializeLineLiff(myLiffId);
-        });
+       
     </script>
 </body>
 

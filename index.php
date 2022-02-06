@@ -71,14 +71,17 @@ if (isset($_GET['menu']))
     <!-- </form> -->
 
     <script>
-        window.onload = function() {
+        $(function() {
             var companyCode = "<? echo COMPANY_CODE; ?>";
             var myLiffId = "<? echo LIFF_ID; ?>";
             rmxInitializeLineLiff(myLiffId, companyCode);
             var getParam = rmxGetParams();
-            console.log(getParam["menu"]);
-
-        }
+            var toMenu = getParam["menu"];
+            if (toMenu == "register") {
+                url = "menu/registerMenu.php";
+                $("#rmxLiFFLayout").load(url);
+            }
+        });
     </script>
 </body>
 
