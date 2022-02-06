@@ -67,13 +67,15 @@ $GLOBALS['sURL'] =   sURL;
                 })
                 .then(() => {
                     if (liff.isLoggedIn()) {
+                        alert('Hi');
                         liff.getProfile().then(profile => {
                                 var userIdProfile = profile.userId;
+
                                 var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
 alert(userIdProfile);
                                 var getParam = rmxGetParams();
                                 var toStatus = getParam["status"];
-                                alert(toStatus);
+alert(toStatus);
                                 if (toStatus == null) {
                                     window.location.assign(url);
                                 } else if (toStatus == "init") {
