@@ -60,16 +60,14 @@ $GLOBALS['sURL'] =   sURL;
                                 var toMenu = getParam.menu;
                                 var toStatus = getParam.status;
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
-                                var urlS = urlSelectMenu.selectMenu;
+                                var urlS = urlSelectMenu[0];
                                 if (toStatus == null) {
                                     window.location.assign(urlS);
                                 } else if (toStatus == 'init') {
                                     var menuUrl = "menu/blankMenu.php";
-                                    var urlP = urlSelectMenu.param;
-                                    alert('urlP: ' + urlP);
+                                    var urlP = urlSelectMenu[1];
                                     if (toMenu == "register") {
-                                        // menuUrl = "menu/registerMenu.php" + urlP;
-                                        menuUrl = "menu/registerMenu.php";
+                                        menuUrl = "menu/registerMenu.php" + urlP;
                                     } else if (toMenu == "ticket") {
 
                                     } else if (toMenu == "profile") {

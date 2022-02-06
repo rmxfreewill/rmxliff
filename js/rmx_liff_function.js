@@ -30,7 +30,7 @@ function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCompCode
     var url = sUrl + "index.php";
     var selectMenu = url + param;
 
-    const rmxSelectMenu = {selectMenu:selectMenu,param:param};
+    const rmxSelectMenu = [selectMenu,param];
 
     return rmxSelectMenu;
 }
