@@ -14,11 +14,11 @@ function rmxGetParams() {
 }
 
 function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCompCode = String) {
-    
+
     //paramCmdCommand
-    // var sCmd = '';
-    // sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-    // var paramCmdCommand = "&CmdCommand=" + sCmd;
+    var sCmd = '';
+    sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+    var paramCmdCommand = "&CmdCommand=" + sCmd;
 
     //paramUserId
     var paramUserId = "&LineId=" + userId;
@@ -27,7 +27,7 @@ function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCompCode
     var RoutesStatus = "status=init";
     var paramRoutes = RoutesStatus + '&menu=' + toMenu;
 
-    var param = "?" + paramRoutes + paramUserId;
+    var param = "?" + paramRoutes + paramUserId +paramCmdCommand;
     var url = sUrl + "index.php";
     var selectMenu = url + param;
 
