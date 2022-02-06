@@ -11,7 +11,7 @@ $GLOBALS['REGISTER_URL'] =   REGISTER_URL;
 $GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
 
 
-function getDataFromMenu()
+function getDataFromUrl()
 {
     $objData = new stdClass;
 

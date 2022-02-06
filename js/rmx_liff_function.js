@@ -19,7 +19,6 @@ function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCompCode
     var sCmd = '';
     sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
     var paramCmdCommand = "&CmdCommand=" + sCmd;
-alert(sCmd);
     //paramUserId
     var paramUserId = "&LineId=" + userId;
 

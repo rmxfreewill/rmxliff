@@ -51,7 +51,9 @@ function regisForm($type)
 }
 
 
-// $objDataFromMenu = getDataFromMenu();
+$getDataFromUrl = getDataFromUrl();
+$getData = getDataFromDatabase($getDataFromUrl);
+
 
 
 // if ($objDataFromMenu->menu == 'MENU') {
@@ -60,9 +62,9 @@ function regisForm($type)
 //     $getData = registerDataToDatabase($objDataFromMenu);
 // }
 
-// if ($getData->sFlag == '0') {
-//     $regisType = true;
-// }
+if ($getData->sFlag == '0') {
+    $regisType = true;
+}
 
 
 ?>
@@ -85,11 +87,11 @@ function regisForm($type)
 
 <body>
     <?php
-    // echo regisForm($regisType);
+    echo regisForm($regisType);
     ?>
     <script>
         var urlS = new URL(document.URL);
-alert(urlS);
+        alert(urlS);
     </script>
 </body>
 
