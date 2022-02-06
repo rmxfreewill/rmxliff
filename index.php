@@ -42,22 +42,7 @@ $GLOBALS['sURL'] =   sURL;
 </head>
 
 <body>
-
     <div id="rmxLiFFLayout"></div>
-
-    <!-- <form method="GET" enctype="multipart/form-data" action="index.php"> -->
-    <!-- <input type="hidden" id="txtCompanyCode" value="<?php //echo $CompanyCode; 
-                                                            ?>"> -->
-    <!-- <input type="hidden" id="txtFunction" value="<?php //echo $Function; 
-                                                        ?>"> -->
-    <!-- <input type="hidden" id="txtMenu" value="<?php //echo $menu; 
-                                                    ?>"> -->
-    <!-- <input type="hidden" id="txtLiffId" value="<?php //echo $LiffId; 
-                                                    ?>"> -->
-    <!-- <input type="hidden" id="txtsURL" value="<?php //echo $sURL; 
-                                                    ?>"> -->
-    <!-- </form> -->
-
     <script>
         async function rmxInitializeLineLiff(myLiffId = String) {
             await liff.init({
