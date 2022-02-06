@@ -65,9 +65,9 @@ $GLOBALS['sURL'] =   sURL;
                                     window.location.assign(urlS);
                                 } else if (toStatus == 'init') {
                                     var menuUrl = "menu/blankMenu.php";
-                                    var urlP = urlSelectMenu[1];
+                                    // var urlP = urlSelectMenu[1];
                                     if (toMenu == "register") {
-                                        menuUrl = "menu/registerMenu.php" + urlP;
+                                        menuUrl = "menu/registerMenu.php";
                                     } else if (toMenu == "ticket") {
 
                                     } else if (toMenu == "profile") {
@@ -75,7 +75,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "history") {
 
                                     }
-                                    $("#rmxLiFFLayout").load("menu/registerMenu.php?aa=hi");
+                                    $("#rmxLiFFLayout").load(menuUrl);
                                 }
                             })
                             .catch((err) => {

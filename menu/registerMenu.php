@@ -77,7 +77,7 @@ if (isset($_GET['CmdCommand']))
 //     $regisType = true;
 // }
 
-
+echo "menu: ".$_GET["menu"];
 
 ?>
 <!DOCTYPE HTML>
