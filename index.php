@@ -70,7 +70,7 @@ $GLOBALS['sURL'] =   sURL;
                         liff.getProfile().then(profile => {
                                 var userIdProfile = profile.userId;
                                 var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
-
+alert(userIdProfile);
                                 var getParam = rmxGetParams();
                                 var toStatus = getParam["status"];
                                 alert(toStatus);
