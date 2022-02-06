@@ -68,6 +68,7 @@ $GLOBALS['sURL'] =   sURL;
                 })
                 .then(() => {
                     console.log('initializeLiff isLoggedIn: ', liff.isLoggedIn());
+                    liff.login();
                     if (liff.isLoggedIn()) {
                         
                         liff.getProfile().then(profile => {
