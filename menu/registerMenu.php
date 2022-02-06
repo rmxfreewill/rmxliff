@@ -77,7 +77,8 @@ if (isset($_GET['CmdCommand']))
 //     $regisType = true;
 // }
 
-echo "Say: ".$_GET["say"];
+
+echo "CmdCommand: ".$_GET["CmdCommand"];
 
 ?>
 <!DOCTYPE HTML>
