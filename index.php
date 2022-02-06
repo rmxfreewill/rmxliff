@@ -61,11 +61,13 @@ $GLOBALS['sURL'] =   sURL;
                                 var toStatus = getParam.status;
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
                                 var urlS = urlSelectMenu.selectMenu;
-                                var urlP = urlSelectMenu.param;
+                                alert(urlS);
+                                alert(urlP);
                                 if (toStatus == null) {
-                                    window.location.assign(urlSelectMenu);
+                                    window.location.assign(urlS);
                                 } else if (toStatus == 'init') {
                                     var menuUrl = "menu/blankMenu.php";
+                                    var urlP = urlSelectMenu.param;
                                     if (toMenu == "register") {
                                         menuUrl = "menu/registerMenu.php" + urlP;
                                     } else if (toMenu == "ticket") {

@@ -103,11 +103,9 @@ echo $_SERVER['PHP_SELF'];
     <?php
     echo regisForm($regisType);
     ?>
-    <input type="hidden" id="urlS" name="urlS"></input>
     <script>
         var urlS = new URL(document.URL);
-        document.getElementById("urlS").setAttribute('value', urlS);
-        // alert(urlS);
+        alert(urlS);
     </script>
 </body>
 
