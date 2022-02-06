@@ -62,36 +62,43 @@ $GLOBALS['sURL'] =   sURL;
 
     <script>
         async function rmxInitializeLineLiff(myLiffId = String, sCompCode = String) {
-            console.log('initializeLiff: ', myLiffId);
             await liff.init({
                     liffId: myLiffId
                 })
                 .then(() => {
                     console.log('initializeLiff isLoggedIn: ', liff.isLoggedIn());
-                    liff.login();
-                    if (liff.isLoggedIn()) {
-                        
-                        liff.getProfile().then(profile => {
-                                var userIdProfile = profile.userId;
-                                var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
 
-                                var getParam = rmxGetParams();
-                                var toStatus = getParam["status"];
-                                if (toStatus == null) {
-                                    window.location.assign(url);
-                                } else if (toStatus == "init") {
-                                    var toMenu = getParam["menu"];
-                                    if (toMenu == "register") {
-                                        menuUrl = "menu/registerMenu.php";
-                                        $("#rmxLiFFLayout").load(menuUrl);
-                                    }
-                                }
-                                console.log(getParam);
-                            })
-                            .catch((err) => {
-                                console.log('error ', err);
-                            });
+                    if (!liff.isLoggedIn()) {
+                        liff.login({
+
+                        });
+                    } else {
+                        alert("OK");
                     }
+
+                    // if (liff.isLoggedIn()) {
+
+                    //     liff.getProfile().then(profile => {
+                    //             var userIdProfile = profile.userId;
+                    //             var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
+
+                    //             var getParam = rmxGetParams();
+                    //             var toStatus = getParam["status"];
+                    //             if (toStatus == null) {
+                    //                 window.location.assign(url);
+                    //             } else if (toStatus == "init") {
+                    //                 var toMenu = getParam["menu"];
+                    //                 if (toMenu == "register") {
+                    //                     menuUrl = "menu/registerMenu.php";
+                    //                     $("#rmxLiFFLayout").load(menuUrl);
+                    //                 }
+                    //             }
+                    //             console.log(getParam);
+                    //         })
+                    //         .catch((err) => {
+                    //             console.log('error ', err);
+                    //         });
+                    // }
                 })
                 .catch((err) => {
                     console.log('err initializeLiff: ', err);
