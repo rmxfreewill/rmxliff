@@ -89,37 +89,12 @@ $GLOBALS['sURL'] =   sURL;
 
                                     }
 
-                                    menuUrl != null ?? $("#rmxLiFFLayout").load(menuUrl);
+                                    menuUrl != null ?? $("#rmxLiFFLayout").load("registerMenu.php");
                                 }
-
-
-
-
                             })
                             .catch((err) => {
                                 console.log('error', err);
                             });
-
-
-
-
-                        //                                 var getParam = rmxGetParams();
-                        //                                 var toStatus = getParam["status"];
-                        // alert(toStatus);
-                        //                                 if (toStatus == null) {
-                        //                                     window.location.assign(url);
-                        //                                 } else if (toStatus == "init") {
-                        //                                     var toMenu = getParam["menu"];
-                        //                                     if (toMenu == "register") {
-                        //                                         menuUrl = "menu/registerMenu.php";
-                        //                                         $("#rmxLiFFLayout").load(menuUrl);
-                        //                                     }
-                        //                                 }
-                        //                                 console.log(getParam);
-                        //                             })
-                        //                             .catch((err) => {
-                        //                                 console.log('error ', err);
-                        //                             });
                     }
                 })
                 .catch((err) => {
