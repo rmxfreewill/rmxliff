@@ -6,7 +6,7 @@ ini_set('display_errors', 'On');
 include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
 include($_SERVER['DOCUMENT_ROOT'] . "/rmxLineFunction.php");
 
-function getDataFromUrl($CompanyUrl)
+function getDataFromUrl($CompanyCode)
 {
     $objData = new stdClass;
 
@@ -23,7 +23,7 @@ function getDataFromUrl($CompanyUrl)
         $LineId = $_GET['LineId'];
 
     if ($menu == "register") {
-        $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyUrl . "')";
+        $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
     } else {
         $CmdCommand = '';
     }
@@ -31,17 +31,16 @@ function getDataFromUrl($CompanyUrl)
 
     $objData->menu = $menu;
     $objData->LineId = $LineId;
-    $objData->CompanyUrl = $CompanyUrl;
+    $objData->CompanyCode = $CompanyCode;
     $objData->CmdCommand = $CmdCommand;
 
     return $objData;
 }
 
-function getDataFromDatabase($objParam) //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
+function getDataFromDatabase($CompanyUrl,$objParam) //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
 {
     $objData = new stdClass;
     $CmdCommand = $objParam->CmdCommand;
-    $CompanyUrl =  $objParam->CompanyUrl;
     $RetCommand = send_command(
         $CompanyUrl,
         '',

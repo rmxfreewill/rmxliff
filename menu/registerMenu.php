@@ -49,8 +49,8 @@ function regisForm($type)
     return $regisForm;
 }
 
-$getDataFromUrl = getDataFromUrl($CompanyUrl);
-$getData = getDataFromDatabase($getDataFromUrl);
+$getDataFromUrl = getDataFromUrl($CompanyCode);
+$getData = getDataFromDatabase($CompanyUrl, $getDataFromUrl);
 
 
 
