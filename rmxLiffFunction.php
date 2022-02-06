@@ -115,17 +115,17 @@ function getDataFromRoute()
     // if (isset($_GET['LinkCode']))
     //     $LinkCode = $_GET['LinkCode'];
 
-    $route = '';
-    if (isset($_POST['route']))
-        $route = $_POST['route'];
-    if (isset($_GET['route']))
-        $route = $_GET['route'];
+    // $route = '';
+    // if (isset($_POST['route']))
+    //     $route = $_POST['route'];
+    // if (isset($_GET['route']))
+    //     $route = $_GET['route'];
 
     $menu = '';
     if (isset($_POST['menu']))
-        $route = $_POST['menu'];
+        $menu = $_POST['menu'];
     if (isset($_GET['menu']))
-        $route = $_GET['menu'];
+        $menu = $_GET['menu'];
 
     $LineId = '';
     if (isset($_POST['LineId']))
@@ -140,7 +140,7 @@ function getDataFromRoute()
         $CmdCommand = $_GET['CmdCommand'];
 
     // $objData->LinkCode = $LinkCode;
-    $objData->route = $route;
+    // $objData->route = $route;
     $objData->menu = $menu;
     $objData->LineId = $LineId;
     $objData->CmdCommand = $CmdCommand;

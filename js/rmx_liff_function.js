@@ -35,7 +35,7 @@ function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCompCode
 
     //paramRoutes
     var RoutesStatus = "status=init";
-    var paramRoutes = RoutesStatus + '&route=' + toMenu;
+    var paramRoutes = RoutesStatus + '&menu=' + toMenu;
 
     var param = "?" + paramRoutes + paramUserId + paramCmdCommand;
     var url = sUrl + "index.php";
