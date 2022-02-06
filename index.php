@@ -61,8 +61,7 @@ $GLOBALS['sURL'] =   sURL;
                                 var toStatus = getParam.status;
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
                                 var urlS = urlSelectMenu[0];
-                                alert('urlS: ' + urlSelectMenu[0]);
-                                alert('Param: ' + urlSelectMenu[1]);
+                                alert('Param: ' + typeof(urlSelectMenu[1]));
                                 if (toStatus == null) {
                                     window.location.assign(urlS);
                                 } else if (toStatus == 'init') {
