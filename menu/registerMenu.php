@@ -53,14 +53,14 @@ function regisForm($type)
 
 
 
-echo $mm;
+
 
 $CmdCommand = '';
 if (isset($_POST['CmdCommand']))
     $CmdCommand = $_POST['CmdCommand'];
 if (isset($_GET['CmdCommand']))
     $CmdCommand = $_GET['CmdCommand'];
-echo $CmdCommand;
+
 
 $getDataFromUrl = getDataFromUrl($CompanyUrl);
 $getData = getDataFromDatabase($getDataFromUrl);
@@ -78,6 +78,8 @@ if ($getData->sFlag == '0') {
 }
 
 echo $_GET["urlS"];
+
+echo $_SERVER['PHP_SELF'];
 
 ?>
 <!DOCTYPE HTML>
