@@ -73,7 +73,7 @@ if (isset($_GET['menu']))
         }
 
         window.onload = function() {
-            var myLiffId = document.getElementById('txtLiffId').value;
+            var myLiffId = "<? echo LIFF_ID; ?>";
             rmxInitializeLineLiff(myLiffId);
             rmxToMenu();
 
