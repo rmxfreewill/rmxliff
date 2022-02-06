@@ -62,8 +62,8 @@ if (isset($_GET['CmdCommand']))
     $CmdCommand = $_GET['CmdCommand'];
 
 
-$getDataFromUrl = getDataFromUrl($CompanyUrl);
-$getData = getDataFromDatabase($getDataFromUrl);
+// $getDataFromUrl = getDataFromUrl($CompanyUrl);
+// $getData = getDataFromDatabase($getDataFromUrl);
 
 
 
