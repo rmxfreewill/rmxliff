@@ -6,12 +6,7 @@ ini_set('display_errors', 'On');
 include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
 include($_SERVER['DOCUMENT_ROOT'] . "/rmxLineFunction.php");
 
-$GLOBALS['COMPANY_URL'] =  COMPANY_URL;
-$GLOBALS['REGISTER_URL'] =   REGISTER_URL;
-$GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
-
-
-function getDataFromUrl()
+function getDataFromUrl($CompanyUrl)
 {
     $objData = new stdClass;
 
@@ -37,6 +32,7 @@ function getDataFromUrl()
     // $objData->route = $route;
     $objData->menu = $menu;
     $objData->LineId = $LineId;
+    $objData->CompanyUrl = $CompanyUrl;
     $objData->CmdCommand = $CmdCommand;
 
     return $objData;
@@ -46,7 +42,7 @@ function getDataFromDatabase($objParam) //select $sFlagMsg,$nFlag,$sTUserName,$s
 {
     $objData = new stdClass;
     $CmdCommand = $objParam->CmdCommand;
-    $CompanyUrl = $GLOBALS['COMPANY_URL'];
+    $CompanyUrl =  $objParam->CompanyUrl;
     $RetCommand = send_command(
         $CompanyUrl,
         '',

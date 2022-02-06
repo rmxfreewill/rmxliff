@@ -49,16 +49,16 @@ function regisForm($type)
     return $regisForm;
 }
 
+echo $_SERVER['REQUEST_URI'];   
+
 $CmdCommand = '';
 if (isset($_POST['CmdCommand']))
     $CmdCommand = $_POST['CmdCommand'];
 if (isset($_GET['CmdCommand']))
     $CmdCommand = $_GET['CmdCommand'];
 echo $CmdCommand;
-    echo $CompanyUrl;
 
-
-$getDataFromUrl = getDataFromUrl();
+$getDataFromUrl = getDataFromUrl($CompanyUrl);
 $getData = getDataFromDatabase($getDataFromUrl);
 
 
@@ -98,7 +98,7 @@ if ($getData->sFlag == '0') {
     ?>
     <script>
         var urlS = new URL(document.URL);
-        alert(urlS);
+        // alert(urlS);
     </script>
 </body>
 
