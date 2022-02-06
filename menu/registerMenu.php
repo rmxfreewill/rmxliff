@@ -59,7 +59,7 @@ if (isset($_GET['CmdCommand']))
 
 
 $getDataFromUrl = getDataFromUrl($CompanyUrl);
-$getData = getDataFromDatabase($getDataFromUrl);
+// $getData = getDataFromDatabase($getDataFromUrl);
 
 
 
@@ -74,7 +74,6 @@ $getData = getDataFromDatabase($getDataFromUrl);
 // }
 
 
-echo "menu: ".$objDataFromMenu->menu;
 
 ?>
 <!DOCTYPE HTML>

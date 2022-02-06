@@ -34,7 +34,7 @@ function getDataFromUrl($CompanyUrl)
     $objData->LineId = $LineId;
     $objData->CompanyUrl = $CompanyUrl;
     $objData->CmdCommand = $CmdCommand;
-
+echo $objData->menu;
     return $objData;
 }
 
