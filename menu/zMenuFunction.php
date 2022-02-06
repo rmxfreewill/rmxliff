@@ -48,7 +48,7 @@ function getDataFromDatabase($objParam) //select $sFlagMsg,$nFlag,$sTUserName,$s
         '',
         $CmdCommand
     );
-
+echo  $RetCommand;
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
