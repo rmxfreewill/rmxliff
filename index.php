@@ -68,38 +68,33 @@ $GLOBALS['sURL'] =   sURL;
                 })
                 .then(() => {
                     if (liff.isLoggedIn()) {
+                        console.log('initializeLiff isLoggedIn: ', myLiffId);
                         liff.getProfile().then(profile => {
-                                if (liff.isLoggedIn()) {
-                                    var userIdProfile = profile.userId;
-                                    var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
+                                var userIdProfile = profile.userId;
+                                var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
 
-                                    var getParam = rmxGetParams();
-                                    var toStatus = getParam["status"];
-                                    if (toStatus == null) {
-                                        window.location.assign(url);
-                                    } else if (toStatus == "init") {
-                                        var toMenu = getParam["menu"];
-                                        if (toMenu == "register") {
-                                            menuUrl = "menu/registerMenu.php";
-                                            $("#rmxLiFFLayout").load(menuUrl);
-                                        }
+                                var getParam = rmxGetParams();
+                                var toStatus = getParam["status"];
+                                if (toStatus == null) {
+                                    window.location.assign(url);
+                                } else if (toStatus == "init") {
+                                    var toMenu = getParam["menu"];
+                                    if (toMenu == "register") {
+                                        menuUrl = "menu/registerMenu.php";
+                                        $("#rmxLiFFLayout").load(menuUrl);
                                     }
-
-
-                                    console.log(getParam);
-
-
-                                } else {
-                                    liff.login();
                                 }
+                                console.log(getParam);
                             })
                             .catch((err) => {
                                 console.log('error ', err);
                             });
+                    } else {
+                        liff.login();
                     }
                 })
                 .catch((err) => {
-                    console.log('initializeLiff: ', err);
+                    console.log('err initializeLiff: ', err);
                 });
         }
 
