@@ -61,7 +61,7 @@ $GLOBALS['sURL'] =   sURL;
     <!-- </form> -->
 
     <script>
-        async function rmxInitializeLineLiff(myLiffId = String, sCompCode = String) {
+        async function rmxInitializeLineLiff(myLiffId = String) {
             await liff.init({
                     liffId: myLiffId
                 })
@@ -70,20 +70,21 @@ $GLOBALS['sURL'] =   sURL;
 
                         liff.getProfile()
                             .then(profile => {
-                                const nameProfile = profile.displayName
                                 const userIdProfile = profile.userId;
-                                alert(userIdProfile);
+                                const sCompCode = "<? echo COMPANY_CODE; ?>";
+
+                                var getParam = rmxGetParams();
+                                var toMenu = getParam["menu"];
+                                var urlSelectMenu = rmxSelectMenu(toMenu, userIdProfile, sCompCode);
+                                alert(urlSelectMenu);
                             })
                             .catch((err) => {
                                 console.log('error', err);
                             });
 
 
-                        //                         liff.getProfile().then(profile => {
-                        //                                 var userIdProfile = profile.userId;
 
-                        //                                 var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
-                        // 
+
                         //                                 var getParam = rmxGetParams();
                         //                                 var toStatus = getParam["status"];
                         // alert(toStatus);
@@ -109,9 +110,8 @@ $GLOBALS['sURL'] =   sURL;
         }
 
         $(function() {
-            var companyCode = "<? echo COMPANY_CODE; ?>";
             var myLiffId = "<? echo LIFF_ID; ?>";
-            rmxInitializeLineLiff(myLiffId, companyCode);
+            rmxInitializeLineLiff(myLiffId);
         });
     </script>
 </body>
