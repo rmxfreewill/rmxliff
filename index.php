@@ -74,7 +74,7 @@ $GLOBALS['sURL'] =   sURL;
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam.menu;
                                 var urlSelectMenu = rmxSelectMenu(toMenu, userIdProfile, sCompCode);
-                     alert(urlSelectMenu);
+
                             })
                             .catch((err) => {
                                 console.log('error', err);
