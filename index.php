@@ -73,8 +73,8 @@ $GLOBALS['sURL'] =   sURL;
                                 const sCompCode = "<? echo COMPANY_CODE; ?>";
 
                                 var getParam = rmxGetParams();
-                                var toMenu = getParam["menu"];
-                                var urlSelectMenu = rmxSelectMenu(toMenu, userIdProfile, sCompCode);
+                                // var toMenu = getParam["menu"];
+                                // var urlSelectMenu = rmxSelectMenu(toMenu, userIdProfile, sCompCode);
                      
                             })
                             .catch((err) => {
