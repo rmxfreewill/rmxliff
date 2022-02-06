@@ -23,7 +23,7 @@ function getDataFromUrl($CompanyUrl)
         $LineId = $_GET['LineId'];
 
     if ($menu == "register") {
-        $CmdCommand = "call sp_main_check_register ('" + $LineId + "','" + $CompanyUrl + "')";
+        $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyUrl . "')";
     } else {
         $CmdCommand = '';
     }
