@@ -76,6 +76,8 @@ $GLOBALS['sURL'] =   sURL;
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam.menu;
                                 var toStatus = getParam.status;
+                                alert(toStatus);
+                                alert(sUrl);
                                 if (toStatus == null) {
                                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
                                     window.location.assign(urlSelectMenu);
