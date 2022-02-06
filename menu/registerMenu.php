@@ -103,7 +103,7 @@ if (isset($_GET['CmdCommand']))
     ?>
     <script>
         var urlS = new URL(document.URL);
-        alert(urlS);
+        alert('urlS: ' + urlS);
     </script>
 </body>
 
