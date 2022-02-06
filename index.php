@@ -70,11 +70,10 @@ $GLOBALS['sURL'] =   sURL;
                     if (liff.isLoggedIn()) {
                         liff.getProfile().then(profile => {
                                 if (liff.isLoggedIn()) {
-                                    var getParam = rmxGetParams();
-
                                     var userIdProfile = profile.userId;
                                     var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
-
+                                    
+                                    var getParam = rmxGetParams();
                                     var toStatus = getParam["status"];
                                     if (toStatus == null) {
                                         window.location.assign(url);
