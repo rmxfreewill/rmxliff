@@ -71,8 +71,10 @@ $GLOBALS['sURL'] =   sURL;
                             .then(profile => {
                                 const userIdProfile = profile.userId;
                                 const sCompCode = "<? echo COMPANY_CODE; ?>";
+                                alert(sCompCode);
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam.menu;
+                                alert(toMenu);
                                 var urlSelectMenu = rmxSelectMenu(toMenu, userIdProfile, sCompCode);
 
                             })
