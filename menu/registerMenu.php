@@ -77,7 +77,7 @@ if (isset($_GET['CmdCommand']))
 //     $regisType = true;
 // }
 
-echo "menu: ".$_GET["menu"];
+echo "Say: ".$_GET["say"];
 
 ?>
 <!DOCTYPE HTML>
@@ -103,7 +103,7 @@ echo "menu: ".$_GET["menu"];
     ?>
     <script>
         var urlS = new URL(document.URL);
-        alert('urlS: ' + urlS);
+        // alert('urlS: ' + urlS);
     </script>
 </body>
 
