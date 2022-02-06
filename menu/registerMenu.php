@@ -73,9 +73,9 @@ $getData = getDataFromDatabase($getDataFromUrl);
 //     $getData = registerDataToDatabase($objDataFromMenu);
 // }
 
-if ($getData->sFlag == '0') {
-    $regisType = true;
-}
+// if ($getData->sFlag == '0') {
+//     $regisType = true;
+// }
 
 echo $_GET["urlS"];
 
