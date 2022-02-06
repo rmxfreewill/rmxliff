@@ -66,7 +66,7 @@ $GLOBALS['sURL'] =   sURL;
             var myLiffId = "<? echo LIFF_ID; ?>";
             rmxInitializeLineLiff(myLiffId, companyCode);
             var getParam = rmxGetParams();
-            var toMenu = getParam["menu"];
+            var toMenu = getParam["route"];
             if (toMenu == "register") {
                 url = "menu/registerMenu.php";
                 $("#rmxLiFFLayout").load(url);
