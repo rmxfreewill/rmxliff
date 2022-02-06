@@ -78,10 +78,9 @@ $GLOBALS['sURL'] =   sURL;
                                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
                                     window.location.assign(urlSelectMenu);
                                 } else if (toStatus == 'init') {
-                                    var menuUrl = null;
+                                    var menuUrl = "menu/blankMenu.php";
                                     if (toMenu == "register") {
                                         menuUrl = "menu/registerMenu.php";
-                                        $("#rmxLiFFLayout").load(menuUrl);
                                     } else if (toMenu == "ticket") {
 
                                     } else if (toMenu == "profile") {
@@ -89,6 +88,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "history") {
 
                                     }
+                                    $("#rmxLiFFLayout").load(menuUrl);
                                 }
                             })
                             .catch((err) => {
