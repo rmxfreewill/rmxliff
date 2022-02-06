@@ -57,7 +57,7 @@ if ($getData->sFlag == '4') {
     $regisType = true;
 }
 
-if ($getDataFromUrl->status) {
+if ($getDataFromUrl->status=='check') {
     echo "CHECK";
 }
 
