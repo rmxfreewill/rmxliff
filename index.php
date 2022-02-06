@@ -66,9 +66,16 @@ if (isset($_GET['menu']))
     </form>
 
     <script>
+        async function rmxToMenu() {
+            var url = new URL(document.URL);
+            var c = url.searchParams.get("route");
+            console.log(c);
+        }
+
         window.onload = function() {
             var myLiffId = document.getElementById('txtLiffId').value;
             rmxInitializeLineLiff(myLiffId);
+            rmxToMenu();
 
         }
     </script>
