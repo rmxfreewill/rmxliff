@@ -39,6 +39,9 @@ function getDataFromUrl()
     $objData->LineId = $LineId;
     $objData->CmdCommand = $CmdCommand;
 
+
+    echo $CmdCommand;
+
     return $objData;
 }
 
@@ -47,16 +50,12 @@ function getDataFromDatabase($objParam) //select $sFlagMsg,$nFlag,$sTUserName,$s
     $objData = new stdClass;
     $CmdCommand = $objParam->CmdCommand;
     $CompanyUrl = $GLOBALS['COMPANY_URL'];
-    echo "CmdCommand: ".$CmdCommand;
-    echo "CompanyUrl: ".$CompanyUrl;
     $RetCommand = send_command(
         $CompanyUrl,
         '',
         '',
         $CmdCommand
     );
-
-echo "RetCommand: ".$RetCommand;
 
     if ($RetCommand) {
         $ASRet = [];

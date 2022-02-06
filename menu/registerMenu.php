@@ -90,7 +90,7 @@ if ($getData->sFlag == '0') {
     ?>
     <script>
         var urlS = new URL(document.URL);
-        // alert(urlS);
+        alert(urlS);
     </script>
 </body>
 
