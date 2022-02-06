@@ -67,6 +67,7 @@ $GLOBALS['sURL'] =   sURL;
                                     var menuUrl = "menu/blankMenu.php";
                                     var urlP = urlSelectMenu.param;
                                     if (toMenu == "register") {
+                                       
                                         menuUrl = "menu/registerMenu.php" + urlP;
                                     } else if (toMenu == "ticket") {
 
@@ -75,7 +76,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "history") {
 
                                     }
-
+ alert(menuUrl);
                                     $("#rmxLiFFLayout").load(menuUrl);
                                 }
                             })

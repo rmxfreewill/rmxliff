@@ -49,7 +49,7 @@ function regisForm($type)
     return $regisForm;
 }
 
-echo "URL: " . $_SERVER['REQUEST_URI'];
+// echo "URL: " . $_SERVER['REQUEST_URI'];
 
 
 
