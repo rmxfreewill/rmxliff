@@ -80,12 +80,17 @@ $GLOBALS['sURL'] =   sURL;
                                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
                                     window.location.assign(urlSelectMenu);
                                 } else if (toStatus == 'init') {
-                         
+                                    var menuUrl = null;
                                     if (toMenu == "register") {
-
                                         menuUrl = "menu/registerMenu.php";
-                                        $("#rmxLiFFLayout").load(menuUrl);
+                                    } else if (toMenu == "ticket") {
+
+                                    } else if (toMenu == "profile") {
+
+                                    } else if (toMenu == "history") {
+
                                     }
+                                    menuUrl != null ?? $("#rmxLiFFLayout").load(menuUrl);
                                 }
 
 
