@@ -90,6 +90,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "history") {
 
                                     }
+                                    alert(menuUrl);
                                     menuUrl != null ?? $("#rmxLiFFLayout").load(menuUrl);
                                 }
 
