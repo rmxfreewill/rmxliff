@@ -61,15 +61,15 @@ $GLOBALS['sURL'] =   sURL;
                                 var toStatus = getParam.status;
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
                                 var urlS = urlSelectMenu[0];
+                                alert(getParam);
                                 if (toStatus == null) {
                                     window.location.assign(urlS);
                                 } else if (toStatus == 'init') {
                                     var menuUrl = "menu/blankMenu.php";
                                     // var urlP = urlSelectMenu[1];
-                                    alert(urlS);
                                     if (toMenu == "register") {
-                                        // menuUrl = "menu/registerMenu.php";
-                                        menuUrl = urlS;
+                                        menuUrl = "menu/registerMenu.php";
+
                                     } else if (toMenu == "ticket") {
 
                                     } else if (toMenu == "profile") {
@@ -78,7 +78,7 @@ $GLOBALS['sURL'] =   sURL;
 
                                     }
 
-                                    
+
                                     try {
                                         $("#rmxLiFFLayout").load(menuUrl);
                                     } catch (error) {
