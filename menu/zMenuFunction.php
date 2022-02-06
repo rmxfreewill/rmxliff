@@ -39,9 +39,6 @@ function getDataFromUrl()
     $objData->LineId = $LineId;
     $objData->CmdCommand = $CmdCommand;
 
-
-    echo $CmdCommand;
-
     return $objData;
 }
 
