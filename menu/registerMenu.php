@@ -52,7 +52,8 @@ function regisForm($type)
 
 
 
-echo parse_url($url);
+$mm = $_COOKIE['menu'];
+echo $mm;
 
 $CmdCommand = '';
 if (isset($_POST['CmdCommand']))
@@ -100,7 +101,8 @@ if ($getData->sFlag == '0') {
     echo regisForm($regisType);
     ?>
     <script>
-        // var urlS = new URL(document.URL);
+        var urlS = new URL(document.URL);
+        document.cookie = urls;
         // alert(urlS);
     </script>
 </body>
