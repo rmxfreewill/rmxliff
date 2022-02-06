@@ -15,9 +15,11 @@ function rmxCloseWindow() {
 }
 
 function rmxGetParams() {
+    var toStatus = null;
     var url = new URL(document.URL);
-    var toMenu = url.searchParams.get("route");
-    const param = {route:toMenu};
+    var toMenu = url.searchParams.get("menu");
+    toStatus = url.searchParams.get("status");
+    const param = {menu:toMenu,status:toStatus};
     return param;
 }
 
@@ -42,44 +44,7 @@ function rmxSelectMenu(toMenu = String, userId = String,sCompCode = String) {
     return selectMenu;
 }
 
-function getProfileLiffUserId() {
-    liff.getProfile()
-        .then(profile => {
-            var userIdProfile = profile.userId;
-            // var sFunction = document.getElementById('txtFunction').value;
-            // var sMenu = document.getElementById('txtMenu').value;
-            var url = rmxSelectMenu(sMenu, userIdProfile,sCompCode);
-            console.log(url);
-            window.location.assign(url);
-        })
-        .catch((err) => {
-            console.log('getProfile: ', err);
-        });
-}
 
-async function rmxInitializeLineLiff(myLiffId = String,sCompCode = String) {
-    console.log('initializeLiff: ', myLiffId);
-    await liff.init({
-        liffId: myLiffId
-    })
-        .then(() => {
-            if (liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
-                    if(liff.isLoggedIn()){
-                        getProfileLiffUserId(sCompCode);
-                    }else{
-                        liff.login();
-                    }
-                })
-                    .catch((err) => {
-                        console.log('error ', err);
-                    });
-            }
-        })
-        .catch((err) => {
-            console.log('initializeLiff: ', err);
-        });
-}
 
 // async function initializeLiff() {
 //     var myLiffId = document.getElementById('txtLiffId').value;

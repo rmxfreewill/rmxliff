@@ -61,16 +61,55 @@ $GLOBALS['sURL'] =   sURL;
     <!-- </form> -->
 
     <script>
+        async function rmxInitializeLineLiff(myLiffId = String, sCompCode = String) {
+            console.log('initializeLiff: ', myLiffId);
+            await liff.init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    if (liff.isLoggedIn()) {
+                        liff.getProfile().then(profile => {
+                                if (liff.isLoggedIn()) {
+                                    var getParam = rmxGetParams();
+
+                                    var userIdProfile = profile.userId;
+                                    var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
+
+                                    var toStatus = getParam["status"];
+                                    if (toStatus == null) {
+                                        window.location.assign(url);
+                                    } else if (toStatus == "init") {
+                                        var toMenu = getParam["menu"];
+                                        if (toMenu == "register") {
+                                            menuUrl = "menu/registerMenu.php";
+                                            $("#rmxLiFFLayout").load(menuUrl);
+                                        }
+                                    }
+
+
+
+
+
+                                } else {
+                                    liff.login();
+                                }
+                            })
+                            .catch((err) => {
+                                console.log('error ', err);
+                            });
+                    }
+                })
+                .catch((err) => {
+                    console.log('initializeLiff: ', err);
+                });
+        }
+
         $(function() {
             var companyCode = "<? echo COMPANY_CODE; ?>";
             var myLiffId = "<? echo LIFF_ID; ?>";
             rmxInitializeLineLiff(myLiffId, companyCode);
-            var getParam = rmxGetParams();
-            var toMenu = getParam["route"];
-            if (toMenu == "register") {
-                url = "menu/registerMenu.php";
-                $("#rmxLiFFLayout").load(url);
-            }
+
+
         });
     </script>
 </body>
