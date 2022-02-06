@@ -72,7 +72,7 @@ $GLOBALS['sURL'] =   sURL;
                                 if (liff.isLoggedIn()) {
                                     var userIdProfile = profile.userId;
                                     var url = rmxSelectMenu(sMenu, userIdProfile, sCompCode);
-                                    
+
                                     var getParam = rmxGetParams();
                                     var toStatus = getParam["status"];
                                     if (toStatus == null) {
@@ -86,7 +86,7 @@ $GLOBALS['sURL'] =   sURL;
                                     }
 
 
-
+                                    console.log(getParam);
 
 
                                 } else {
