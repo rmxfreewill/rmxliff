@@ -89,10 +89,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "history") {
 
                                     }
-
-                                    alert(menuUrl);
-
-                                    // menuUrl != null ?? $("#rmxLiFFLayout").load(menuUrl);
+                                    await menuUrl != null ?? $("#rmxLiFFLayout").load(menuUrl);
                                 }
                             })
                             .catch((err) => {
