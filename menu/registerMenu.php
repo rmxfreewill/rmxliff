@@ -49,7 +49,11 @@ function regisForm($type)
     return $regisForm;
 }
 
-echo $_SERVER['REQUEST_URI'];   
+
+
+
+$parameter = $_SERVER['QUERY_STRING'];
+echo $parameter;  
 
 $CmdCommand = '';
 if (isset($_POST['CmdCommand']))
