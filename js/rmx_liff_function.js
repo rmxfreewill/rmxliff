@@ -41,6 +41,8 @@ function rmxSelectMenu(toMenu = String, userId = String,sCompCode = String) {
     var url = document.getElementById('txtsURL').value + "index.php";
     var selectMenu = url + param;
 
+    alert(selectMenu);
+
     return selectMenu;
 }
 

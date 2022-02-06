@@ -67,7 +67,6 @@ $GLOBALS['sURL'] =   sURL;
                 })
                 .then(() => {
                     if (liff.isLoggedIn()) {
-
                         liff.getProfile()
                             .then(profile => {
                                 const userIdProfile = profile.userId;
@@ -76,7 +75,7 @@ $GLOBALS['sURL'] =   sURL;
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam["menu"];
                                 var urlSelectMenu = rmxSelectMenu(toMenu, userIdProfile, sCompCode);
-                                alert(urlSelectMenu);
+                     
                             })
                             .catch((err) => {
                                 console.log('error', err);
