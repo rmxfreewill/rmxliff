@@ -49,7 +49,7 @@ function regisForm($type)
     return $regisForm;
 }
 
-
+echo "URL: " . $_SERVER['REQUEST_URI'];
 
 
 
@@ -77,9 +77,7 @@ $getData = getDataFromDatabase($getDataFromUrl);
 //     $regisType = true;
 // }
 
-echo $_GET["urlS"];
 
-echo $_SERVER['PHP_SELF'];
 
 ?>
 <!DOCTYPE HTML>
@@ -105,7 +103,6 @@ echo $_SERVER['PHP_SELF'];
     ?>
     <script>
         var urlS = new URL(document.URL);
-        alert(urlS);
     </script>
 </body>
 
