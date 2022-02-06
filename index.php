@@ -81,7 +81,7 @@ $GLOBALS['sURL'] =   sURL;
                                     var menuUrl = null;
                                     if (toMenu == "register") {
                                         menuUrl = "menu/registerMenu.php";
-                                        // $("#rmxLiFFLayout").load("registerMenu.php");
+                                        $("#rmxLiFFLayout").load(menuUrl);
                                     } else if (toMenu == "ticket") {
 
                                     } else if (toMenu == "profile") {
@@ -89,7 +89,6 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "history") {
 
                                     }
-                                    await menuUrl != null ?? $("#rmxLiFFLayout").load(menuUrl);
                                 }
                             })
                             .catch((err) => {
