@@ -89,8 +89,6 @@ $GLOBALS['sURL'] =   sURL;
                             .catch((err) => {
                                 console.log('error ', err);
                             });
-                    } else {
-                        liff.login();
                     }
                 })
                 .catch((err) => {
