@@ -14,11 +14,12 @@ function rmxGetParams() {
 }
 
 function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCompCode = String) {
+    
     //paramCmdCommand
-    // var sCompCode = document.getElementById('txtCompanyCode').value;
-    var sCmd = '';
-    sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-    var paramCmdCommand = "&CmdCommand=" + sCmd;
+    // var sCmd = '';
+    // sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+    // var paramCmdCommand = "&CmdCommand=" + sCmd;
+
     //paramUserId
     var paramUserId = "&LineId=" + userId;
 

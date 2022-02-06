@@ -49,17 +49,10 @@ function regisForm($type)
     return $regisForm;
 }
 
-
-
-$CmdCommand = '';
-if (isset($_POST['CmdCommand']))
-    $CmdCommand = $_POST['CmdCommand'];
-if (isset($_GET['CmdCommand']))
-    $CmdCommand = $_GET['CmdCommand'];
-
-
 $getDataFromUrl = getDataFromUrl($CompanyUrl);
 // $getData = getDataFromDatabase($getDataFromUrl);
+
+
 
 
 

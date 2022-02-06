@@ -22,19 +22,18 @@ function getDataFromUrl($CompanyUrl)
     if (isset($_GET['LineId']))
         $LineId = $_GET['LineId'];
 
-    $CmdCommand = '';
-    if (isset($_POST['CmdCommand']))
-        $CmdCommand = $_POST['CmdCommand'];
-    if (isset($_GET['CmdCommand']))
-        $CmdCommand = $_GET['CmdCommand'];
+    if ($menu == "register") {
+        $CmdCommand = "call sp_main_check_register ('" + $LineId + "','" + $CompanyUrl + "')";
+    } else {
+        $CmdCommand = '';
+    }
 
-    // $objData->LinkCode = $LinkCode;
-    // $objData->route = $route;
+
     $objData->menu = $menu;
     $objData->LineId = $LineId;
     $objData->CompanyUrl = $CompanyUrl;
     $objData->CmdCommand = $CmdCommand;
-echo $objData->menu;
+
     return $objData;
 }
 
