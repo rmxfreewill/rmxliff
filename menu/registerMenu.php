@@ -52,7 +52,7 @@ function regisForm($type)
 
 
 
-$mm = $_COOKIE['menu'];
+
 echo $mm;
 
 $CmdCommand = '';
@@ -77,6 +77,7 @@ if ($getData->sFlag == '0') {
     $regisType = true;
 }
 
+echo $_GET["urlS"];
 
 ?>
 <!DOCTYPE HTML>
@@ -100,9 +101,10 @@ if ($getData->sFlag == '0') {
     <?php
     echo regisForm($regisType);
     ?>
+    <input type="hidden" id="urlS" name="urlS"></input>
     <script>
         var urlS = new URL(document.URL);
-        document.cookie = urls;
+        document.getElementById("urlS").setAttribute('value', urlS);
         // alert(urlS);
     </script>
 </body>
