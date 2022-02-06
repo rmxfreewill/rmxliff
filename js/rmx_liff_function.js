@@ -1,4 +1,3 @@
-
 function rmxCloseWindow() {
     if (liff.getOS() != "web") {
         liff.closeWindow();
@@ -17,8 +16,8 @@ function rmxCloseWindow() {
 
 function rmxGetParams() {
     var url = new URL(document.URL);
-    var toMenu = url.searchParams.get("menu");
-    const param = {menu:toMenu};
+    var toMenu = url.searchParams.get("route");
+    const param = {route:toMenu};
     return param;
 }
 
@@ -50,6 +49,7 @@ function getProfileLiffUserId() {
             // var sFunction = document.getElementById('txtFunction').value;
             // var sMenu = document.getElementById('txtMenu').value;
             var url = rmxSelectMenu(sMenu, userIdProfile,sCompCode);
+            alert(url);
             window.location.assign(url);
         })
         .catch((err) => {

@@ -1,7 +1,7 @@
 <?php
 
 //Line Api
-function rmxChangeMemberRichMenuDefualt($type,$LINEID)
+function rmxChangeMemberRichMenuDefualt($type, $LINEID)
 {
     $url = "https://api.line.me/v2/bot/user/$LINEID/richmenu";
     $method = 'DELETE';
@@ -103,4 +103,47 @@ function rmxGetDataLiff($menu, $LineId)
     } catch (Exception $ex) {
         print('Error rmxProfileLiff: ' . $ex);
     }
+}
+
+function getDataFromRoute()
+{
+    $objData = new stdClass;
+
+    // $LinkCode = '';
+    // if (isset($_POST['LinkCode']))
+    //     $LinkCode = $_POST['LinkCode'];
+    // if (isset($_GET['LinkCode']))
+    //     $LinkCode = $_GET['LinkCode'];
+
+    $route = '';
+    if (isset($_POST['route']))
+        $route = $_POST['route'];
+    if (isset($_GET['route']))
+        $route = $_GET['route'];
+
+    $menu = '';
+    if (isset($_POST['menu']))
+        $route = $_POST['menu'];
+    if (isset($_GET['menu']))
+        $route = $_GET['menu'];
+
+    $LineId = '';
+    if (isset($_POST['LineId']))
+        $LineId = $_POST['LineId'];
+    if (isset($_GET['LineId']))
+        $LineId = $_GET['LineId'];
+
+    $CmdCommand = '';
+    if (isset($_POST['CmdCommand']))
+        $CmdCommand = $_POST['CmdCommand'];
+    if (isset($_GET['CmdCommand']))
+        $CmdCommand = $_GET['CmdCommand'];
+
+    // $objData->LinkCode = $LinkCode;
+    $objData->route = $route;
+    $objData->menu = $menu;
+    $objData->LineId = $LineId;
+    $objData->CmdCommand = $CmdCommand;
+
+    return $objData;
 }
