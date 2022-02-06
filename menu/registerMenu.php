@@ -49,10 +49,6 @@ function regisForm($type)
     return $regisForm;
 }
 
-// echo "URL: " . $_SERVER['REQUEST_URI'];
-
-
-
 
 
 $CmdCommand = '';
@@ -62,8 +58,8 @@ if (isset($_GET['CmdCommand']))
     $CmdCommand = $_GET['CmdCommand'];
 
 
-// $getDataFromUrl = getDataFromUrl($CompanyUrl);
-// $getData = getDataFromDatabase($getDataFromUrl);
+$getDataFromUrl = getDataFromUrl($CompanyUrl);
+$getData = getDataFromDatabase($getDataFromUrl);
 
 
 
@@ -78,7 +74,7 @@ if (isset($_GET['CmdCommand']))
 // }
 
 
-echo "CmdCommand: ".$_GET["CmdCommand"];
+echo "menu: ".$objDataFromMenu->menu;
 
 ?>
 <!DOCTYPE HTML>
