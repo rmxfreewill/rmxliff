@@ -66,12 +66,10 @@ $GLOBALS['sURL'] =   sURL;
                     liffId: myLiffId
                 })
                 .then(() => {
-                    console.log('initializeLiff isLoggedIn: ', liff.isLoggedIn());
+                    // console.log('initializeLiff isLoggedIn: ', liff.isLoggedIn());
 
                     if (!liff.isLoggedIn()) {
-                        liff.login({
-
-                        });
+                        alert("What");
                     } else {
                         alert("OK");
                     }
