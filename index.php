@@ -58,24 +58,25 @@ if (isset($_GET['menu']))
     </div>
 
     <!-- <form method="GET" enctype="multipart/form-data" action="index.php"> -->
-        <!-- <input type="hidden" id="txtCompanyCode" value="<?php //echo $CompanyCode; ?>"> -->
-        <!-- <input type="hidden" id="txtFunction" value="<?php //echo $Function; ?>"> -->
-        <!-- <input type="hidden" id="txtMenu" value="<?php //echo $menu; ?>"> -->
-        <!-- <input type="hidden" id="txtLiffId" value="<?php //echo $LiffId; ?>"> -->
-        <!-- <input type="hidden" id="txtsURL" value="<?php //echo $sURL; ?>"> -->
+    <!-- <input type="hidden" id="txtCompanyCode" value="<?php //echo $CompanyCode; 
+                                                            ?>"> -->
+    <!-- <input type="hidden" id="txtFunction" value="<?php //echo $Function; 
+                                                        ?>"> -->
+    <!-- <input type="hidden" id="txtMenu" value="<?php //echo $menu; 
+                                                    ?>"> -->
+    <!-- <input type="hidden" id="txtLiffId" value="<?php //echo $LiffId; 
+                                                    ?>"> -->
+    <!-- <input type="hidden" id="txtsURL" value="<?php //echo $sURL; 
+                                                    ?>"> -->
     <!-- </form> -->
 
     <script>
-        async function rmxToMenu() {
-            var url = new URL(document.URL);
-            var c = url.searchParams.get("menu");
-            console.log(c);
-        }
-
         window.onload = function() {
+            var companyCode = "<? echo COMPANY_CODE; ?>";
             var myLiffId = "<? echo LIFF_ID; ?>";
-            rmxInitializeLineLiff(myLiffId);
-            rmxToMenu();
+            rmxInitializeLineLiff(myLiffId, companyCode);
+            var getParam = rmxGetParams();
+            console.log(getParam["menu"]);
 
         }
     </script>

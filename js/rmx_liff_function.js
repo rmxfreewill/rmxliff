@@ -15,9 +15,16 @@ function rmxCloseWindow() {
     }
 }
 
-function rmxSelectMenu(toMenu = String, userId = String) {
+function rmxGetParams() {
+    var url = new URL(document.URL);
+    var toMenu = url.searchParams.get("menu");
+    const param = {menu:toMenu};
+    return param;
+}
+
+function rmxSelectMenu(toMenu = String, userId = String,sCompCode = String) {
     //paramCmdCommand
-    var sCompCode = document.getElementById('txtCompanyCode').value;
+    // var sCompCode = document.getElementById('txtCompanyCode').value;
     var sCmd = '';
     sCmd = toMenu=='register' ?? "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
     var paramCmdCommand = "&CmdCommand=" + sCmd;
@@ -41,8 +48,8 @@ function getProfileLiffUserId() {
         .then(profile => {
             var userIdProfile = profile.userId;
             // var sFunction = document.getElementById('txtFunction').value;
-            var sMenu = document.getElementById('txtMenu').value;
-            var url = rmxSelectMenu(sMenu, userIdProfile);
+            // var sMenu = document.getElementById('txtMenu').value;
+            var url = rmxSelectMenu(sMenu, userIdProfile,sCompCode);
             window.location.assign(url);
         })
         .catch((err) => {
@@ -50,7 +57,7 @@ function getProfileLiffUserId() {
         });
 }
 
-async function rmxInitializeLineLiff(myLiffId) {
+async function rmxInitializeLineLiff(myLiffId = String,sCompCode = String) {
     console.log('initializeLiff: ', myLiffId);
     await liff.init({
         liffId: myLiffId
@@ -59,7 +66,7 @@ async function rmxInitializeLineLiff(myLiffId) {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
                     if(liff.isLoggedIn()){
-                        getProfileLiffUserId();
+                        getProfileLiffUserId(sCompCode);
                     }else{
                         liff.login();
                     }
