@@ -67,7 +67,7 @@ $GLOBALS['sURL'] =   sURL;
                                 } else if (toStatus == 'init') {
                                     var menuUrl = "menu/blankMenu.php";
                                     if (toMenu == "register") {
-                                        menuUrl = "menu/registerMenu.php" + "?say=Hi";
+                                        menuUrl = "menu/registerMenu.php" + paramS;
                                         alert('menuUrl: ' + paramS);
                                     } else if (toMenu == "ticket") {
 
