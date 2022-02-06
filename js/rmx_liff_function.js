@@ -20,7 +20,6 @@ function rmxGetParams() {
     var toMenu = url.searchParams.get("menu");
     toStatus = url.searchParams.get("status");
     const param = {menu:toMenu,status:toStatus};
-    alert(param);
     return param;
 }
 
