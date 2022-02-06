@@ -50,16 +50,16 @@ function regisForm($type)
     return $regisForm;
 }
 
-// $objDataFromRoute = getDataFromRoute();
-// if ($objDataFromRoute->route == 'MENU') {
-//     $getData = getDataFromDatabase($objDataFromRoute);
-// } else if ($objData->route == 'CHECKDATA') {
-//     $getData = registerDataToDatabase($objDataFromRoute);
-// }
+$objDataFromRoute = getDataFromRoute();
+if ($objDataFromRoute->route == 'MENU') {
+    $getData = getDataFromDatabase($objDataFromRoute);
+} else if ($objData->route == 'CHECKDATA') {
+    $getData = registerDataToDatabase($objDataFromRoute);
+}
 
-// if ($getData->sFlag == '0') {
-//     $regisType = true;
-// }
+if ($getData->sFlag == '0') {
+    $regisType = true;
+}
 
 
 ?>
@@ -83,10 +83,9 @@ function regisForm($type)
 <body>
     <?php
     // echo regisForm($regisType);
-    echo "TTTTTTTT";
     ?>
     <script>
-alert('GGGGGGGGGGGGGGGGGGG');
+
     </script>
 </body>
 

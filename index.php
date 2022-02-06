@@ -43,9 +43,7 @@ $GLOBALS['sURL'] =   sURL;
 
 <body>
 
-    <div id="rmxLiFFLayout">
-
-    </div>
+    <div id="rmxLiFFLayout"></div>
 
     <!-- <form method="GET" enctype="multipart/form-data" action="index.php"> -->
     <!-- <input type="hidden" id="txtCompanyCode" value="<?php //echo $CompanyCode; 
@@ -90,7 +88,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "history") {
 
                                     }
-                                    alert(menuUrl);
+
                                     menuUrl != null ?? $("#rmxLiFFLayout").load(menuUrl);
                                 }
 
