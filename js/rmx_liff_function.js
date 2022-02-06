@@ -15,6 +15,27 @@ function rmxCloseWindow() {
     }
 }
 
+function rmxSelectMenu(toMenu = String, userId = String) {
+    //paramCmdCommand
+    var sCompCode = document.getElementById('txtCompanyCode').value;
+    var sCmd = '';
+    sCmd = toMenu=='register' ?? "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+    var paramCmdCommand = "&CmdCommand=" + sCmd;
+
+    //paramUserId
+    var paramUserId = "&LineId=" + userId;
+
+    //paramRoutes
+    var RoutesStatus = "status=init";
+    var paramRoutes = RoutesStatus + '&route=' + toMenu;
+
+    var param = "?" + paramRoutes + paramUserId + paramCmdCommand;
+    var url = document.getElementById('txtsURL').value + "index.php";
+    var selectMenu = url + param;
+
+    return selectMenu;
+}
+
 function getProfileLiffUserId() {
     liff.getProfile()
         .then(profile => {
@@ -29,48 +50,6 @@ function getProfileLiffUserId() {
         });
 }
 
-function rmxSelectMenu(toMenu, userId) {
-    var folder = 'screen/';
-    var routes = '?LinkCode=CHECK&route=MENU';
-    var URL = document.getElementById('txtsURL').value;
-    var sCompCode = document.getElementById('txtCompanyCode').value;
-    var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-    var para = routes + "&LineId=" + userId + "&CmdCommand=" + sCmd;
-    switch (toMenu) {
-        case "register":
-            // url = URL + "frmRegister.php" + para;
-            url = URL + folder + "registerScreen.php" + para; 
-            break;
-        case "ticket":
-            url = URL + "frmTicket.php" + para;
-            break;
-        case "search":
-            url = URL + "frmSearch.php" + para;
-            break;
-        case "profile":
-            url = URL + "frmProfile.php" + para;
-            break;
-        default:
-            url = URL + folder + "registerScreen.php" + para;
-            break;
-    }
-
-    return url;
-}
-
-async function rmxInitializeLiff(myLiffId, type) {
-    await liff.init({
-        liffId: myLiffId
-    })
-        .then(() => {
-            type == 'logout' && liff.isLoggedIn() ? liff.closeWindow() : alert('Logout');
-            type == 'close' && liff.isLoggedIn() ? liff.closeWindow() : alert('Register Success');
-        })
-        .catch((err) => {
-            console.log("initializeLiff: " + err);
-        });
-}
-
 async function rmxInitializeLineLiff(myLiffId) {
     console.log('initializeLiff: ', myLiffId);
     await liff.init({
@@ -79,8 +58,11 @@ async function rmxInitializeLineLiff(myLiffId) {
         .then(() => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
-                    const userName = profile.displayName;
-                    const userId = profile.userId;
+                    if(liff.isLoggedIn()){
+                        getProfileLiffUserId();
+                    }else{
+                        liff.login();
+                    }
                 })
                     .catch((err) => {
                         console.log('error ', err);
@@ -91,3 +73,50 @@ async function rmxInitializeLineLiff(myLiffId) {
             console.log('initializeLiff: ', err);
         });
 }
+
+// async function initializeLiff() {
+//     var myLiffId = document.getElementById('txtLiffId').value;
+//     await liff.init({
+//             liffId: myLiffId
+//         })
+//         .then(() => {
+//             liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
+//         })
+//         .catch((err) => {
+//             console.log("initializeLiff: " + err);
+//         });
+// }
+
+
+
+// async function rmxInitializeLiff(myLiffId, type) {
+//     await liff.init({
+//         liffId: myLiffId
+//     })
+//         .then(() => {
+//             type == 'logout' && liff.isLoggedIn() ? liff.closeWindow() : alert('Logout');
+//             type == 'close' && liff.isLoggedIn() ? liff.closeWindow() : alert('Register Success');
+//         })
+//         .catch((err) => {
+//             console.log("initializeLiff: " + err);
+//         });
+// }
+
+    // switch (toMenu) {
+    //     case "register":
+    //         // url = URL + "frmRegister.php" + para;
+    //         url = URL + folder + "registerScreen.php" + para; 
+    //         break;
+    //     case "ticket":
+    //         url = URL + "frmTicket.php" + para;
+    //         break;
+    //     case "search":
+    //         url = URL + "frmSearch.php" + para;
+    //         break;
+    //     case "profile":
+    //         url = URL + "frmProfile.php" + para;
+    //         break;
+    //     default:
+    //         url = URL + folder + "registerScreen.php" + para;
+    //         break;
+    // } 

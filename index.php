@@ -11,10 +11,11 @@ include("rmxLiffFunction.php");
 
 // header('Access-Control-Allow-Origin: *');
 
-$CompanyUrl = COMPANY_URL;
-$CompanyCode = COMPANY_CODE;
-$LiffId = LIFF_ID;
-$sURL = sURL;
+$GLOBALS['COMPANY_URL'] =  COMPANY_URL;
+$GLOBALS['REGISTER_URL'] =   REGISTER_URL;
+$GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
+$GLOBALS['LIFF_ID'] =   LIFF_ID;
+$GLOBALS['sURL'] =   sURL;
 
 $Function = '';
 if (isset($_POST['Function']))
@@ -43,52 +44,31 @@ if (isset($_GET['menu']))
     <title>RMX LINE OFFICIAL</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js"></script>
+
+    <script charset="utf-8" src="js/jquery.js"></script>
+    <script charset="utf-8" src="js/lineSdk_2_18_1.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
+
 </head>
 
 <body>
 
+    <div id="rmxLiFFLayout">
+
+    </div>
+
     <form method="GET" enctype="multipart/form-data" action="index.php">
-        <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
-        <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
+        <!-- <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>"> -->
+        <!-- <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>"> -->
         <input type="hidden" id="txtMenu" value="<?php echo $menu; ?>">
         <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-        <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>">
+        <!-- <input type="hidden" id="txtsURL" value="<?php echo $sURL; ?>"> -->
     </form>
 
     <script>
         window.onload = function() {
-
-            // function getProfileLiffUserId() {
-            //     liff.getProfile()
-            //         .then(profile => {
-            //             var userIdProfile = profile.userId;
-            //             // var sFunction = document.getElementById('txtFunction').value;
-            //             var sMenu = document.getElementById('txtMenu').value;
-            //             var url = rmxSelectMenu(sMenu, userIdProfile);
-            //             window.location.assign(url);
-            //         })
-            //         .catch((err) => {
-            //             console.log('getProfile: ', err);
-            //         });
-            // }
-
-            async function initializeLiff() {
-                var myLiffId = document.getElementById('txtLiffId').value;
-                await liff.init({
-                        liffId: myLiffId
-                    })
-                    .then(() => {
-                        liff.isLoggedIn() ? getProfileLiffUserId() : liff.login();
-                    })
-                    .catch((err) => {
-                        console.log("initializeLiff: " + err);
-                    });
-            }
-
             var myLiffId = document.getElementById('txtLiffId').value;
-            initializeLiff();
+            rmxInitializeLineLiff(myLiffId);
 
         }
     </script>
