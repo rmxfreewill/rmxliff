@@ -103,6 +103,7 @@ $getData = getDataFromDatabase($getDataFromUrl);
     ?>
     <script>
         var urlS = new URL(document.URL);
+        alert(urlS);
     </script>
 </body>
 

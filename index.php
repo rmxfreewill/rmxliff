@@ -75,6 +75,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "history") {
 
                                     }
+
                                     $("#rmxLiFFLayout").load(menuUrl);
                                 }
                             })
