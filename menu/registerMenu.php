@@ -3,7 +3,6 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-// include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
 include("zMenuFunction.php");
 
 $CompanyUrl = COMPANY_URL;
@@ -91,7 +90,7 @@ if ($getData->sFlag == '0') {
     ?>
     <script>
         var urlS = new URL(document.URL);
-        alert(urlS);
+        // alert(urlS);
     </script>
 </body>
 
