@@ -50,16 +50,19 @@ function regisForm($type)
     return $regisForm;
 }
 
-$objDataFromRoute = getDataFromRoute();
-if ($objDataFromRoute->route == 'MENU') {
-    $getData = getDataFromDatabase($objDataFromRoute);
-} else if ($objData->route == 'CHECKDATA') {
-    $getData = registerDataToDatabase($objDataFromRoute);
-}
 
-if ($getData->sFlag == '0') {
-    $regisType = true;
-}
+// $objDataFromMenu = getDataFromMenu();
+
+
+// if ($objDataFromMenu->menu == 'MENU') {
+//     $getData = getDataFromDatabase($objDataFromMenu);
+// } else if ($objDataFromMenu->menu == 'CHECKDATA') {
+//     $getData = registerDataToDatabase($objDataFromMenu);
+// }
+
+// if ($getData->sFlag == '0') {
+//     $regisType = true;
+// }
 
 
 ?>
@@ -85,7 +88,8 @@ if ($getData->sFlag == '0') {
     // echo regisForm($regisType);
     ?>
     <script>
-
+        var urlS = new URL(document.URL);
+alert(urlS);
     </script>
 </body>
 

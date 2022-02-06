@@ -11,6 +11,36 @@ $GLOBALS['REGISTER_URL'] =   REGISTER_URL;
 $GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
 
 
+function getDataFromMenu()
+{
+    $objData = new stdClass;
+
+    $menu = '';
+    if (isset($_POST['menu']))
+        $menu = $_POST['menu'];
+    if (isset($_GET['menu']))
+        $menu = $_GET['menu'];
+
+    $LineId = '';
+    if (isset($_POST['LineId']))
+        $LineId = $_POST['LineId'];
+    if (isset($_GET['LineId']))
+        $LineId = $_GET['LineId'];
+
+    $CmdCommand = '';
+    if (isset($_POST['CmdCommand']))
+        $CmdCommand = $_POST['CmdCommand'];
+    if (isset($_GET['CmdCommand']))
+        $CmdCommand = $_GET['CmdCommand'];
+
+    // $objData->LinkCode = $LinkCode;
+    // $objData->route = $route;
+    $objData->menu = $menu;
+    $objData->LineId = $LineId;
+    $objData->CmdCommand = $CmdCommand;
+
+    return $objData;
+}
 
 function getDataFromDatabase($objParam) //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
 {
