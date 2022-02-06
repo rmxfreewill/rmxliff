@@ -80,8 +80,9 @@ $GLOBALS['sURL'] =   sURL;
                                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCompCode);
                                     window.location.assign(urlSelectMenu);
                                 } else if (toStatus == 'init') {
+                                    alert(toMenu);
                                     if (toMenu == "register") {
-                                        alert(toMenu);
+
                                         menuUrl = "menu/registerMenu.php";
                                         $("#rmxLiFFLayout").load(menuUrl);
                                     }
