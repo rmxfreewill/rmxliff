@@ -85,7 +85,7 @@ if ($getData->sFlag == '0') {
     echo regisForm($regisType);
     ?>
     <script>
-       
+       alert('regis');
     </script>
 </body>
 
