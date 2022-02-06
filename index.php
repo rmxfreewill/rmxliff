@@ -68,7 +68,7 @@ $GLOBALS['sURL'] =   sURL;
                                     var urlP = urlSelectMenu.param;
                                     if (toMenu == "register") {
                                         // menuUrl = "menu/registerMenu.php" + urlP;
-                                        menuUrl = "menu/registerMenu.php";
+                                        menuUrl = "menu/registerMenu.php?aa=hi";
                                     } else if (toMenu == "ticket") {
 
                                     } else if (toMenu == "profile") {
