@@ -47,7 +47,7 @@ function getDataFromDatabase($CompanyUrl,$objParam) //select $sFlagMsg,$nFlag,$s
         '',
         $CmdCommand
     );
-echo  $CmdCommand;
+
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
