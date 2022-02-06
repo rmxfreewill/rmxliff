@@ -5,10 +5,11 @@ ini_set('display_errors', 'On');
 
 include("zMenuFunction.php");
 
-$CompanyUrl = COMPANY_URL;
-$RegisterUrl = REGISTER_URL;
-$CompanyCode = COMPANY_CODE;
-$LiffId = LIFF_ID;
+$GLOBALS['COMPANY_URL'] =  COMPANY_URL;
+$GLOBALS['REGISTER_URL'] =   REGISTER_URL;
+$GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
+$GLOBALS['LIFF_ID'] =   LIFF_ID;
+$GLOBALS['sURL'] =   sURL;
 
 $regisType = false;
 
@@ -49,22 +50,16 @@ function regisForm($type)
     return $regisForm;
 }
 
-$getDataFromUrl = getDataFromUrl($CompanyCode);
-$getData = getDataFromDatabase($CompanyUrl, $getDataFromUrl);
+$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE']);
+$getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
 
+if ($getData->sFlag == '4') {
+    $regisType = true;
+}
 
-
-
-
-// if ($objDataFromMenu->menu == 'MENU') {
-//     $getData = getDataFromDatabase($objDataFromMenu);
-// } else if ($objDataFromMenu->menu == 'CHECKDATA') {
-//     $getData = registerDataToDatabase($objDataFromMenu);
-// }
-
-// if ($getData->sFlag == '0') {
-//     $regisType = true;
-// }
+if ($getDataFromUrl->status) {
+    echo "CHECK";
+}
 
 
 
@@ -93,6 +88,36 @@ $getData = getDataFromDatabase($CompanyUrl, $getDataFromUrl);
     <script>
         var urlS = new URL(document.URL);
         // alert('urlS: ' + urlS);
+
+        function registerCheck() {
+            var sUserName = 'rmxadmin';
+            var sLineDisplay = 'rmxadmin';
+            //
+            var sCompanyCode = "<?php echo $GLOBALS['COMPANY_CODE']; ?>";
+            var sEMail = document.getElementById('txtEMail').value;
+            //
+            var sTel = document.getElementById('txtTel').value;
+            if (sTel == '') {
+                alert("Input Telephone / Mobile");
+            } else if (sEMail == '') {
+                alert("Input Email");
+            } else {
+                if (sTel.length < 8) {
+                    alert("Telephone / Mobile must be at least 8 digits long");
+                } else {
+                    var toMenu = 'register';
+                    var toStatus = 'check';
+                    const sUrl = "<? echo sURL; ?>";
+                    const userIdProfile = "<? echo  $getDataFromUrl->LineId; ?>";
+                    var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+                    var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd);
+                    var urlS = urlSelectMenu[0];
+                    window.location.assign(url);
+                }
+            }
+
+
+        }
     </script>
 </body>
 

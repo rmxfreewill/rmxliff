@@ -16,6 +16,12 @@ function getDataFromUrl($CompanyCode)
     if (isset($_GET['menu']))
         $menu = $_GET['menu'];
 
+    $status = '';
+    if (isset($_POST['status']))
+        $status = $_POST['status'];
+    if (isset($_GET['status']))
+        $status = $_GET['status'];
+
     $LineId = '';
     if (isset($_POST['LineId']))
         $LineId = $_POST['LineId'];
@@ -30,6 +36,7 @@ function getDataFromUrl($CompanyCode)
 
 
     $objData->menu = $menu;
+    $objData->status = $status;
     $objData->LineId = $LineId;
     $objData->CompanyCode = $CompanyCode;
     $objData->CmdCommand = $CmdCommand;
@@ -37,7 +44,7 @@ function getDataFromUrl($CompanyCode)
     return $objData;
 }
 
-function getDataFromDatabase($CompanyUrl,$objParam) //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
+function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
 {
     $objData = new stdClass;
     $CmdCommand = $objParam->CmdCommand;
