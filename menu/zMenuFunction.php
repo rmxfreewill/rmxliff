@@ -66,16 +66,13 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
 {
     $objData = new stdClass;
     $CmdCommand = $objParam->CmdCommand;
-    $LineId = $objParam->LineId;
-    $CompanyCode = $objParam->CompanyCode;
-
     $RetCommand = send_command(
         $CompanyUrl,
         '',
         '',
         $CmdCommand
     );
-    echo json_encode('RetCommand: ' . $RetCommand);
+    echo json_encode('CmdCommand: ' . $CmdCommand);
 
     // try {
     if ($RetCommand) {
