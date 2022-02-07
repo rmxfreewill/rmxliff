@@ -35,6 +35,7 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
         $CmdCommand = $_GET['CmdCommand'];
 
     $LineDisplay = '';
+    $UserName = '';
     $sSoldToCode = '';
     $sSoldToName = '';
     $Tel = '';
@@ -42,6 +43,9 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
 
     if ($menu == "register") {
         if ($status == 'check') {
+            $CmdCommand =
+                "call sp_main_line_reqister_to_db ('" . $LineId . "','" . $CompanyCode
+                . "','" . $UserName . "','" . $LineDisplay . "','" . $Tel . "','" . $EMail . "')";
         } else {
             $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
         }

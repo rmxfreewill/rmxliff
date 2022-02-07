@@ -195,9 +195,6 @@ function post_web_page($url, $curl_data)
 
 function post_web_content($url, $curl_data)
 {
-    echo $url;
-    echo json_encode($curl_data);
-    
     $options = array(
         CURLOPT_RETURNTRANSFER => true,         // return web page
         CURLOPT_HEADER         => false,        // don't return headers
