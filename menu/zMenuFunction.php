@@ -85,11 +85,12 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
 function registerDataToDatabase($objParam)
 {
     $objData = new stdClass;
-    $LineId = $objParam->LineId;
-    $CmdCommand = $objParam->CmdCommand;
-    $RegisterUrl = $GLOBALS['REGISTER_URL'];
-    $CompanyCode = $GLOBALS['COMPANY_CODE'];
 
+    $RegisterUrl = $objParam->RegisterUrl;
+    $LineId = $objParam->LineId;
+    $CompanyCode =  $objParam->CompanyCode;
+    $CmdCommand = $objParam->CmdCommand;
+    
     $ASRet = [];
     $ASRet = explode("^c", $CmdCommand);
     $LineDisplay = $ASRet[0];
