@@ -1,6 +1,6 @@
 <?php
 
-include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
+// include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
 
 function rmxChangeMemberRichMenu($type, $LINEID)
 {
