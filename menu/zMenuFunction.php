@@ -269,7 +269,7 @@ function getTicketFromDatabase($objParam)
 
 function showTicketList($RetCommand)
 {
-    echo $RetCommand;
+
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
         if (count($asTable) > 0) {
