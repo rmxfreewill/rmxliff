@@ -34,12 +34,10 @@ $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL
 $status = $getDataFromUrl->status;
 if ($status == 'init') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
-    
-    
-
-    // $sFlag = $getData->sFlag;
-
-    getTicketFromDatabase($getData);
+    $sFlag = $getData->sFlag;
+    if ($sFlag != '0') {
+        getTicketFromDatabase($getDataFromUrl);
+    }
 }
 
 ?>
