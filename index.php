@@ -71,7 +71,7 @@ $GLOBALS['sURL'] =   sURL;
                                     if (toMenu == "register") {
                                         menuUrl = "menu/registerMenu.php" + paramS;
                                     } else if (toMenu == "ticket") {
-
+                                        menuUrl = "menu/ticketMenu.php" + paramS;
                                     } else if (toMenu == "profile") {
 
                                     } else if (toMenu == "search") {

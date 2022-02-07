@@ -52,7 +52,7 @@ $sFlagMsg = '';
 $sFlag = '5';
 $sTitle = 'TICKET';
 $sShowMsg = '';
-
+ 
 if ($LinkCode == 'TICKET') {
 
     $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);

@@ -52,7 +52,7 @@ function regisForm($type)
     return $regisForm;
 }
 
-$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['REGISTER_URL']);
+$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'],$GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 if ($status == 'check') {
     registerDataToDatabase($getDataFromUrl);
