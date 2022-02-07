@@ -215,6 +215,9 @@ function post_web_content($url, $curl_data)
     $ch      = curl_init($url);
     curl_setopt_array($ch, $options);
     $content = curl_exec($ch);
+
+    echo json_encode($content);
+
     $err     = curl_errno($ch);
     $errmsg  = curl_error($ch);
     $header  = curl_getinfo($ch);
@@ -323,7 +326,6 @@ function register_command(
 
     $response = post_web_content($RegisterUrl, $curl_data);
 
-    echo json_encode($response);
 
     return $response;
 }

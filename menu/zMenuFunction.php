@@ -55,7 +55,7 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
     $objData->RegisterUrl = $RegisterUrl;
     $objData->CmdCommand = $CmdCommand;
 
-    echo json_encode($objData);
+    // echo json_encode($objData);
 
     return $objData;
 }
