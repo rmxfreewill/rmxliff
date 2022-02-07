@@ -119,7 +119,9 @@ if ($sFlag == '4') {
                     const userIdProfile = "<? echo  $getDataFromUrl->LineId; ?>";
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, toStatus);
-                    var menuUrl = urlSelectMenu.menuUrl;
+                    var param = urlSelectMenu.paramS;
+                    menuUrl = "menu/registerMenu.php" + param;
+
                     alert(menuUrl);
                     // window.location.assign(menuUrl);
                     $("#rmxLiFFLayout").load(menuUrl);
