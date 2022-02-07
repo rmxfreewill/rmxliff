@@ -118,7 +118,6 @@ if ($sFlag == '4') {
                     // window.location.assign(menuUrl);
 
                     try {
-                        alert(menuUrl);
                         $("#rmxLiFFLayout").load(menuUrl);
                     } catch (err) {
                         console.log('err rmxLiFFLayout: ' + error);
