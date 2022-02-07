@@ -64,7 +64,7 @@ function getDataFromUrl($CompanyCode, $CompanyUrl, $RegisterUrl)
 
 function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
 {
-    echo json_encode('CmdCommand: ' . $objParam);
+    // echo json_encode('CmdCommand: ' . $objParam);
     $objData = new stdClass;
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = send_command(
