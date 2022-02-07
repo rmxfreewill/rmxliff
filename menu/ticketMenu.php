@@ -35,9 +35,6 @@ $status = $getDataFromUrl->status;
 if ($status == 'init') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
-    if ($sFlag != '0') {
-        getTicketFromDatabase($getDataFromUrl);
-    }
 }
 
 ?>
@@ -60,7 +57,12 @@ if ($status == 'init') {
 </head>
 
 <body>
-
+    <?php
+    if ($sFlag != '0') {
+        $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl);
+        showTicketList($getTicketFromDatabase);
+    }
+    ?>
     <script>
         var urlS = new URL(document.URL);
     </script>
