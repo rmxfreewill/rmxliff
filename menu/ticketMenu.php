@@ -37,7 +37,7 @@ if ($status == 'check') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
 
-    getTicketFromDatabase($objParam);
+    getTicketFromDatabase($getDataFromUrl);
 }
 
 ?>
