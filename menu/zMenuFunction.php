@@ -184,6 +184,9 @@ function getTicketFromDatabase($objParam)
     $CompanyCode =  $objParam->CompanyCode;
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+
+echo $RetCommand;
+
     if ($RetCommand) { //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
