@@ -43,9 +43,6 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
 
     if ($menu == "register") {
         if ($status == 'check') {
-            $CmdCommand =
-                "call sp_main_line_reqister_to_db ('" . $LineId . "','" . $CompanyCode
-                . "','" . $UserName . "','" . $LineDisplay . "','" . $Tel . "','" . $EMail . "')";
         } else {
             $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
         }
@@ -59,7 +56,7 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
     $objData->RegisterUrl = $RegisterUrl;
     $objData->CmdCommand = $CmdCommand;
 
-    // echo json_encode($objData);
+
 
     return $objData;
 }
@@ -76,30 +73,35 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
         $CompanyCode,
         $CmdCommand
     );
-    echo 'RetCommand: ' . $RetCommand;
-    if ($RetCommand) {
-        $ASRet = [];
-        $ASRet = explode("^c", $RetCommand);
-        if (count($ASRet) >= 2) {
-            $sFlagMsg = $ASRet[0];
-            $sFlag = $ASRet[1];
-            $UserName = $ASRet[2];
-            $EMail = $ASRet[3];
-            $Tel = $ASRet[4];
-            $SoldToCode = $ASRet[5];
-            $SoldToName = $ASRet[6];
 
-            $sShowMsg = '0';
-            if ($sFlag != '0') {
-                $sTitle = 'View Register Info';
-                // $sFlagChangeMenu = true;
+    try {
+        if ($RetCommand) {
+            $ASRet = [];
+            $ASRet = explode("^c", $RetCommand);
+            if (count($ASRet) >= 2) {
+                $sFlagMsg = $ASRet[0];
+                $sFlag = $ASRet[1];
+                $UserName = $ASRet[2];
+                $EMail = $ASRet[3];
+                $Tel = $ASRet[4];
+                $SoldToCode = $ASRet[5];
+                $SoldToName = $ASRet[6];
+
+                $sShowMsg = '0';
+                if ($sFlag != '0') {
+                    $sTitle = 'View Register Info';
+                    // $sFlagChangeMenu = true;
+                }
             }
+            $objData->RetCommand = $RetCommand;
+            $objData->sFlag = $sFlag;
+        } else {
+            $objData->sFlag = '0';
         }
-        $objData->RetCommand = $RetCommand;
-        $objData->sFlag = $sFlag;
-    } else {
+    } catch (\Throwable $th) {
         $objData->sFlag = '0';
     }
+
     return $objData;
 }
 
