@@ -286,7 +286,12 @@ function put_request($CompanyUrl, $userId, $CompanyId, $text, $datas)
 function send_command($CompanyUrl, $userId, $CompanyId, $Command)
 {
 
-    $curl_data = "LineId=" . $userId . "&CompanyCode=" . $CompanyId . "&Command=" . $Command;
+    // $curl_data = "LineId=" . $userId . "&CompanyCode=" . $CompanyId . "&Command=" . $Command;
+
+    $curl_data = "LineId=" . $userId . "&CompanyCode=" . $CompanyId
+        . "&LineDisplay=" . 'rmxadmin' . "&UserName=" . 'rmxadmin'
+        . "&Tel=" . '11111' . "&EMail=" . '00000011' . "&Command=" . $Command;
+
     $response = post_web_content($CompanyUrl, $curl_data);
     return $response;
 }

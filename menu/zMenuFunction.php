@@ -68,10 +68,12 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
 {
     $objData = new stdClass;
     $CmdCommand = $objParam->CmdCommand;
+    $LineId = $objParam->LineId;
+    $CompanyCode = $objParam->CompanyCode;
     $RetCommand = send_command(
         $CompanyUrl,
-        '',
-        '',
+        $LineId,
+        $CompanyCode,
         $CmdCommand
     );
 
