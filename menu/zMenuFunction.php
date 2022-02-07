@@ -47,7 +47,7 @@ function getDataFromUrl($CompanyCode, $CompanyUrl, $RegisterUrl)
             $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
         }
     }
-
+echo $CmdCommand;
 
     $objData->menu = $menu;
     $objData->status = $status;
