@@ -178,6 +178,13 @@ function registerDataToDatabase($objParam)
 
 function getTicketFromDatabase($objParam)
 {
+
+    /*
+    https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php?
+    QueryCommand=call sp_comp_select_ticket('U379c8a7fce077a831d3fbfad3c1e4bda', '01/01/2017', '31/12/2022', '320001839')
+    &LineId=U379c8a7fce077a831d3fbfad3c1e4bda
+    &CompanyCode=00001
+    */
     $objData = new stdClass;
     $RetCommand  = '';
     $LineId = $objParam->LineId;
@@ -186,25 +193,23 @@ function getTicketFromDatabase($objParam)
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
     if ($RetCommand) {
-
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
         if (count($ASRet) >= 2) {
             $sFlagMsg = $ASRet[0];
             $sFlag = $ASRet[1];
             if ($sFlag != '0') {
-
+                //
                 $LineId = 'U379c8a7fce077a831d3fbfad3c1e4bda';
                 $dStartDate = '01/01/2017';
                 $dEndDate = '31/12/2022';
                 $sShipToCode = '320001839';
-
+                //
                 $CmdCommand = "call sp_comp_select_ticket('"
                     . $LineId . "','" . $dStartDate . "','" . $dEndDate . "','" . $sShipToCode .
                     "')'";
 
                 $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-                
             }
         }
     }
