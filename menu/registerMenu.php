@@ -50,17 +50,18 @@ function regisForm($type)
     return $regisForm;
 }
 
-$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE']);
-$getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
+$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['REGISTER_URL']);
 
-if ($getData->sFlag == '4') {
+if ($getDataFromUrl->status == 'check') {
+    registerDataToDatabase($objParam);
+} else if ($getDataFromUrl->status == 'init') {
+    $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
+    $sFlag = $getData->sFlag;
+}
+
+if ($sFlag == '4') {
     $regisType = true;
 }
-
-if ($getDataFromUrl->status=='check') {
-    echo "CHECK";
-}
-
 
 
 ?>
@@ -110,13 +111,25 @@ if ($getDataFromUrl->status=='check') {
                     const sUrl = "<? echo sURL; ?>";
                     const userIdProfile = "<? echo  $getDataFromUrl->LineId; ?>";
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-                    var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd);
-                    var urlS = urlSelectMenu[0];
-                    window.location.assign(url);
+                    var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, 'check');
+                    var menuUrl = urlSelectMenu.selectMenu;
+
+                    // window.location.assign(menuUrl);
+
+                    try {
+                        $("#rmxLiFFLayout").load(menuUrl);
+                    } catch (err) {
+                        console.log('err rmxLiFFLayout: ' + error);
+                    }
                 }
             }
 
 
+        }
+
+        var sFlag = "<?php echo $sFlag; ?>";
+        if (sFlag == 4) {
+            rmxCloseWindow();
         }
     </script>
 </body>

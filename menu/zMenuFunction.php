@@ -6,7 +6,7 @@ ini_set('display_errors', 'On');
 include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
 include($_SERVER['DOCUMENT_ROOT'] . "/rmxLineFunction.php");
 
-function getDataFromUrl($CompanyCode)
+function getDataFromUrl($CompanyCode, $RegisterUrl)
 {
     $objData = new stdClass;
 
@@ -39,6 +39,7 @@ function getDataFromUrl($CompanyCode)
     $objData->status = $status;
     $objData->LineId = $LineId;
     $objData->CompanyCode = $CompanyCode;
+    $objData->RegisterUrl = $RegisterUrl;
     $objData->CmdCommand = $CmdCommand;
 
     return $objData;

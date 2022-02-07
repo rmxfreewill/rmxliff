@@ -13,7 +13,7 @@ function rmxGetParams() {
     return param;
 }
 
-function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCmd = String) {
+function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCmd = String,status = String) {
 
     //paramCmdCommand
     var paramCmdCommand = sCmd != '' ? "&CmdCommand=" + sCmd : '';
@@ -22,14 +22,14 @@ function rmxSelectMenu(sUrl = String ,toMenu = String, userId = String,sCmd = St
     var paramUserId = "&LineId=" + userId;
 
     //paramRoutes
-    var RoutesStatus = "status=init";
+    var RoutesStatus = "status="+status;
     var paramRoutes = RoutesStatus + '&menu=' + toMenu;
 
-    var param = "?" + paramRoutes + paramUserId +paramCmdCommand;
+    var param = "?" + paramRoutes + paramUserId + paramCmdCommand;
     var url = sUrl + "index.php";
     var selectMenu = url + param;
 
-    const rmxSelectMenu = [selectMenu,param];
+    const rmxSelectMenu = {menuUrl:selectMenu,paramS:param};
 
     return rmxSelectMenu;
 }

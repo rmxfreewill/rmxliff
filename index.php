@@ -59,33 +59,33 @@ $GLOBALS['sURL'] =   sURL;
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam.menu;
                                 var toStatus = getParam.status;
-                                var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, '');
-                                var urlS = urlSelectMenu[0];
-                                var paramS = urlSelectMenu[1];
+                                var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, '','init');
+                                var menuUrl = urlSelectMenu.selectMenu;
+                                var paramS = urlSelectMenu.paramS;
                                 if (toStatus == null) {
-                                    window.location.assign(urlS);
+                                    window.location.assign(menuUrl);
                                 } else if (toStatus == 'init' || toStatus == 'check') {
                                     var menuUrl = "menu/blankMenu.php";
                                     if (toMenu == "register") {
-                                        menuUrl = "menu/registerMenu.php" +  paramS ;
+                                        menuUrl = "menu/registerMenu.php" + paramS;
                                     } else if (toMenu == "ticket") {
 
                                     } else if (toMenu == "profile") {
 
-                                    } else if (toMenu == "history") {
+                                    } else if (toMenu == "search") {
 
                                     }
+
                                     // alert('menuUrl: ' + menuUrl);
                                     try {
                                         $("#rmxLiFFLayout").load(menuUrl);
-                                    } catch (error) {
-                                        console.log(error);
+                                    } catch (err) {
+                                        console.log('err rmxLiFFLayout: ' + error);
                                     }
-
                                 }
                             })
                             .catch((err) => {
-                                console.log('error', err);
+                                console.log('err getProfile: ', err);
                             });
                     }
                 })
