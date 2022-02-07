@@ -42,7 +42,7 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
 
     if ($menu == "register") {
         if ($status == 'check') {
-            $CmdCommand = "call sp_comp_reqister_user ('Uc1dd5c7730988280c6c7731980655f7a','00001','rmxadmin','111','111','111','111','111','111')";
+           
         } else {
             $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
         }
