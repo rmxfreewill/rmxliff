@@ -101,6 +101,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
         }
     } catch (\Throwable $th) {
         $objData->sFlag = '0';
+        $objData->error = $th;
     }
 
     return $objData;
