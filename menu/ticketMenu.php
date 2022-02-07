@@ -54,6 +54,12 @@ if ($status == 'init') {
     <script charset="utf-8" src="../js/jquery.js"></script>
     <script charset="utf-8" src="../js/lineSdk_2_18_1.js"></script>
     <script charset="utf-8" src="../js/rmx_liff_function.js"></script>
+
+    <link rel="stylesheet" href="../css/ticket_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -61,10 +67,38 @@ if ($status == 'init') {
     if ($sFlag != '0') {
         $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl);
         showTicketList($getTicketFromDatabase);
+    } else {
+        echo "<center>$LineId<h1><br>No Record List</h1></center>";
     }
     ?>
     <script>
-        var urlS = new URL(document.URL);
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        function fillTicketData(tableName, asCol, asData) {
+            var table = document.getElementById(tableName);
+            if (table) {
+                var sHtml = "";
+                var nRLen = asData.length;
+                for (var r = 0; r < nRLen; r++) {
+                    var sC = asCol[r];
+                    var sD = asData[r];
+                    sHtml = sHtml + "<tr><th>" + sC + "</th><td class='textLeft'>" + sD + "</td></tr>";
+                }
+                table.innerHTML = sHtml;
+            }
+        }
     </script>
 </body>
 
