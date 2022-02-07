@@ -35,11 +35,11 @@ $status = $getDataFromUrl->status;
 if ($status == 'init') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     
-    echo json_encode($getData);
+    
 
     // $sFlag = $getData->sFlag;
 
-    // getTicketFromDatabase($getDataFromUrl);
+    getTicketFromDatabase($getData);
 }
 
 ?>

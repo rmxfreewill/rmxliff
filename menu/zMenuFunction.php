@@ -186,7 +186,7 @@ function getTicketFromDatabase($objParam)
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
 
-    echo $RetCommand;
+    echo json_encode($RetCommand);
 
     if ($RetCommand) { //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
         $ASRet = [];
