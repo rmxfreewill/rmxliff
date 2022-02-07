@@ -68,14 +68,16 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
     $CmdCommand = $objParam->CmdCommand;
     $LineId = $objParam->LineId;
     $CompanyCode = $objParam->CompanyCode;
+
     $RetCommand = send_command(
         $CompanyUrl,
-        $LineId,
-        $CompanyCode,
+        '',
+        '',
         $CmdCommand
     );
+echo json_encode($RetCommand);
 
-    try {
+    // try {
         if ($RetCommand) {
             $ASRet = [];
             $ASRet = explode("^c", $RetCommand);
@@ -99,10 +101,10 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
         } else {
             $objData->sFlag = '0';
         }
-    } catch (\Throwable $th) {
-        $objData->sFlag = '0';
-        $objData->error = $th;
-    }
+    // } catch (\Throwable $th) {
+    //     $objData->sFlag = '0';
+    //     $objData->error = $th;
+    // }
 
     return $objData;
 }
