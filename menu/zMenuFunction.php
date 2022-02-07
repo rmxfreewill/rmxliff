@@ -28,6 +28,12 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
     if (isset($_GET['LineId']))
         $LineId = $_GET['LineId'];
 
+    $CmdCommand = '';
+    if (isset($_POST['CmdCommand']))
+        $CmdCommand = $_POST['CmdCommand'];
+    if (isset($_GET['CmdCommand']))
+        $CmdCommand = $_GET['CmdCommand'];
+
     $LineDisplay = '';
     $sSoldToCode = '';
     $sSoldToName = '';
@@ -37,10 +43,8 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
     if ($menu == "register") {
         if ($status == 'init')
             $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
-    } else {
-        $CmdCommand = '';
     }
-
+    echo $CmdCommand;
 
     $objData->menu = $menu;
     $objData->status = $status;
@@ -105,7 +109,6 @@ function registerDataToDatabase($objParam)
     $Tel = $ASRet[2];
     $EMail = $ASRet[3];
 
-    echo $CmdCommand;
 
     $RetCommand = register_command(
         $RegisterUrl,
