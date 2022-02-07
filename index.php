@@ -59,12 +59,13 @@ $GLOBALS['sURL'] =   sURL;
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam.menu;
                                 var toCmd = getParam.CmdCommand;
+                                alert('toStatus Before: ' + getParam.status);
                                 var toStatus = getParam.status != null ? getParam.status : 'init';
-alert('toStatus: '+toStatus);
+                                alert('toStatus After: ' + toStatus);
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, toCmd, toStatus);
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
-                                
+
                                 if (toStatus == null) {
                                     window.location.assign(menuUrl);
                                 } else if (toStatus == 'init' || toStatus == 'check') {

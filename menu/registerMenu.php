@@ -120,14 +120,10 @@ if ($sFlag == '4') {
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, toStatus);
                     var menuUrl = urlSelectMenu.menuUrl;
-alert(menuUrl);
-                    window.location.assign(menuUrl);
+                    alert(menuUrl);
+                    // window.location.assign(menuUrl);
+                    $("#rmxLiFFLayout").load(menuUrl);
 
-                    // try {
-                    //     $("#rmxLiFFLayout").load(menuUrl);
-                    // } catch (err) {
-                    //     console.log('err rmxLiFFLayout: ' + error);
-                    // }
                 }
             }
 
@@ -142,3 +138,18 @@ alert(menuUrl);
 </body>
 
 </html>
+
+<!-- 
+
+
+`sp_comp_reqister_user`(
+    IN $sLineId VARCHAR(50) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    ,IN $sCompanyCode VARCHAR(50) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    ,IN $sUserName VARCHAR(300) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    ,IN $sSoldToCode VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    ,IN $sSoldToName VARCHAR(300) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    ,IN $sShipToCode VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    ,IN $sShipToName VARCHAR(300) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    ,IN $sMobileNo VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    ,IN $sEMail VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+ -->
