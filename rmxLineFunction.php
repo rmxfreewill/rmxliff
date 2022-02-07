@@ -216,7 +216,7 @@ function post_web_content($url, $curl_data)
     curl_setopt_array($ch, $options);
     $content = curl_exec($ch);
 
-
+    echo json_encode($content);
 
     $err     = curl_errno($ch);
     $errmsg  = curl_error($ch);
