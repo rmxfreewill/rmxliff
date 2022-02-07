@@ -261,7 +261,6 @@ function getTicketFromDatabase($objParam)
                 //    
                 $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
                 
-                echo json_encode($RetCommand );
             }
         }
     }
@@ -270,6 +269,7 @@ function getTicketFromDatabase($objParam)
 
 function showTicketList($RetCommand)
 {
+    echo $RetCommand;
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
         if (count($asTable) > 0) {
