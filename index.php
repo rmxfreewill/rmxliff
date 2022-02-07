@@ -62,7 +62,6 @@ $GLOBALS['sURL'] =   sURL;
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, '','init');
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
-                                alert(menuUrl);
                                 if (toStatus == null) {
                                     window.location.assign(menuUrl);
                                 } else if (toStatus == 'init' || toStatus == 'check') {

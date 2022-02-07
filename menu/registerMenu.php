@@ -4,6 +4,7 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 
 include("zMenuFunction.php");
+include("zApiFunction.php");
 
 $GLOBALS['COMPANY_URL'] =  COMPANY_URL;
 $GLOBALS['REGISTER_URL'] =   REGISTER_URL;
@@ -11,6 +12,7 @@ $GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
 $GLOBALS['LIFF_ID'] =   LIFF_ID;
 $GLOBALS['sURL'] =   sURL;
 
+$sFlag == '0';
 $regisType = false;
 
 function regisForm($type)
@@ -61,7 +63,8 @@ if ($status == 'check') {
 }
 
 if ($sFlag == '4') {
-    $regisType = true;
+    $LINEID = $getDataFromUrl->LineId;
+    rmxChangeMemberRichMenu('Member', $LINEID);
 }
 
 
