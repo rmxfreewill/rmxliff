@@ -121,7 +121,7 @@ if ($sFlag == '4') {
                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, 'check');
                     var menuUrl = urlSelectMenu.menuUrl;
 
-                    // window.location.assign(menuUrl);
+                    window.location.assign(menuUrl);
 alert(menuUrl);
                     try {
                         $("#rmxLiFFLayout").load(menuUrl);
