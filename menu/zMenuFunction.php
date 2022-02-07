@@ -35,15 +35,8 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
     $EMail = '';
 
     if ($menu == "register") {
-        if ($status == "check") {
-            $CmdCommand = "call sp_comp_reqister_user ('" . $LineId . "','" . $CompanyCode . "','"
-                . $LineDisplay . "','" . $sSoldToCode . "','" . $sSoldToName . "','"
-                . $Tel . "','" . $EMail . "')";
-
-                $CmdCommand = "call rmx01.sp_comp_reqister_user ('Uc1dd5c7730988280c6c7731980655f7a','00001','rmxadmin','111','111','111','111','111','1112')";
-        } else {
+        if ($status == 'init')
             $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
-        }
     } else {
         $CmdCommand = '';
     }
@@ -111,6 +104,8 @@ function registerDataToDatabase($objParam)
     $UserName = $ASRet[1];
     $Tel = $ASRet[2];
     $EMail = $ASRet[3];
+
+    echo $CmdCommand;
 
     $RetCommand = register_command(
         $RegisterUrl,
