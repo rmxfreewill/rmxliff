@@ -120,14 +120,14 @@ if ($sFlag == '4') {
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, toStatus);
                     var menuUrl = urlSelectMenu.menuUrl;
-
-                    // window.location.assign(menuUrl);
 alert(menuUrl);
-                    try {
-                        $("#rmxLiFFLayout").load(menuUrl);
-                    } catch (err) {
-                        console.log('err rmxLiFFLayout: ' + error);
-                    }
+                    window.location.assign(menuUrl);
+
+                    // try {
+                    //     $("#rmxLiFFLayout").load(menuUrl);
+                    // } catch (err) {
+                    //     console.log('err rmxLiFFLayout: ' + error);
+                    // }
                 }
             }
 
