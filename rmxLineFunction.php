@@ -297,10 +297,7 @@ function send_query($CompanyUrl, $userId, $CompanyId, $Command)
 {
 
     $curl_data = "LineId=" . $userId . "&CompanyCode=" . $CompanyId . "&QueryCommand=" . $Command;
-    echo $curl_data;
     $response = post_web_content($CompanyUrl, $curl_data);
-
-    echo  $response ;
     return $response;
 }
 

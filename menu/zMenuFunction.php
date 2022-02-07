@@ -6,6 +6,57 @@ ini_set('display_errors', 'On');
 // include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
 include($_SERVER['DOCUMENT_ROOT'] . "/rmxLineFunction.php");
 
+function postWebContent($url, $curl_data)
+{
+    $options = array(
+        CURLOPT_RETURNTRANSFER => true,         // return web page
+        CURLOPT_HEADER         => false,        // don't return headers
+        CURLOPT_FOLLOWLOCATION => true,         // follow redirects
+        CURLOPT_ENCODING       => "",           // handle all encodings
+        CURLOPT_USERAGENT      => "kai",     // who am i
+        CURLOPT_AUTOREFERER    => true,         // set referer on redirect
+        CURLOPT_CONNECTTIMEOUT => 120,          // timeout on connect
+        CURLOPT_TIMEOUT        => 120,          // timeout on response
+        CURLOPT_MAXREDIRS      => 10,           // stop after 10 redirects
+        CURLOPT_POST            => 1,            // i am sending post data
+        CURLOPT_POSTFIELDS     => $curl_data,    // this are my post vars
+        CURLOPT_SSL_VERIFYHOST => 0,            // don't verify ssl
+        CURLOPT_SSL_VERIFYPEER => false,        //
+        CURLOPT_VERBOSE        => 1                //
+    );
+
+    $ch      = curl_init($url);
+    curl_setopt_array($ch, $options);
+    $content = curl_exec($ch);
+    $err     = curl_errno($ch);
+    $errmsg  = curl_error($ch);
+    $header  = curl_getinfo($ch);
+    curl_close($ch);
+
+    return trim($content);
+}
+
+// function sendCommand($CompanyUrl, $userId, $CompanyId, $Command)
+// {
+
+//     $curl_data = "LineId=" . $userId . "&CompanyCode=" . $CompanyId . "&Command=" . $Command;
+//     $response = post_web_content($CompanyUrl, $curl_data);
+//     return $response;
+// }
+
+function sendQuery($type, $CompanyUrl, $userId, $CompanyId, $Command)
+{
+    if ($type = 'Command') {
+        $curlCmd = "&Command=" . $Command;
+    } else if ($type = 'QueryCommand') {
+        $curlCmd = "&QueryCommand=" . $Command;
+    }
+
+    $curl_data = "LineId=" . $userId . "&CompanyCode=" . $CompanyId . $curlCmd;
+    $response = postWebContent($CompanyUrl, $curl_data);
+    return $response;
+}
+
 function getDataFromUrl($CompanyCode, $CompanyUrl, $RegisterUrl)
 {
     $objData = new stdClass;
@@ -67,7 +118,8 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
     // echo json_encode('CmdCommand: ' . $objParam);
     $objData = new stdClass;
     $CmdCommand = $objParam->CmdCommand;
-    $RetCommand = send_command(
+    $RetCommand = sendQuery(
+        'Command',
         $CompanyUrl,
         '',
         '',
@@ -191,7 +243,7 @@ function getTicketFromDatabase($objParam)
     $CompanyUrl =  $objParam->CompanyUrl;
     $CompanyCode =  $objParam->CompanyCode;
     $CmdCommand = $objParam->CmdCommand;
-    $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
+    $RetCommand = sendQuery('Command', $CompanyUrl, '', '', $CmdCommand);
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
@@ -207,7 +259,7 @@ function getTicketFromDatabase($objParam)
                 //
                 $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
                 //    
-                $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
+                $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
             }
         }
     }
