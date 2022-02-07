@@ -60,7 +60,7 @@ $GLOBALS['sURL'] =   sURL;
                                 var toMenu = getParam.menu;
                                 var toStatus = getParam.status;
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, '','init');
-                                var menuUrl = urlSelectMenu.selectMenu;
+                                var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
                                 alert(menuUrl);
                                 if (toStatus == null) {
