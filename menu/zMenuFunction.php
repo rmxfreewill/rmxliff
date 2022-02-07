@@ -28,8 +28,20 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
     if (isset($_GET['LineId']))
         $LineId = $_GET['LineId'];
 
+    $LineDisplay = '';
+    $sSoldToCode = '';
+    $sSoldToName = '';
+    $Tel = '';
+    $EMail = '';
+
     if ($menu == "register") {
-        $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
+        if ($status == "check") {
+            $CmdCommand = "call sp_comp_reqister_user ('" . $LineId . "','" . $CompanyCode . "','"
+                . $LineDisplay . "','" . $sSoldToCode . "','" . $sSoldToName . "','"
+                . $Tel . "','" . $EMail . "')";
+        } else {
+            $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
+        }
     } else {
         $CmdCommand = '';
     }

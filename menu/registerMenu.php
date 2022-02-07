@@ -54,10 +54,6 @@ function regisForm($type)
 
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
-
-
-echo $status;
-
 if ($status == 'check') {
     registerDataToDatabase($getDataFromUrl);
 } else if ($status == 'init') {
@@ -115,20 +111,14 @@ if ($sFlag == '4') {
                 } else {
                     var toMenu = 'register';
                     var toStatus = 'check';
-                    const sUrl = "<? echo sURL; ?>";
-                    const userIdProfile = "<? echo  $getDataFromUrl->LineId; ?>";
+                    var sUrl = "<? echo sURL; ?>";
+                    var userIdProfile = "<? echo  $getDataFromUrl->LineId; ?>";
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, toStatus);
                     var param = urlSelectMenu.paramS;
+                    var menuUrl = "menu/registerMenu.php" + param;
 
-
-                    var url = window.location.pathname;
-                    var filename = url.substring(url.lastIndexOf('/') + 1);
-                    alert('filename: '+filename);
-
-                    menuUrl = "menu/registerMenu.php" + param;
                     $("#rmxLiFFLayout").load(menuUrl);
-
                 }
             }
 
