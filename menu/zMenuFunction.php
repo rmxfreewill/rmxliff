@@ -75,32 +75,32 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
         '',
         $CmdCommand
     );
-echo json_encode($RetCommand);
+    echo json_encode('RetCommand: ' . $RetCommand);
 
     // try {
-        if ($RetCommand) {
-            $ASRet = [];
-            $ASRet = explode("^c", $RetCommand);
-            if (count($ASRet) >= 2) {
-                $sFlagMsg = $ASRet[0];
-                $sFlag = $ASRet[1];
-                $UserName = $ASRet[2];
-                $EMail = $ASRet[3];
-                $Tel = $ASRet[4];
-                $SoldToCode = $ASRet[5];
-                $SoldToName = $ASRet[6];
+    if ($RetCommand) {
+        $ASRet = [];
+        $ASRet = explode("^c", $RetCommand);
+        if (count($ASRet) >= 2) {
+            $sFlagMsg = $ASRet[0];
+            $sFlag = $ASRet[1];
+            $UserName = $ASRet[2];
+            $EMail = $ASRet[3];
+            $Tel = $ASRet[4];
+            $SoldToCode = $ASRet[5];
+            $SoldToName = $ASRet[6];
 
-                $sShowMsg = '0';
-                if ($sFlag != '0') {
-                    $sTitle = 'View Register Info';
-                    // $sFlagChangeMenu = true;
-                }
+            $sShowMsg = '0';
+            if ($sFlag != '0') {
+                $sTitle = 'View Register Info';
+                // $sFlagChangeMenu = true;
             }
-            $objData->RetCommand = $RetCommand;
-            $objData->sFlag = $sFlag;
-        } else {
-            $objData->sFlag = '0';
         }
+        $objData->RetCommand = $RetCommand;
+        $objData->sFlag = $sFlag;
+    } else {
+        $objData->sFlag = '0';
+    }
     // } catch (\Throwable $th) {
     //     $objData->sFlag = '0';
     //     $objData->error = $th;
@@ -188,7 +188,7 @@ function getTicketFromDatabase($objParam)
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
 
-echo $RetCommand;
+    echo $RetCommand;
 
     if ($RetCommand) { //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
         $ASRet = [];
@@ -211,7 +211,7 @@ echo $RetCommand;
 
                 $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
 
-                echo json_encode('getTicketFromDatabase: '.$RetCommand);
+                echo json_encode('getTicketFromDatabase: ' . $RetCommand);
             }
         }
     }
