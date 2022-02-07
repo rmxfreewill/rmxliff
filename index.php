@@ -60,11 +60,11 @@ $GLOBALS['sURL'] =   sURL;
                                 var toMenu = getParam.menu;
                                 var toCmd = getParam.CmdCommand;
                                 var toStatus = toStatus != null ? getParam.status : 'init';
-                                
+                                alert(toStatus);
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, toCmd, toStatus);
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
-                                alert(toStatus);
+                                
                                 if (toStatus == null) {
                                     window.location.assign(menuUrl);
                                 } else if (toStatus == 'init' || toStatus == 'check') {

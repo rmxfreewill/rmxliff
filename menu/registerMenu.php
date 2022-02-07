@@ -118,7 +118,7 @@ if ($sFlag == '4') {
                     const sUrl = "<? echo sURL; ?>";
                     const userIdProfile = "<? echo  $getDataFromUrl->LineId; ?>";
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-                    var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, 'check');
+                    var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, toStatus);
                     var menuUrl = urlSelectMenu.menuUrl;
 
                     // window.location.assign(menuUrl);
