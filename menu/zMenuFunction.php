@@ -127,14 +127,9 @@ function registerDataToDatabase($objParam)
     //     ,IN $sEMail VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
 
 
-    $RetCommand = send_command(
-        COMPANY_URL,
-        $LineId,
-        '',
-        $CmdCommand
-    );
 
-    $RetCommand2 = register_command(
+
+    $RetCommand = register_command(
         $RegisterUrl,
         $LineId,
         $CompanyCode,
