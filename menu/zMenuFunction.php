@@ -41,13 +41,13 @@ function getDataFromUrl($CompanyCode, $CompanyUrl, $RegisterUrl)
     $Tel = '';
     $EMail = '';
 
-    if ($menu == "register") {
-        if ($status == 'check') {
-        } else {
-            $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
-        }
+
+    if ($status == 'check') {
+    } else {
+        $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
     }
-echo $CmdCommand;
+
+
 
     $objData->menu = $menu;
     $objData->status = $status;
@@ -73,7 +73,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
         '',
         $CmdCommand
     );
-    
+
 
     // try {
     if ($RetCommand) {
