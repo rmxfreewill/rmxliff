@@ -90,7 +90,7 @@ function registerDataToDatabase($objParam)
     $LineId = $objParam->LineId;
     $CompanyCode =  $objParam->CompanyCode;
     $CmdCommand = $objParam->CmdCommand;
-    
+echo  $CmdCommand;
     $ASRet = [];
     $ASRet = explode("^c", $CmdCommand);
     $LineDisplay = $ASRet[0];

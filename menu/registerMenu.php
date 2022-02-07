@@ -55,6 +55,9 @@ function regisForm($type)
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 
+
+echo $status;
+
 if ($status == 'check') {
     registerDataToDatabase($getDataFromUrl);
 } else if ($status == 'init') {
@@ -119,7 +122,7 @@ if ($sFlag == '4') {
                     var menuUrl = urlSelectMenu.menuUrl;
 
                     // window.location.assign(menuUrl);
-
+alert(menuUrl);
                     try {
                         $("#rmxLiFFLayout").load(menuUrl);
                     } catch (err) {
