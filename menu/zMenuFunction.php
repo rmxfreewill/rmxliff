@@ -42,12 +42,11 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
 
     if ($menu == "register") {
         if ($status == 'check') {
-           
         } else {
             $CmdCommand = "call sp_main_check_register ('" . $LineId . "','" . $CompanyCode . "')";
         }
     }
-    echo $CmdCommand;
+
 
     $objData->menu = $menu;
     $objData->status = $status;
@@ -55,6 +54,8 @@ function getDataFromUrl($CompanyCode, $RegisterUrl)
     $objData->CompanyCode = $CompanyCode;
     $objData->RegisterUrl = $RegisterUrl;
     $objData->CmdCommand = $CmdCommand;
+
+    echo json_encode($objData);
 
     return $objData;
 }
@@ -124,10 +125,16 @@ function registerDataToDatabase($objParam)
     //     ,IN $sShipToName VARCHAR(300) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
     //     ,IN $sMobileNo VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
     //     ,IN $sEMail VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
-     
 
 
-    $RetCommand = register_command(
+    $RetCommand = send_command(
+        COMPANY_URL,
+        $LineId,
+        '',
+        $CmdCommand
+    );
+
+    $RetCommand2 = register_command(
         $RegisterUrl,
         $LineId,
         $CompanyCode,
