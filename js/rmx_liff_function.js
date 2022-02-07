@@ -7,9 +7,11 @@ function rmxCloseWindow() {
 function rmxGetParams() {
     var toStatus = null;
     var url = new URL(document.URL);
-    var toMenu = url.searchParams.get("menu");
     toStatus = url.searchParams.get("status");
-    const param = {menu:toMenu,status:toStatus};
+    var toMenu = url.searchParams.get("menu");
+    var toCmd = url.searchParams.get("CmdCommand");
+
+    const param = {menu:toMenu,status:toStatus,CmdCommand:toCmd};
     return param;
 }
 
