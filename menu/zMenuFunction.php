@@ -205,10 +205,8 @@ function getTicketFromDatabase($objParam)
                 $dEndDate = '31/12/2022';
                 $sShipToCode = '320001839';
                 //
-                $CmdCommand = "call sp_comp_select_ticket('"
-                    . $LineId . "','" . $dStartDate . "','" . $dEndDate . "','" . $sShipToCode .
-                    "')'";
-
+                $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
+                //    
                 $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
             }
         }

@@ -215,8 +215,6 @@ function post_web_content($url, $curl_data)
     $ch      = curl_init($url);
     curl_setopt_array($ch, $options);
     $content = curl_exec($ch);
-
-
     $err     = curl_errno($ch);
     $errmsg  = curl_error($ch);
     $header  = curl_getinfo($ch);
@@ -299,12 +297,9 @@ function send_query($CompanyUrl, $userId, $CompanyId, $Command)
 {
 
     $curl_data = "LineId=" . $userId . "&CompanyCode=" . $CompanyId . "&QueryCommand=" . $Command;
-
-
-    echo  $CompanyUrl."?".json_encode($curl_data);
-
-
     $response = post_web_content($CompanyUrl, $curl_data);
+
+    echo  $response ;
     return $response;
 }
 
