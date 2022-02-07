@@ -32,11 +32,11 @@ $sShowMsg = '';
 
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
-
-echo json_encode($getDataFromUrl);
-
 if ($status == 'init') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
+
+    echo json_encode($getData);
+
     // $sFlag = $getData->sFlag;
 
     // getTicketFromDatabase($getDataFromUrl);
