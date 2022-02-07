@@ -53,6 +53,7 @@ function regisForm($type)
 }
 
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'],$GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
+echo json_encode('getDataFromUrl: ' . $getDataFromUrl);
 $status = $getDataFromUrl->status;
 if ($status == 'check') {
     registerDataToDatabase($getDataFromUrl);
