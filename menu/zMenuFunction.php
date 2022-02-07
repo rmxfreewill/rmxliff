@@ -186,7 +186,7 @@ function getTicketFromDatabase($objParam)
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
     if ($RetCommand) {
-        echo json_encode('RetCommand: '.$RetCommand);
+
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
         if (count($ASRet) >= 2) {
@@ -204,7 +204,7 @@ function getTicketFromDatabase($objParam)
                     "')'";
 
                 $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-                echo json_encode('send_query: '.$RetCommand);
+                
             }
         }
     }

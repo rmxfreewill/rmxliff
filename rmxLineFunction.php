@@ -299,6 +299,7 @@ function send_query($CompanyUrl, $userId, $CompanyId, $Command)
 {
 
     $curl_data = "LineId=" . $userId . "&CompanyCode=" . $CompanyId . "&QueryCommand=" . $Command;
+    echo json_encode('send_query: '.$curl_data);
     $response = post_web_content($CompanyUrl, $curl_data);
     return $response;
 }
