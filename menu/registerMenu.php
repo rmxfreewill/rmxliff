@@ -120,10 +120,13 @@ if ($sFlag == '4') {
                     var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, toStatus);
                     var param = urlSelectMenu.paramS;
-                    menuUrl = "menu/registerMenu.php" + param;
 
-                    alert(menuUrl);
-                    // window.location.assign(menuUrl);
+
+                    var url = window.location.pathname;
+                    var filename = url.substring(url.lastIndexOf('/') + 1);
+                    alert('filename: '+filename);
+
+                    menuUrl = "menu/registerMenu.php" + param;
                     $("#rmxLiFFLayout").load(menuUrl);
 
                 }
