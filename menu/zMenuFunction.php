@@ -260,6 +260,8 @@ function getTicketFromDatabase($objParam)
                 $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
                 //    
                 $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
+                
+                echo json_encode($RetCommand );
             }
         }
     }
@@ -268,8 +270,6 @@ function getTicketFromDatabase($objParam)
 
 function showTicketList($RetCommand)
 {
-
-
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
         if (count($asTable) > 0) {
