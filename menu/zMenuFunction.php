@@ -272,6 +272,7 @@ function showTicketList($RetCommand)
 
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
+        echo json_encode($asTable);
         if (count($asTable) > 0) {
             $arTmp = explode("^f", $asTable[0]);
             if (count($arTmp) > 1) {
