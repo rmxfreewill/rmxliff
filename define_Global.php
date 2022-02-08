@@ -15,5 +15,5 @@ define("sURL", "https://rmxliff.herokuapp.com/");
 //richmenu-c0bb445dfc662599b77a64bea5a3d596 New
 //388f5b26e1355ae02b900d3729f7530c Old
 define("LIFF_ID", "1656503744-kojgw9pb");
-define("RICHMENU_ID","richmenu-c0bb445dfc662599b77a64bea5a3d596");
+define("RICHMENU_ID","richmenu-22844462d3a80a6752c69fef71363779");
 define("BEARER_TOKEN","6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=");
