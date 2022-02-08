@@ -45,8 +45,9 @@ $GLOBALS['sURL'] =   sURL;
 </head>
 
 <body class="bg-warning">
-    <div class="spinner-border loader" role="status">
-        <span>Loading...</span>
+    <div class="loader">
+        <div class="spinner-border text-secondary" role="status">
+        </div>
     </div>
     <div class="container">
         <div class="row">
