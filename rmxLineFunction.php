@@ -326,11 +326,11 @@ function register_command(
         . "&LineDisplay=" . $LineDisplay . "&UserName=" . $UserName
         . "&Tel=" . $Tel . "&EMail=" . $EMail;
 
-echo json_encode($RegisterUrl."?".$curl_data);
+// echo json_encode($RegisterUrl."?".$curl_data);
 
-    // $response = post_web_content($RegisterUrl, $curl_data);
+    $response = post_web_content($RegisterUrl, $curl_data);
 
-    $response='';
+    // $response='';
     return $response;
 }
 
