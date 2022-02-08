@@ -70,22 +70,32 @@ if ($status == 'init') {
 } else if ($status == 'search') {
 }
 ?>
-<div class="col-12 border border-warning rounded rounded-lg">
+<div class="col-12 mb-3 mt-3">
+    <h3>Search</h3>
+</div>
+<div class="col-12 mb-3">
     <?php
     if ($sFlag != '0') { //ticketSearchScreen($LineId);
     ?>
-
-
-
-        <label for="txtFirst"><b>Start Date</b></label>
-        <input type="date" dateformat="d M y" id="txtFirst">
-        <label for="txtLast"><b>End Date</b></label>
-        <input type="date" id="txtLast" dateformat="d M y">
-        <label for="txtTicketNo"><b>Ticket No</b></label>
-        <input type="text" id="txtTicketNo" value="">
-        <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
-        <button type="button" id="btnSearch" onclick="checkSearch()">SEARCH</button>
-
+        <div class="col-12 border bg-dark rounded rounded-lg">
+            <div class="mb-3">
+                <label for="txtFirst" class="form-label form-label-lg"><b>Start Date</b></label>
+                <input type="date" class="form-control form-control-lg" dateformat="d M y" id="txtFirst">
+            </div>
+            <div class="mb-3">
+                <label for="txtLast" class="form-label form-label-lg"><b>End Date</b></label>
+                <input type="date" class="form-control form-control-lg" id="txtLast" dateformat="d M y">
+            </div>
+            <div class="mb-3">
+                <label for="txtTicketNo" class="form-label form-label-lg"><b>Ticket No</b></label>
+                <input type="text" class="form-control form-control-lg" id="txtTicketNo" value="">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success btn-lg rmxRegister pt-3 pb-3" type="button" id="btnSearch" onclick="checkSearch()">
+                    SEARCH
+                </button>
+            </div>
+        </div>
 
 
     <?php
