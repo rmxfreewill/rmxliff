@@ -115,6 +115,6 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
             txtTicketNo = $("#txtTicketNo").val();
             txtRetCommand = "<?php echo $RetCommand; ?>";
 
-            alert(txtFirst + txtLast + txtTicketNo + txtRet);
+            alert(txtFirst + txtLast + txtTicketNo );
         }
     </script>
