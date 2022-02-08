@@ -2,6 +2,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.searchbox-color{
+    background-color: #FAB003;
+}
+
 /* The Modal (background) */
 .modal {
     display: none;

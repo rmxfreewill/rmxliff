@@ -74,7 +74,7 @@ if ($status == 'init') {
 <?php
 if ($sFlag != '0') { //ticketSearchScreen($LineId);
 ?>
-    <div class="col-12 border bg-gradient-warning rounded rounded-lg p-3 mt-3">
+    <div class="col-12 searchbox-color rounded rounded-lg p-3 mt-3">
         <div class="col-12 mb-3 text-center">
             <h3>Ticket Search</h3>
         </div>
