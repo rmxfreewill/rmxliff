@@ -66,6 +66,7 @@ if ($status == 'init') {
     $notFound =  "<center><h2><br>Not Found User</h2></center>";
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
+    $LineId = $getData->LineId;
 } else if ($status == 'search') {
 }
 ?>

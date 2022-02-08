@@ -117,6 +117,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
 {
     // echo json_encode('CmdCommand: ' . $objParam);
     $objData = new stdClass;
+    
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = sendQuery(
         'Command',
@@ -159,6 +160,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
         $objData->sFlag = '0';
         $objData->error = $th;
     }
+    $objData->LineId = $objParam->LineId;
 
     return $objData;
 }
