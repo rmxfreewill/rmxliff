@@ -50,7 +50,7 @@ function regisForm($type)
             maxlength="10"
         required>
         </div>
-        <div class="mb-2">
+        <div class="mb-3">
         <button class="btn btn-success btn-lg rmxRegister pt-3 pb-3" type="button"  
             name="btnLogin" 
             id="btnLogin" 
