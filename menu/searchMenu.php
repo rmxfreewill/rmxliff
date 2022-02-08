@@ -70,7 +70,7 @@ if ($status == 'init') {
 } else if ($status == 'search') {
 }
 ?>
-<div class="col-12">
+<div class="col-12 border border-warning">
     <?php
     if ($sFlag != '0') {
         ticketSearchScreen($LineId);
