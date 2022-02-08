@@ -45,6 +45,7 @@ $GLOBALS['sURL'] =   sURL;
 </head>
 
 <body class="bg-warning">
+    <div class="loader"></div>
     <div class="container">
         <div class="row">
             <div id="rmxLiFFLayout"></div>

@@ -82,7 +82,6 @@ if ($sFlag == '4') {
 <html>
 
 <body>
-    <div class="loader"></div>
     <div class="col-12 ">
         <h3>Register</h3>
     </div>
