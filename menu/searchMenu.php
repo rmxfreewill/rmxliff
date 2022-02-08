@@ -71,6 +71,7 @@ if ($status == 'init') {
     $sFlag = $getData->sFlag;
     $LineId = $getData->LineId;
     $RetCommand = $getData->RetCommand;
+    echo json_encode($RetCommand);
 }
 ?>
 
@@ -90,10 +91,10 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
                 <label for="txtLast" class="form-label form-label-lg"><b>End Date</b></label>
                 <input type="date" class="form-control form-control-lg" id="txtLast" dateformat="d M y">
             </div>
-            <div class="mb-4">
+            <!-- <div class="mb-4">
                 <label for="txtTicketNo" class="form-label form-label-lg"><b>Ticket No</b></label>
                 <input type="text" class="form-control form-control-lg p-3" id="txtTicketNo" value="">
-            </div>
+            </div> -->
             <div class="mb-3 mt-2">
                 <button class="btn btn-success btn-lg rmxRegister pt-3 pb-3" type="button" id="btnSearch" onclick="checkSearch()">
                     SEARCH
@@ -110,11 +111,40 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
     </div>
     <script>
         function checkSearch() {
-            txtFirst = $("#txtFirst").val();
-            txtLast = $("#txtLast").val();
-            txtTicketNo = $("#txtTicketNo").val();
             txtRetCommand = "<?php echo $RetCommand; ?>";
+            txtTicketNo = $("#txtTicketNo").val();
 
-            alert(txtFirst + txtLast + txtTicketNo );
+            var sFirst = document.getElementById('txtFirst').value;
+            if (sFirst == "") {
+                alert("Please select first date before click search");
+                return;
+            }
+            var sLast = document.getElementById('txtLast').value;
+            if (sLast == "") {
+                alert("Please select end date before click search");
+                return;
+            }
+
+
+
+            
+
+            alert(txtFirst + txtLast + txtTicketNo);
+
+
+            // var dF = new Date(sFirst);
+            // sFirst = dF.getDate() + '/' + (dF.getMonth() + 1) + '/' + dF.getFullYear();
+            // var dL = new Date(sLast);
+            // sLast = dL.getDate() + '/' + (dL.getMonth() + 1) + '/' + dL.getFullYear();
+
+            // var sCmd = "call sp_comp_select_ticket('" + sLineId + "','" + sFirst + "','" + sLast + "')";
+            // var sTableTitle = "Date " + sFirst + " to " + sLast;
+
+            // var para = "?LinkCode=SEARCH&LineId=" + sLineId + "&CmdCommand=" + sCmd +
+            //     "&TableTitle=" + sTableTitle;
+
+            // var URL = document.getElementById('txtsURL').value;
+            // url = URL + "frmSearch.php" + para;
+
         }
     </script>
