@@ -74,6 +74,7 @@ if ($sFlag == '4') {
 <!DOCTYPE HTML>
 <html>
 <body>
+    <h3>Register</h3>
     <?php
     echo regisForm($regisType);
     ?>
