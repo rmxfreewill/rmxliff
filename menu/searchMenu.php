@@ -30,7 +30,7 @@ $sFlagMsg = '';
 $sFlag = '5';
 $sShowMsg = '';
 
-function ticketSearchScreen($LineId)
+function ticketSearchScreen()
 {
     // $aa = '
     //     <label><b>LINE ID: </b>' . $LineId . '</label><p>
@@ -56,27 +56,7 @@ function ticketSearchScreen($LineId)
     </div>
     ';
 
-
-
-
-    echo $res;
-}
-
-
-$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
-$status = $getDataFromUrl->status;
-if ($status == 'init') {
-    $notFound =  "<center><h2><br>Not Found User</h2></center>";
-    $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
-    $sFlag = $getData->sFlag;
-    $LineId = $getData->LineId;
-    $RetCommand = $getData->RetCommand;
-}
-?>
-
-<?php
-if ($sFlag != '0') { //ticketSearchScreen($LineId);
-?>
+    $res = '
     <div class="col-12 searchbox-color border border-dark rounded rounded-lg p-3 mt-3">
         <div class="col-12 mb-3 text-center">
             <h3>Ticket Search</h3>
@@ -90,57 +70,81 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
                 <label for="txtLast" class="form-label form-label-lg"><b>End Date</b></label>
                 <input type="date" class="form-control form-control-lg" id="txtLast" dateformat="d M y">
             </div>
-            <!-- <div class="mb-4">
+            <div class="mb-4" hidden>
                 <label for="txtTicketNo" class="form-label form-label-lg"><b>Ticket No</b></label>
                 <input type="text" class="form-control form-control-lg p-3" id="txtTicketNo" value="">
-            </div> -->
+            </div>
             <div class="mb-3 mt-2">
                 <button class="btn btn-success btn-lg rmxRegister pt-3 pb-3" type="button" id="btnSearch" onclick="checkSearch()">
                     SEARCH
                 </button>
             </div>
         </div>
+    </div>
+    ';
 
 
-    <?php
+
+
+    echo $res;
+}
+
+
+$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
+$status = $getDataFromUrl->status;
+if ($status == 'check') {
+    echo json_encode($getDataFromUrl);
+    $sFlag = $getData->sFlag;
+} else if ($status == 'init') {
+    $notFound =  "<center><h2><br>Not Found User</h2></center>";
+    $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
+    $sFlag = $getData->sFlag;
+    $LineId = $getData->LineId;
+    $RetCommand = $getData->RetCommand;
+}
+?>
+
+<?php
+if ($sFlag != '0') {
+    ticketSearchScreen();
 } else {
     echo $notFound;
 }
-    ?>
-    </div>
-    <script>
-        function checkSearch() {
-            var toMenu = 'search';
-            var toStatus = 'check';
-            var sUrl = "<? echo sURL; ?>";
-            var sLineId = "<? echo  $getDataFromUrl->LineId; ?>";
+?>
 
-            var txtTicketNo = $("#txtTicketNo").val();
-            var sFirst = document.getElementById('txtFirst').value;
-            var sLast = document.getElementById('txtLast').value;
+<script>
+    function checkSearch() {
+        var toMenu = 'search';
+        var toStatus = 'check';
+        var sUrl = "<? echo sURL; ?>";
+        var sLineId = "<? echo  $getDataFromUrl->LineId; ?>";
 
-            if (sFirst == "") {
-                alert("Please select first date before click search");
-                return;
-            }
+        var txtTicketNo = $("#txtTicketNo").val();
+        var sFirst = document.getElementById('txtFirst').value;
+        var sLast = document.getElementById('txtLast').value;
 
-            if (sLast == "") {
-                alert("Please select end date before click search");
-                return;
-            }
-
-            var dF = new Date(sFirst);
-            sFirst = dF.getDate() + '/' + (dF.getMonth() + 1) + '/' + dF.getFullYear();
-            var dL = new Date(sLast);
-            sLast = dL.getDate() + '/' + (dL.getMonth() + 1) + '/' + dL.getFullYear();
-            var sTableTitle = "Date " + sFirst + " to " + sLast;
-            var paramTableTitle = "&TableTitle=" + sTableTitle;
-
-            var sCmd = "call sp_comp_select_ticket('" + sLineId + "','" + sFirst + "','" + sLast + "')";
-            var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, sLineId, sCmd, toStatus);
-            var param = urlSelectMenu.paramS;
-            var menuUrl = "menu/searchMenu.php" + param + paramTableTitle;
-            alert(menuUrl);
-            $("#rmxLiFFLayout").load(menuUrl);
+        if (sFirst == "") {
+            alert("Please select first date before click search");
+            return;
         }
-    </script>
+
+        if (sLast == "") {
+            alert("Please select end date before click search");
+            return;
+        }
+
+        var dF = new Date(sFirst);
+        sFirst = dF.getDate() + '/' + (dF.getMonth() + 1) + '/' + dF.getFullYear();
+        var dL = new Date(sLast);
+        sLast = dL.getDate() + '/' + (dL.getMonth() + 1) + '/' + dL.getFullYear();
+        var sTableTitle = "Date " + sFirst + " to " + sLast;
+        var paramTableTitle = "&TableTitle=" + sTableTitle;
+
+        var sCmd = "call sp_comp_select_ticket('" + sLineId + "','" + sFirst + "','" + sLast + "')";
+        var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, sLineId, sCmd, toStatus);
+        var param = urlSelectMenu.paramS;
+        var menuUrl = "menu/searchMenu.php" + param + paramTableTitle;
+        // alert(menuUrl);
+        $("#rmxLiFFLayout").load(menuUrl);
+    }
+</script>
