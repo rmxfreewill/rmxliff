@@ -252,12 +252,15 @@ function getTicketFromDatabase($objParam)
             $sFlag = $ASRet[1];
             if ($sFlag != '0') {
                 //
-                // $LineId = 'U379c8a7fce077a831d3fbfad3c1e4bda';
-                // $sShipToCode = '320001839';
-                $LineId = 'U194d6a8a8d6557a6b1ee0e2f16737d77';
+                $LineId = 'U379c8a7fce077a831d3fbfad3c1e4bda';
+                $sShipToCode = '320001839';
+
+                // $LineId = 'U194d6a8a8d6557a6b1ee0e2f16737d77';
+                // $sShipToCode = '320000900';
+
                 $dStartDate = '01/01/2017';
                 $dEndDate = '31/12/2022';
-                $sShipToCode = '320000900';
+                
                 //
                 $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
                 //    
@@ -271,7 +274,6 @@ function getTicketFromDatabase($objParam)
 
 function showTicketList($RetCommand)
 {
- echo json_encode($RetCommand);
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
        

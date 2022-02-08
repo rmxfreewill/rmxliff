@@ -56,7 +56,7 @@ if ($status == 'init') {
         $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl);
         showTicketList($getTicketFromDatabase);
     } else {
-        echo "<center><h2><br>No Record List</h2></center>";
+        echo "<center><h2><br>Not Found User</h2></center>";
     }
     ?>
     <script>
