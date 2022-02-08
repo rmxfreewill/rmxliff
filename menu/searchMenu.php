@@ -110,40 +110,37 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
     </div>
     <script>
         function checkSearch() {
-            var txtRetCommand = "<?php echo $RetCommand; ?>";
-            var txtTicketNo = $("#txtTicketNo").val();
+            var toMenu = 'search';
+            var toStatus = 'check';
+            var sUrl = "<? echo sURL; ?>";
+            var sLineId = "<? echo  $getDataFromUrl->LineId; ?>";
 
+            var txtTicketNo = $("#txtTicketNo").val();
             var sFirst = document.getElementById('txtFirst').value;
+            var sLast = document.getElementById('txtLast').value;
+
             if (sFirst == "") {
                 alert("Please select first date before click search");
                 return;
             }
-            var sLast = document.getElementById('txtLast').value;
+
             if (sLast == "") {
                 alert("Please select end date before click search");
                 return;
             }
 
+            var dF = new Date(sFirst);
+            sFirst = dF.getDate() + '/' + (dF.getMonth() + 1) + '/' + dF.getFullYear();
+            var dL = new Date(sLast);
+            sLast = dL.getDate() + '/' + (dL.getMonth() + 1) + '/' + dL.getFullYear();
+            var sTableTitle = "Date " + sFirst + " to " + sLast;
+            var paramTableTitle = "&TableTitle=" + sTableTitle;
 
-
-            
-
-            alert(txtRetCommand);
-
-
-            // var dF = new Date(sFirst);
-            // sFirst = dF.getDate() + '/' + (dF.getMonth() + 1) + '/' + dF.getFullYear();
-            // var dL = new Date(sLast);
-            // sLast = dL.getDate() + '/' + (dL.getMonth() + 1) + '/' + dL.getFullYear();
-
-            // var sCmd = "call sp_comp_select_ticket('" + sLineId + "','" + sFirst + "','" + sLast + "')";
-            // var sTableTitle = "Date " + sFirst + " to " + sLast;
-
-            // var para = "?LinkCode=SEARCH&LineId=" + sLineId + "&CmdCommand=" + sCmd +
-            //     "&TableTitle=" + sTableTitle;
-
-            // var URL = document.getElementById('txtsURL').value;
-            // url = URL + "frmSearch.php" + para;
-
+            var sCmd = "call sp_comp_select_ticket('" + sLineId + "','" + sFirst + "','" + sLast + "')";
+            var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, sLineId, sCmd, toStatus);
+            var param = urlSelectMenu.paramS;
+            var menuUrl = "menu/searchMenu.php" + param + paramTableTitle;
+            alert(menuUrl);
+            $("#rmxLiFFLayout").load(menuUrl);
         }
     </script>
