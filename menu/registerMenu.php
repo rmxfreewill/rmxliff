@@ -32,8 +32,8 @@ function regisForm($type)
     } else {
         $regisForm = '
         <div class="mb-3">
-        <label for="psw" class="form-label"><b>Email</b></label>
-        <input type="email" class="form-control"
+        <label for="psw" class="form-label form-label-lg"><b>Email</b></label>
+        <input type="email" class="form-control form-control-lg"
             id="txtEMail" 
             name="txtEMail"
             placeholder="Enter EMail"
@@ -42,8 +42,8 @@ function regisForm($type)
         required>
         </div>
         <div class="mb-3">
-        <label for="psw" class="form-label"><b>Mobile</b></label>
-        <input type="tel" class="form-control"
+        <label for="psw" class="form-label form-label-lg"><b>Mobile</b></label>
+        <input type="tel" class="form-control form-control-lg"
             placeholder="Enter Mobile" 
             name="txtTel" id="txtTel" 
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
@@ -51,7 +51,7 @@ function regisForm($type)
         required>
         </div>
         <div class="mb-2">
-        <button class="btn btn-success btn-lg" type="button"  
+        <button class="btn btn-success btn-lg rmxRegister" type="button"  
             name="btnLogin" 
             id="btnLogin" 
             onclick="registerCheck()"
@@ -86,7 +86,7 @@ if ($sFlag == '4') {
 <html>
 
 <body>
-    <div class="col-12 mb3">
+    <div class="col-12 mb3 mt3">
         <h3>Register</h3>
     </div>
     <div class="col-12 mb-3">
