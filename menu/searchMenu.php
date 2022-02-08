@@ -36,5 +36,3 @@ if ($status == 'init') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
 }
-
-echo $sFlag;

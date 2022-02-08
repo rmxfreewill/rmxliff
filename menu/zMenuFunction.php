@@ -260,12 +260,11 @@ function getTicketFromDatabase($objParam)
 
                 $dStartDate = '01/01/2017';
                 $dEndDate = '31/12/2022';
-                
+
                 //
                 $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
                 //    
                 $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-                
             }
         }
     }
@@ -276,7 +275,7 @@ function showTicketList($RetCommand)
 {
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
-       
+        echo json_encode($asTable);
         if (count($asTable) > 0) {
             $arTmp = explode("^f", $asTable[0]);
             if (count($arTmp) > 1) {
