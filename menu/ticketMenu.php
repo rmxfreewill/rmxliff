@@ -33,6 +33,7 @@ $sShowMsg = '';
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 if ($status == 'init') {
+    $notFound =  "<center><h2><br>Not Found User</h2></center>";
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
 }
@@ -56,7 +57,7 @@ if ($status == 'init') {
         $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl);
         showTicketList($getTicketFromDatabase);
     } else {
-        echo "<center><h2><br>Not Found User</h2></center>";
+        echo $notFound;
     }
     ?>
     <script>

@@ -237,6 +237,7 @@ function getTicketFromDatabase($objParam)
     &LineId=U379c8a7fce077a831d3fbfad3c1e4bda
     &CompanyCode=00001
     */
+
     $objData = new stdClass;
     $RetCommand  = '';
     $LineId = $objParam->LineId;
@@ -273,12 +274,12 @@ function getTicketFromDatabase($objParam)
 
 function showTicketList($RetCommand)
 {
-    
+
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
         if (count($asTable) > 0) {
             $arTmp = explode("^f", $asTable[0]);
-           
+
             if (count($arTmp) > 1) {
                 $asCol = explode("^c", $arTmp[0]);
                 $asRow = explode("^r", $arTmp[1]);
@@ -319,6 +320,35 @@ function showTicketList($RetCommand)
                     echo $sPage;
                 }
             }
+        }
+    }
+}
+
+function getSearchFromDatabase($objParam)
+{
+    $objData = new stdClass;
+    $RetCommand  = '';
+    $LineId = $objParam->LineId;
+    $CompanyUrl =  $objParam->CompanyUrl;
+    $CompanyCode =  $objParam->CompanyCode;
+    $CmdCommand = $objParam->CmdCommand;
+    $RetCommand = sendQuery('Command',$CompanyUrl,'','',$CmdCommand);
+    if ($RetCommand) { //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
+        $ASRet = [];
+        $ASRet = explode("^c", $RetCommand);
+        if (count($ASRet) >= 2) {
+            $sFlagMsg = $ASRet[0];
+            $sFlag = $ASRet[1];
+
+            $UserName = $ASRet[2];
+            $EMail = $ASRet[3];
+            $Tel = $ASRet[4];
+            $SoldToCode = $ASRet[5];
+            $SoldToName = $ASRet[6];
+
+
+            $sShowMsg = '0';
+            if ($sFlag != '0') $sTitle = 'Search';
         }
     }
 }
