@@ -56,6 +56,9 @@ function ticketSearchScreen($LineId)
     </div>
     ';
 
+
+
+
     echo $res;
 }
 
@@ -67,7 +70,7 @@ if ($status == 'init') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
     $LineId = $getData->LineId;
-} else if ($status == 'search') {
+    $RetCommand = $getData->RetCommand;
 }
 ?>
 
@@ -110,7 +113,8 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
             txtFirst = $("#txtFirst").val();
             txtLast = $("#txtLast").val();
             txtTicketNo = $("#txtTicketNo").val();
+            txtRetCommand = "<?php echo $RetCommand; ?>";
 
-            alert(txtFirst + txtLast + txtTicketNo);
+            alert(txtFirst + txtLast + txtTicketNo + txtRet);
         }
     </script>
