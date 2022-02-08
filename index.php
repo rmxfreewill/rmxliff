@@ -87,7 +87,7 @@ $GLOBALS['sURL'] =   sURL;
 
                                     }
 
-                                    alert('menuUrl: ' + menuUrl);
+                                    // alert('menuUrl: ' + menuUrl);
                                     try {
                                         $("#rmxLiFFLayout").load(menuUrl);
                                         $(".loader").hide();
