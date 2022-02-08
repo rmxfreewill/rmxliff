@@ -71,7 +71,6 @@ if ($status == 'init') {
     $sFlag = $getData->sFlag;
     $LineId = $getData->LineId;
     $RetCommand = $getData->RetCommand;
-    echo json_encode($RetCommand);
 }
 ?>
 
@@ -111,8 +110,8 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
     </div>
     <script>
         function checkSearch() {
-            txtRetCommand = "<?php echo $RetCommand; ?>";
-            txtTicketNo = $("#txtTicketNo").val();
+            var txtRetCommand = "<?php echo $RetCommand; ?>";
+            var txtTicketNo = $("#txtTicketNo").val();
 
             var sFirst = document.getElementById('txtFirst').value;
             if (sFirst == "") {
@@ -129,7 +128,7 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
 
             
 
-            alert(txtFirst + txtLast + txtTicketNo);
+            alert(txtRetCommand);
 
 
             // var dF = new Date(sFirst);
