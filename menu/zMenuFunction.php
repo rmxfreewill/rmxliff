@@ -276,26 +276,21 @@ function showTicketList($RetCommand)
     
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
-
         if (count($asTable) > 0) {
             $arTmp = explode("^f", $asTable[0]);
-            echo json_encode($arTmp);
+           
             if (count($arTmp) > 1) {
                 $asCol = explode("^c", $arTmp[0]);
                 $asRow = explode("^r", $arTmp[1]);
-
                 if (count($asRow) > 0) {
                     $nLoop = 0;
-
                     $nRLen = count($asRow);
                     $nCLen = count($asCol);
                     $sTab = "";
                     $sPage = "";
                     if ($nRLen > 10) $nRLen = 10;
-
                     for ($n = 0; $n < $nRLen; $n++) {
                         $sRow = $asRow[$n];
-
                         $asData = explode("^c", $sRow);
                         $nDLen = count($asData);
                         if ($nDLen > 0) {
@@ -307,6 +302,7 @@ function showTicketList($RetCommand)
                             $sPage = $sPage . "<div id='div" . $sTicketNo . "_" .
                                 "' class='tabcontent'>";
                             $sPage = $sPage . "<table class='tblticket'>";
+                            echo json_encode($sTab);
                             for ($r = 0; $r < $nDLen; $r++) {
                                 $sC = $asCol[$r];
                                 $sD = $asData[$r];
