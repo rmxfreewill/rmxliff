@@ -84,9 +84,10 @@ $GLOBALS['sURL'] =   sURL;
 
                                     } else if (toMenu == "search") {
                                         menuUrl = "menu/searchMenu.php" + paramS;
+
                                     }
 
-                                    // alert('menuUrl: ' + menuUrl);
+                                    alert('menuUrl: ' + menuUrl);
                                     try {
                                         $("#rmxLiFFLayout").load(menuUrl);
                                         $(".loader").hide();
