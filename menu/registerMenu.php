@@ -51,7 +51,7 @@ function regisForm($type)
         required>
         </div>
         <div class="mb-2">
-        <button class="btn btn-secondary rmxRegister" type="button"  
+        <button class="btn btn-success btn-lg" type="button"  
             name="btnLogin" 
             id="btnLogin" 
             onclick="registerCheck()"
