@@ -96,7 +96,7 @@ if ($status == 'check') {
 
     // $RetCommand =send_query($CompanyUrl,$LineId,$CompanyCode,$CmdCommand);  
 
-    $sFlag = $getData->sFlag;
+    // $sFlag = $getData->sFlag;
 } else if ($status == 'init') {
     $notFound =  "<center><h2><br>Not Found User</h2></center>";
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
