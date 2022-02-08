@@ -81,11 +81,8 @@ if ($sFlag == '4') {
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
 
-    <script charset="utf-8" src="../js/jquery.js"></script>
-    <script charset="utf-8" src="../js/lineSdk_2_18_1.js"></script>
-    <script charset="utf-8" src="../js/rmx_liff_function.js"></script>
+
 </head>
 
 <body>
@@ -124,8 +121,6 @@ if ($sFlag == '4') {
                     $("#rmxLiFFLayout").load(menuUrl);
                 }
             }
-
-
         }
 
         var sFlag = "<?php echo $sFlag; ?>";

@@ -49,17 +49,9 @@ if ($status == 'init') {
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
 
-    <script charset="utf-8" src="../js/jquery.js"></script>
-    <script charset="utf-8" src="../js/lineSdk_2_18_1.js"></script>
-    <script charset="utf-8" src="../js/rmx_liff_function.js"></script>
 
-    <link rel="stylesheet" href="../css/ticket_style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -68,7 +60,7 @@ if ($status == 'init') {
         $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl);
         showTicketList($getTicketFromDatabase);
     } else {
-        echo "<center>$LineId<h1><br>No Record List</h1></center>";
+        echo "<center><h2><br>No Record List</h2></center>";
     }
     ?>
     <script>

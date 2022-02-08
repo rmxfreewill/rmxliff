@@ -34,15 +34,26 @@ $GLOBALS['sURL'] =   sURL;
     <title>RMX LINE OFFICIAL</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ticket_style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 
     <script charset="utf-8" src="js/jquery.js"></script>
+    <script charset="utf-8" src="js/popper.min.js"></script>
+    <script charset="utf-8" src="js/bootstrap.js"></script>
     <script charset="utf-8" src="js/lineSdk_2_18_1.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
+
 
 </head>
 
 <body>
-    <div id="rmxLiFFLayout"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="rmxLiFFLayout"></div>
+            </div>
+        </div>
+    </div>
     <script>
         async function rmxInitializeLineLiff(myLiffId = String) {
             await liff.init({
