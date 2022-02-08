@@ -83,7 +83,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "profile") {
 
                                     } else if (toMenu == "search") {
-
+                                        menuUrl = "menu/searchMenu.php" + paramS;
                                     }
 
                                     // alert('menuUrl: ' + menuUrl);
