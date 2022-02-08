@@ -66,8 +66,7 @@ if ($status == 'init') {
     $notFound =  "<center><h2><br>Not Found User</h2></center>";
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
-}else if ($status == 'search'){
-
+} else if ($status == 'search') {
 }
 ?>
 <div class="col-12">

@@ -290,6 +290,7 @@ function showTicketList($RetCommand)
                     $sTab = "";
                     $sPage = "";
                     if ($nRLen > 10) $nRLen = 10;
+                    echo json_encode('nRLen: ' . $nRLen);
                     for ($n = 0; $n < $nRLen; $n++) {
                         $sRow = $asRow[$n];
                         $asData = explode("^c", $sRow);
@@ -303,7 +304,7 @@ function showTicketList($RetCommand)
                             $sPage = $sPage . "<div id='div" . $sTicketNo . "_" .
                                 "' class='tabcontent'>";
                             $sPage = $sPage . "<table class='tblticket'>";
-                            echo json_encode($sTab);
+
                             for ($r = 0; $r < $nDLen; $r++) {
                                 $sC = $asCol[$r];
                                 $sD = $asData[$r];
@@ -332,7 +333,7 @@ function getSearchFromDatabase($objParam)
     $CompanyUrl =  $objParam->CompanyUrl;
     $CompanyCode =  $objParam->CompanyCode;
     $CmdCommand = $objParam->CmdCommand;
-    $RetCommand = sendQuery('Command',$CompanyUrl,'','',$CmdCommand);
+    $RetCommand = sendQuery('Command', $CompanyUrl, '', '', $CmdCommand);
     if ($RetCommand) { //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
