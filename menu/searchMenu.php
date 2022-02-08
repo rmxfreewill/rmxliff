@@ -92,10 +92,10 @@ function ticketSearchScreen()
 
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
-echo $status;
-if ($status == 'check') { 
-    echo json_encode($getDataFromUrl);
+if ($status == 'check') {
+
     // $RetCommand =send_query($CompanyUrl,$LineId,$CompanyCode,$CmdCommand);  
+
     $sFlag = $getData->sFlag;
 } else if ($status == 'init') {
     $notFound =  "<center><h2><br>Not Found User</h2></center>";
@@ -113,6 +113,11 @@ if ($sFlag != '0') {
 ?>
 
 <script>
+    $(function() {
+        var status = "<? echo $status; ?>";
+        status == 'check' ?? alert('<? echo json_encode($getDataFromUrl); ?>');
+    });
+
     function checkSearch() {
         var toMenu = 'search';
         var toStatus = 'check';
@@ -145,7 +150,6 @@ if ($sFlag != '0') {
         var param = urlSelectMenu.paramS;
         var menuUrl = sUrl + "menu/searchMenu.php" + param + paramTableTitle;
         alert(menuUrl);
-        // $("#rmxLiFFLayout").load(menuUrl);
-        window.location.assign(menuUrl);
+        $("#rmxLiFFLayout").load(menuUrl);
     }
 </script>
