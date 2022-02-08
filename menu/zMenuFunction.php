@@ -252,8 +252,8 @@ function getTicketFromDatabase($objParam)
             $sFlag = $ASRet[1];
             if ($sFlag != '0') {
                 //
-                $LineId = 'U379c8a7fce077a831d3fbfad3c1e4bda';
-                $sShipToCode = '320001839';
+                $LineId = 'Ucd102187a2dfb7494ea9d723a5ae4041';
+                $sShipToCode = '320000106';
 
                 // $LineId = 'U194d6a8a8d6557a6b1ee0e2f16737d77';
                 // $sShipToCode = '320000900';
@@ -273,9 +273,10 @@ function getTicketFromDatabase($objParam)
 
 function showTicketList($RetCommand)
 {
+     echo json_encode($RetCommand);
     if ($RetCommand) {
         $asTable = explode("^t", $RetCommand);
-        echo json_encode($asTable);
+       
         if (count($asTable) > 0) {
             $arTmp = explode("^f", $asTable[0]);
             if (count($arTmp) > 1) {
