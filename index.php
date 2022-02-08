@@ -45,7 +45,9 @@ $GLOBALS['sURL'] =   sURL;
 </head>
 
 <body class="bg-warning">
-    <div class="loader"></div>
+    <div class="spinner-border loader" role="status">
+        <span>Loading...</span>
+    </div>
     <div class="container">
         <div class="row">
             <div id="rmxLiFFLayout"></div>
@@ -89,6 +91,7 @@ $GLOBALS['sURL'] =   sURL;
                                     // alert('menuUrl: ' + menuUrl);
                                     try {
                                         $("#rmxLiFFLayout").load(menuUrl);
+                                        $(".loader").hide();
                                     } catch (err) {
                                         console.log('err rmxLiFFLayout: ' + error);
                                     }
