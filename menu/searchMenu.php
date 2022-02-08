@@ -50,7 +50,7 @@ function ticketSearchScreen($LineId)
             <label for="txtTicketNo"><b>Ticket No</b></label>
             <input type="text" id="txtTicketNo" value="">
             <input type="hidden" id="txtRet" value="<?php echo $RetCommand; ?>">
-            <button type="button" id="btnSearch" onclick="SearchClick()">SEARCH</button>
+            <button type="button" id="btnSearch" onclick="checkSearch()">SEARCH</button>
         </div>
 
     </div>
@@ -78,3 +78,8 @@ if ($status == 'init') {
     }
     ?>
 </div>
+<script>
+    function checkSearch() {
+        alert('Hi');
+    }
+</script>

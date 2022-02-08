@@ -35,6 +35,7 @@ $GLOBALS['sURL'] =   sURL;
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/ticket_style.css">
+    <link rel="stylesheet" href="css/search_style.css">
     <link rel="stylesheet" href="css/bootstrap.css">
 
     <script charset="utf-8" src="js/jquery.js"></script>
