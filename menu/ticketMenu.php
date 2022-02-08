@@ -34,8 +34,8 @@ $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL
 $status = $getDataFromUrl->status;
 if ($status == 'init') {
     $notFound =  "<center><h2><br>Not Found User</h2></center>";
-    $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
-    $sFlag = $getData->sFlag;
+    $getDataFromDatabase = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
+    $sFlag = $getDataFromDatabase->sFlag;
 }
 
 ?>
@@ -54,7 +54,7 @@ if ($status == 'init') {
 <body>
     <?php
     if ($sFlag != '0') {
-        $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl);
+        $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
         showTicketList($getTicketFromDatabase);
     } else {
         echo $notFound;

@@ -139,18 +139,22 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
                 $Tel = $ASRet[4];
                 $SoldToCode = $ASRet[5];
                 $SoldToName = $ASRet[6];
+                $ShipToCode = $ASRet[7];
+                $ShipToName = $ASRet[8];
 
-                $sShowMsg = '0';
-                if ($sFlag != '0') {
-                    $sTitle = 'View Register Info';
-                    // $sFlagChangeMenu = true;
-                }
+                $objData->UserName = $UserName;
+                $objData->EMail = $EMail;
+                $objData->Tel = $Tel;
+                $objData->SoldToCode = $SoldToCode;
+                $objData->SoldToName = $SoldToName;
+                $objData->ShipToCode = $ShipToCode;
+                $objData->ShipToName = $ShipToName;
+                $objData->sFlag = $sFlag;
             }
-            $objData->RetCommand = $RetCommand;
-            $objData->sFlag = $sFlag;
         } else {
             $objData->sFlag = '0';
         }
+        $objData->RetCommand = $RetCommand;
     } catch (\Throwable $th) {
         $objData->sFlag = '0';
         $objData->error = $th;
@@ -228,7 +232,7 @@ function registerDataToDatabase($objParam)
     return $objData;
 }
 
-function getTicketFromDatabase($objParam)
+function getTicketFromDatabase($objParamFromUrl, $getDataFromDatabase)
 {
 
     /*
@@ -240,34 +244,48 @@ function getTicketFromDatabase($objParam)
 
     $objData = new stdClass;
     $RetCommand  = '';
-    $LineId = $objParam->LineId;
-    $CompanyUrl =  $objParam->CompanyUrl;
-    $CompanyCode =  $objParam->CompanyCode;
-    $CmdCommand = $objParam->CmdCommand;
-    $RetCommand = sendQuery('Command', $CompanyUrl, '', '', $CmdCommand);
-    echo '$RetCommand: ' . json_encode($RetCommand);
-    if ($RetCommand) {
-        $ASRet = [];
-        $ASRet = explode("^c", $RetCommand);
-        if (count($ASRet) >= 2) {
-            $sFlagMsg = $ASRet[0];
-            $sFlag = $ASRet[1];
-            if ($sFlag != '0') {
-                //
-                $sShipToCode = '';
-                $dStartDate = '01/01/2017';
-                $dEndDate = '31/12/2022';
+    $LineId = $objParamFromUrl->LineId;
+    $CompanyUrl =  $objParamFromUrl->CompanyUrl;
+    $CompanyCode =  $objParamFromUrl->CompanyCode;
+    $CmdCommand = $objParamFromUrl->CmdCommand;
 
-                if ($sShipToCode == '') {
-                    $LineId = 'Ucd102187a2dfb7494ea9d723a5ae4041';
-                    $sShipToCode = '320000106';
-                }
+    $sShipToCode =  $getDataFromDatabase->ShipToCode;
 
-                $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
-                $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-            }
-        }
+    // $RetCommand = sendQuery('Command', $CompanyUrl, '', '', $CmdCommand);
+    // if ($RetCommand) {
+    //     $ASRet = [];
+    //     $ASRet = explode("^c", $RetCommand);
+    //     if (count($ASRet) >= 2) {
+    //         $sFlagMsg = $ASRet[0];
+    //         $sFlag = $ASRet[1];
+    //         if ($sFlag != '0') {
+    //             //
+    //             $dStartDate = '01/01/2017';
+    //             $dEndDate = '31/12/2022';
+
+    //             if ($sShipToCode == '') {
+    //                 $LineId = 'Ucd102187a2dfb7494ea9d723a5ae4041';
+    //                 $sShipToCode = '320000106';
+    //             }
+
+    //             $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
+    //             $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
+    //         }
+    //     }
+    // }
+    //
+    //
+    $dStartDate = '01/01/2017';
+    $dEndDate = strval(date("d/m/Y"));
+    $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
+    $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
+    if ($RetCommand == '') {
+        $LineId = 'Ucd102187a2dfb7494ea9d723a5ae4041';
+        $sShipToCode = '320000106';
+        $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
+        $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
     }
+
     return  $RetCommand;
 }
 
