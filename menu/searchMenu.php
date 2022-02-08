@@ -70,14 +70,15 @@ if ($status == 'init') {
 } else if ($status == 'search') {
 }
 ?>
-<div class="col-12 mb-3 mt-3">
-    <h3>Search</h3>
-</div>
-<div class="col-12 mb-3">
-    <?php
-    if ($sFlag != '0') { //ticketSearchScreen($LineId);
-    ?>
-        <div class="col-12 border bg-info rounded rounded-lg p-5">
+
+<?php
+if ($sFlag != '0') { //ticketSearchScreen($LineId);
+?>
+    <div class="col-12 border bg-info rounded rounded-lg p-3">
+        <div class="col-12 mb-3">
+            <h3>Search</h3>
+        </div>
+        <div class="col-12 mb-3">
             <div class="mb-3">
                 <label for="txtFirst" class="form-label form-label-lg"><b>Start Date</b></label>
                 <input type="date" class="form-control form-control-lg" dateformat="d M y" id="txtFirst">
@@ -88,7 +89,7 @@ if ($status == 'init') {
             </div>
             <div class="mb-3">
                 <label for="txtTicketNo" class="form-label form-label-lg"><b>Ticket No</b></label>
-                <input type="text" class="form-control form-control-lg" id="txtTicketNo" value="">
+                <input type="text" class="form-control form-control-lg p-2" id="txtTicketNo" value="">
             </div>
             <div class="mb-3">
                 <button class="btn btn-success btn-lg rmxRegister pt-3 pb-3" type="button" id="btnSearch" onclick="checkSearch()">
@@ -99,13 +100,13 @@ if ($status == 'init') {
 
 
     <?php
-    } else {
-        echo $notFound;
-    }
+} else {
+    echo $notFound;
+}
     ?>
-</div>
-<script>
-    function checkSearch() {
-        alert('Hi');
-    }
-</script>
+    </div>
+    <script>
+        function checkSearch() {
+            alert('Hi');
+        }
+    </script>
