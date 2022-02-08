@@ -37,4 +37,4 @@ if ($status == 'init') {
     $sFlag = $getData->sFlag;
 }
 
-?>
+echo $sFlag;

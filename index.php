@@ -81,7 +81,7 @@ $GLOBALS['sURL'] =   sURL;
                                     } else if (toMenu == "ticket") {
                                         menuUrl = "menu/ticketMenu.php" + paramS;
                                     } else if (toMenu == "profile") {
-
+                                        menuUrl = "menu/profileMenu.php" + paramS;
                                     } else if (toMenu == "search") {
                                         menuUrl = "menu/searchMenu.php" + paramS;
 
