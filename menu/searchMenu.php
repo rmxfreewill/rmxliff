@@ -92,6 +92,7 @@ function ticketSearchScreen()
 
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
+echo $status;
 if ($status == 'check') {
     echo json_encode($getDataFromUrl);
     $sFlag = $getData->sFlag;
@@ -102,9 +103,7 @@ if ($status == 'check') {
     $LineId = $getData->LineId;
     $RetCommand = $getData->RetCommand;
 }
-?>
 
-<?php
 if ($sFlag != '0') {
     ticketSearchScreen();
 } else {
@@ -144,7 +143,7 @@ if ($sFlag != '0') {
         var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, sLineId, sCmd, toStatus);
         var param = urlSelectMenu.paramS;
         var menuUrl = "menu/searchMenu.php" + param + paramTableTitle;
-        // alert(menuUrl);
+        alert(menuUrl);
         $("#rmxLiFFLayout").load(menuUrl);
     }
 </script>
