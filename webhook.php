@@ -167,20 +167,6 @@ function replyJsonMessage($jsonData, $LineId)
             $flexMessage = ticketDetailFlexMessage($LineId);
         } else if ($case  == 'logout') {
             rmxChangeMemberRichMenu('LOGOUT', $LineId);
-            echo "
-                <html>
-                <head>
-                    <script src='https://static.line-scdn.net/liff/edge/versions/2.18.1/sdk.js'></script>
-                    <script  src='rmx_liff_function.js'></script>
-                </head>
-                <body>
-                    <script>
-                        var myLiffId = document.getElementById('txtLiffId').value;
-                        rmxInitializeLiff(myLiffId, 'logout');
-                    </script>
-                </body>
-                </html>
-            ";
         }
     }
     return $flexMessage;
