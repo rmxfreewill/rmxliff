@@ -25,13 +25,13 @@ $GLOBALS['sURL'] =   sURL;
 <html>
 
 <head>
+    <title>RMX LINE OFFICIAL</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-    <title>RMX LINE OFFICIAL</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/ticket_style.css">
@@ -42,12 +42,10 @@ $GLOBALS['sURL'] =   sURL;
     <script charset="utf-8" src="js/bootstrap.js"></script>
     <script charset="utf-8" src="js/lineSdk_2_18_1.js"></script>
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
-
-
 </head>
 
-<body>
-    <div class="container bg-warning">
+<body class="bg-warning">
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 <div id="rmxLiFFLayout"></div>
