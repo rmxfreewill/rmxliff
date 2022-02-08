@@ -77,7 +77,7 @@ if ($status == 'init') {
     <?php
     if ($sFlag != '0') { //ticketSearchScreen($LineId);
     ?>
-        <div class="col-12 border bg-dark rounded rounded-lg">
+        <div class="col-12 border bg-info rounded rounded-lg p-5">
             <div class="mb-3">
                 <label for="txtFirst" class="form-label form-label-lg"><b>Start Date</b></label>
                 <input type="date" class="form-control form-control-lg" dateformat="d M y" id="txtFirst">
