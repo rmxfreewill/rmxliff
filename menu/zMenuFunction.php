@@ -279,7 +279,7 @@ function getTicketFromDatabase($objParamFromUrl, $getDataFromDatabase)
     $dEndDate = strval(date("d/m/Y"));
     $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
     $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
-    if ($RetCommand == '') {
+    if ($RetCommand == '' || $RetCommand == 'No New/Update Data') {
         $LineId = 'Ucd102187a2dfb7494ea9d723a5ae4041';
         $sShipToCode = '320000106';
         $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
