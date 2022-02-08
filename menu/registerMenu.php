@@ -21,44 +21,51 @@ function regisForm($type)
     $arr[1] = '';
     if ($type == true) {
         $regisForm = '
+        <div class="mb-3">
         <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
         <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
         <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
             CLOSE
         </button>
+        </div>
         ';
     } else {
         $regisForm = '
+        <div class="mb-3">
         <label for="psw form-label"><b>EMail</b></label>
-        <input type="email"
+        <input type="email" class="form-control"
             id="txtEMail" 
             name="txtEMail"
             placeholder="Enter EMail"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             maxlength="40"
         required>
+        </div>
+        <div class="mb-3">
         <label for="psw"><b>Mobile</b></label>
-        <input type="tel" 
+        <input type="tel" class="form-control"
             placeholder="Enter Mobile" 
             name="txtTel" id="txtTel" 
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
             maxlength="10"
         required>
+        </div>
+        <div class="mb-2">
         <button type="button"  name="btnLogin" id="btnLogin" onclick="registerCheck()">
             REGISTER
         </button>
+        </div>
         ';
     }
     return $regisForm;
 }
 
-$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'],$GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
+$getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 if ($status == 'check') {
     registerDataToDatabase($getDataFromUrl);
     // $getData = getDataFromDatabase($GLOBALS['REGISTER_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
-
 } else if ($status == 'init') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
@@ -73,11 +80,17 @@ if ($sFlag == '4') {
 ?>
 <!DOCTYPE HTML>
 <html>
+
 <body>
-    <h3>Register</h3>
-    <?php
-    echo regisForm($regisType);
-    ?>
+    <div class="loader"></div>
+    <div class="col-12 ">
+        <h3>Register</h3>
+    </div>
+    <div class="col-12 mb-3">
+        <?php
+        echo regisForm($regisType);
+        ?>
+    </div>
     <script>
         var urlS = new URL(document.URL);
         // alert('urlS: ' + urlS);
@@ -120,4 +133,3 @@ if ($sFlag == '4') {
 </body>
 
 </html>
-
