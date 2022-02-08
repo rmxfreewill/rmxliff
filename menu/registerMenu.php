@@ -51,7 +51,7 @@ function regisForm($type)
         required>
         </div>
         <div class="mb-2">
-        <button class="btn btn-success btn-lg rmxRegister" type="button"  
+        <button class="btn btn-success btn-lg rmxRegister pt-2 pb-2" type="button"  
             name="btnLogin" 
             id="btnLogin" 
             onclick="registerCheck()"
@@ -86,7 +86,7 @@ if ($sFlag == '4') {
 <html>
 
 <body>
-    <div class="col-12 mb3 mt3">
+    <div class="col-12 mb-3 mt-3">
         <h3>Register</h3>
     </div>
     <div class="col-12 mb-3">
