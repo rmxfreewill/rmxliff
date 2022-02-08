@@ -22,7 +22,7 @@ function regisForm($type)
     if ($type == true) {
         $regisForm = '
         <div class="mb-3">
-        <label for="psw"><b>EMail: </b></label>' . $arr[0] . '
+        <label for="psw"><b>Email: </b></label>' . $arr[0] . '
         <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
         <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
             CLOSE
@@ -32,7 +32,7 @@ function regisForm($type)
     } else {
         $regisForm = '
         <div class="mb-3">
-        <label for="psw form-label"><b>EMail</b></label>
+        <label for="psw" class="form-label"><b>Email</b></label>
         <input type="email" class="form-control"
             id="txtEMail" 
             name="txtEMail"
@@ -42,7 +42,7 @@ function regisForm($type)
         required>
         </div>
         <div class="mb-3">
-        <label for="psw"><b>Mobile</b></label>
+        <label for="psw" class="form-label"><b>Mobile</b></label>
         <input type="tel" class="form-control"
             placeholder="Enter Mobile" 
             name="txtTel" id="txtTel" 
@@ -51,8 +51,12 @@ function regisForm($type)
         required>
         </div>
         <div class="mb-2">
-        <button type="button"  name="btnLogin" id="btnLogin" onclick="registerCheck()">
-            REGISTER
+        <button class="btn btn-primary block" type="button"  
+            name="btnLogin" 
+            id="btnLogin" 
+            onclick="registerCheck()"
+        >
+        REGISTER
         </button>
         </div>
         ';
@@ -82,7 +86,7 @@ if ($sFlag == '4') {
 <html>
 
 <body>
-    <div class="col-12 ">
+    <div class="col-12 mb3">
         <h3>Register</h3>
     </div>
     <div class="col-12 mb-3">
