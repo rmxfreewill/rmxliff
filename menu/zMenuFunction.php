@@ -279,7 +279,7 @@ function showTicketList($RetCommand)
         $asTable = explode("^t", $RetCommand);
         if (count($asTable) > 0) {
             $arTmp = explode("^f", $asTable[0]);
-echo json_encode('arTmp: ' . $arTmp);
+            echo 'arTmp: ' . json_encode($arTmp);
             if (count($arTmp) > 1) {
                 $asCol = explode("^c", $arTmp[0]);
                 $asRow = explode("^r", $arTmp[1]);
@@ -290,9 +290,10 @@ echo json_encode('arTmp: ' . $arTmp);
                     $sTab = "";
                     $sPage = "";
                     if ($nRLen > 10) $nRLen = 10;
-                    
+
                     for ($n = 0; $n < $nRLen; $n++) {
                         $sRow = $asRow[$n];
+                        echo 'sRow: ' . json_encode($sRow);
                         $asData = explode("^c", $sRow);
                         $nDLen = count($asData);
                         if ($nDLen > 0) {
