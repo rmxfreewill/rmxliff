@@ -107,6 +107,10 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
     </div>
     <script>
         function checkSearch() {
-            alert('Hi');
+            txtFirst = $("#txtFirst").val();
+            txtLast = $("#txtLast").val();
+            txtTicketNo = $("#txtTicketNo").val();
+
+            alert(txtFirst + txtLast + txtTicketNo);
         }
     </script>
