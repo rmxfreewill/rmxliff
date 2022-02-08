@@ -74,9 +74,9 @@ if ($status == 'init') {
 <?php
 if ($sFlag != '0') { //ticketSearchScreen($LineId);
 ?>
-    <div class="col-12 border bg-light rounded rounded-lg p-3 mt-2">
-        <div class="col-12 mb-3">
-            <h3>Search</h3>
+    <div class="col-12 border bg-gradient-warning rounded rounded-lg p-3 mt-3">
+        <div class="col-12 mb-3 text-center">
+            <h3>Ticket Search</h3>
         </div>
         <div class="col-12 mb-3">
             <div class="mb-3">
@@ -91,7 +91,7 @@ if ($sFlag != '0') { //ticketSearchScreen($LineId);
                 <label for="txtTicketNo" class="form-label form-label-lg"><b>Ticket No</b></label>
                 <input type="text" class="form-control form-control-lg p-3" id="txtTicketNo" value="">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 mt-2">
                 <button class="btn btn-success btn-lg rmxRegister pt-3 pb-3" type="button" id="btnSearch" onclick="checkSearch()">
                     SEARCH
                 </button>
