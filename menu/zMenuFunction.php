@@ -245,6 +245,7 @@ function getTicketFromDatabase($objParam)
     $CompanyCode =  $objParam->CompanyCode;
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = sendQuery('Command', $CompanyUrl, '', '', $CmdCommand);
+    echo '$RetCommand: ' . json_encode($RetCommand);
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
@@ -253,18 +254,16 @@ function getTicketFromDatabase($objParam)
             $sFlag = $ASRet[1];
             if ($sFlag != '0') {
                 //
-                $LineId = 'Ucd102187a2dfb7494ea9d723a5ae4041';
-                $sShipToCode = '320000106';
-
-                // $LineId = 'U194d6a8a8d6557a6b1ee0e2f16737d77';
-                // $sShipToCode = '320000900';
-
+                $sShipToCode = '';
                 $dStartDate = '01/01/2017';
                 $dEndDate = '31/12/2022';
 
-                //
+                if ($sShipToCode == '') {
+                    $LineId = 'Ucd102187a2dfb7494ea9d723a5ae4041';
+                    $sShipToCode = '320000106';
+                }
+
                 $CmdCommand = "call sp_comp_select_ticket('$LineId','$dStartDate','$dEndDate','$sShipToCode')";
-                //    
                 $RetCommand = sendQuery('QueryCommand', $CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
             }
         }
