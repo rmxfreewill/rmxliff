@@ -17,13 +17,19 @@ $GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
 $GLOBALS['LIFF_ID'] =   LIFF_ID;
 $GLOBALS['sURL'] =   sURL;
 
-$Function='';
+$Function = '';
 if (isset($_POST['Function']))
     $Function = $_POST['Function'];
 if (isset($_GET['Function']))
     $Function = $_GET['Function'];
 
+$menu = '';
+if (isset($_POST['menu']))
+    $menu = $_POST['menu'];
+if (isset($_GET['menu']))
+    $menu = $_GET['menu'];
 
+$Function != '' ?? $Function = $menu;
 
 ?>
 
