@@ -190,7 +190,7 @@ function post_web_page($url, $curl_data)
     return $header;
 }
 
-function post_web_content( $url,$curl_data )
+function post_web_content($url, $curl_data)
 {
     $options = array(
         CURLOPT_RETURNTRANSFER => true,         // return web page
@@ -203,24 +203,24 @@ function post_web_content( $url,$curl_data )
         CURLOPT_TIMEOUT        => 120,          // timeout on response
         CURLOPT_MAXREDIRS      => 10,           // stop after 10 redirects
         CURLOPT_POST            => 1,            // i am sending post data
-           CURLOPT_POSTFIELDS     => $curl_data,    // this are my post vars
+        CURLOPT_POSTFIELDS     => $curl_data,    // this are my post vars
         CURLOPT_SSL_VERIFYHOST => 0,            // don't verify ssl
         CURLOPT_SSL_VERIFYPEER => false,        //
         CURLOPT_VERBOSE        => 1                //
     );
 
     $ch      = curl_init($url);
-    curl_setopt_array($ch,$options);
+    curl_setopt_array($ch, $options);
     $content = curl_exec($ch);
     $err     = curl_errno($ch);
-    $errmsg  = curl_error($ch) ;
+    $errmsg  = curl_error($ch);
     $header  = curl_getinfo($ch);
     curl_close($ch);
 
-  //  $header['errno']   = $err;
-  //  $header['errmsg']  = $errmsg;
-  //  $header['content'] = $content;
-  echo trim($content);
+    //  $header['errno']   = $err;
+    //  $header['errmsg']  = $errmsg;
+    //  $header['content'] = $content;
+
     return trim($content);
 }
 
@@ -313,6 +313,7 @@ function register_command(
         . "&Tel=" . $Tel . "&EMail=" . $EMail;
 
     $response = post_web_content($RegisterUrl, $curl_data);
+    echo $RegisterUrl . $curl_data;
     return $response;
 
     /*

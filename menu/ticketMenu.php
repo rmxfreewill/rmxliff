@@ -53,9 +53,85 @@ if ($status == 'init') {
 
 <body>
     <?php
+    echo $sFlag ;
     if ($sFlag != '0') {
-        $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
-        showTicketList($getTicketFromDatabase);
+        $getTicketFromDatabaseRetCommand = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
+        // showTicketList($getTicketFromDatabase);
+
+        if ($getTicketFromDatabaseRetCommand) {
+
+            $asTable = explode("^t", $RetCommand);
+            if (count($asTable) > 0) {
+                $arTmp = explode("^f", $asTable[0]);
+                if (count($arTmp) > 1) {
+                    $asCol = explode("^c", $arTmp[0]);
+                    $asRow = explode("^r", $arTmp[1]);
+
+                    if (count($asRow) > 0) {
+
+
+                        $nLoop = 0;
+
+                        $nRLen = count($asRow);
+                        $nCLen = count($asCol);
+                        $sTab = "";
+                        $sPage = "";
+
+
+                        if ($nRLen > 10) $nRLen = 10;
+
+                        for ($n = 0; $n < $nRLen; $n++) {
+
+                            $sRow = $asRow[$n];
+                            $asData = explode("^c", $sRow);
+                            $nDLen = count($asData);
+                            if ($nDLen > 0) {
+                                $sTicketNo = $asData[0];
+                                $sTab = $sTab . "<a class='tablink' href='#' "
+                                    . "onclick=\"openPage('div" . $sTicketNo . "_" . $n
+                                    . "', this, 'red')\">" . $sTicketNo . "</a>";
+
+                                $sPage = $sPage . "<div id='div" . $sTicketNo . "_" . $n . "' class='tabcontent'>";
+
+                                $sPage = $sPage . "<table class='tblticket'>";
+                                for ($r = 0; $r < $nDLen; $r++) {
+                                    $sC = $asCol[$r];
+                                    $sD = $asData[$r];
+
+                                    $sPage = $sPage . "<tr><th>" . $sC
+                                        . "</th><td class='textLeft'>" . $sD . "</td></tr>";
+                                }
+                                $sPage = $sPage . "</table></div>";
+                            }
+                        }
+
+
+
+
+                        $sTab = "
+                        <div style='display: flex;flex-direction: row; 
+                            width: 100%; height:45px; '>
+                       
+                            <input type='date'  dateformat='d M y' 
+                                placeholder='Start Date'                                
+                                value='" . $StartDate . "'
+                                style='width: 40%;'
+                                id='txtFirst' >
+                            <input type='date' id='txtLast'  
+                                placeholder='End Date'
+                                value='" . $EndDate . "'
+                                style='width: 40%;'>
+                            <button type='button' 
+                                style='width: 20%; text-align:center; '
+                                 id='btnSearch' onclick='SearchClick()'>OK</button>  
+                        </div>                        
+                        <div class='scrollmenu'>" . $sTab . "</div>";
+                        echo $sTab;
+                        echo $sPage;
+                    }
+                }
+            }
+        }
     } else {
         echo $notFound;
     }
