@@ -171,7 +171,7 @@ function registerDataToDatabase($RegisterUrl, $CompanyUrl, $objParam)
     $LineId = $objParam->LineId;
     $CompanyCode =  $objParam->CompanyCode;
     $CmdCommand = $objParam->CmdCommand;
-
+    echo "CmdCommand: ".json_encode($CmdCommand)."<p>";
     $ASRet = [];
     $ASRet = explode("^c", $CmdCommand);
     $LineDisplay = $ASRet[0];
@@ -189,7 +189,7 @@ function registerDataToDatabase($RegisterUrl, $CompanyUrl, $objParam)
         $Tel,
         $EMail
     );
-    echo "register_command: ".json_encode($RetCommand);
+    echo "register_command: ".json_encode($RetCommand)."<p>";
     //0818880099
     $RetCommand = sendQuery(
         'Command',
@@ -198,7 +198,7 @@ function registerDataToDatabase($RegisterUrl, $CompanyUrl, $objParam)
         '',
         $CmdCommand
     );
-    echo "sendQuery: ".json_encode($RetCommand);
+    echo "sendQuery: ".json_encode($RetCommand)."<p>";
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
