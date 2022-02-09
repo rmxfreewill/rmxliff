@@ -78,15 +78,10 @@ if (isset($_GET['Function']))
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, toCmd, toStatus);
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
-alert(toMenu);
+alert(toStatus);
                                 if(toMenu=='ticket'){
                                     menuUrl = "menu/ticketMenu.php" + paramS;
-                                    try {
-                                        $("#rmxLiFFLayout").load(menuUrl);
-                                        $(".loader").hide();
-                                    } catch (err) {
-                                        console.log('err rmxLiFFLayout: ' + error);
-                                    }
+                                    window.location.assign(menuUrl);
                                 }
 
                                 if (toStatus == null) {
