@@ -8,7 +8,7 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 
 
-include_once("../rmxLineFunction.php");
+include_once("rmxLineFunction.php");
 
 $CompanyUrl = "https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php";
 $RegisterUrl = REGISTER_URL;
