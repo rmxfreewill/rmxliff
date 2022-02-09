@@ -314,7 +314,8 @@ function register_command(
     $curl_data = "LineId=" . $LineId . "&CompanyCode=" . $CompanyCode
         . "&LineDisplay=" . $LineDisplay . "&UserName=" . $UserName
         . "&Tel=" . $Tel . "&EMail=" . $EMail;
-
+echo $curl_data;
+echo $RegisterUrl;
     $response = post_web_content($RegisterUrl, $curl_data);
     return $response;
 
