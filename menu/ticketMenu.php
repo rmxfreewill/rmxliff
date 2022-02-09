@@ -382,8 +382,8 @@ if ($LinkCode == 'VIEW') {
 
         window.onload = function() {
             const useNodeJS = false; // if you are not using a node server, set this value to false
-            const defaultLiffId = "1656445468-pPVkELw7"; // change the default LIFF value if you are not using a node server
-
+            const defaultLiffId = "1656503744-kojgw9pb"; // change the default LIFF value if you are not using a node server
+     
             let myLiffId = "";
 
             if (useNodeJS) {

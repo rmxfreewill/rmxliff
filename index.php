@@ -78,7 +78,7 @@ if (isset($_GET['Function']))
                                 var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, toCmd, toStatus);
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
-alert(toStatus);
+
                                 if(toMenu=='ticket'){
                                     menuUrl = "menu/ticketMenu.php" + paramS;
                                     window.location.assign(menuUrl);
