@@ -30,6 +30,7 @@ if (isset($_POST['menu']))
 if (isset($_GET['menu']))
     $menu = $_GET['menu'];
 
+
 $status = '';
 if (isset($_POST['status']))
     $LinkCode = $_POST['status'];
@@ -69,7 +70,7 @@ $sShowMsg = '';
 
 $StartDate = date("Y-m-d", strtotime("2016-09-01")); //"2018-9-30";//date("Y-m-d");
 $EndDate = date("Y-m-d");
-echo $status;
+
 if ($LinkCode == 'VIEW') {
 
     $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);

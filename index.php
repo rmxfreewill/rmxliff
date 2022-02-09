@@ -79,6 +79,16 @@ if (isset($_GET['Function']))
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
 
+                                if(toMenu=='ticket'){
+                                    menuUrl = "menu/ticketMenu.php" + paramS;
+                                    try {
+                                        $("#rmxLiFFLayout").load(menuUrl);
+                                        $(".loader").hide();
+                                    } catch (err) {
+                                        console.log('err rmxLiFFLayout: ' + error);
+                                    }
+                                }
+
                                 if (toStatus == null) {
                                     window.location.assign(menuUrl);
                                 } else if (toStatus == 'init' || toStatus == 'check') {
