@@ -92,7 +92,7 @@ $Function != '' ?? $Function = $menu;
                                     if (toMenu == "register") {
                                         menuUrl = "menu/registerMenu.php" + paramS;
                                         if (toStatus == 'check') {
-                                            window.location.assign(menuUrl);
+                                            window.location.assign(sUrl + menuUrl);
                                         }
                                     } else if (toMenu == "ticket") {
                                         menuUrl = "menu/ticketMenu.php" + paramS;
