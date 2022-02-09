@@ -79,11 +79,6 @@ if (isset($_GET['Function']))
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
 
-                                if(toMenu=='ticket'){
-                                    menuUrl = "menu/ticketMenu.php" + paramS;
-                                    window.location.assign(menuUrl);
-                                }
-
                                 if (toStatus == null) {
                                     window.location.assign(menuUrl);
                                 } else if (toStatus == 'init' || toStatus == 'check') {
