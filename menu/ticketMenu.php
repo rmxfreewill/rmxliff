@@ -26,9 +26,9 @@ if (isset($_GET['LinkCode']))
 
     $menu = '';
 if (isset($_POST['menu']))
-    $LinkCode = $_POST['menu'];
+    $menu = $_POST['menu'];
 if (isset($_GET['menu']))
-    $LinkCode = $_GET['menu'];
+    $menu = $_GET['menu'];
 
 $status = '';
 if (isset($_POST['status']))
