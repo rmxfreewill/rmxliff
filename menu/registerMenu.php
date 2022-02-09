@@ -14,53 +14,44 @@ $GLOBALS['sURL'] =   sURL;
 
 $sFlag = '0';
 
-function regisForm($sFlag)
+function regisForm()
 {
-    $arr[0] = '';
-    $arr[1] = '';
-    if ($sFlag != '0') {
-        $regisForm = '
-        <div class="mb-3">
-        <label for="psw"><b>Email: </b></label>' . $arr[0] . '
-        <p><label for="psw"><b>Mobile: </b></label>' . $arr[1] . '
-        <p><button type="button"  name="btnLogin" id="btnLogin" onclick="closeClick()">
-            CLOSE
-        </button>
+    $regisForm = '
+        <div class="col-12 mb-3 mt-3">
+            <h3>Register</h3>
         </div>
-        ';
-    } else {
-        $regisForm = '
-        <div class="mb-3" hidden>
-        <label for="psw" class="form-label form-label-lg"><b>Email</b></label>
-        <input type="email" class="form-control form-control-lg"
-            id="txtEMail" 
-            name="txtEMail"
-            placeholder="Enter EMail"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            maxlength="40"
-            value=""
-        required>
+        <div class="col-12 mb-3">
+            <div class="mb-3" hidden>
+            <label for="psw" class="form-label form-label-lg"><b>Email</b></label>
+            <input type="email" class="form-control form-control-lg"
+                id="txtEMail" 
+                name="txtEMail"
+                placeholder="Enter EMail"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                maxlength="40"
+                value=""
+            required>
+            </div>
+            <div class="mb-3">
+            <label for="psw" class="form-label form-label-lg"><b>Mobile</b></label>
+            <input type="tel" class="form-control form-control-lg"
+                placeholder="Enter Mobile" 
+                name="txtTel" id="txtTel" 
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
+                maxlength="10"
+            required>
+            </div>
+            <div class="mb-3">
+            <button class="btn btn-success btn-lg rmxRegister pt-3 pb-3" type="button"  
+                name="btnLogin" 
+                id="btnLogin" 
+                onclick="registerCheck()"
+            >
+            REGISTER
+            </button>
+            </div>
         </div>
-        <div class="mb-3">
-        <label for="psw" class="form-label form-label-lg"><b>Mobile</b></label>
-        <input type="tel" class="form-control form-control-lg"
-            placeholder="Enter Mobile" 
-            name="txtTel" id="txtTel" 
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" 
-            maxlength="10"
-        required>
-        </div>
-        <div class="mb-3">
-        <button class="btn btn-success btn-lg rmxRegister pt-3 pb-3" type="button"  
-            name="btnLogin" 
-            id="btnLogin" 
-            onclick="registerCheck()"
-        >
-        REGISTER
-        </button>
-        </div>
-        ';
-    }
+    ';
     return $regisForm;
 }
 
@@ -76,7 +67,6 @@ $sFlag = $getData->sFlag;
 if ($sFlag == '4') {
     $LINEID = $getDataFromUrl->LineId;
     rmxChangeMemberRichMenu('Member', $LINEID);
-} else if ($sFlag == '0') {
 }
 
 ?>
@@ -84,14 +74,11 @@ if ($sFlag == '4') {
 <html>
 
 <body>
-    <div class="col-12 mb-3 mt-3">
-        <h3>Register</h3>
-    </div>
-    <div class="col-12 mb-3">
-        <?php
-        echo regisForm($sFlag);
-        ?>
-    </div>
+    <?php
+    if ($sFlag == '0') {
+        echo regisForm();
+    }
+    ?>
     <script>
         function registerCheck() {
             $(".loader").show();
@@ -128,7 +115,6 @@ if ($sFlag == '4') {
         }
         $(function() {
             var sFlag = "<?php echo $sFlag; ?>";
-            alert(sFlag);
             if (sFlag == '4') {
                 rmxCloseWindow();
             }
