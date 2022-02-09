@@ -69,13 +69,15 @@ $status = $getDataFromUrl->status;
 if ($status == 'check') {
     registerDataToDatabase($GLOBALS['REGISTER_URL'], $getDataFromUrl);
 }
-
+echo json_encode($getDataFromUrl);
 $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
 $sFlag = $getData->sFlag;
 if ($sFlag == '4') {
     $LINEID = $getDataFromUrl->LineId;
     rmxChangeMemberRichMenu('Member', $LINEID);
 }
+
+echo $sFlag;
 
 
 ?>
