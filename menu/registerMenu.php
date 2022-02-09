@@ -188,7 +188,7 @@ if ($sFlag == '4') {
                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, toStatus);
                     var param = urlSelectMenu.paramS;
                     var menuUrl = "menu/registerMenu.php" + param;
-                    alert(menuUrl);
+                    // alert(menuUrl);
                     $("#rmxLiFFLayout").load(menuUrl);
                 }
             }

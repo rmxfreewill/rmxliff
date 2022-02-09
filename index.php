@@ -17,6 +17,12 @@ $GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
 $GLOBALS['LIFF_ID'] =   LIFF_ID;
 $GLOBALS['sURL'] =   sURL;
 
+$Function='';
+if (isset($_POST['Function']))
+    $Function = $_POST['Function'];
+if (isset($_GET['Function']))
+    $Function = $_GET['Function'];
+
 
 
 ?>
@@ -87,6 +93,7 @@ $GLOBALS['sURL'] =   sURL;
                                         menuUrl = "menu/searchMenu.php" + paramS;
 
                                     }
+
 
                                     // alert('menuUrl: ' + menuUrl);
                                     try {
