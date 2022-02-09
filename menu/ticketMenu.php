@@ -64,7 +64,7 @@ $sShowMsg = '';
 
 $StartDate = date("Y-m-d", strtotime("2016-09-01")); //"2018-9-30";//date("Y-m-d");
 $EndDate = date("Y-m-d");
-
+echo $status;
 if ($LinkCode == 'VIEW') {
 
     $RetCommand = send_query($CompanyUrl, $LineId, $CompanyCode, $CmdCommand);
