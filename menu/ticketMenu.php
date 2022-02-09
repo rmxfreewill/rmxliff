@@ -61,7 +61,7 @@ echo $sFlag ;
         if ($getTicketFromDatabaseRetCommand) {
 
             $asTable = explode("^t", $getTicketFromDatabaseRetCommand);
-            echo $asTable ;
+            echo json_encode($asTable) ;
             echo"<br>";
             if (count($asTable) > 0) {
                 $arTmp = explode("^f", $asTable[0]);
