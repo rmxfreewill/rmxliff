@@ -61,10 +61,9 @@ if ($status == 'init') {
         if ($getTicketFromDatabaseRetCommand) {
             $asTable = explode("^t", $getTicketFromDatabaseRetCommand);
             if (count($asTable) > 0) {
-                echo "asTable: " . json_encode($asTable);
                 $arTmp = explode("^f", $asTable[0]);
+                echo "arTmp: " . json_encode($arTmp);
                 if (count($arTmp) > 1) {
-                    echo "arTmp: " . json_encode($arTmp);
                 } else {
                     echo count($arTmp);
                 }
