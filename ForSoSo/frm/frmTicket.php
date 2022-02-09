@@ -1,6 +1,6 @@
 <?php
     /*    include_once("index.html"); 
-    https://rmxregister.herokuapp.com/frmTicket.php?LineId=Ucd102187a2dfb7494ea9d723a5ae4041&LinkCode=CHECK
+    https://rmxliff.herokuapp.com/frmTicket.php?LineId=Ucd102187a2dfb7494ea9d723a5ae4041&LinkCode=CHECK
     */
 
   session_start();
@@ -651,7 +651,7 @@
         var sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
 
         var para = "?LinkCode=REGISTER&LineId="+sLineId+"&CmdCommand="+sCmd;
-        var url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
+        var url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
             
         liff.login({ redirectUri: url });
 

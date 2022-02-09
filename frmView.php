@@ -445,7 +445,7 @@ ini_set('display_errors', 'On');
         var sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
 
         var para = "?LinkCode=REGISTER&LineId="+sLineId+"&CmdCommand="+sCmd;
-        var url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
+        var url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
             
         liff.login({ redirectUri: url });
 

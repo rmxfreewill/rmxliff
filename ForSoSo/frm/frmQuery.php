@@ -573,7 +573,7 @@
 
         var LineLiffUrl = document.getElementById('txtLiffUrl').value;
         var para = "?LinkCode=REGISTER&LineId="+sLineId+"&CmdCommand="+sCmd;
-        var url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
+        var url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
 
 
 
@@ -619,7 +619,7 @@
             +"&TableTitle="+sTableTitle
             +"&SHCode="+sSHCode+"&SHName="+sSHName
             +"&SDate="+sSDate+"&EDate="+sEDate;
-        var url = "https://rmxregister.herokuapp.com/frmQuery.php" + para;
+        var url = "https://rmxliff.herokuapp.com/frmQuery.php" + para;
 
         liff.login({ redirectUri: url });
 
