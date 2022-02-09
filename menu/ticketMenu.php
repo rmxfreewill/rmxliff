@@ -69,9 +69,9 @@ echo"<br>";
                     $asCol = explode("^c", $arTmp[0]);
                     $asRow = explode("^r", $arTmp[1]);
                   
-echo json_encode($asCol);
-echo"<br>";
-echo json_encode($asRow);
+// echo json_encode($asCol);
+// echo"<br>";
+// echo json_encode($asRow);
                     if (count($asRow) > 0) {
 
 
