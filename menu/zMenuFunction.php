@@ -163,7 +163,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
     return $objData;
 }
 
-function registerDataToDatabase($RegisterUrl, $objParam)
+function registerDataToDatabase($RegisterUrl,$CompanyUrl, $objParam)
 {
     $objData = new stdClass;
 
@@ -189,6 +189,16 @@ function registerDataToDatabase($RegisterUrl, $objParam)
         $Tel,
         $EMail
     );
+
+    $RetCommand = sendQuery(
+        'Command',
+        $CompanyUrl,
+        '',
+        '',
+        $CmdCommand
+    );
+
+echo json_encode($RetCommand);
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);

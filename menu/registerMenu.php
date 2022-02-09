@@ -68,14 +68,15 @@ function regisForm($type)
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 if ($status == 'check') {
-    registerDataToDatabase($GLOBALS['REGISTER_URL'], $getDataFromUrl);
+    $getData = registerDataToDatabase($GLOBALS['REGISTER_URL'],$GLOBALS['COMPANY_URL'], $getDataFromUrl);
+} else {
+    $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
 }
-echo json_encode($getDataFromUrl);
-$getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
+
 $sFlag = $getData->sFlag;
 if ($sFlag == '4') {
     $LINEID = $getDataFromUrl->LineId;
-    rmxChangeMemberRichMenu('Member', $LINEID);
+    // rmxChangeMemberRichMenu('Member', $LINEID);
 }
 
 ?>
