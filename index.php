@@ -81,7 +81,7 @@ if (isset($_GET['CompanyCode']))
             var LiffId = document.getElementById('txtLiffId').value;
 
             const useNodeJS = false; // if you are not using a node server, set this value to false
-            const defaultLiffId = "1656445468-pPVkELw7"; // change the default LIFF value if you are not using a node server
+            const defaultLiffId = "1656503744-kojgw9pb"; // change the default LIFF value if you are not using a node server
 
             // DO NOT CHANGE THIS
             let myLiffId = "";
@@ -156,16 +156,16 @@ if (isset($_GET['CompanyCode']))
 
                             switch (sFunction) {
                                 case "REGISTER":
-                                    url = "https://rmxregister.herokuapp.com/frmRegister.php" + para;
+                                    url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
                                     break;
                                 case "QUERY":
-                                    url = "https://rmxregister.herokuapp.com/frmQuery.php" + para;
+                                    url = "https://rmxliff.herokuapp.com/frmQuery.php" + para;
                                     break;
                                 case "VIEW":
-                                    url = "https://rmxregister.herokuapp.com/frmView.php" + para;
+                                    url = "https://rmxliff.herokuapp.com/frmView.php" + para;
                                     break;
                                 case "TICKET":
-                                    url = "https://rmxregister.herokuapp.com/frmTicket.php" + para;
+                                    url = "https://rmxliff.herokuapp.com/frmTicket.php" + para;
                                     break;
 
                                 default:
