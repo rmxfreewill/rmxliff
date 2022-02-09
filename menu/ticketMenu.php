@@ -62,10 +62,6 @@ if ($status == 'init') {
             $asTable = explode("^t", $getTicketFromDatabaseRetCommand);
             if (count($asTable) > 0) {
                 $arTmp = explode("^f", $asTable[0]);
-                echo json_encode($arTmp); 
-                echo"<p>";
-               
-   
                 if (count($arTmp) > 1) {
                     $asCol = explode("^c", $arTmp[0]);
                     echo json_encode($asCol);
@@ -131,6 +127,8 @@ if ($status == 'init') {
                         echo $sTab;
                         echo $sPage;
                     }
+                } else {
+                    echo count($arTmp);
                 }
             }
         }
