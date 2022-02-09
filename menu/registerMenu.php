@@ -82,7 +82,7 @@ function register($RegisterUrl, $objParam)
     $Tel = $ASRet[2];
     $EMail = $ASRet[3];
 
- 
+
     $RetCommand = register_command(
         $RegisterUrl,
         $LineId,
@@ -190,7 +190,12 @@ if ($sFlag == '4') {
                     var param = urlSelectMenu.paramS;
                     var menuUrl = "menu/registerMenu.php" + param;
                     // alert(menuUrl);
-                    $("#rmxLiFFLayout").load(menuUrl);
+                    if (toStatus == 'check') {
+                        window.location.assign(sUrl + menuUrl);
+                    } else {
+                        $("#rmxLiFFLayout").load(menuUrl);
+                    }
+
                 }
             }
         }
