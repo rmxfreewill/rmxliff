@@ -155,6 +155,12 @@ if (isset($_GET['CompanyCode']))
 
 
                             switch (sFunction) {
+                                case "register":
+                                    url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
+                                    break;
+                                    case "ticket":
+                                    url = "https://rmxliff.herokuapp.com/frmView.php" + para;
+                                    break;
                                 case "REGISTER":
                                     url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
                                     break;
