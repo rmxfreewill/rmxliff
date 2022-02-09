@@ -1,23 +1,21 @@
 <?php
-/*    include_once("index.html"); */
 
 session_start();
-
-// error_reporting(E_ALL & ~E_NOTICE);
 
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-
+include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
 include_once("rmxLineFunction.php");
+include_once("rmxLiffFunction.php");
 
-$CompanyUrl = COMPANY_URL;
-$CompanyCode = COMPANY_CODE;
-$LiffId = LIFF_ID;
+// header('Access-Control-Allow-Origin: *');
 
-
-$SSLURL = SSL_URL;
-
+$GLOBALS['COMPANY_URL'] =  COMPANY_URL;
+$GLOBALS['REGISTER_URL'] =   REGISTER_URL;
+$GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
+$GLOBALS['LIFF_ID'] =   LIFF_ID;
+$GLOBALS['sURL'] =   sURL;
 
 $Function = '';
 if (isset($_POST['Function']))
@@ -31,174 +29,102 @@ if (isset($_POST['menu']))
 if (isset($_GET['menu']))
     $menu = $_GET['menu'];
 
-if ($Function == '' && $menu != '') {
-    $Function = $menu;
-}
+$Function != '' ?? $Function = $menu;
 
-
-$LiffId = LIFF_ID;
-if (isset($_POST['LiffId']))
-    $LiffId = $_POST['LiffId'];
-if (isset($_GET['LiffId']))
-    $LiffId = $_GET['LiffId'];
-
-//set
-$CompanyCode = COMPANY_CODE;
-if (isset($_POST['CompanyCode']))
-    $CompanyCode = $_POST['CompanyCode'];
-if (isset($_GET['CompanyCode']))
-    $CompanyCode = $_GET['CompanyCode'];
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML>
 <html>
 
 <head>
-
+    <title>RMX LINE OFFICIAL</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-language" content="en-th">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta http-equiv="expires" content="0">
     <meta http-equiv="pragma" content="no-cache">
-    <title>Line</title>
 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ticket_style.css">
+    <link rel="stylesheet" href="css/search_style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
-
+    <script charset="utf-8" src="js/jquery.js"></script>
+    <script charset="utf-8" src="js/popper.min.js"></script>
+    <script charset="utf-8" src="js/bootstrap.js"></script>
+    <script charset="utf-8" src="js/lineSdk_2_18_1.js"></script>
+    <script charset="utf-8" src="js/rmx_liff_function.js"></script>
 </head>
 
-<body>
-    <form class="animate" method="GET" enctype="multipart/form-data" action="index.php">
-        <input type="hidden" id="txtCompanyCode" value="<?php echo $CompanyCode; ?>">
-        <input type="hidden" id="txtFunction" value="<?php echo $Function; ?>">
-        <input type="hidden" id="txtLiffId" value="<?php echo $LiffId; ?>">
-
-    </form>
-
+<body class="bg-warning">
+    <div class="loader"></div>
+    <div class="container">
+        <div class="row">
+            <div id="rmxLiFFLayout"></div>
+        </div>
+    </div>
     <script>
-        window.onload = function() {
-
-            var LiffId = document.getElementById('txtLiffId').value;
-
-            const useNodeJS = false; // if you are not using a node server, set this value to false
-            const defaultLiffId = "1656503744-kojgw9pb"; // change the default LIFF value if you are not using a node server
-
-            // DO NOT CHANGE THIS
-            let myLiffId = "";
-
-            // if node is used, fetch the environment variable and pass it to the LIFF method
-            // otherwise, pass defaultLiffId
-            if (useNodeJS) {
-                fetch('/send-id')
-                    .then(function(reqResponse) {
-                        return reqResponse.json();
-                    })
-                    .then(function(jsonResponse) {
-                        myLiffId = jsonResponse.id;
-                        initializeLiffOrDie(myLiffId);
-                    })
-                    .catch(function(error) {
-                        //document.getElementById("liffAppContent").classList.add('hidden');
-                        // document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
-                    });
-            } else {
-                myLiffId = defaultLiffId;
-                initializeLiffOrDie(myLiffId);
-
-            }
-        };
-
-
-        function initializeLiffOrDie(myLiffId) {
-            if (myLiffId) {
-                initializeLiff(myLiffId);
-            }
-        }
-
-
-        function initializeLiff(myLiffId) {
-            liff.init({
+        async function rmxInitializeLineLiff(myLiffId = String) {
+            await liff.init({
                     liffId: myLiffId
                 })
                 .then(() => {
-                    initializeApp();
+                    if (liff.isLoggedIn()) {
+                        liff.getProfile()
+                            .then(profile => {
+                                const userIdProfile = profile.userId;
+                                const sCompCode = "<? echo COMPANY_CODE; ?>";
+                                const sUrl = "<? echo sURL; ?>";
+
+                                var getParam = rmxGetParams();
+                                var toMenu = getParam.menu;
+                                var toCmd = getParam.CmdCommand;
+                                var toStatus = getParam.status != null ? getParam.status : 'init';
+                                var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, toCmd, toStatus);
+                                var menuUrl = urlSelectMenu.menuUrl;
+                                var paramS = urlSelectMenu.paramS;
+
+                                if (toStatus == null) {
+                                    window.location.assign(menuUrl);
+                                } else if (toStatus == 'init' || toStatus == 'check') {
+                                    var menuUrl = "menu/blankMenu.php";
+                                    if (toMenu == "register") {
+                                        menuUrl = "menu/registerMenu.php" + paramS;
+                                    } else if (toMenu == "ticket") {
+                                        menuUrl = "menu/ticketMenu.php" + paramS;
+                                    } else if (toMenu == "profile") {
+                                        menuUrl = "menu/profileMenu.php" + paramS;
+                                    } else if (toMenu == "search") {
+                                        menuUrl = "menu/searchMenu.php" + paramS;
+
+                                    }
+
+
+                                    // alert('menuUrl: ' + menuUrl);
+                                    try {
+                                        $("#rmxLiFFLayout").load(menuUrl);
+                                        $(".loader").hide();
+                                    } catch (err) {
+                                        console.log('err rmxLiFFLayout: ' + error);
+                                    }
+                                }
+                            })
+                            .catch((err) => {
+                                console.log('err getProfile: ', err);
+                            });
+                    }
                 })
                 .catch((err) => {
-                    // document.getElementById('lblUserId').textContent = err.error;
-                    //document.getElementById("liffAppContent").classList.add('hidden');
-                    //document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+                    console.log('err initializeLiff: ', err);
                 });
         }
 
-        /**
-         * Initialize the app by calling functions handling individual app components
-         */
-        function initializeApp() {
-
-
-
-            if (liff.isLoggedIn()) {
-
-                var sFunction = document.getElementById('txtFunction').value;
-
-                if (sFunction != '') {
-
-                    liff.getProfile().then(profile => {
-
-                            const userId = profile.userId;
-
-                            var sCompCode = document.getElementById('txtCompanyCode').value;
-
-                            var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
-                            var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
-                            var url = "";
-
-                            alert(sFunction);
-                            switch (sFunction) {
-                                case "register":
-                                    url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
-                                    break;
-                                case "ticket":
-                                    url = "https://rmxliff.herokuapp.com/frmView.php" + para;
-                                    break;
-                                case "REGISTER":
-                                    url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
-                                    break;
-                                case "QUERY":
-                                    url = "https://rmxliff.herokuapp.com/frmQuery.php" + para;
-                                    break;
-                                case "VIEW":
-                                    url = "https://rmxliff.herokuapp.com/frmView.php" + para;
-                                    break;
-                                case "TICKET":
-                                    url = "https://rmxliff.herokuapp.com/frmTicket.php" + para;
-                                    break;
-
-                                default:
-                                    break;
-                                    //code to be executed if n is different from all labels;
-                            }
-                            //alert(sFunction);
-                            liff.login({
-                                redirectUri: url
-                            });
-
-
-
-                        })
-                        .catch((err) => {
-                            console.log('error', err);
-                        });
-
-                }
-            }
-            //liff.getProfile().userId;
-
-        }
+        $(function() {
+            var myLiffId = "<? echo LIFF_ID; ?>";
+            rmxInitializeLineLiff(myLiffId);
+        });
     </script>
-
 </body>
 
 </html>
