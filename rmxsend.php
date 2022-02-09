@@ -17,26 +17,51 @@ https://rmxline.herokuapp.com/?link=https://api.line.me/v2/bot/message/push&valu
 
 
 https://rmxline.herokuapp.com/index.php?msg=test for push msg&userId=Ucd102187a2dfb7494ea9d723a5ae4041&type=push
+
+https://rmxline.herokuapp.com/rmxsend.php?msg=test%20tetst%20test%20&userId=Ucd102187a2dfb7494ea9d723a5ae4041&type=push
+
+https://rmxline.herokuapp.com/index.php?msg=test for push msg&userId=Ucd102187a2dfb7494ea9d723a5ae4041&type=push
+
+https://rmxline.herokuapp.com/rmxsend.php?msg=123456789 test &userId=Ucd102187a2dfb7494ea9d723a5ae4041&type=push
 */
     ini_set('max_input_time','500');
     ini_set('max_execution_time','500'); 
     set_time_limit(300); 
+    include_once("define_Gobal.php");
 
 
+
+
+    $CompanyUrl = COMPANY_URL;
+    $RegisterUrl = REGISTER_URL;
+    $CompanyId = COMPANY_CODE;
+    $LiffId = LIFF_ID;
+    $CompanyToken = TOKEN_ID;
+  
+    $UrlReply= LINE_REPLY;
+    $UrlMulticast= LINE_MULTICAST;
+    $UrlPush= LINE_PUSH;
+  
+    // $CompanyToken = "m5ukw4jmYNNVqyIdVyXGQc1qdKqJSFxVCPpxfQRvYvRLXhn2+JvY+0uLU1inncWInYmDka3KYqBH/i3zfFq3oNHIAUnO7DXYu+3iIbzWp0eft69ZrxVv6qEDblNHVhlCRAWX6/Gkm//7h8yY0kX7XwdB04t89/1O/w1cDnyilFU=";
+    
+   // $CompanyId = "00001";
+    //$CompanyUrl = "https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php";
+    //$UrlReply= "https://api.line.me/v2/bot/message/reply";
+    //$UrlMulticast= "https://api.line.me/v2/bot/message/multicast";
+    //$UrlPush= "https://api.line.me/v2/bot/message/push";
 
     $sendMsg='';
     if (isset($_GET['msg'])) {
         $sendmsg =$_GET['msg'];
-    } else {
-        $sendmsg='';
     }
 
 
-    $sendUserId='Ucd102187a2dfb7494ea9d723a5ae4041';
+   // $sendUserId='Ucd102187a2dfb7494ea9d723a5ae4041';
+    $sendUserId='';
     if (isset($_GET['userId'])) {
         $sendUserId =$_GET['userId'];
-    } else {
-        $sendUserId='Ucd102187a2dfb7494ea9d723a5ae4041';
+    //} else {
+      //  $sendUserId='Ucd102187a2dfb7494ea9d723a5ae4041';
     }
 
 
@@ -45,172 +70,49 @@ https://rmxline.herokuapp.com/index.php?msg=test for push msg&userId=Ucd102187a2
         $type =$_GET['type'];
     }
 
+    /*
+        print_r ($sendUserId.','.$sendmsg);
+        echo "\n\n";
+        echo "\n\n";
+        echo urlencode($CompanyToken);
+        echo "\n\n";
+    */
+    echo $UrlPush."\n\n";
+    echo $CompanyToken."\n\n";        
+    echo $sendUserId."\n\n";
+    echo $sendmsg."\n\n";
+    echo $type."\n\n";
 
-    $CompanyToken = "m5ukw4jmYNNVqyIdVyXGQc1qdKqJSFxVCPpxfQRvYvRLXhn2+JvY+0uLU1inncWInYmDka3KYqBH/i3zfFq3oNHIAUnO7DXYu+3iIbzWp0eft69ZrxVv6qEDblNHVhlCRAWX6/Gkm//7h8yY0kX7XwdB04t89/1O/w1cDnyilFU=";
+    if ($sendUserId != '') {
+        //line_multicast($UrlMulticast,$CompanyToken,$sendUserId,$sendmsg);
+        $ret = "";
+        if ($type=='push') {
+            $ret =line_push($UrlPush,$CompanyToken,$sendUserId,$sendmsg);
+            put_send($CompanyUrl,$sendUserId,$CompanyId,$type,$sendmsg,implode(" ",$ret));
 
-    
-    $CompanyId = "00001";
-    $CompanyUrl = "https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php";
-    $UrlReply= "https://api.line.me/v2/bot/message/reply";
-    $UrlMulticast= "https://api.line.me/v2/bot/message/multicast";
-    $UrlPush= "https://api.line.me/v2/bot/message/push";
-
-
-    /*Get Data From POST Http Request*/
-    $datas = file_get_contents('php://input');
-    if ($datas) {
-
-       
-        $deCode = json_decode($datas,true);
-
-        $replyToken = $deCode['events'][0]['replyToken'];
-        $userId = $deCode['events'][0]['source']['userId'];
-        $text = $deCode['events'][0]['message']['text'];
-
-        /*=================================================================*/
-
-        if ($text === "®Register"){
-            $msg = "text (".$response.")(".$text.")";
-            line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
-        
-        } else if ($text === "®Complete Register"){
-            //$msg = "text (".$response.")(".$text.")";
-            //line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
-        } else {        
-            if(!empty($text)){   
-
-                if($text ==="@mobile"){   
-                    sendAtCommand($userId,$CompanyId,$CompanyUrl,$UrlReply
-                        ,$CompanyToken,$replyToken,$text);
-
-                } else {
-                    if(substr($text,6) ==="@query"){   
-                        sendAtCommand($userId,$CompanyId,$CompanyUrl,$UrlReply
-                        ,$CompanyToken,$replyToken,$text);
-
-                    } else {
-                        checkUserRegister($userId,$CompanyId,$CompanyUrl,$UrlReply
-                            ,$CompanyToken,$replyToken,$text);     
-                        
-                        put_request($CompanyUrl,$userId,$CompanyId,$text,$datas);
-                    }
-                }
-            } 
-            
-        }
-
-        http_response_code(200);
-
-
-    } else {
-
-        if ($sendMsg != "") {
-            print_r ($sendUserId.','.$sendmsg);
-            echo "\n\n";
-            echo "\n\n";
-            echo urlencode($CompanyToken);
-            echo "\n\n";
-        
-            //line_multicast($UrlMulticast,$CompanyToken,$sendUserId,$sendmsg);
-            if ($type=='push')
-                line_push($UrlPush,$CompanyToken,$sendUserId,$sendmsg);
-            else
-                line_multicast($UrlMulticast,$CompanyToken,$sendUserId,$sendmsg);
-
-
-            http_response_code(200);
-        }
-    }
-
-
-
-function checkUserRegister($userId,$CompanyId,$CompanyUrl,$UrlReply
-    ,$CompanyToken,$replyToken,$text){
-
-
-
-    $Command="call sp_main_check_register ('".$userId."','".$CompanyId."')";
-    //$Command="call sp_main_check_register_token ('".$userId."','".$CompanyId."','".$CompanyToken."')";
-    $curl_data = "Command=".$Command;
-    $response = post_web_content($CompanyUrl,$curl_data);
-
-    $asRet = explode("^c", $response);
-    if (count($asRet) >=4){
-        $nFlg = $asRet[1];
-        $sMMsg = $asRet[0];
-        $sSoldToName=$asRet[6];
-        $sShipToName=$asRet[8];
-     
-        if ($nFlg =="3" || $nFlg =="4"  || $nFlg =="5"){
-
-            
-                //$sUserName = $asRet[2];
-                //$sEMail = $asRet[3];
-                //$sMobileNo = $asRet[4];
-                //updateRegisterFlag($CompanyUrl,$userId,$CompanyId,$sUserName,$sEMail,$sMobileNo);
-
-                $sUserName = $asRet[2];
-                $msg = "สวัสดีครับคุณ " . $sUserName ."\n"
-                    ." (".$sSoldToName."-".$sShipToName.") \n"
-                    ." ข้อความที่ส่งมาจะถูกส่งต่อให้ Admin ของ ".$sSoldToName." \n\n '".$text."'";
-                line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
-                              
-            
         } else {
-            $sUserName = $asRet[2];
-            $msg = 'ยังไม่ได้ลงทะเบียน กรุณาลงทะเบียน ก่อนการส่งข้อความครับ';
-            line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
-        }
-    }
-    return "";
-}
-/*
-function updateRegisterFlag($CompanyUrl,$userId,$CompanyId,$sUserName,$sEMail,$sMobileNo){    
-    $Command="call sp_main_request_register ('".$userId."','".$CompanyId
-        ."','".$sUserName."','".$sEMail."','".$sMobileNo."')";
-    $curl_data = "Command=".$Command;
-    $response = post_web_content($CompanyUrl,$curl_data);
+            $ret =line_multicast($UrlMulticast,$CompanyToken,$sendUserId,$sendmsg);
 
-    return $response;
-}
-*/
-
-function sendAtCommand($userId,$CompanyId,$CompanyUrl,$UrlReply
-    ,$CompanyToken,$replyToken,$text){
-
-    $asAr = explode('^', $text);
-    $sT ="";
-    $sC ="";
-    $sT =$asAr[0];
-    if (count($asAr)===2){        
-        $sC =$asAr[1];    
-    }
-
-    $Command="call sp_main_atcommand ('".$CompanyId."','".$sT."','".$sC."')";
-    $curl_data = "Command=".$Command;
-    $response = post_web_content($CompanyUrl,$curl_data);
-
-    //$msg = $Command."\n".$response;       
-
-    //line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
+            $asId = explode("^", $sendUserId);
+            
+            $sVal = implode(" ",$ret);
+            foreach ($sId as $asId) {
+                put_send($CompanyUrl,$sId,$CompanyId,$type,$sendmsg,$sVal);
+            }
 
             
-    $asRow = explode("^r", $response);
-    if (count($asRow) >=1){
+            //implode(" ",$arr);
 
-        $msg = str_replace("^r", "\n", $response);
-        $msg = str_replace("^c", "\t", $msg);
-        //foreach ($asCol as $asRow) {
-        //    $msg = $msg . str_replace("^c", "\t", $asCol). "\n";
-       // }
-        //$msg = 'ยังไม่ได้ลงทะเบียน กรุณาลงทะเบียน ก่อนการส่งข้อความครับ';
-        line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
-    } else {
-        $msg = $response;       
-        line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
+        }
+        
+        echo "=========================\n\n";
+
+        print_r ($ret);
+        //echo $ret."\n\n";
+       // http_response_code(200);
+
     }
-    return "";
-}
+
 
 /*================================================================*/
 
@@ -246,19 +148,18 @@ function sentMessage($encodeJson,$datas)
 
     $response = curl_exec($curl);
     $err = curl_error($curl);
-
     curl_close($curl);
 
-    if ($err) {
+     if (isset($err)) {
         $datasReturn['result'] = 'E';
         $datasReturn['message'] = $err;
     } else {
         if($response == "{}"){
-        $datasReturn['result'] = 'S';
-        $datasReturn['message'] = 'Success';
+            $datasReturn['result'] = 'S';
+            $datasReturn['message'] = 'Success';
         }else{
-        $datasReturn['result'] = 'E';
-        $datasReturn['message'] = $response;
+            $datasReturn['result'] = 'S';
+            $datasReturn['message'] = $response;
         }
     }
 
@@ -366,7 +267,9 @@ function line_push($url,$CompanyToken,$userId,$msg){
     $encodeJson = json_encode($messages);
     $results = sentMessage($encodeJson,$LINEDatas);
 
-    print_r ($results);
+   // print_r ($results);
+   // echo ($results);
+    return $results;
 }
 
 
@@ -377,13 +280,17 @@ function line_multicast($url,$CompanyToken,$userId,$msg){
 
     //$msg = "push message \n[" . $userId."]";
     $messages = [];
-    $messages['to'][0] = $userId;
+    //"to": ["U4af4980629...","U0c229f96c4..."],
+
+    $asId = explode("^", $userId);
+    $messages['to'] = $asId;
     $messages['messages'][0] = getFormatTextMessage($msg);
     
     $encodeJson = json_encode($messages);
     $results = sentMessage($encodeJson,$LINEDatas);
 
     print_r ($results);
+    return $results;
 }
 
 
@@ -392,6 +299,19 @@ function put_request($CompanyUrl,$userId,$CompanyId,$text,$datas){
     $Command="call sp_comp_insert_user_resquest ('".$userId."','".$CompanyId."','".$text."','".$datas."')";
     $curl_data = "LineId=".$userId."&CompanyCode=".$CompanyId."&Command=".$Command;    
 
+    $response = post_web_page($CompanyUrl,$curl_data);
+
+}
+
+
+function put_send($CompanyUrl,$userId,$CompanyId,$type,$datas,$sRet){
+
+
+    $Command="call sp_comp_insert_line_send ('".$userId."','".$CompanyId."','".$type."','".$datas."','".$sRet."')";
+    $curl_data = "LineId=".$userId."&CompanyCode=".$CompanyId."&Command=".$Command;    
+
+
+    print_r ($curl_data);
     $response = post_web_page($CompanyUrl,$curl_data);
 
 }

@@ -10,6 +10,8 @@ https://api.line.me/v2/bot/message/delivery/reply?date={yyyyMMdd}
 https://api.line.me/v2/bot/message/delivery/reply?date=20210915
 
 
+
+
 https://rmxline.herokuapp.com/linePush.php
 
 https://rmxline.herokuapp.com/?link=https://api.line.me/v2/bot/message/push&value={"to":"@728ohvhl","messages":[{"type":"text","text":"Hello, user"},{"type":"text","text":"May I help you?"}]}
@@ -24,11 +26,11 @@ https://rmxline.herokuapp.com/index.php?msg=test for push msg&userId=Ucd102187a2
 
 
 
-    $sendMsg='';
+    $sendMsg='send test in push';
     if (isset($_GET['msg'])) {
         $sendmsg =$_GET['msg'];
     } else {
-        $sendmsg='';
+        $sendmsg='send test in push';
     }
 
 
@@ -78,23 +80,10 @@ https://rmxline.herokuapp.com/index.php?msg=test for push msg&userId=Ucd102187a2
             //line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
         } else {        
             if(!empty($text)){   
-
-                if($text ==="@mobile"){   
-                    sendAtCommand($userId,$CompanyId,$CompanyUrl,$UrlReply
-                        ,$CompanyToken,$replyToken,$text);
-
-                } else {
-                    if(substr($text,6) ==="@query"){   
-                        sendAtCommand($userId,$CompanyId,$CompanyUrl,$UrlReply
-                        ,$CompanyToken,$replyToken,$text);
-
-                    } else {
-                        checkUserRegister($userId,$CompanyId,$CompanyUrl,$UrlReply
-                            ,$CompanyToken,$replyToken,$text);     
-                        
-                        put_request($CompanyUrl,$userId,$CompanyId,$text,$datas);
-                    }
-                }
+                checkUserRegister($userId,$CompanyId,$CompanyUrl,$UrlReply
+                    ,$CompanyToken,$replyToken,$text);     
+                
+                put_request($CompanyUrl,$userId,$CompanyId,$text,$datas);
             } 
             
         }
@@ -104,22 +93,15 @@ https://rmxline.herokuapp.com/index.php?msg=test for push msg&userId=Ucd102187a2
 
     } else {
 
-        if ($sendMsg != "") {
-            print_r ($sendUserId.','.$sendmsg);
-            echo "\n\n";
-            echo "\n\n";
-            echo urlencode($CompanyToken);
-            echo "\n\n";
-        
-            //line_multicast($UrlMulticast,$CompanyToken,$sendUserId,$sendmsg);
-            if ($type=='push')
-                line_push($UrlPush,$CompanyToken,$sendUserId,$sendmsg);
-            else
-                line_multicast($UrlMulticast,$CompanyToken,$sendUserId,$sendmsg);
+        print_r ($sendUserId.','.$sendmsg);
+        //line_multicast($UrlMulticast,$CompanyToken,$sendUserId,$sendmsg);
+        if ($type=='push')
+            line_push($UrlPush,$CompanyToken,$sendUserId,$sendmsg);
+        else
+            line_multicast($UrlMulticast,$CompanyToken,$sendUserId,$sendmsg);
 
 
-            http_response_code(200);
-        }
+        http_response_code(200);
     }
 
 
@@ -127,10 +109,7 @@ https://rmxline.herokuapp.com/index.php?msg=test for push msg&userId=Ucd102187a2
 function checkUserRegister($userId,$CompanyId,$CompanyUrl,$UrlReply
     ,$CompanyToken,$replyToken,$text){
 
-
-
     $Command="call sp_main_check_register ('".$userId."','".$CompanyId."')";
-    //$Command="call sp_main_check_register_token ('".$userId."','".$CompanyId."','".$CompanyToken."')";
     $curl_data = "Command=".$Command;
     $response = post_web_content($CompanyUrl,$curl_data);
 
@@ -138,11 +117,8 @@ function checkUserRegister($userId,$CompanyId,$CompanyUrl,$UrlReply
     if (count($asRet) >=4){
         $nFlg = $asRet[1];
         $sMMsg = $asRet[0];
-        $sSoldToName=$asRet[6];
-        $sShipToName=$asRet[8];
      
         if ($nFlg =="3" || $nFlg =="4"  || $nFlg =="5"){
-
             
                 //$sUserName = $asRet[2];
                 //$sEMail = $asRet[3];
@@ -150,9 +126,8 @@ function checkUserRegister($userId,$CompanyId,$CompanyUrl,$UrlReply
                 //updateRegisterFlag($CompanyUrl,$userId,$CompanyId,$sUserName,$sEMail,$sMobileNo);
 
                 $sUserName = $asRet[2];
-                $msg = "สวัสดีครับคุณ " . $sUserName ."\n"
-                    ." (".$sSoldToName."-".$sShipToName.") \n"
-                    ." ข้อความที่ส่งมาจะถูกส่งต่อให้ Admin ของ ".$sSoldToName." \n\n '".$text."'";
+                $msg = "สวัสดีครับคุณ" . $sUserName ."\n"
+                    ." ข้อความที่ส่งมา จะถูกส่งต่อให้ Admin \n\n '".$text."'";
                 line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
                               
             
@@ -174,46 +149,6 @@ function updateRegisterFlag($CompanyUrl,$userId,$CompanyId,$sUserName,$sEMail,$s
     return $response;
 }
 */
-
-function sendAtCommand($userId,$CompanyId,$CompanyUrl,$UrlReply
-    ,$CompanyToken,$replyToken,$text){
-
-    $asAr = explode('^', $text);
-    $sT ="";
-    $sC ="";
-    $sT =$asAr[0];
-    if (count($asAr)===2){        
-        $sC =$asAr[1];    
-    }
-
-    $Command="call sp_main_atcommand ('".$CompanyId."','".$sT."','".$sC."')";
-    $curl_data = "Command=".$Command;
-    $response = post_web_content($CompanyUrl,$curl_data);
-
-    //$msg = $Command."\n".$response;       
-
-    //line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
-
-            
-    $asRow = explode("^r", $response);
-    if (count($asRow) >=1){
-
-        $msg = str_replace("^r", "\n", $response);
-        $msg = str_replace("^c", "\t", $msg);
-        //foreach ($asCol as $asRow) {
-        //    $msg = $msg . str_replace("^c", "\t", $asCol). "\n";
-       // }
-        //$msg = 'ยังไม่ได้ลงทะเบียน กรุณาลงทะเบียน ก่อนการส่งข้อความครับ';
-        line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
-    } else {
-        $msg = $response;       
-        line_reply($UrlReply,$CompanyToken,$userId,$replyToken,$msg);
-    }
-    return "";
-}
-
-/*================================================================*/
-
 
 function getFormatTextMessage($text)
 {
