@@ -69,6 +69,7 @@ $status = $getDataFromUrl->status;
 if ($status == 'check') {
     registerDataToDatabase($GLOBALS['REGISTER_URL'], $getDataFromUrl);
 }
+
 $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
 $sFlag = $getData->sFlag;
 if ($sFlag == '4') {
@@ -87,7 +88,9 @@ if ($sFlag == '4') {
     </div>
     <div class="col-12 mb-3">
         <?php
-        echo regisForm($regisType);
+        if ($sFlag == '0') {
+            echo regisForm($regisType);
+        }
         ?>
     </div>
     <script>

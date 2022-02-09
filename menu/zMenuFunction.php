@@ -205,8 +205,8 @@ function registerDataToDatabase($RegisterUrl, $objParam)
             $SoldToCode = $ASRet[5];
             $SoldToName = $ASRet[6];
 
-            $ShipToCode = $ASRet[12];
-            $ShipToName = $ASRet[13];
+            // $ShipToCode = $ASRet[12];
+            // $ShipToName = $ASRet[13];
 
 
             $sShowMsg = '1';
