@@ -171,14 +171,13 @@ function registerDataToDatabase($RegisterUrl, $CompanyUrl, $objParam)
     $LineId = $objParam->LineId;
     $CompanyCode =  $objParam->CompanyCode;
     $CmdCommand = $objParam->CmdCommand;
-    echo "CmdCommand: ".json_encode($CmdCommand)."<p>";
+
     $ASRet = [];
     $ASRet = explode("^c", $CmdCommand);
     $LineDisplay = $ASRet[0];
     $UserName = $ASRet[1];
     $Tel = $ASRet[2];
     $EMail = $ASRet[3];
-
 
     $RetCommand = register_command(
         $RegisterUrl,
@@ -189,16 +188,8 @@ function registerDataToDatabase($RegisterUrl, $CompanyUrl, $objParam)
         $Tel,
         $EMail
     );
-    echo "register_command: ".json_encode($RetCommand)."<p>";
+    // echo "register_command: ".json_encode($RetCommand)."<p>";
     //0818880099
-    $RetCommand = sendQuery(
-        'Command',
-        $CompanyUrl,
-        '',
-        '',
-        $CmdCommand
-    );
-    echo "sendQuery: ".json_encode($RetCommand)."<p>";
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
@@ -209,30 +200,35 @@ function registerDataToDatabase($RegisterUrl, $CompanyUrl, $objParam)
             $UserName = $ASRet[2];
             $Tel = $ASRet[3];
             $EMail = $ASRet[4];
-
             $SoldToCode = $ASRet[5];
             $SoldToName = $ASRet[6];
+            $ShipToCode = $ASRet[7];
+            $ShipToName = $ASRet[8];
 
-            // $ShipToCode = $ASRet[12];
-            // $ShipToName = $ASRet[13];
-
-
-            $sShowMsg = '1';
-            if ($sFlag == '4') {
-                $sFlag = '5';
-                $sFlagMsg = "Register Complete";
+            // $sShowMsg = '1';
+            // if ($sFlag == '4') {
+            //     $sFlag = '5';
+            //     $sFlagMsg = "Register Complete";
                 // echo '<script language="javascript">';
                 // echo 'alert("' . $sFlagMsg . '")';
                 // echo '</script>';
-            }
+            // }
+
+            $objData->sFlagMsg = $sFlagMsg;
+            $objData->sFlag = $sFlag;
+            $objData->UserName = $UserName;
+            $objData->Tel = $Tel;
+            $objData->EMail = $EMail;
+            $objData->SoldToCode = $SoldToCode;
+            $objData->SoldToName = $SoldToName;
+            $objData->ShipToCode = $ShipToCode;
+            $objData->ShipToName = $ShipToName;
+
         }
-        $objData->sFlag = $sFlag;
     } else {
         $objData->sFlag = '0';
     }
-
     $objData->RetCommand = $RetCommand;
-    $objData->sFlag = $sFlag;
 
     return $objData;
 }
