@@ -91,6 +91,7 @@ $Function != '' ?? $Function = $menu;
                                     var menuUrl = "menu/blankMenu.php";
                                     if (toMenu == "register") {
                                         menuUrl = "menu/registerMenu.php" + paramS;
+                                        window.location.assign(menuUrl);
                                     } else if (toMenu == "ticket") {
                                         menuUrl = "menu/ticketMenu.php" + paramS;
                                     } else if (toMenu == "profile") {
