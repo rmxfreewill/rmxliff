@@ -53,7 +53,7 @@ if ($status == 'init') {
 
 <body>
     <?php
-
+echo $sFlag ;
     if ($sFlag != '0') {
         $getTicketFromDatabaseRetCommand = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
         // showTicketList($getTicketFromDatabase);
