@@ -256,12 +256,8 @@ function line_multicast($url, $CompanyToken, $userId, $msg)
     $results = sentMessage($encodeJson, $LINEDatas);
 }
 
-
-
-
 function put_request($CompanyUrl, $userId, $CompanyId, $text, $datas)
 {
-
 
     $datas1 = str_replace("'", "\'", $datas);
     $text1 = str_replace("'", "\'", $text);
@@ -274,8 +270,6 @@ function put_request($CompanyUrl, $userId, $CompanyId, $text, $datas)
     $response = post_web_content($CompanyUrl, $curl_data);
     return $response;
 }
-
-
 
 function send_command($CompanyUrl, $userId, $CompanyId, $Command)
 {
@@ -314,96 +308,6 @@ function register_command(
 
     $response = post_web_content($RegisterUrl, $curl_data);
     return $response;
-
-    /*
-    http://rmxcell.pe.hu/rmxLineRegister.php
-    ?LineId=t0000-930000330
-        &CompanyCode=00001
-        &LineDisplay=display
-        &UserName=UserName
-        &Tel=9983473955
-        &EMail=g@g.com
-    */
-}
-
-
-// <label for="uname"><b>Line Display Name</b></label>
-// <input type="text" name="txtDisplay" id="txtDisplay"  readonly hidden>
-
-// <label for="uname"><b>Username</b></label>
-// <input type="text" placeholder="Enter Username" name="txtUserName"       
-// id="txtUserName" required>
-
-function registerScreenBB()
-{
-    $scr = '<div class="login_container">
-    
-        <label for="uname"><b>Username</b></label>
-        <input type="text" name="txtUserName" id="txtUserName"   >
-
-        <label for="psw"><b>EMail</b></label>
-        <input type="email" placeholder="Enter EMail" name="txtEMail" 
-            id="txtEMail" required >
-        
-        <label for="psw"><b>Telephone / Mobile</b></label>
-        <input type="tel" placeholder="Enter Telephone/Mobile" 
-            name="txtTel" id="txtTel" 
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-        
-        <button type="button"  name="btnLogin" id="btnLogin" 
-            onclick="RegisterClick()">Register</button>
-    
-    </div>
-
-    <div id="liffAppContent" class="hidden">
-              
-        <!-- ACCESS TOKEN DATA -->
-        <div id="accessTokenData" class="hidden textLeft">
-            <h2>Access Token</h2>
-            <a href="#" onclick="toggleAccessToken()">Close Access Token</a>
-            <table>
-                <tr>
-                    <th>accessToken</th>
-                    <td id="accessTokenField"></td>
-                </tr>
-            </table>
-        </div>
-       
-     
-        <!-- LIFF DATA -->
-        <div id="liffData">
-            <h2 id="liffDataHeader" class="textLeft">Line Data</h2>
-            <table>
-                <tr>
-                    <th>User Id</th>
-                    <td id="lblUserId" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>User Name</th>
-                    <td id="lblUserName" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>OS</th>
-                    <td id="deviceOS" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>Language</th>
-                    <td id="browserLanguage" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>LIFF SDK Version</th>
-                    <td id="sdkVersion" class="textLeft"></td>
-                </tr>
-                <tr>
-                    <th>LINE Version</th>
-                    <td id="lineVersion" class="textLeft"></td>
-                </tr>
-              
-            </table>
-        </div>
-       
-    </div>';
-    echo $scr;
 }
 
 ?>
