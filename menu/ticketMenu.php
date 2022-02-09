@@ -1,19 +1,21 @@
 <?php
 /*    include_once("index.html"); */
 
-session_start();
+// session_start();
 
 
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
+include("rmxLineFunction.php");
 
-include_once("rmxLineFunction.php");
+
+
 
 $CompanyUrl = "https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php";
-$RegisterUrl = REGISTER_URL;
-$CompanyCode = COMPANY_CODE;
-$LiffId = LIFF_ID;
+$RegisterUrl = "https://rmx.freewillsolutions.com/rmxline/rmxLineRegister.php";
+$CompanyCode =  "00001";
+$LiffId = "1656503744-kojgw9pb";
 
 
 $LinkCode = '';
