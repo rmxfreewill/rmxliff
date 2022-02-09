@@ -31,7 +31,9 @@ if (isset($_POST['menu']))
 if (isset($_GET['menu']))
     $menu = $_GET['menu'];
 
-$Function != '' ?? $Function = $menu;
+if ($Function == '' && $menu != '') {
+    $Function = $menu;
+}
 
 
 $LiffId = LIFF_ID;
@@ -153,12 +155,12 @@ if (isset($_GET['CompanyCode']))
                             var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
                             var url = "";
 
-
+                            alert(sFunction);
                             switch (sFunction) {
                                 case "register":
                                     url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
                                     break;
-                                    case "ticket":
+                                case "ticket":
                                     url = "https://rmxliff.herokuapp.com/frmView.php" + para;
                                     break;
                                 case "REGISTER":
