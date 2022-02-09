@@ -53,37 +53,9 @@ if ($status == 'init') {
 
 <body>
     <?php
-
     if ($sFlag != '0') {
-        $getTicketFromDatabaseRetCommand = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
-        // showTicketList($getTicketFromDatabase);
-
-        if ($getTicketFromDatabaseRetCommand) {
-            $asTable = explode("^t", $getTicketFromDatabaseRetCommand);
-            if (count($asTable) > 0) {
-                $arTmp = explode("^f", $asTable[0]);
-                echo "arTmp: " . count($asTable) ;
-                if (count($arTmp) > 1) {
-                    $asCol = explode("^c", $arTmp[0]);
-                    $asRow = explode("^r", $arTmp[1]);
-                     echo "asCol: " . json_encode($asCol);
-                     echo "asRow: " . json_encode($asRow);
-                    if (count($asRow) > 0) {
-                        $nLoop = 0;
-                        $nRLen = count($asRow);
-                        $nCLen = count($asCol);
-                        $sTab = "";
-                        $sPage = "";
-                        if ($nRLen > 10) {
-                            $nRLen = 10;
-                        }
-                    }
-                   
-                } else {
-                    echo count($arTmp);
-                }
-            }
-        }
+        $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
+        showTicketList($getTicketFromDatabase);
     } else {
         echo $notFound;
     }
@@ -116,10 +88,6 @@ if ($status == 'init') {
                 table.innerHTML = sHtml;
             }
         }
-
-        $(function() {
-            $(".loader").hide();
-        });
     </script>
 </body>
 

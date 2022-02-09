@@ -115,8 +115,9 @@ function getDataFromUrl($CompanyCode, $CompanyUrl, $RegisterUrl)
 
 function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
 {
+    // echo json_encode('CmdCommand: ' . $objParam);
     $objData = new stdClass;
-
+    
     $CmdCommand = $objParam->CmdCommand;
     $RetCommand = sendQuery(
         'Command',
@@ -125,6 +126,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
         '',
         $CmdCommand
     );
+
 
     try {
         if ($RetCommand) {
@@ -163,7 +165,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
     return $objData;
 }
 
-function registerDataToDatabase($RegisterUrl, $objParam)
+function registerDataToDatabase($objParam)
 {
     $objData = new stdClass;
 
@@ -179,6 +181,22 @@ function registerDataToDatabase($RegisterUrl, $objParam)
     $Tel = $ASRet[2];
     $EMail = $ASRet[3];
 
+    // sp_comp_reqister_user ('Uc1dd5c7730988280c6c7731980655f7a','00001','rmxadmin','111','111','111','111','111','111');
+
+    // `sp_comp_reqister_user`(
+    //     IN $sLineId VARCHAR(50) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    //     ,IN $sCompanyCode VARCHAR(50) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    //     ,IN $sUserName VARCHAR(300) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    //     ,IN $sSoldToCode VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    //     ,IN $sSoldToName VARCHAR(300) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    //     ,IN $sShipToCode VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    //     ,IN $sShipToName VARCHAR(300) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    //     ,IN $sMobileNo VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+    //     ,IN $sEMail VARCHAR(100) CHARACTER SET UTF8 COLLATE utf8_unicode_ci
+
+
+
+
     $RetCommand = register_command(
         $RegisterUrl,
         $LineId,
@@ -188,8 +206,7 @@ function registerDataToDatabase($RegisterUrl, $objParam)
         $Tel,
         $EMail
     );
-    // echo "register_command: ".json_encode($RetCommand)."<p>";
-    //0818880099
+
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
@@ -202,33 +219,18 @@ function registerDataToDatabase($RegisterUrl, $objParam)
             $EMail = $ASRet[4];
             $SoldToCode = $ASRet[5];
             $SoldToName = $ASRet[6];
-            $ShipToCode = $ASRet[7];
-            $ShipToName = $ASRet[8];
 
-            // $sShowMsg = '1';
-            // if ($sFlag == '4') {
-            //     $sFlag = '5';
-            //     $sFlagMsg = "Register Complete";
-            // echo '<script language="javascript">';
-            // echo 'alert("' . $sFlagMsg . '")';
-            // echo '</script>';
-            // }
-
-            $objData->sFlagMsg = $sFlagMsg;
-            $objData->sFlag = $sFlag;
-            $objData->UserName = $UserName;
-            $objData->Tel = $Tel;
-            $objData->EMail = $EMail;
-            $objData->SoldToCode = $SoldToCode;
-            $objData->SoldToName = $SoldToName;
-            $objData->ShipToCode = $ShipToCode;
-            $objData->ShipToName = $ShipToName;
+            $sShowMsg = '1';
+            if ($sFlag == '4') {
+                $sFlag = '5';
+                $sFlagMsg = "Register Complete";
+            }
         }
+        $objData->RetCommand = $RetCommand;
+        $objData->sFlag = $sFlag;
     } else {
         $objData->sFlag = '0';
     }
-    $objData->RetCommand = $RetCommand;
-
     return $objData;
 }
 
