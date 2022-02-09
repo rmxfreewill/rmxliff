@@ -65,7 +65,9 @@ if ($status == 'init') {
                 if (count($arTmp) > 1) {
                     $asCol = explode("^c", $arTmp[0]);
                     $asRow = explode("^r", $arTmp[1]);
-echo json_encode($asRow);          
+echo json_encode($arTmp[0]); 
+echo"<br>Row<br>";
+echo json_encode($arTmp[1]);          
 // echo json_encode($asCol);
 // echo"<br>";
 // echo json_encode($asRow);
