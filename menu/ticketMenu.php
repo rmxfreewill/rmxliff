@@ -61,15 +61,11 @@ if ($status == 'init') {
         if ($getTicketFromDatabaseRetCommand) {
             $asTable = explode("^t", $getTicketFromDatabaseRetCommand);
             if (count($asTable) > 0) {
-                $arTmp = explode("^f", $asTable[0]);
-
-//   echo json_encode($arTmp) ;
-// echo"<br>";    
-echo json_encode($arTmp[0]);            
+                $arTmp = explode("^f", $asTable[0]);           
                 if (count($arTmp) > 1) {
                     $asCol = explode("^c", $arTmp[0]);
                     $asRow = explode("^r", $arTmp[1]);
-                  
+echo json_encode($asRow);          
 // echo json_encode($asCol);
 // echo"<br>";
 // echo json_encode($asRow);
