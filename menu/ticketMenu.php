@@ -53,7 +53,7 @@ if ($status == 'init') {
 
 <body>
     <?php
-echo $sFlag ;
+
     if ($sFlag != '0') {
         $getTicketFromDatabaseRetCommand = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
         // showTicketList($getTicketFromDatabase);
@@ -61,16 +61,17 @@ echo $sFlag ;
         if ($getTicketFromDatabaseRetCommand) {
 
             $asTable = explode("^t", $getTicketFromDatabaseRetCommand);
-            echo json_encode($asTable) ;
-            echo"<br>";
+
             if (count($asTable) > 0) {
                 $arTmp = explode("^f", $asTable[0]);
                 if (count($arTmp) > 1) {
                     $asCol = explode("^c", $arTmp[0]);
                     $asRow = explode("^r", $arTmp[1]);
-echo $asCol;
+ echo json_encode($arTmp) ;
+echo"<br>";                   
+echo json_encode($asCol);
 echo"<br>";
-echo $asRow;
+echo json_encode($asRow);
                     if (count($asRow) > 0) {
 
 
