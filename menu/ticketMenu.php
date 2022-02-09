@@ -60,7 +60,7 @@ if ($status == 'init') {
 echo $getTicketFromDatabaseRetCommand;
         if ($getTicketFromDatabaseRetCommand) {
 
-            $asTable = explode("^t", $RetCommand);
+            $asTable = explode("^t", $getTicketFromDatabaseRetCommand);
             if (count($asTable) > 0) {
                 $arTmp = explode("^f", $asTable[0]);
                 if (count($arTmp) > 1) {
