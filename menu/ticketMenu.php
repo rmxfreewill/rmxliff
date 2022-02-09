@@ -8,7 +8,7 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 
 
-include_once("rmxLineFunction.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "rmxLineFunction.php");
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
