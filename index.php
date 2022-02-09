@@ -104,7 +104,7 @@ $Function != '' ?? $Function = $menu;
                                     // alert('menuUrl: ' + menuUrl);
                                     try {
                                         $("#rmxLiFFLayout").load(menuUrl);
-                                        $(".loader").hide();
+                                        // $(".loader").hide();
                                     } catch (err) {
                                         console.log('err rmxLiFFLayout: ' + error);
                                     }
