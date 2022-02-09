@@ -198,7 +198,8 @@ ini_set('display_errors', 'On');
 
 <form class="animate" method="GET" enctype="multipart/form-data" >
     
-    <?php if ($sFlag == '0' || $sFlag == '') { echo registerScreen();  
+    <?php if ($sFlag == '0' || $sFlag == '') { 
+        echo registerScreen();  
     } else {
        // echo $CmdCommand; 
         //echo "\n\n"; 
@@ -370,7 +371,7 @@ ini_set('display_errors', 'On');
 
     window.onload = function() {
         const useNodeJS = false;   // if you are not using a node server, set this value to false
-        const defaultLiffId = "1656445468-pPVkELw7";   // change the default LIFF value if you are not using a node server
+        const defaultLiffId = "1656445468-kojgw9pb";   // change the default LIFF value if you are not using a node server
 
         let myLiffId = "";
        
