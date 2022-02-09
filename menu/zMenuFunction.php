@@ -163,7 +163,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
     return $objData;
 }
 
-function registerDataToDatabase($RegisterUrl, $CompanyUrl, $objParam)
+function registerDataToDatabase($RegisterUrl, $objParam)
 {
     $objData = new stdClass;
 

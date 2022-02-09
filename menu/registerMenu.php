@@ -13,13 +13,12 @@ $GLOBALS['LIFF_ID'] =   LIFF_ID;
 $GLOBALS['sURL'] =   sURL;
 
 $sFlag = '0';
-$regisType = false;
 
-function regisForm($type)
+function regisForm($sFlag)
 {
     $arr[0] = '';
     $arr[1] = '';
-    if ($type == true) {
+    if ($sFlag != '0') {
         $regisForm = '
         <div class="mb-3">
         <label for="psw"><b>Email: </b></label>' . $arr[0] . '
@@ -68,7 +67,7 @@ function regisForm($type)
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 if ($status == 'check') {
-    $getData = registerDataToDatabase($GLOBALS['REGISTER_URL'],$GLOBALS['COMPANY_URL'], $getDataFromUrl);
+    $getData = registerDataToDatabase($GLOBALS['REGISTER_URL'], $getDataFromUrl);
 } else {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
 }
@@ -76,7 +75,8 @@ if ($status == 'check') {
 $sFlag = $getData->sFlag;
 if ($sFlag == '4') {
     $LINEID = $getDataFromUrl->LineId;
-    // rmxChangeMemberRichMenu('Member', $LINEID);
+    rmxChangeMemberRichMenu('Member', $LINEID);
+} else if ($sFlag == '0') {
 }
 
 ?>
@@ -89,28 +89,28 @@ if ($sFlag == '4') {
     </div>
     <div class="col-12 mb-3">
         <?php
-        if ($sFlag == '0') {
-            echo regisForm($regisType);
-        }
+        echo regisForm($sFlag);
         ?>
     </div>
     <script>
-        var urlS = new URL(document.URL);
-        // alert('urlS: ' + urlS);
-
         function registerCheck() {
-            var sUserName = 'rmxadmin';
-            var sLineDisplay = 'rmxadmin';
+            $(".loader").show();
             //
             var sCompanyCode = "<?php echo $GLOBALS['COMPANY_CODE']; ?>";
             var sEMail = document.getElementById('txtEMail').value;
             //
+            var sUserName = 'rmxadmin';
+            var sLineDisplay = 'rmxadmin';
+            sEMail = sEMail != "" ?? 'rmxadmin@rmxadmin.com';
+            //
             var sTel = document.getElementById('txtTel').value;
             if (sTel == '') {
                 alert("Input Mobile");
+                return;
             } else {
                 if (sTel.length < 8) {
                     alert("Mobile must be at least 8 digits long");
+                    return;
                 } else {
                     var toMenu = 'register';
                     var toStatus = 'check';
@@ -121,20 +121,18 @@ if ($sFlag == '4') {
                     var param = urlSelectMenu.paramS;
                     var menuUrl = "menu/registerMenu.php" + param;
                     // alert(menuUrl);
-                    if (toStatus == 'check') {
-                        window.location.assign(sUrl + menuUrl);
-                    } else {
-                        $("#rmxLiFFLayout").load(menuUrl);
-                    }
-
+                    $("#rmxLiFFLayout").load(menuUrl);
+                    $(".loader").hide();
                 }
             }
         }
-
-        var sFlag = "<?php echo $sFlag; ?>";
-        if (sFlag == 4) {
-            rmxCloseWindow();
-        }
+        $(function() {
+            var sFlag = "<?php echo $sFlag; ?>";
+            alert(sFlag);
+            if (sFlag == '4') {
+                rmxCloseWindow();
+            }
+        });
     </script>
 </body>
 
