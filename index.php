@@ -57,7 +57,7 @@ $Function != '' ?? $Function = $menu;
     <script charset="utf-8" src="js/rmx_liff_function.js"></script>
 </head>
 
-<body>
+<body class="rmxbody">
     <div class="loader"></div>
     <div class="container">
         <div class="row">

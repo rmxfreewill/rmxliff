@@ -313,7 +313,6 @@ function register_command(
         . "&Tel=" . $Tel . "&EMail=" . $EMail;
 
     $response = post_web_content($RegisterUrl, $curl_data);
-    echo $RegisterUrl . $curl_data;
     return $response;
 
     /*

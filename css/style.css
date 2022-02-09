@@ -26,10 +26,12 @@
 /* body {font-family: Arial, Helvetica, sans-serif;} */
 
 
-body {
+.rmxbody {
     font-family: 'Kanit', sans-serif;
     background-color:  #FAB003;
 }
+
+
 
 /* Add Zoom Animation */
 .animate {
