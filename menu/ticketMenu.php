@@ -8,9 +8,9 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "rmxLineFunction.php");
+include_once("../rmxLineFunction.php");
 
-$CompanyUrl = COMPANY_URL;
+$CompanyUrl = "https://rmx.freewillsolutions.com/rmxline/rmxLineCmd.php";
 $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
