@@ -66,7 +66,9 @@ if ($status == 'init') {
                 if (count($arTmp) > 1) {
                     $asCol = explode("^c", $arTmp[0]);
                     $asRow = explode("^r", $arTmp[1]);
-
+echo $asCol;
+echo"<br>";
+echo $asRow;
                     if (count($asRow) > 0) {
 
 
