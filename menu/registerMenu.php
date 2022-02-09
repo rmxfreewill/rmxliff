@@ -31,7 +31,7 @@ function regisForm($type)
         ';
     } else {
         $regisForm = '
-        <div class="mb-3">
+        <div class="mb-3" hidden>
         <label for="psw" class="form-label form-label-lg"><b>Email</b></label>
         <input type="email" class="form-control form-control-lg"
             id="txtEMail" 
@@ -39,6 +39,7 @@ function regisForm($type)
             placeholder="Enter EMail"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             maxlength="40"
+            value=""
         required>
         </div>
         <div class="mb-3">
@@ -108,12 +109,10 @@ echo $sFlag;
             //
             var sTel = document.getElementById('txtTel').value;
             if (sTel == '') {
-                alert("Input Telephone / Mobile");
-            } else if (sEMail == '') {
-                alert("Input Email");
+                alert("Input Mobile");
             } else {
                 if (sTel.length < 8) {
-                    alert("Telephone / Mobile must be at least 8 digits long");
+                    alert("Mobile must be at least 8 digits long");
                 } else {
                     var toMenu = 'register';
                     var toStatus = 'check';
