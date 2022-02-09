@@ -4,7 +4,7 @@
 ini_set('memory_limit', '-1');
 
 
-session_start();
+// session_start();
 include_once("define_Gobal.php");
 
 
