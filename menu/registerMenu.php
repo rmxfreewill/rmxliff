@@ -132,7 +132,7 @@ function register($RegisterUrl, $objParam)
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 if ($status == 'check') {
-    registerDataToDatabase($getDataFromUrl);
+    // registerDataToDatabase($getDataFromUrl);
     // $getData = getDataFromDatabase($GLOBALS['REGISTER_URL'], $getDataFromUrl);
     $getData = register($GLOBALS['REGISTER_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;

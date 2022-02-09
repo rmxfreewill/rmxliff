@@ -301,7 +301,6 @@ function send_query($CompanyUrl, $userId, $CompanyId, $Command)
     return $response;
 }
 
-
 function register_command(
     $RegisterUrl,
     $LineId,
@@ -312,6 +311,13 @@ function register_command(
     $EMail
 ) {
 
+    $curl_data = "LineId=" . $LineId . "&CompanyCode=" . $CompanyCode
+        . "&LineDisplay=" . $LineDisplay . "&UserName=" . $UserName
+        . "&Tel=" . $Tel . "&EMail=" . $EMail;
+
+    $response = post_web_content($RegisterUrl, $curl_data);
+    return $response;
+
     /*
     http://rmxcell.pe.hu/rmxLineRegister.php
     ?LineId=t0000-930000330
@@ -321,17 +327,6 @@ function register_command(
         &Tel=9983473955
         &EMail=g@g.com
     */
-
-    $curl_data = "LineId=" . $LineId . "&CompanyCode=" . $CompanyCode
-        . "&LineDisplay=" . $LineDisplay . "&UserName=" . $UserName
-        . "&Tel=" . $Tel . "&EMail=" . $EMail;
-
-// echo json_encode($RegisterUrl."?".$curl_data);
-
-    $response = post_web_content($RegisterUrl, $curl_data);
-
-    // $response='';
-    return $response;
 }
 
 
