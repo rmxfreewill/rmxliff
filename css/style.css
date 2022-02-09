@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url('loading2.gif') 10% 10% no-repeat rgb(249, 249, 249);
+    background: url('loading2.gif') 50% 50% no-repeat #FAB003;
 }
 
 .rmxRegister {
@@ -28,6 +28,7 @@
 
 body {
     font-family: 'Kanit', sans-serif;
+    background-color:  #FAB003;
 }
 
 /* Add Zoom Animation */
