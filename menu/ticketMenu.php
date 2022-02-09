@@ -24,6 +24,11 @@ if (isset($_POST['LinkCode']))
 if (isset($_GET['LinkCode']))
     $LinkCode = $_GET['LinkCode'];
 
+    $menu = '';
+if (isset($_POST['menu']))
+    $LinkCode = $_POST['menu'];
+if (isset($_GET['menu']))
+    $LinkCode = $_GET['menu'];
 
 $status = '';
 if (isset($_POST['status']))
@@ -71,7 +76,7 @@ if ($LinkCode == 'VIEW') {
     if ($RetCommand) {
     }
     $sFlag = '5';
-} else if ($LinkCode == 'CHECK' || $status == 'check') {
+} else if ($LinkCode == 'CHECK' || $status == 'check' || $menu=='ticket') {
 
     $RetCommand = send_command($CompanyUrl, '', '', $CmdCommand);
     if ($RetCommand) {
