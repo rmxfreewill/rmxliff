@@ -163,7 +163,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
     return $objData;
 }
 
-function registerDataToDatabase($RegisterUrl,$CompanyUrl, $objParam)
+function registerDataToDatabase($RegisterUrl, $CompanyUrl, $objParam)
 {
     $objData = new stdClass;
 
@@ -189,7 +189,8 @@ function registerDataToDatabase($RegisterUrl,$CompanyUrl, $objParam)
         $Tel,
         $EMail
     );
-
+    echo "register_command: ".json_encode($RetCommand);
+    //0818880099
     $RetCommand = sendQuery(
         'Command',
         $CompanyUrl,
@@ -197,8 +198,7 @@ function registerDataToDatabase($RegisterUrl,$CompanyUrl, $objParam)
         '',
         $CmdCommand
     );
-
-echo json_encode($RetCommand);
+    echo "sendQuery: ".json_encode($RetCommand);
     if ($RetCommand) {
         $ASRet = [];
         $ASRet = explode("^c", $RetCommand);
@@ -226,15 +226,15 @@ echo json_encode($RetCommand);
                 // echo '</script>';
             }
         }
-        // $objData->sFlag = $sFlag;
+        $objData->sFlag = $sFlag;
     } else {
         $objData->sFlag = '0';
     }
 
-    // $objData->RetCommand = $RetCommand;
-    // $objData->sFlag = $sFlag;
+    $objData->RetCommand = $RetCommand;
+    $objData->sFlag = $sFlag;
 
-    // return $objData;
+    return $objData;
 }
 
 function registerDataToDatabaseBACKUP($objParam)
