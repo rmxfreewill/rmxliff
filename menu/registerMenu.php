@@ -67,7 +67,7 @@ function regisForm($type)
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 if ($status == 'check') {
-    registerDataToDatabase($getDataFromUrl);
+    registerDataToDatabase($GLOBALS['REGISTER_URL'], $getDataFromUrl);
 }
 $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
 $sFlag = $getData->sFlag;
