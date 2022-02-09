@@ -61,6 +61,8 @@ echo $sFlag ;
         if ($getTicketFromDatabaseRetCommand) {
 
             $asTable = explode("^t", $getTicketFromDatabaseRetCommand);
+            echo $asTable ;
+            echo"<br>";
             if (count($asTable) > 0) {
                 $arTmp = explode("^f", $asTable[0]);
                 if (count($arTmp) > 1) {
