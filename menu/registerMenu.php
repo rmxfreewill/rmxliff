@@ -64,11 +64,77 @@ function regisForm($type)
     return $regisForm;
 }
 
+
+
+function register($RegisterUrl, $objParam)
+{
+    $objData = new stdClass;
+
+    $RegisterUrl = $objParam->RegisterUrl;
+    $LineId = $objParam->LineId;
+    $CompanyCode =  $objParam->CompanyCode;
+    $CmdCommand = $objParam->CmdCommand;
+
+    $ASRet = [];
+    $ASRet = explode("^c", $CmdCommand);
+    $LineDisplay = $ASRet[0];
+    $UserName = $ASRet[1];
+    $Tel = $ASRet[2];
+    $EMail = $ASRet[3];
+
+    $RetCommand = register_command(
+        $RegisterUrl,
+        $LineId,
+        $CompanyCode,
+        $LineDisplay,
+        $UserName,
+        $Tel,
+        $EMail
+    );
+    if ($RetCommand) {
+        $ASRet = [];
+        $ASRet = explode("^c", $RetCommand);
+        if (count($ASRet) >= 5) {
+
+            $sFlagMsg = $ASRet[0];
+            $sFlag = $ASRet[1];
+            $UserName = $ASRet[2];
+            $Tel = $ASRet[3];
+            $EMail = $ASRet[4];
+
+            $SoldToCode = $ASRet[5];
+            $SoldToName = $ASRet[6];
+
+            $ShipToCode = $ASRet[12];
+            $ShipToName = $ASRet[13];
+
+
+            $sShowMsg = '1';
+            if ($sFlag == '4') {
+                $sFlag = '5';
+                $sFlagMsg = "Register Complete";
+                // echo '<script language="javascript">';
+                // echo 'alert("' . $sFlagMsg . '")';
+                // echo '</script>';
+            }
+        }
+        $objData->sFlag = $sFlag;
+    } else {
+        $objData->sFlag = '0';
+    }
+
+    $objData->RetCommand = $RetCommand;
+    $objData->sFlag = $sFlag;
+
+    return $objData;
+}
+
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
 if ($status == 'check') {
     registerDataToDatabase($getDataFromUrl);
     // $getData = getDataFromDatabase($GLOBALS['REGISTER_URL'], $getDataFromUrl);
+    $getData = register($GLOBALS['REGISTER_URL'], $getDataFromUrl);
     $sFlag = $getData->sFlag;
 } else if ($status == 'init') {
     $getData = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
@@ -122,7 +188,7 @@ if ($sFlag == '4') {
                     var urlSelectMenu = rmxSelectMenu(sUrl, toMenu, userIdProfile, sCmd, toStatus);
                     var param = urlSelectMenu.paramS;
                     var menuUrl = "menu/registerMenu.php" + param;
-                    // alert(menuUrl);
+                    alert(menuUrl);
                     $("#rmxLiFFLayout").load(menuUrl);
                 }
             }
