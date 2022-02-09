@@ -78,9 +78,6 @@ if ($sFlag == '4') {
     rmxChangeMemberRichMenu('Member', $LINEID);
 }
 
-echo $sFlag;
-
-
 ?>
 <!DOCTYPE HTML>
 <html>
