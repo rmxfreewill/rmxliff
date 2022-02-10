@@ -112,6 +112,7 @@ $devMode = true;
 
 
                                     if ($devMode == true) {
+                                         alert('url: ' + url);
                                         liff.login({
                                             redirectUri: url
                                         });
