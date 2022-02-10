@@ -1,7 +1,7 @@
 <?php
     /*    include_once("index.html"); */
 
-  session_start();
+//   session_start();
 
   error_reporting(E_ALL & ~E_NOTICE);
   include_once("rmxLineFunction.php");
