@@ -4,8 +4,8 @@
 ini_set('memory_limit', '-1');
 
 
-session_start();
-include_once("define_Gobal.php");
+// session_start();
+include_once("define_Global.php");
 
 
 function updateRegisterFlag($CompanyUrl,$userId,$CompanyId,$sUserName,$sEMail,$sMobileNo){    

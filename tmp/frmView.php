@@ -3,7 +3,9 @@
 
   session_start();
 
-  error_reporting(E_ALL & ~E_NOTICE);
+  
+error_reporting(-1);
+ini_set('display_errors', 'On');
   include_once("rmxLineFunction.php");
   
   $CompanyUrl = COMPANY_URL;
@@ -196,7 +198,8 @@
 
 <form class="animate" method="GET" enctype="multipart/form-data" >
     
-    <?php if ($sFlag == '0' || $sFlag == '') { echo registerScreen();  
+    <?php if ($sFlag == '0' || $sFlag == '') { 
+        echo registerScreen();  
     } else {
        // echo $CmdCommand; 
         //echo "\n\n"; 
@@ -368,7 +371,7 @@
 
     window.onload = function() {
         const useNodeJS = false;   // if you are not using a node server, set this value to false
-        const defaultLiffId = "1656503744-kojgw9pb";   // change the default LIFF value if you are not using a node server
+        const defaultLiffId = "1656445468-kojgw9pb";   // change the default LIFF value if you are not using a node server
 
         let myLiffId = "";
        
