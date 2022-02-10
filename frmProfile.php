@@ -5,12 +5,19 @@
 
   error_reporting(E_ALL & ~E_NOTICE);
   include_once("rmxLineFunction.php");
+  include_once("rmxLiffFunction.php");
   
   $CompanyUrl = COMPANY_URL;
   $RegisterUrl = REGISTER_URL;
   $CompanyCode = COMPANY_CODE;
   $LiffId = LIFF_ID;
 
+/*
+  if (isset($_POST['CompanyCode']))
+      $CompanyCode = $_POST['CompanyCode'];
+  if (isset($_GET['CompanyCode']))
+      $CompanyCode = $_GET['CompanyCode'];
+  */
 
     $LinkCode = '';
     if (isset($_POST['LinkCode']))
@@ -29,12 +36,6 @@
         $CmdCommand = $_POST['CmdCommand'];
     if (isset($_GET['CmdCommand']))
         $CmdCommand = $_GET['CmdCommand'];     
-
-    $TableTitle = 'View Ticket';
-    if (isset($_POST['TableTitle']))
-        $TableTitle = $_POST['TableTitle'];
-    if (isset($_GET['TableTitle']))
-        $TableTitle = $_GET['TableTitle'];             
         
     $RetCommand = '';
     $Ret = '';
@@ -44,21 +45,58 @@
     $Tel = '';
     $SoldToCode = '';
     $SoldToName = '';
+    $ShipToCode = '';
+    $ShipToName = '';
     $sFlagMsg = '';
-    $sFlag = '5';
+    $sFlag = '0';
     $sTitle = 'Profile';
     $sShowMsg = '';
 
-    $StartDate = date("Y-m-d", strtotime("2016-09-01"));//"2018-9-30";//date("Y-m-d");
-    $EndDate = date("Y-m-d");
         
-    if ($LinkCode =='VIEW') {
+    if ($LinkCode =='REGISTER') {
 
-         $RetCommand =send_query($CompanyUrl,$LineId,$CompanyCode,$CmdCommand);       
+        // sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
+        $ASRet = [];
+        $ASRet = explode("^c", $CmdCommand); 
+        $LineDisplay=$ASRet[0]; 
+        $UserName=$ASRet[1];
+        $Tel=$ASRet[2];
+        $EMail=$ASRet[3];
+
+        $RetCommand =register_command($RegisterUrl,$LineId,$CompanyCode
+            ,$LineDisplay,$UserName,$Tel,$EMail);
+
         if ($RetCommand) {
+            $ASRet = [];
+            $ASRet = explode("^c", $RetCommand);        
+            if (count($ASRet) >=5) {
+
+                $sFlagMsg=$ASRet[0];
+                $sFlag=$ASRet[1];
+                $UserName=$ASRet[2];
+                $Tel=$ASRet[3];
+                $EMail=$ASRet[4];
+                
+                $SoldToCode=$ASRet[5];
+                $SoldToName=$ASRet[6];
+
+                $ShipToCode=$ASRet[12];
+                $ShipToName=$ASRet[13];
+
             
+                $sShowMsg = '1';                
+                if ($sFlag == '4') {
+                    $sFlag = '5';
+                    $sFlagMsg ="Register Complete";
+                    echo '<script language="javascript">';
+                    echo 'alert("'.$sFlagMsg.'")';
+                    echo '</script>';
+                    rmxChangeMemberRichMenu('REGISTER', $LineId);
+
+                }
+                
+            }
         }
-        $sFlag = '5';
     } else if ($LinkCode =='CHECK') {
 
         $RetCommand =send_command($CompanyUrl,'','',$CmdCommand);                
@@ -69,24 +107,44 @@
             if (count($ASRet) >=2) {
                 $sFlagMsg=$ASRet[0];
                 $sFlag=$ASRet[1];     
-              
+                
+                $UserName = $ASRet[2];
+                $EMail = $ASRet[3];
+                $Tel = $ASRet[4];
+                $SoldToCode = $ASRet[5];
+                $SoldToName = $ASRet[6];
+
+                $ShipToCode=$ASRet[7];
+                $ShipToName=$ASRet[8];
+                
                 $sShowMsg = '0';
                 if ($sFlag != '0') {
-                    $sTitle = 'View';
-
-                    $sS = date("d/m/Y", strtotime("2016-09-01"));//"2018-9-30";//date("Y-m-d");
-                    $sE = date("d/m/Y");
-
-                    $CmdCommand = "call sp_comp_select_ticket('".$LineId."','".$sS."','".$sE."','')";
-                    
-                    $RetCommand =send_query($CompanyUrl,$LineId,$CompanyCode,$CmdCommand);
-
-                  
+                  $sTitle = 'View Register Info';  
+                  rmxChangeMemberRichMenu('REGISTER', $LineId);
                 }
             }
-        } 
+        }
+        /*
+    } else  {        
+
+        $RetCommand =send_command($CompanyUrl,'','',$CmdCommand);        
+        if ($RetCommand) {
+            //select $sFlagMsg,$nFlag,$sTUserName,$sTEMail,$sTMobileNo;
+            $ASRet = [];
+            $ASRet = explode("^c", $RetCommand);        
+            if (count($ASRet) >=2) {
+                $sFlagMsg=$ASRet[0];
+                $sFlag=$ASRet[1];     
+               
+            }
+        }
+
+        $Ret =put_request($CompanyUrl,$LineId,$CompanyCode,$LinkCode,$CmdCommand);
+        */
     }
 
+    
+    
     
 
 ?>
@@ -109,86 +167,8 @@
 
 <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
 
- <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
- <style>
-    * {box-sizing: border-box}
-
-    /* Set height of body and the document to 100% */
-    body, html {
-        height: 100%;
-        margin: 0;
-        font-family: Arial;
-    }
-
-    div.scrollmenu {
-        background-color: #333;
-        overflow: auto;
-        white-space: nowrap;
-        height: 40px;
-        
-    }
-
-    div.scrollmenu a {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14px;
-        text-decoration: none;
-    }
-
-    div.scrollmenu a:hover {
-        background-color: #777;
-    }
-    /* Style tab links */
-    .tablink {
-      
-    }
-
-    .tablink:hover {
-        background-color: #777;
-    }
-
-    /* Style the tab content (and add height:100% for full page content) */
-    .tabcontent {
-        color: white;
-        display: none;
-        padding: 10px 20px;
-        height: 100%;
-    }
-
-
-    table.tblticket {
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-        font-size: 12px;
-    }
-
-    table.tblticket td, table.tblticket th {
-        
-        border: 1px solid black;
-        padding: 8px;
-    }
-
-
-    table.tblticket th {
-        /*padding-top: 12px;*
-        /*padding-bottom: 12px;*/        
-        text-align: right;
-        /*background-color: #04AA6D;*/
-        color: blue;
-    }
-    table.tblticket td {
-        /*padding-top: 12px;*
-        /*padding-bottom: 12px;*/        
-        text-align: left;
-        /*background-color: #04AA6D;*/
-        color: black;
-    }
-
-   
-</style>
 </head>
 <body>
 
@@ -196,182 +176,69 @@
 
 <form class="animate" method="GET" enctype="multipart/form-data" >
     
-    <?php if ($sFlag == '0' || $sFlag == '') { echo registerScreen();  
-    } else {
-       // echo $CmdCommand; 
-        //echo "\n\n"; 
-        //echo $RetCommand; 
-        
-        if ($RetCommand){
-
-
+    <?php if ($sFlag == '0' || $sFlag == '') {   } else { ?>
+        <div class="login_container">
             
-            $asTable = explode("^t", $RetCommand);
-            if (count($asTable) >0){
-                $arTmp = explode("^f", $asTable[0]);
-                if (count($arTmp) >1){
-                    $asCol = explode("^c", $arTmp[0]);
-                    $asRow = explode("^r", $arTmp[1]);	
+            <label for="uname"><b>Line Id</b></label>
+            <input type="text"  id="txtLineId"  readonly>
 
-                    if (count($asRow) >0){
+            <label for="uname"><b>Line Display Name</b></label>
+            <input type="text" id="txtLineDisplay"  readonly>
 
-                     
-                        $nLoop =0;
-                    
-                        $nRLen = count($asRow);
-                        $nCLen = count($asCol);
-                        $sTab ="";
-                        $sPage ="";
-                      
+            <label for="uname"><b>Username</b></label>
+            <input type="text" value ="<?php echo $UserName; ?>" id="txtUserName" readonly>
 
-                        if ($nRLen >10) $nRLen=10;
-                                            
-                        for ($n=0;$n<$nRLen;$n++) {
-
-                            $sRow=$asRow[$n];                                                    
-                            $asData = explode("^c", $sRow);
-                            $nDLen = count($asData);
-                            if ($nDLen >0){
-                                $sTicketNo = $asData[0];
-                                $sTab =$sTab."<a class='tablink' href='#' "
-                                    ."onclick=\"openPage('div".$sTicketNo."_".$n
-                                    ."', this, 'red')\">".$sTicketNo."</a>";
-
-                                $sPage =$sPage."<div id='div".$sTicketNo."_".$n."' class='tabcontent'>";
-
-                                $sPage =$sPage."<table class='tblticket'>";
-                                for ($r=0;$r<$nDLen;$r++) {
-                                    $sC = $asCol[$r];
-                                    $sD = $asData[$r];
-                                   
-                                    $sPage =$sPage."<tr><th>".$sC
-                                        ."</th><td class='textLeft'>".$sD."</td></tr>";
-                                }
-                                $sPage =$sPage."</table></div>";
-                            }
-                           
-                        }
-
-                      
+            <label for="psw"><b>Telephone / Mobile</b></label>
+            <input type="text" id="txtTel" value ="<?php echo $Tel; ?>" readonly>
 
 
-                        $sTab ="
-                        <div style='display: flex;flex-direction: row; 
-                            width: 100%; height:45px; '>
-                       
-                            <input type='date'  dateformat='d M y' 
-                                placeholder='Start Date'                                
-                                value='".$StartDate."'
-                                style='width: 40%;'
-                                id='txtFirst' >
-                            <input type='date' id='txtLast'  
-                                placeholder='End Date'
-                                value='".$EndDate."'
-                                style='width: 40%;'>
-                            <button type='button' 
-                                style='width: 20%; text-align:center; '
-                                 id='btnSearch' onclick='SearchClick()'>OK</button>  
-                        </div>                        
-                        <div class='scrollmenu'>".$sTab."</div>";
-                        echo $sTab;
-                        echo $sPage;
+            <label for="psw"><b>EMail</b></label>
+            <input type="text" id="txtEMail" value ="<?php echo $EMail; ?>" readonly >
+            
+       
+            <label for="psw"><b>SoldTo Code</b></label>
+            <input type="text" id="txtSoldToCode" value ="<?php echo $SoldToCode; ?>" readonly>
+
+            <label for="psw"><b>SoldTo Name</b></label>
+            <input type="text" id="txtSoldToName" value ="<?php echo $SoldToName; ?>" readonly>
+
+       
+            <label for="psw"><b>ShipTo Code</b></label>
+            <input type="text" id="txtShipToCode" value ="<?php echo $ShipToCode; ?>" readonly>
+
+            <label for="psw"><b>ShipTo Name</b></label>
+            <input type="text" id="txtShipToName" value ="<?php echo $ShipToName; ?>" readonly>
 
 
 
-                    }
-                }
-            }
-        }
-        
-    }    
-        
-        ?>
-      
-
-<!--
-
-        <div class="scrollmenu">
-            <a class="tablink" href="#home" onclick="openPage('Home', this, 'red')">Home</a>
-            <a class="tablink" href="#news" onclick="openPage('News', this, 'green')" id="defaultOpen">News</a>
-            <a class="tablink" href="#contact" onclick="openPage('Contact', this, 'blue')">Contact</a>
-            <a class="tablink" href="#about" onclick="openPage('About', this, 'orange')">About</a>
-            <a class="tablink" href="#support">Support</a>
-            <a class="tablink" href="#blog">Blog</a>
-            <a class="tablink" href="#tools">Tools</a>  
-            <a class="tablink" href="#base">Base</a>
-            <a class="tablink" href="#custom">Custom</a>
-            <a class="tablink" href="#more">More</a>
-            <a class="tablink" href="#logo">Logo</a>
-            <a class="tablink" href="#friends">Friends</a>
-            <a class="tablink" href="#partners">Partners</a>
-            <a class="tablink" href="#people">People</a>
-            <a class="tablink" href="#work">Work</a>
+     
+            
         </div>
 
-            <div id="Home" class="tabcontent">
-            <h3>Home</h3>
-            <p>Home is where the heart is..</p>
-            </div>
 
-            <div id="News" class="tabcontent">
-            <h3>News</h3>
-            <p>Some news this fine day!</p> 
-            </div>
+    <?php }  ?>
 
-            <div id="Contact" class="tabcontent">
-            <h3>Contact</h3>
-            <p>Get in touch, or swing by for a cup of coffee.</p>
-            </div>
-
-            <div id="About" class="tabcontent">
-            <h3>About</h3>
-            <p>Who we are and what we do.</p>
-            </div>
-
-
--->
 
 <input type="hidden" id="txtFlag" value ="<?php echo $sFlag; ?>" >
 <input type="hidden" id="txtCompanyCode" value ="<?php echo $CompanyCode; ?>" >
 <input type="hidden" id="txtLiffId" value ="<?php echo $LiffId; ?>" >
 <input type="hidden" id="txtMsg" value ="<?php echo $sFlagMsg; ?>" >
 <input type="hidden" id="txtShowMsg" value ="<?php echo $sShowMsg; ?>" >
-<input type="hidden" id="txtRetCommand" value ="<?php echo $RetCommand; ?>" >
-<input type="hidden" id="txtLineId"  value ="<?php echo $LiffId; ?>" >
-<input type="hidden" id="txtTableTitle"  value ="<?php echo $TableTitle; ?>" >
+
+<input type="hidden" id="txtType" value ="<?php echo $LinkCode; ?>" >
+
 
 </form>
 
 
 <script>
 
-    /***************************************************************************** */
-        
-    function openPage(pageName,elmnt,color) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "";
-        }
-        document.getElementById(pageName).style.display = "block";
-        elmnt.style.backgroundColor = color;
-    }
-
-    // Get the element with id="defaultOpen" and click on it
-    //document.getElementById("defaultOpen").click();
-
-    /***************************************************************************** */
-
     window.onload = function() {
         const useNodeJS = false;   // if you are not using a node server, set this value to false
         const defaultLiffId = "1656503744-kojgw9pb";   // change the default LIFF value if you are not using a node server
 
         let myLiffId = "";
-       
+
         if (useNodeJS) {
             fetch('/send-id')
                 .then(function(reqResponse) { return reqResponse.json();})
@@ -400,80 +267,105 @@
 
     
     function initializeApp() {
-                    
+        //displayLiffData();
+                
         if (liff.isLoggedIn()) {
-           
-            liff.getProfile().then(profile => {                    
-                const userId = profile.userId;                        
+            
+            liff.getProfile().then(profile => {
+                const userName = profile.displayName;
+                const userId = profile.userId;
+            
+                if (document.getElementById('txtLineDisplay'))
+                    document.getElementById('txtLineDisplay').value = userName;
+
+                if (document.getElementById('txtType').value === "REGISTER") {
+                    if (document.getElementById('lblUserName'))
+                        document.getElementById('lblUserName').value = userName;
+                }
+
                 if (document.getElementById('txtLineId'))
                     document.getElementById('txtLineId').value = userId;
 
-                if (document.getElementById('txtShowMsg')) {
-                    var sShow = document.getElementById('txtShowMsg').value;
-                    if (sShow=="1") {
-                            var sMsg = document.getElementById('txtMsg').value;
-                            if (sMsg.length >0) alert(sMsg);                        
-                    }
+                if (document.getElementById('lblUserId')) {
+                    document.getElementById('lblUserId').textContent = userId;
+                    document.getElementById('lblUserName').textContent = userName;
+                    document.getElementById('txtDisplay').value = userName;
                 }
-                // alert(userId);
+
+                
+                if (document.getElementById('txtShowMsg')) {
+                   var sShow = document.getElementById('txtShowMsg').value;
+                   if (sShow=="1") {
+                        var sMsg = document.getElementById('txtMsg').value;
+                        if (sMsg.length >0) alert(sMsg);                        
+                   }
+
+                   /*
+                    if (sFlag=="ENDREGISTER"){
+                        liff.sendMessages([
+                            {
+                            type: 'text',
+                            text: '®Complete Register'
+                            } ])
+                        .then(() => {liff.closeWindow(); }) 
+                        .catch((err) => {
+                            console.log('error', err);
+                            alert(err);
+                        });
+                    }
+                    */
+                }
+
+              
             })
             .catch((err) => {
-                alert(err);
                 console.log('error', err);
             });
-            
-            
-        }
         
+        }
+        //liff.getProfile().userId;
 
     }
 
    
-    function RegisterClick(msg){
-                
-        var sLineId =document.getElementById('lblUserId').textContent;
-        var sLineDisplay =document.getElementById('txtDisplay').value;
+    function displayLiffData() {
+        
+        if (document.getElementById('browserLanguage')) {
+            document.getElementById('browserLanguage').textContent = liff.getLanguage();
+            document.getElementById('sdkVersion').textContent = liff.getVersion();
+            document.getElementById('lineVersion').textContent = liff.getLineVersion();
+            document.getElementById('deviceOS').textContent = liff.getOS();
+        }
+    }
 
-        var sCompanyCode =document.getElementById('txtCompanyCode').value;
-        var sUserName =document.getElementById('txtUserName').value;
-        var sEMail =document.getElementById('txtEMail').value;
-        var sTel =document.getElementById('txtTel').value;
+   
+    function toggleAccessToken() {
+        toggleElement('accessTokenData');
+    }
+
+   
+    function toggleProfileData() {
+        toggleElement('profileInfo');
+    }
 
     
-        var sCmd = sLineDisplay+"^c"+sUserName+"^c"+sTel+"^c"+sEMail;
-
-        var para = "?LinkCode=REGISTER&LineId="+sLineId+"&CmdCommand="+sCmd;
-        var url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
-            
-        liff.login({ redirectUri: url });
-
-        //alert(url);
-    }
-        
-        
-
-
-    function fillTicketData(tableName,asCol,asData)
-    {
-              
-        var table = document.getElementById(tableName);
-        if (table) {
-            var sHtml = "";
-            var nRLen = asData.length;
-            for (var r=0;r<nRLen;r++ ) {
-                var sC = asCol[r];
-                var sD = asData[r];
-                sHtml = sHtml + "<tr><th>"+sC+"</th><td class='textLeft'>"+sD+"</td></tr>";
-            }
-            table.innerHTML = sHtml;
-
-         
+    function toggleElement(elementId) {
+        const elem = document.getElementById(elementId);
+        if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
+            elem.style.display = 'none';
+        } else {
+            elem.style.display = 'block';
         }
-       
     }
-    // Get the modal
+
+
+
 
   
+
+    
+
+
 
 </script>
 
