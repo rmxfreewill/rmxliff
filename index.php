@@ -95,13 +95,13 @@ $Function != '' ?? $Function = $menu;
                                     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                                     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
 
-                                    var url = "";
+                                    var url = sUrl;
                                 }
 
                                 alert('devMode Status: ' + devMode + ' ' + toStatus);
                                 if (toStatus == 'devMode') {
                                     if (devMode == true) {
-                                        var menuUrl = url;
+                                        var menuUrl = url + para;
                                     } else {
                                         var menuUrl = "menu/blankMenu.php";
                                     }
