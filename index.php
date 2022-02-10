@@ -164,6 +164,9 @@ if (isset($_GET['CompanyCode']))
                                 case "ticket":
                                     url = "https://rmxliff.herokuapp.com/frmTicket.php" + para;
                                     break;
+                                case "search":
+                                    url = "https://rmxliff.herokuapp.com/frmQuery.php" + para;
+                                    break;
                                 case "REGISTER":
                                     url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
                                     break;
