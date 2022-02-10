@@ -88,7 +88,7 @@ $devMode = true;
                                 var paramS = urlSelectMenu.paramS;
 
 
-                                if ($devMode = true) {
+                                if ($devMode == true) {
                                     toStatus == 'init';
                                     var userId = userIdProfile;
                                     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
@@ -118,7 +118,7 @@ $devMode = true;
                                         //     redirectUri: url
                                         // });
                                         window.location.assign(url);
-                                        // return;
+                                        return;
                                     }
 
                                     // alert('menuUrl: ' + menuUrl);
