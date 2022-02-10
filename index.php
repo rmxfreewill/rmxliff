@@ -49,8 +49,6 @@ if (isset($_POST['CompanyCode']))
 if (isset($_GET['CompanyCode']))
     $CompanyCode = $_GET['CompanyCode'];
 
-echo $menu;
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -160,6 +158,9 @@ echo $menu;
 
 
                             switch (sFunction) {
+                                case "register":
+                                    url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
+                                    break;
                                 case "REGISTER":
                                     url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
                                     break;
