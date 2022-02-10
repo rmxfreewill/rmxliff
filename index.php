@@ -78,6 +78,8 @@ $Function != '' ?? $Function = $menu;
                                 const sCompCode = "<? echo COMPANY_CODE; ?>";
                                 const sUrl = "<? echo sURL; ?>";
 
+
+
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam.menu;
                                 var toCmd = getParam.CmdCommand;
@@ -86,9 +88,8 @@ $Function != '' ?? $Function = $menu;
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
 
-
+                                alert(devMode);
                                 if (devMode == true) {
-                                    toStatus == 'init';
                                     var userId = userIdProfile;
                                     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                                     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
@@ -96,9 +97,14 @@ $Function != '' ?? $Function = $menu;
                                 }
 
                                 if (toStatus == null) {
+                                    if (devMode == true) {
+                                        var menuUrl = url;
+                                    } else {
+                                        var menuUrl = "menu/blankMenu.php";
+                                    }
                                     window.location.assign(menuUrl);
+                                    return;
                                 } else if (toStatus == 'init' || toStatus == 'check') {
-                                    var menuUrl = "menu/blankMenu.php";
                                     if (toMenu == "register") {
                                         menuUrl = "menu/registerMenu.php" + paramS;
                                     } else if (toMenu == "ticket") {
@@ -111,14 +117,7 @@ $Function != '' ?? $Function = $menu;
                                     }
 
 
-                                    if (devMode == true) {
-                                        alert('url: ' + url);
-                                        // liff.login({
-                                        //     redirectUri: url
-                                        // });
-                                        window.location.assign(url);
-                                        return;
-                                    }
+
 
                                     // alert('menuUrl: ' + menuUrl);
 
