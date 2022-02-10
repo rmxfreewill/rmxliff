@@ -135,8 +135,8 @@ if ($LinkCode == 'CHECK') {
         } else { ?>
             <div class="login_container">
 
-                <label for="uname"><b>Line Id</b></label>
-                <input type="text" id="txtLineId" readonly>
+                <!-- <label for="uname"><b>Line Id</b></label> -->
+                <!-- <input type="text" id="txtLineId" readonly> -->
 
                 <label for="uname"><b>Line Display Name</b></label>
                 <input type="text" id="txtLineDisplay" readonly>
@@ -152,18 +152,18 @@ if ($LinkCode == 'CHECK') {
                 <input type="text" id="txtEMail" value="<?php echo $EMail; ?>" readonly>
 
 
-                <label for="psw"><b>SoldTo Code</b></label>
-                <input type="text" id="txtSoldToCode" value="<?php echo $SoldToCode; ?>" readonly>
+                <!-- <label for="psw"><b>SoldTo Code</b></label> -->
+                <!-- <input type="text" id="txtSoldToCode" value="<?php echo $SoldToCode; ?>" readonly> -->
 
-                <label for="psw"><b>SoldTo Name</b></label>
-                <input type="text" id="txtSoldToName" value="<?php echo $SoldToName; ?>" readonly>
+                <!-- <label for="psw"><b>SoldTo Name</b></label> -->
+                <!-- <input type="text" id="txtSoldToName" value="<?php echo $SoldToName; ?>" readonly> -->
 
 
-                <label for="psw"><b>ShipTo Code</b></label>
-                <input type="text" id="txtShipToCode" value="<?php echo $ShipToCode; ?>" readonly>
+                <!-- <label for="psw"><b>ShipTo Code</b></label> -->
+                <!-- <input type="text" id="txtShipToCode" value="<?php echo $ShipToCode; ?>" readonly> -->
 
-                <label for="psw"><b>ShipTo Name</b></label>
-                <input type="text" id="txtShipToName" value="<?php echo $ShipToName; ?>" readonly>
+                <!-- <label for="psw"><b>ShipTo Name</b></label> -->
+                <!-- <input type="text" id="txtShipToName" value="<?php echo $ShipToName; ?>" readonly> -->
 
 
 
