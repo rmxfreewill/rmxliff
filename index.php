@@ -88,21 +88,24 @@ $Function != '' ?? $Function = $menu;
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
 
-                                alert('devMode: '+devMode);
+
                                 if (devMode == true) {
+                                    var toStatus = 'devMode';
                                     var userId = userIdProfile;
                                     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                                     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+
                                     var url = "";
                                 }
 
-                                if (toStatus == null) {
+                                alert('devMode Status: ' + devMode + ' ' + toStatus);
+                                if (toStatus == 'devMode') {
                                     if (devMode == true) {
                                         var menuUrl = url;
                                     } else {
                                         var menuUrl = "menu/blankMenu.php";
                                     }
-                                    alert('menuUrl: '+menuUrl);
+                                    alert('menuUrl: ' + menuUrl);
                                     window.location.assign(menuUrl);
                                     return;
                                 } else if (toStatus == 'init' || toStatus == 'check') {
