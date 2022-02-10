@@ -114,10 +114,10 @@ $devMode = true;
 
                                     if ($devMode == true) {
                                          alert('url: ' + url);
-                                        liff.login({
-                                            redirectUri: url
-                                        });
-                                        // window.location.assign(url);
+                                        // liff.login({
+                                        //     redirectUri: url
+                                        // });
+                                        window.location.assign(url);
                                         // return;
                                     }
 
