@@ -91,7 +91,7 @@
                     echo '<script language="javascript">';
                     echo 'alert("'.$sFlagMsg.'")';
                     echo '</script>';
-                    rmxChangeMemberRichMenu('REGISTER', $LINEID);
+                    rmxChangeMemberRichMenu('REGISTER', $LineId);
 
                 }
                 
@@ -120,7 +120,7 @@
                 $sShowMsg = '0';
                 if ($sFlag != '0') {
                   $sTitle = 'View Register Info';  
-                  rmxChangeMemberRichMenu('REGISTER', $LINEID);
+                  rmxChangeMemberRichMenu('REGISTER', $LineId);
                 }
             }
         }
