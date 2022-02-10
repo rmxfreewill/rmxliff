@@ -31,8 +31,6 @@ if (isset($_GET['menu']))
 
 $Function != '' ?? $Function = $menu;
 
-$devMode = true;
-
 ?>
 
 <!DOCTYPE HTML>
@@ -67,6 +65,7 @@ $devMode = true;
         </div>
     </div>
     <script>
+        var devMode = true;
         async function rmxInitializeLineLiff(myLiffId = String) {
             await liff.init({
                     liffId: myLiffId
@@ -88,7 +87,7 @@ $devMode = true;
                                 var paramS = urlSelectMenu.paramS;
 
 
-                                if ($devMode == true) {
+                                if (devMode == true) {
                                     toStatus == 'init';
                                     var userId = userIdProfile;
                                     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
@@ -112,8 +111,8 @@ $devMode = true;
                                     }
 
 
-                                    if ($devMode == true) {
-                                         alert('url: ' + url);
+                                    if (devMode == true) {
+                                        alert('url: ' + url);
                                         // liff.login({
                                         //     redirectUri: url
                                         // });
