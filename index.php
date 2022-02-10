@@ -9,6 +9,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include_once("rmxLineFunction.php");
+include_once("rmxLiffFunction.php");
 
 $CompanyUrl = COMPANY_URL;
 $CompanyCode = COMPANY_CODE;
