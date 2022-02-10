@@ -94,40 +94,32 @@ $Function != '' ?? $Function = $menu;
                                     var userId = userIdProfile;
                                     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
                                     var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+                                }
 
-                                    var url = sUrl;
+                                if (toMenu == "register") {
+                                    menuUrl = "menu/registerMenu.php" + paramS;
+                                } else if (toMenu == "ticket") {
+                                    menuUrl = "menu/ticketMenu.php" + paramS;
+                                    url = sUrl + "frmView.php" + para;
+                                } else if (toMenu == "profile") {
+                                    menuUrl = "menu/profileMenu.php" + paramS;
+                                } else if (toMenu == "search") {
+                                    menuUrl = "menu/searchMenu.php" + paramS;
                                 }
 
                                 alert('devMode Status: ' + devMode + ' ' + toStatus);
                                 if (toStatus == 'devMode') {
                                     if (devMode == true) {
-                                        var menuUrl = url + para;
+                                        menuUrl = url;
                                     } else {
-                                        var menuUrl = "menu/blankMenu.php";
+                                        menuUrl = "menu/blankMenu.php";
                                     }
                                     alert('menuUrl: ' + menuUrl);
                                     window.location.assign(menuUrl);
                                     return;
                                 } else if (toStatus == 'init' || toStatus == 'check') {
-                                    if (toMenu == "register") {
-                                        menuUrl = "menu/registerMenu.php" + paramS;
-                                    } else if (toMenu == "ticket") {
-                                        menuUrl = "menu/ticketMenu.php" + paramS;
-                                        url = sUrl + "frmView.php" + para;
-                                    } else if (toMenu == "profile") {
-                                        menuUrl = "menu/profileMenu.php" + paramS;
-                                    } else if (toMenu == "search") {
-                                        menuUrl = "menu/searchMenu.php" + paramS;
-                                    }
-
-
-
-
-                                    // alert('menuUrl: ' + menuUrl);
-
                                     try {
                                         $("#rmxLiFFLayout").load(menuUrl);
-                                        // $(".loader").hide();
                                     } catch (err) {
                                         console.log('err rmxLiFFLayout: ' + error);
                                     }
