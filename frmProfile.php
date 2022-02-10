@@ -139,17 +139,17 @@ if ($LinkCode == 'CHECK') {
                 <!-- <input type="text" id="txtLineId" readonly> -->
 
                 <label for="uname"><b>Line Display Name</b></label>
-                <input type="text" id="txtLineDisplay" readonly>
+                <input type="text" id="txtLineDisplay" disabled>
 
                 <label for="uname"><b>Username</b></label>
-                <input type="text" value="<?php echo $UserName; ?>" id="txtUserName" readonly>
+                <input type="text" value="<?php echo $UserName; ?>" id="txtUserName" disabled>
 
                 <label for="psw"><b>Telephone / Mobile</b></label>
-                <input type="text" id="txtTel" value="<?php echo $Tel; ?>" readonly>
+                <input type="text" id="txtTel" value="<?php echo $Tel; ?>" disabled>
 
 
                 <label for="psw"><b>EMail</b></label>
-                <input type="text" id="txtEMail" value="<?php echo $EMail; ?>" readonly>
+                <input type="text" id="txtEMail" value="<?php echo $EMail; ?>" disabled>
 
 
                 <!-- <label for="psw"><b>SoldTo Code</b></label> -->
