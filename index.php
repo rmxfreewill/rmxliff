@@ -102,6 +102,7 @@ $Function != '' ?? $Function = $menu;
                                     } else {
                                         var menuUrl = "menu/blankMenu.php";
                                     }
+                                    alert('menuUrl: '+menuUrl);
                                     window.location.assign(menuUrl);
                                     return;
                                 } else if (toStatus == 'init' || toStatus == 'check') {
