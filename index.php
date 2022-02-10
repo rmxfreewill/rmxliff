@@ -88,7 +88,7 @@ $Function != '' ?? $Function = $menu;
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
 
-                                alert(devMode);
+                                alert('devMode: '+devMode);
                                 if (devMode == true) {
                                     var userId = userIdProfile;
                                     var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
