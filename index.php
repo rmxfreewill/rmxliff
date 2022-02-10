@@ -112,11 +112,11 @@ $devMode = true;
 
 
                                     if ($devMode == true) {
-                                        // liff.login({
-                                        //     redirectUri: url
-                                        // });
-                                        window.location.assign(url);
-                                        return;
+                                        liff.login({
+                                            redirectUri: url
+                                        });
+                                        // window.location.assign(url);
+                                        // return;
                                     }
 
                                     // alert('menuUrl: ' + menuUrl);
