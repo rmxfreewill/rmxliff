@@ -31,6 +31,8 @@ if (isset($_GET['menu']))
 
 $Function != '' ?? $Function = $menu;
 
+$devMode = true;
+
 ?>
 
 <!DOCTYPE HTML>
@@ -85,6 +87,14 @@ $Function != '' ?? $Function = $menu;
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
 
+
+                                if ($devMode = true) {
+                                    var userId = userIdProfile;
+                                    var sCmd = "call sp_main_check_register ('" + userId + "','" + sCompCode + "')";
+                                    var para = "?LinkCode=CHECK&LineId=" + userId + "&CmdCommand=" + sCmd;
+                                    var url = "";
+                                }
+
                                 if (toStatus == null) {
                                     window.location.assign(menuUrl);
                                 } else if (toStatus == 'init' || toStatus == 'check') {
@@ -93,21 +103,31 @@ $Function != '' ?? $Function = $menu;
                                         menuUrl = "menu/registerMenu.php" + paramS;
                                     } else if (toMenu == "ticket") {
                                         menuUrl = "menu/ticketMenu.php" + paramS;
+                                        url = sUrl + "frmView.php" + para;
                                     } else if (toMenu == "profile") {
                                         menuUrl = "menu/profileMenu.php" + paramS;
                                     } else if (toMenu == "search") {
                                         menuUrl = "menu/searchMenu.php" + paramS;
-
                                     }
 
 
+                                    if ($devMode == true) {
+                                        // liff.login({
+                                        //     redirectUri: url
+                                        // });
+                                        window.location.assign(url);
+                                        return;
+                                    }
+
                                     // alert('menuUrl: ' + menuUrl);
+
                                     try {
                                         $("#rmxLiFFLayout").load(menuUrl);
                                         // $(".loader").hide();
                                     } catch (err) {
                                         console.log('err rmxLiFFLayout: ' + error);
                                     }
+
                                 }
                             })
                             .catch((err) => {
