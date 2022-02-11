@@ -3,8 +3,6 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-// include("zMenuFunction.php");
-// include("zApiFunction.php");
 
 $GLOBALS['COMPANY_URL'] =  COMPANY_URL;
 $GLOBALS['REGISTER_URL'] =   REGISTER_URL;
@@ -12,72 +10,15 @@ $GLOBALS['COMPANY_CODE'] =   COMPANY_CODE;
 $GLOBALS['LIFF_ID'] =   LIFF_ID;
 $GLOBALS['sURL'] =   sURL;
 
-// $TableTitle = 'View Ticket';
-// if (isset($_POST['TableTitle']))
-//     $TableTitle = $_POST['TableTitle'];
-// if (isset($_GET['TableTitle']))
-//     $TableTitle = $_GET['TableTitle'];
-
-function showTicketList($RetCommand)
-{
-    if ($RetCommand) {
-        $asTable = explode("^t", $RetCommand);
-        if (count($asTable) > 0) {
-            $arTmp = explode("^f", $asTable[0]);
-            if (count($arTmp) > 1) {
-                $asCol = explode("^c", $arTmp[0]);
-                $asRow = explode("^r", $arTmp[1]);
-                if (count($asRow) > 0) {
-                    $nLoop = 0;
-                    $nRLen = count($asRow);
-                    $nCLen = count($asCol);
-                    $sTab = "";
-                    $sPage = "";
-                    if ($nRLen > 10) $nRLen = 10;
-
-                    for ($n = 0; $n < $nRLen; $n++) {
-                        $sRow = $asRow[$n];
-                        echo 'sRow: ' . json_encode($sRow);
-                        $asData = explode("^c", $sRow);
-                        $nDLen = count($asData);
-                        if ($nDLen > 0) {
-                            $sTicketNo = $asData[0];
-                            $sTab = $sTab . "<a class='tablink' href='#' "
-                                . "onclick=\"openPage('div" . $sTicketNo . "_" .
-                                "', this, 'red')\">" . $sTicketNo . "</a>";
-
-                            $sPage = $sPage . "<div id='div" . $sTicketNo . "_" .
-                                "' class='tabcontent'>";
-                            $sPage = $sPage . "<table class='tblticket'>";
-
-                            for ($r = 0; $r < $nDLen; $r++) {
-                                $sC = $asCol[$r];
-                                $sD = $asData[$r];
-
-                                $sPage = $sPage . "<tr><th>" . $sC
-                                    . "</th><td class='textLeft'>" . $sD . "</td></tr>";
-                            }
-                            $sPage = $sPage . "</table></div>";
-                        }
-                    }
-
-                    $sTab = "<div class='scrollmenu'>" . $sTab . "</div>";
-                    echo $sTab;
-                    echo $sPage;
-                }
-            }
-        }
-    }
-}
 
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
-echo $status;
-if ($status == 'init') {
-    $notFound =  "<center><h2><br>Not Found User</h2></center>";
-    $getDataFromDatabase = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
-    $sFlag = $getDataFromDatabase->sFlag;
-}
+
+// if ($status == 'init') {
+//     $notFound =  "<center><h2><br>Not Found User</h2></center>";
+//     $getDataFromDatabase = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
+//     $sFlag = $getDataFromDatabase->sFlag;
+// }
 
 ?>
 
@@ -134,6 +75,10 @@ if ($status == 'init') {
         //         table.innerHTML = sHtml;
         //     }
         // }
+
+        $(function() {
+            $(".loader").hide();
+        });
     </script>
 </body>
 
