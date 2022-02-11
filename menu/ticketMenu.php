@@ -72,6 +72,7 @@ function showTicketList($RetCommand)
 
 $getDataFromUrl = getDataFromUrl($GLOBALS['COMPANY_CODE'], $GLOBALS['COMPANY_URL'], $GLOBALS['REGISTER_URL']);
 $status = $getDataFromUrl->status;
+echo $status;
 if ($status == 'init') {
     $notFound =  "<center><h2><br>Not Found User</h2></center>";
     $getDataFromDatabase = getDataFromDatabase($GLOBALS['COMPANY_URL'], $getDataFromUrl);
