@@ -5,7 +5,10 @@ session_start();
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-include($_SERVER['DOCUMENT_ROOT'] . "/define_Global.php");
+include("define_Global.php");
+include("menu/zApiFunction.php");
+include("menu/zMenuFunction.php");
+
 include_once("rmxLineFunction.php");
 include_once("rmxLiffFunction.php");
 
@@ -65,7 +68,6 @@ $Function != '' ?? $Function = $menu;
         </div>
     </div>
     <script>
-        var devMode = true;
         async function rmxInitializeLineLiff(myLiffId = String) {
             await liff.init({
                     liffId: myLiffId
@@ -78,8 +80,6 @@ $Function != '' ?? $Function = $menu;
                                 const sCompCode = "<? echo COMPANY_CODE; ?>";
                                 const sUrl = "<? echo sURL; ?>";
 
-
-
                                 var getParam = rmxGetParams();
                                 var toMenu = getParam.menu;
                                 var toCmd = getParam.CmdCommand;
@@ -88,7 +88,7 @@ $Function != '' ?? $Function = $menu;
                                 var menuUrl = urlSelectMenu.menuUrl;
                                 var paramS = urlSelectMenu.paramS;
 
-
+                                var devMode = false;
                                 if (devMode == true) {
                                     var toStatus = 'devMode';
                                     var userId = userIdProfile;
@@ -107,7 +107,7 @@ $Function != '' ?? $Function = $menu;
                                     menuUrl = "menu/searchMenu.php" + paramS;
                                 }
 
-                                alert('devMode Status: ' + devMode + ' ' + toStatus);
+                                // alert('devMode Status: ' + devMode + ' ' + toStatus);
                                 if (toStatus == 'devMode') {
                                     if (devMode == true) {
                                         menuUrl = url;
