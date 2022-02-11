@@ -3,10 +3,6 @@
 
 session_start();
 
-// error_reporting(E_ALL & ~E_NOTICE);
-// include_once("rmxLineFunction.php");
-// include_once("rmxLiffFunction.php");
-
 $nameText = '';
 $mobileText = '';
 $emailText = '';
@@ -17,6 +13,40 @@ if (isset($_POST['LineId'])) {
 if (isset($_GET['LineId'])) {
     $LineId = $_GET['LineId'];
 }
+
+
+function rmxGetDataLiff($menu, $LineId)
+{
+    // $rmx_api_url = RMX_HEROKU_API_URL;
+    $rmx_api_url = RMX_SERVER_API_URL;
+    $param_menu = "?menu=$menu&lineid=$LineId";
+
+    // if ($mobileNo != '') {
+    //     $param_mobileno = "&mobile=$mobileNo";
+    // } else {
+    //     $param_mobileno = '';
+    // }
+
+    $url = $rmx_api_url  . $param_menu;
+    $headers = ["Authorization: Bearer " . BEARER_TOKEN];
+
+    try {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, array());
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return  $data;
+    } catch (Exception $ex) {
+        print('Error rmxProfileLiff: ' . $ex);
+    }
+}
+
+
 
 
 try {
@@ -71,14 +101,14 @@ try {
                 <div class="card-body text-dark" style="background-color:#ebf7f0;">
                     <h5>
                         <!-- <div class="row card-text"> -->
-                            <!-- <div class="col-5 text-uppercase font-weight-bold">
+                        <!-- <div class="col-5 text-uppercase font-weight-bold">
                                 name
                             </div> -->
-                            <!-- <div class="col-7 font-weight-normal"> -->
-                                <?php
-                                // echo $nameText;
-                                ?>
-                            <!-- </div> -->
+                        <!-- <div class="col-7 font-weight-normal"> -->
+                        <?php
+                        // echo $nameText;
+                        ?>
+                        <!-- </div> -->
                         <!-- </div> -->
                         <div class="row card-text mt-3">
                             <div class="col-5 text-uppercase font-weight-bold">

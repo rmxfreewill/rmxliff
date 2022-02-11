@@ -10,7 +10,6 @@ include("menu/zApiFunction.php");
 include("menu/zMenuFunction.php");
 
 include_once("rmxLineFunction.php");
-include_once("rmxLiffFunction.php");
 
 // header('Access-Control-Allow-Origin: *');
 

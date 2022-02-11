@@ -4,51 +4,13 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 
 include("define_Global.php");
-include("rmxLiffFunction.php");
+include("rmxWebhookFunction.php");
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: GET,POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-
-function sendMessage($replyJson)
-{
-    $url = "https://api.line.me/v2/bot/message/multicast";
-
-    $sendInfo['URL'] = $url;
-    $sendInfo['AccessToken'] = "6DOzScAqBRwD/oRPwvMFua/SBvgLtXciCay4cwK10oTPA88R60mjeGdeW8NDL61dCJX2EtyHINFcj1DvY0mboZntH38a/fhTRI3rCaN4vDI/zWBCl0ze5K/AV2JoxoCwR9OZXj2Y7rHn6nABPwZMVwdB04t89/1O/w1cDnyilFU=";
-
-    try {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $sendInfo['URL']);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        curl_setopt(
-            $ch,
-            CURLOPT_POSTFIELDS,
-            $replyJson
-        );
-        curl_setopt(
-            $ch,
-            CURLOPT_HTTPHEADER,
-            array(
-                'Content-Type: application/json',
-                'Authorization: Bearer ' . $sendInfo["AccessToken"]
-            )
-        );
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); # receive server response
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); # do not verify SSL
-        $data = curl_exec($ch); # execute curl
-        $httpstatus = curl_getinfo($ch, CURLINFO_HTTP_CODE); # http response status code
-        curl_close($ch);
-
-        $data = $data;
-    } catch (Exception $ex) {
-        $data = $ex;
-    }
-    return $data;
-}
 
 function ticketDetailRowLayout($title, $val)
 {
