@@ -99,6 +99,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
 
 
     try {
+        $objData->status = 200;
         if ($RetCommand) {
             $ASRet = [];
             $ASRet = explode("^c", $RetCommand);
@@ -128,7 +129,7 @@ function getDataFromDatabase($CompanyUrl, $objParam) //select $sFlagMsg,$nFlag,$
         $objData->RetCommand = $RetCommand;
     } catch (\Throwable $th) {
         $objData->sFlag = '0';
-        $objData->error = $th;
+        $objData->status = $th;
     }
     $objData->LineId = $objParam->LineId;
 
@@ -261,58 +262,7 @@ function getTicketFromDatabase($objParamFromUrl, $getDataFromDatabase)
     return  $RetCommand;
 }
 
-function showTicketList($RetCommand)
-{
 
-    if ($RetCommand) {
-        $asTable = explode("^t", $RetCommand);
-        if (count($asTable) > 0) {
-            $arTmp = explode("^f", $asTable[0]);
-            if (count($arTmp) > 1) {
-                $asCol = explode("^c", $arTmp[0]);
-                $asRow = explode("^r", $arTmp[1]);
-                if (count($asRow) > 0) {
-                    $nLoop = 0;
-                    $nRLen = count($asRow);
-                    $nCLen = count($asCol);
-                    $sTab = "";
-                    $sPage = "";
-                    if ($nRLen > 10) $nRLen = 10;
-
-                    for ($n = 0; $n < $nRLen; $n++) {
-                        $sRow = $asRow[$n];
-                        echo 'sRow: ' . json_encode($sRow);
-                        $asData = explode("^c", $sRow);
-                        $nDLen = count($asData);
-                        if ($nDLen > 0) {
-                            $sTicketNo = $asData[0];
-                            $sTab = $sTab . "<a class='tablink' href='#' "
-                                . "onclick=\"openPage('div" . $sTicketNo . "_" .
-                                "', this, 'red')\">" . $sTicketNo . "</a>";
-
-                            $sPage = $sPage . "<div id='div" . $sTicketNo . "_" .
-                                "' class='tabcontent'>";
-                            $sPage = $sPage . "<table class='tblticket'>";
-
-                            for ($r = 0; $r < $nDLen; $r++) {
-                                $sC = $asCol[$r];
-                                $sD = $asData[$r];
-
-                                $sPage = $sPage . "<tr><th>" . $sC
-                                    . "</th><td class='textLeft'>" . $sD . "</td></tr>";
-                            }
-                            $sPage = $sPage . "</table></div>";
-                        }
-                    }
-
-                    $sTab = "<div class='scrollmenu'>" . $sTab . "</div>";
-                    echo $sTab;
-                    echo $sPage;
-                }
-            }
-        }
-    }
-}
 
 function getSearchFromDatabase($objParam)
 {
