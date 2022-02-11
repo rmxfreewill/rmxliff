@@ -3,8 +3,8 @@
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-include("zMenuFunction.php");
-include("zApiFunction.php");
+// include("zMenuFunction.php");
+// include("zApiFunction.php");
 
 $GLOBALS['COMPANY_URL'] =  COMPANY_URL;
 $GLOBALS['REGISTER_URL'] =   REGISTER_URL;
@@ -95,7 +95,7 @@ if ($status == 'init') {
     <?php
     if ($sFlag != '0') {
         $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
-        showTicketList($getTicketFromDatabase);
+        // showTicketList($getTicketFromDatabase);
     } else {
         echo $notFound;
         echo "<p>";
