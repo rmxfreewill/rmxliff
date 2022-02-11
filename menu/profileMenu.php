@@ -136,5 +136,8 @@ try {
         </div>
     </div>
 </body>
+<script>
+    alert('Profile');
+</script>
 
 </html>

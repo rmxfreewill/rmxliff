@@ -61,6 +61,7 @@ if ($status == 'init') {
     }
     ?>
     <script>
+        alert('Ticket');
         function openPage(pageName, elmnt, color) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");

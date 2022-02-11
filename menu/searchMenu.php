@@ -113,6 +113,7 @@ if ($sFlag != '0') {
 ?>
 
 <script>
+    alert('Search');
     $(function() {
         var status = "<? echo $status; ?>";
         status == 'check' ?? alert('<? echo json_encode($getDataFromUrl); ?>');
