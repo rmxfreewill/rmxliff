@@ -117,7 +117,9 @@ $Function != '' ?? $Function = $menu;
                                     window.location.assign(menuUrl);
                                     return;
                                 } else if (toStatus == 'init' || toStatus == 'check') {
+                                     alert('menuUrl: ' + menuUrl);
                                     try {
+                                       
                                         $("#rmxLiFFLayout").load(menuUrl);
                                     } catch (err) {
                                         console.log('err rmxLiFFLayout: ' + error);

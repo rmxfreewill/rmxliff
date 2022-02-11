@@ -93,14 +93,14 @@ if ($status == 'init') {
 
 <body>
     <?php
-    if ($sFlag != '0') {
+    // if ($sFlag != '0') {
         // $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
         // showTicketList($getTicketFromDatabase);
-    } else {
-        echo $notFound;
-        echo "<p>";
-        echo  $getDataFromDatabase->status;
-    }
+    // } else {
+        // echo $notFound;
+        // echo "<p>";
+        // echo  $getDataFromDatabase->status;
+    // }
     ?>
     <script>
         alert('Ticket');
