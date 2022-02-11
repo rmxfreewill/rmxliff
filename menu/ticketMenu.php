@@ -93,6 +93,7 @@ if ($status == 'init') {
 </head>
 
 <body>
+    <h1>Ticket</h1>
     <?php
     // if ($sFlag != '0') {
         // $getTicketFromDatabase = getTicketFromDatabase($getDataFromUrl, $getDataFromDatabase);
@@ -104,7 +105,7 @@ if ($status == 'init') {
     // }
     ?>
     <script>
-        alert('Ticket');
+
 
         // function openPage(pageName, elmnt, color) {
         //     var i, tabcontent, tablinks;
