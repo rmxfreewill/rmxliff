@@ -7,7 +7,7 @@ function rmxChangeMemberRichMenuDefualt($type, $LINEID)
     $method = 'DELETE';
     $data = array();
     $headers = [
-        "Authorization: Bearer " . TOKEN_ID
+        "Authorization: Bearer " . BEARER_TOKEN
     ];
 
     try {
@@ -47,7 +47,7 @@ function rmxChangeMemberRichMenu($type, $LINEID)
     }
     $data = array();
     $headers = [
-        "Authorization: Bearer " . TOKEN_ID
+        "Authorization: Bearer " . BEARER_TOKEN
     ];
     try {
 
@@ -87,7 +87,7 @@ function rmxGetDataLiff($menu, $LineId)
     // }
 
     $url = $rmx_api_url  . $param_menu;
-    $headers = ["Authorization: Bearer " . TOKEN_ID];
+    $headers = ["Authorization: Bearer " . BEARER_TOKEN];
 
     try {
         $ch = curl_init();
