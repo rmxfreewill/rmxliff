@@ -172,8 +172,6 @@
 </head>
 <body>
 
-
-
 <form class="animate" method="GET" enctype="multipart/form-data" >
     
     <?php if ($sFlag == '0' || $sFlag == '') { echo registerScreen();  } else { ?>
