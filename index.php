@@ -66,8 +66,8 @@ if (isset($_GET['CompanyCode']))
     <title>Line</title>
 
 
-    <!-- <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script> -->
-    <link rel="stylesheet" href="css/style.css">
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+    <!-- <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/ticket_style.css">
     <link rel="stylesheet" href="css/search_style.css">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -76,7 +76,7 @@ if (isset($_GET['CompanyCode']))
     <script charset="utf-8" src="js/popper.min.js"></script>
     <script charset="utf-8" src="js/bootstrap.js"></script>
     <script charset="utf-8" src="js/lineSdk_2_18_1.js"></script>
-    <script charset="utf-8" src="js/rmx_liff_function.js"></script>
+    <script charset="utf-8" src="js/rmx_liff_function.js"></script> -->
 </head>
 
 <body>
