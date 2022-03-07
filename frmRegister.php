@@ -6,11 +6,13 @@ session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 include_once("rmxLineFunction.php");
 include_once("rmxLiffFunction.php");
+include_once("define_Global.php");
 
 $CompanyUrl = COMPANY_URL;
 $RegisterUrl = REGISTER_URL;
 $CompanyCode = COMPANY_CODE;
 $LiffId = LIFF_ID;
+$sURL = SSL_URL;
 
 /*
   if (isset($_POST['CompanyCode']))
@@ -410,7 +412,34 @@ if ($LinkCode == 'REGISTER') {
         }
 
         function checkRegister() {
-            alert('Hi');
+
+            var sLineDisplay = "<?php echo $LineDisplay; ?>";
+            var sCompanyCode = "<?php echo $CompanyCode; ?>";
+            var sUserName = "<?php echo $UserName; ?>";
+            var sLineId = "<?php echo $LineId; ?>";
+            var sUrl = "<?php echo $sURL; ?>";
+
+            var sEMail = document.getElementById('txtEMail').value;
+            var sTel = document.getElementById('txtTel').value;
+
+            if (sEMail == '') {
+                alert("Please Input EMail");
+                return;
+            }
+
+            if (sTel == '') {
+                alert("Please Input Mobile");
+                return;
+            }
+
+
+            var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
+            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+            var url = sUrl + "frmRegister.php" + para;
+
+            liff.login({
+                redirectUri: url
+            });
         }
 
 
