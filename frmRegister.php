@@ -432,9 +432,11 @@ if ($LinkCode == 'REGISTER') {
                 return;
             }
 
-
             var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-            var para = "?LinkCode=REGISTER&LineId=" + sLineId + "&CmdCommand=" + sCmd;
+            var linkcode = "LinkCode=REGISTER";
+            var lineid = "&LineId=" + sLineId;
+            var cmdCommand = "&CmdCommand=" + sCmd;
+            var para = "?" + linkcode + lineid + cmdCommand;
             var url = sUrl + "frmRegister.php" + para;
 
             liff.login({
