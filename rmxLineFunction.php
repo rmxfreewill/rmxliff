@@ -406,7 +406,7 @@ function registerScreen()
     </div>';
 
 
-    $scr = '
+    $scrbb = '
 <div class="m-3 bg-white shadow bg-white rounded" id="regisForm">
     <div class="p-4">
         <div class="col-12 text-center">
