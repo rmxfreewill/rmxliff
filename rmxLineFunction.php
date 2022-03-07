@@ -331,8 +331,6 @@ http://rmxcell.pe.hu/rmxLineRegister.php
 
 function registerScreen()
 {
-
-
     $scr = '<div class="login_container">
     
         <label for="uname"><b>**Line Display Name</b></label>

@@ -417,9 +417,11 @@ if ($LinkCode == 'REGISTER') {
 
         function checkRegister() {
 
-            var sLineDisplay = "<?php echo $LineDisplay; ?>";
+            // var sLineDisplay = "<?php //echo $LineDisplay; ?>";
+            // var sCompanyCode = "<?php // echo $CompanyCode; ?>";
+            var sLineDisplay = "rmxadmin";
+            var sUserName = "rmxadmin";
             var sCompanyCode = "<?php echo $CompanyCode; ?>";
-            var sUserName = "<?php echo $UserName; ?>";
             var sLineId = "<?php echo $LineId; ?>";
             var sUrl = "<?php echo $sURL; ?>";
 
@@ -441,7 +443,7 @@ if ($LinkCode == 'REGISTER') {
             var lineid = "&LineId=" + sLineId;
             var linkcode = "LinkCode=REGISTER";
             var para = "?" + linkcode + lineid + cmdCommand;
-            var url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
+            var url = sUrl + "frmRegister.php" + para;
             alert(url);
             liff.login({
                 redirectUri: url
