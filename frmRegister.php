@@ -185,7 +185,7 @@ if ($LinkCode == 'REGISTER') {
 
 </head>
 
-<body>
+<body class="rmxbody">
 
     <form class="animate" method="GET" enctype="multipart/form-data">
 
