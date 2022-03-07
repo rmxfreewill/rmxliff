@@ -219,6 +219,51 @@ if ($LinkCode == 'REGISTER') {
                     </div>
                 </div>
             </div>
+            <div id="liffAppContent" class="hidden">
+                <!-- ACCESS TOKEN DATA -->
+                <div id="accessTokenData" class="hidden textLeft">
+                    <h2>Access Token</h2>
+                    <a href="#" onclick="toggleAccessToken()">Close Access Token</a>
+                    <table>
+                        <tr>
+                            <th>accessToken</th>
+                            <td id="accessTokenField"></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- LIFF DATA -->
+                <div id="liffData">
+                    <h2 id="liffDataHeader" class="textLeft">Line Data</h2>
+                    <table>
+                        <tr>
+                            <th>User Id</th>
+                            <td id="lblUserId" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th>User Name</th>
+                            <td id="lblUserName" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th>OS</th>
+                            <td id="deviceOS" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th>Language</th>
+                            <td id="browserLanguage" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th>LIFF SDK Version</th>
+                            <td id="sdkVersion" class="textLeft"></td>
+                        </tr>
+                        <tr>
+                            <th>LINE Version</th>
+                            <td id="lineVersion" class="textLeft"></td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
         <?php
         } else {
         ?>
@@ -417,8 +462,10 @@ if ($LinkCode == 'REGISTER') {
 
         function checkRegister() {
 
-            // var sLineDisplay = "<?php //echo $LineDisplay; ?>";
-            // var sCompanyCode = "<?php // echo $CompanyCode; ?>";
+            // var sLineDisplay = "<?php //echo $LineDisplay; 
+                                    ?>";
+            // var sCompanyCode = "<?php // echo $CompanyCode; 
+                                    ?>";
             var sLineDisplay = "rmxadmin";
             var sUserName = "rmxadmin";
             var sCompanyCode = "<?php echo $CompanyCode; ?>";
