@@ -3,7 +3,11 @@
 
 session_start();
 
-error_reporting(E_ALL & ~E_NOTICE);
+// error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(-1);
+ini_set('display_errors', 'On');
+
+
 include_once("rmxLineFunction.php");
 include_once("rmxLiffFunction.php");
 include_once("define_Global.php");
@@ -437,7 +441,7 @@ if ($LinkCode == 'REGISTER') {
             var lineid = "&LineId=" + sLineId;
             var linkcode = "LinkCode=REGISTER";
             var para = "?" + linkcode + lineid + cmdCommand;
-            var url = sUrl + "frmRegister.php" + para;
+            var url = "https://rmxliff.herokuapp.com/frmRegister.php" + para;
             alert(url);
             liff.login({
                 redirectUri: url
