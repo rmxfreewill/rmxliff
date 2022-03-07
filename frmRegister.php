@@ -187,7 +187,8 @@ if ($LinkCode == 'REGISTER') {
 
 <body class="rmxbody">
 
-    <form class="animate" method="GET" enctype="multipart/form-data">
+    <!-- <form class="animate" method="GET" enctype="multipart/form-data"> -->
+    <form  method="GET" enctype="multipart/form-data">
 
         <?php if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen();
