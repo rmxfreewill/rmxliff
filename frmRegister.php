@@ -433,12 +433,12 @@ if ($LinkCode == 'REGISTER') {
             }
 
             var sCmd = sLineDisplay + "^c" + sUserName + "^c" + sTel + "^c" + sEMail;
-            var linkcode = "LinkCode=REGISTER";
-            var lineid = "&LineId=" + sLineId;
             var cmdCommand = "&CmdCommand=" + sCmd;
+            var lineid = "&LineId=" + sLineId;
+            var linkcode = "LinkCode=REGISTER";
             var para = "?" + linkcode + lineid + cmdCommand;
             var url = sUrl + "frmRegister.php" + para;
-
+            alert(url);
             liff.login({
                 redirectUri: url
             });
