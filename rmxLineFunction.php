@@ -331,6 +331,8 @@ http://rmxcell.pe.hu/rmxLineRegister.php
 
 function registerScreen()
 {
+
+
     $scr = '<div class="login_container">
     
         <label for="uname"><b>**Line Display Name</b></label>
@@ -353,8 +355,9 @@ function registerScreen()
         <button type="button"  name="btnLogin" id="btnLogin" 
             onclick="RegisterClick()">Register</button>
     
-    </div>
+    </div>';
 
+    $scrLiffApp = '
     <div id="liffAppContent" class="hidden">
               
         <!-- ACCESS TOKEN DATA -->
@@ -428,14 +431,9 @@ function registerScreen()
 </div>
 ';
 
-    $scr2 = '
-<div class="m-3 bg-white shadow bg-white rounded" id="regisForm">
-    <div class="p-4">Hi
-    </div>
-    </div>
-    ';
 
-    return $scr;
+
+    return $scr . $scrLiffApp;
 }
 
 ?>
