@@ -192,8 +192,8 @@ if ($LinkCode == 'REGISTER') {
         <?php if ($sFlag == '0' || $sFlag == '') {
             echo registerScreen();
         } else { ?>
-            <div class="login_container">
-
+            <!-- <div class="login_container"> -->
+            <div>
                 <label for="uname"><b>Line Id</b></label>
                 <input type="text" id="txtLineId" readonly>
 
